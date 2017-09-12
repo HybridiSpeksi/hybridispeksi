@@ -1,0 +1,33 @@
+{
+  "name": "aurasoudut",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "pymapa",
+  "license": "MIT",
+  "scripts": {
+    "build-prod": "webpack --config webpack.config.prod.js --progress",
+    "dev": "node dev-server",
+    "start": "node server"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "serve-favicon": "^2.4.3",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "style-loader": "^0.18.2",
+    "webpack-combine-loaders": "^2.0.3"
+  }
+}
