@@ -5,10 +5,9 @@ const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ExtractTextPluginConfig = new ExtractTextPlugin('styles.css');
-
 const combineLoaders = require('webpack-combine-loaders');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   filename: 'index.html',
@@ -46,14 +45,23 @@ module.exports = {
             loader: 'file-loader',
             options: {
               publicPath: 'assets'
-            }  
+            }
           }
         ]
       }
     ]
   },
   devServer: {
-    historyApiFallback: true
+    port: 3000,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    contentBase: path.resolve(__dirname, 'assets'),
+    proxy: {
+      '/api**': 'http://localhost:3001',
+      secure: false,
+      changeOrigin: true
+    }
   },
   plugins: [
     ExtractTextPluginConfig,
