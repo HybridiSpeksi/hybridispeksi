@@ -6,5 +6,5 @@
 
 1. Env setup
 Clone the project
-  > cd hybridispeksi
-  > npm install
+  $ cd hybridispeksi
+  $ npm install
