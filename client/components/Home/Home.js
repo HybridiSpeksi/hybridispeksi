@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 class Home extends Component {
     
     componentDidMount() {
-        console.log("asdf")
         fetch('/api', function(res) {
-
+        })
+        .then(function(res) {
+            console.log(res)
         })
     }
     render () {
