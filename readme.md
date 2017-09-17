@@ -5,7 +5,7 @@
 2. Deployment
 
 
-1. Env setup
+### Env setup
 
 Clone the project
 
@@ -19,3 +19,13 @@ Start backend-server:
 Start client server:
 
     $ npm run dev
+
+### Deployment
+
+Build project. Built files will be in /dist -folder.
+
+    $ npm run build-prod 
+    
+To run in prod mode, npm start with 
+
+    NODE_ENV=production
