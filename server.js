@@ -3,11 +3,15 @@ const express = require('express');
 const app = express();
 // Import routes
 // require('./_routes')(app);   // <-- or whatever you do to include your API endpoints and middleware
-app.set('port', 3001);
+app.set('port', process.env.PORT || 3001);
+
+
+const index = require('./api/index');
+
+app.use('/api', index);
 
 app.get("*", function(req, res) {
-    console.log("asdf");
-    res.status(200).send();
+
 })
 
 app.listen(app.get('port'), function() {
