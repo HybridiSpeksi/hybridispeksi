@@ -5,7 +5,7 @@
   "author": "pymapa",
   "license": "MIT",
   "scripts": {
-    "build-prod": "webpack --config webpack.config.prod.js --progress --colors",
+    "build-prod": "webpack --config webpack.config.js --progress --colors",
     "dev": "webpack-dev-server --hot --inline",
     "start": "node server"
   },
