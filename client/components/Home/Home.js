@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import styles from './Home.css';
+
 class Home extends Component {
 
     componentDidMount() {
@@ -11,20 +13,8 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="container-fluid">
+            <div className={"container-fluid " + this.props.globalStyles.test}>
                 <h1>Home hello</h1>
-
-            <div className="row">
-                <div className="col-sm-4 col-xs-6">
-                    <h1>eka</h1>
-                </div>
-                <div className="col-sm-4 col-xs-6">
-                    <h1>toka</h1>
-                </div>
-                <div className="col-sm-4">
-                    <h1>kolmas</h1>
-                </div>
-            </div>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import styles from './App.css';
+import globalStyles from './App.css';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
         <BrowserRouter>
           <div>
             <div id="content-wrapper">
-              <Route exact path="/" render={() => <Home />} />
+              <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
               <Route exact path="/rekry" render={() => <Rekry />} />
             </div>
           </div>
