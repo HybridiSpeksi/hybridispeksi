@@ -16,7 +16,9 @@ const index = require('./index/index');
     // Jäsenrekisteri
 
     // Käyttäjät
+    router.get('/kayttajat', user.getUsers);
     router.post('/uusiKayttaja', user.newUser);
+    router.post('/authenticate', user.authenticate);
     
 
 module.exports = router;

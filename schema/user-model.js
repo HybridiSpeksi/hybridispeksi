@@ -7,4 +7,6 @@ module.exports = mongoose.model('User', new Schema({
     email: String, 
     password: String, 
     role: String 
-}));
+}, 
+{ collection: 'users'},
+{ timestamps: true}));

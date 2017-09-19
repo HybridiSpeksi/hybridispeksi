@@ -1,8 +1,8 @@
 {
   "name": "hybridispeksi",
   "version": "1.0.0",
-  "main": "index.js",
-  "author": "pymapa",
+  "main": "server.js",
+  "author": "pymapa, tatahe",
   "license": "MIT",
   "scripts": {
     "build-prod": "webpack --config webpack.config.js --progress --colors",
