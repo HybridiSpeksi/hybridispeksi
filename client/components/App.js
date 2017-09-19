@@ -17,9 +17,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div id="main-wrapper">
-        <Header />
+        
         <BrowserRouter>
           <div>
+          <Header />
             <div id="content-wrapper">
               <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
               <Route exact path="/rekry" render={() => <Rekry />} />
