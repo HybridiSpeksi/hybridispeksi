@@ -5,13 +5,17 @@ const config = require('./config');
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 const path = require('path');
+var bodyParser  = require('body-parser');
 
 // Basic conf
 dotenv.load();
 app.set('port', process.env.PORT || 3001);
+app.set('secret', process.env.SECRET);
 
 if (process.env.NODE_ENV !== "production") {
     app.use(morgan('dev'));
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
 } else {
     app.use(morgan('common'))
 }

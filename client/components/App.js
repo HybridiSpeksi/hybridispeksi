@@ -11,6 +11,7 @@ import Home from './Home/Home';
 
 import Rekry from './Rekry/Rekry';
 
+import Admin from './Admin/Admin';
 
 export default class App extends React.Component {
   render() {
@@ -22,6 +23,10 @@ export default class App extends React.Component {
             <div id="content-wrapper">
               <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
               <Route exact path="/rekry" render={() => <Rekry />} />
+            </div>
+
+            <div id="admin-wrapper">
+              <Route exact path="/admin" render={() => <Admin />} />
             </div>
           </div>
         </BrowserRouter>

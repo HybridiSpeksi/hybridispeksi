@@ -5,11 +5,7 @@ import styles from './Home.css';
 class Home extends Component {
 
     componentDidMount() {
-        fetch('/api', function (res) {
-        })
-            .then(function (res) {
-                console.log(res)
-            })
+
     }
     render() {
         return (
