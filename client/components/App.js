@@ -12,6 +12,7 @@ import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
 
 import Admin from './Admin/Admin';
+import Login from './Admin/Auth/Login';
 
 export default class App extends React.Component {
   render() {
@@ -25,13 +26,14 @@ export default class App extends React.Component {
               <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
               <Route exact path="/rekry" render={() => <Rekry />} />
             </div>
+            <Footer />
 
             <div id="admin-wrapper">
               <Route exact path="/admin" render={() => <Admin />} />
+              <Route exact path="/login" render={() => <Login />} />
             </div>
           </div>
         </BrowserRouter>
-        <Footer />
       </div>
     );
   }
