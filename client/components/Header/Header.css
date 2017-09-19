@@ -1,0 +1,22 @@
+.container {
+	background-color:#444444;
+}
+.logo {
+	font-size:2em;
+	color:white;
+	padding:5px;
+	height:45px;
+}
+div {
+	//border:red 1px solid;
+}
+h1 {
+	
+
+}
+.nav {
+	color:#dbdbdb;
+}
+.nav:hover {
+	color:red;
+}
