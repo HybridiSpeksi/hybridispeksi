@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class Header extends Component {
+class Rekry extends Component {
     render () {
         return (
             <div>
-                <h1>Header</h1>
+                <h1>Rekry</h1>
             </div>
         )
     }
 }
 
-export default Header
+export default Rekry
