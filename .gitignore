@@ -1,4 +1,4 @@
 node_modules
+dist
 .env
 .dev_vars-env
-/dist
