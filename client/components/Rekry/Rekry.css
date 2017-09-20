@@ -1,0 +1,19 @@
+.container {
+	height:800px;
+	background-color: #dbdbdb;
+}
+.banner {
+	/*background-image:url("./../../assets/rekry-banner.jpg");*/
+	background:darkgray;
+	height:300px;
+}
+.content {
+    min-width:600px;
+    margin-top:-100px;
+}
+.form_canvas {
+	margin-top:50px;
+	margin-bottom:100px;
+	padding:30px;
+	background-color:white;
+}
