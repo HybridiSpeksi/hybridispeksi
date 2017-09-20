@@ -5,11 +5,12 @@
 	font-size:2rem;
 	color:white;
 	padding:5px;
+	padding-left:20px;
 	height:60px;
 	min-width:200px;
 }
 div {
-	//border:red 1px solid;
+	/*border:red 1px solid;*/
 }
 h1 {
 	

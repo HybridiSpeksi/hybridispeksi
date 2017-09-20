@@ -6,7 +6,7 @@ class Header extends Component {
     render () {
         return (
             <div className={"container-fluid " + styles.container}>
-            	<div className="row align-items-center">
+            	<div className={"row align-items-center " + styles.content}>
 	            	<div className={"col-sm-auto " + styles.logo}>
 	                	<h1>Hybridispeksi</h1>
 	                </div>
