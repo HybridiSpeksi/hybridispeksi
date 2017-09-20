@@ -1,5 +1,7 @@
-function isUserLoggedIn() {
+import utils from './Utils';
 
+function isUserLoggedIn() {
+    
 }
 
 function getUserInfo() {
@@ -11,11 +13,11 @@ function getUserRole() {
 }
 
 function signIn(jwt) {
-
+    localStorage.setItem("jwt", jwt);
 }
 
 function signOut() {
-
+    localStorage.removeItem("jwt")
 }
 
 module.exports.isUserLoggedIn = isUserLoggedIn;

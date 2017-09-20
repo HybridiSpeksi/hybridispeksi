@@ -10,6 +10,7 @@
     "start": "node server"
   },
   "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.1",
     "dotenv": "^4.0.0",
     "html-webpack-plugin": "^2.30.1",

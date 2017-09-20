@@ -2,7 +2,8 @@ import React from 'react';
 
 import globalStyles from './App.css';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import auth from './Utils/Auth';
 
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -16,13 +17,20 @@ import Admin from './Admin/Admin';
 import Login from './Admin/Auth/Login';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+
+
   render() {
     return (
       <div id="main-wrapper">
-        
+
         <BrowserRouter>
           <div>
-          <Header />
+            <Header />
             <div id="content-wrapper">
               <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
               <Route exact path="/" render={() => <Speksi />} />

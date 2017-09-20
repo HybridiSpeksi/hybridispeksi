@@ -14,6 +14,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            passwordAgain: '',
             fname: '',
             sname: '',
             authState: 0
@@ -26,7 +27,7 @@ class Login extends Component {
     // Handle all input events
     handleChange(e) {
         let value = e.target.value;
-
+        
         // Check if numeric value and parse
         value = utils.parseNumberIfNumber(value);
 
@@ -35,7 +36,19 @@ class Login extends Component {
 
     // Submit form
     handleSubmit(e) {
+        console.log(e.target);
         e.preventDefault();
+        let url = "/api";
+        if (e.target.name === "login") {
+            url += "/authenticate";
+            fetch(url, {
+                method: "POST",
+                data: {
+                    email: this.state.email,
+                    password: this.state.password
+                }
+            })
+        }
         console.log("submitted");
     }
 
