@@ -4,9 +4,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Loginform from './Loginform';
 import Signupform from './Signupform';
 
+import utils from '../../Utils/Utils';
+
 class Login extends Component {
     constructor(props) {
         super(props);
+
+        // Initial state
         this.state = {
             email: '',
             password: '',
@@ -24,9 +28,7 @@ class Login extends Component {
         let value = e.target.value;
 
         // Check if numeric value and parse
-        if (!isNaN(value) ) {
-            value = Number.parseInt(value);
-        }
+        value = utils.parseNumberIfNumber(value);
 
         this.setState({ [e.target.name]: value });
     }
