@@ -1,13 +1,56 @@
 import React, { Component } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Loginform from './Loginform';
+import Signupform from './Signupform';
 
 class Login extends Component {
-    render () {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            fname: '',
+            sname: '',
+            authState: 1
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log("submitted");
+    }
+
+    render() {
+        let form = null;
         return (
-            <div className="container .justify-content-middle">
-                <h1>login</h1>
+            <div>
+                {this.state.authState === 0 ? (
+                    <Loginform
+                        email={this.state.email}
+                        password={this.state.password}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit} />
+                ) : (
+                        <Signupform
+                            fname={this.state.fname}
+                            sname={this.state.sname}
+                            email={this.state.email}
+                            password={this.state.password}
+                            handleChange={this.handleChange}
+                            handleSubmit={this.handleSubmit} />
+                    )}
             </div>
         )
     }
 }
 
 export default Login
+
