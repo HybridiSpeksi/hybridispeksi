@@ -12,17 +12,26 @@ class Login extends Component {
             password: '',
             fname: '',
             sname: '',
-            authState: 1
+            authState: 0
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Handle all input events
     handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+        let value = e.target.value;
+
+        // Check if numeric value and parse
+        if (!isNaN(value) ) {
+            value = Number.parseInt(value);
+        }
+
+        this.setState({ [e.target.name]: value });
     }
 
+    // Submit form
     handleSubmit(e) {
         e.preventDefault();
         console.log("submitted");

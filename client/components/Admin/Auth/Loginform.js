@@ -22,7 +22,8 @@ class Loginform extends Component {
                             <input name="password" type="password" onChange={this.props.handleChange} value={this.props.password} className="form-control" id="passwordInput" placeholder="Salasana" />
                         </div>
 
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-default" type="submit">Kirjaudu</button>
+                        <button inputMode="numeric" type="button" className="btn btn-default" onClick={this.props.handleChange} name="authState" value={1}>Luo tunnus</button>
                     </form>
                 </div>
             </div>

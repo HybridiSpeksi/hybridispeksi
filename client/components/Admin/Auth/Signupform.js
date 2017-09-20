@@ -32,8 +32,8 @@ class Signupform extends Component {
                             <label htmlFor="passwordInput">Salasana</label>
                             <input name="password" type="password" onChange={this.props.handleChange} value={this.props.password} className="form-control" id="passwordInput" placeholder="Salasana" />
                         </div>
-
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-default" type="submit">Submit</button>
+                        <button inputMode="numeric" type="button" className="btn btn-default" onClick={this.props.handleChange} name="authState" value={0}>Minulla on jo tunnus, kirjaudu sisään</button>
                     </form>
                 </div>
             </div>
