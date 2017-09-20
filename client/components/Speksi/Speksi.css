@@ -1,0 +1,8 @@
+.container {
+    background-color: #d3d3d3;
+    min-height:80vh;
+}
+.desc {
+	text-align:justify;
+	padding:50px;
+}

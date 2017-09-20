@@ -8,6 +8,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 import Home from './Home/Home';
+import Speksi from './Speksi/Speksi';
 
 import Rekry from './Rekry/Rekry';
 
@@ -24,6 +25,7 @@ export default class App extends React.Component {
           <Header />
             <div id="content-wrapper">
               <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
+              <Route exact path="/" render={() => <Speksi />} />
               <Route exact path="/rekry" render={() => <Rekry />} />
             </div>
             <Footer />

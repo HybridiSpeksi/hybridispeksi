@@ -7,17 +7,17 @@ class Header extends Component {
         return (
             <div className={"container-fluid " + styles.container}>
             	<div className="row align-items-center">
-	            	<div className={"col-sm-3"}>
-	                	<h1 className={styles.logo}>Hybridispeksi</h1>
+	            	<div className={"col-sm-auto " + styles.logo}>
+	                	<h1>Hybridispeksi</h1>
 	                </div>
-	                <div className="col-sm-1 align-self-center">
-	                	<span className={"align-middle " + styles.nav}>Etusivu</span>
+	                <div className={"col-sm-1 " + styles.nav}>
+	                	<span className={"align-middle"}>Etusivu</span>
 	                </div>
-	                <div className="col-sm-1">
-	                	<span className={"align-middle " + styles.nav}>Näytökset</span>
+	                <div className={"col-sm-1 " + styles.nav}>
+	                	<span className={"align-middle"}>Näytökset</span>
 	                </div>
-	                <div className="col-sm-1">
-	                	<span className={"align-middle " + styles.nav}>Liput</span>
+	                <div className={"col-sm-1 " + styles.nav}>
+	                	<span className={"align-middle"}>Liput</span>
 	                </div>
                 </div>
             </div>

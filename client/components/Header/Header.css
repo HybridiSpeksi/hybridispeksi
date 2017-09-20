@@ -2,10 +2,11 @@
 	background-color:#444444;
 }
 .logo {
-	font-size:2em;
+	font-size:2rem;
 	color:white;
 	padding:5px;
-	height:45px;
+	height:60px;
+	min-width:200px;
 }
 div {
 	//border:red 1px solid;
@@ -16,6 +17,8 @@ h1 {
 }
 .nav {
 	color:#dbdbdb;
+	text-align:center;
+	min-width:100px;
 }
 .nav:hover {
 	color:red;

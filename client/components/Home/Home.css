@@ -1,4 +1,12 @@
 .container {
     background-color: #121212;
-    height:calc(100vh - 55px);
+    min-height:calc(100vh - 60px);
+}
+.content {
+	height:calc(100vh - 60px);
+}
+.slogan {
+	padding:20px;
+	font-size:200%;
+	color:white;
 }

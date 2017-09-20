@@ -10,9 +10,12 @@ class Home extends Component {
     render() {
         return (
             <div className={"container-fluid " + styles.container}>
-            	<div className="row align-self-end">
-            		<div className="col-sm-6">
-                		<h1>Home hello asdasdas</h1>
+            	<div className={"row align-items-end " + styles.content}>
+            		<div className={"col " + styles.slogan}>
+                		<h1 className={styles.slogan}>HybridiSpeksin rekrytilaisuus<br/>26.9.<br/>@ -lisää paikka tähän-</h1>
+                	</div>
+                	<div className={"col"}>
+                		<img className={styles.mainimage} src=""></img>
                 	</div>
                 </div>
             </div>
