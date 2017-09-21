@@ -1,9 +1,10 @@
 .container {
     background-color: #121212;
-    min-height:calc(100vh - 60px);
+    height:500px;
 }
 .content {
-	height:calc(100vh - 60px);
+	height:500px;
+	width:100%;
 }
 .slogan {
 	padding:20px;
@@ -12,4 +13,7 @@
 }
 .date {
 	font-size:200%;
+}
+.carousel {
+	height:calc(80vh - 60px);
 }

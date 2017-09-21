@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 //import { BrowserRouter, Route } from 'react-router-dom';
 
+import styles from './Rekry.css';
 import Rekryform from './Rekryform';
+import Kiitos from './Kiitos';
 
 //import utils from '../../Utils/Utils';
 
@@ -21,8 +23,8 @@ class Login extends Component {
             authState: 0    
         };
 
-        /*this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);*/
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // Handle all input events
@@ -58,19 +60,19 @@ class Login extends Component {
         return (
             <div>
             {this.state.authState === 0 ? (
-            <Rekryform
-                fname={this.state.fname}
-                lname={this.state.lname}
-                email={this.state.email}
-                pnumber={this.state.pnumber}
-                tehtavat={this.state.tehtavat}
-                jarjesto={this.state.jarjesto}
-                lisatiedot={this.state.lisatiedot}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit} />
+                <Rekryform
+                    fname={this.state.fname}
+                    lname={this.state.lname}
+                    email={this.state.email}
+                    pnumber={this.state.pnumber}
+                    tehtavat={this.state.tehtavat}
+                    jarjesto={this.state.jarjesto}
+                    lisatiedot={this.state.lisatiedot}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit} />
             
             ) : (
-                <div>Kiitos ilmoittautumisesta! Otamme yhteyttä HybridiSpeksiin 2018 valittuihin lähitulevaisuudessa!</div>
+                <Kiitos/>
             )}
             </div>
         )

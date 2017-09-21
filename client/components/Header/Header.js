@@ -7,12 +7,23 @@ class Header extends Component {
         return (
             <div className={"container-fluid " + styles.container}>
             	<div className={"row align-items-center " + styles.content}>
-	            	<div className={"col-sm-auto " + styles.logo}>
-	                	<h1>HybridiSpeksi</h1>
+	            	<div className={"col-sm-auto align-items-center justify-content-center " + styles.logo}>
+	                	<h3>HybridiSpeksi</h3>
 	                </div>
-	                <div className={"col-sm-1 align-self-end " + styles.subtopic}>
-	                	<h5 className={"align-self-end " + styles.nav}>Rekry 26.9.</h5>
+	                <div className={"col-sm-6 " + styles.navigation}>
+	                <ul className="nav justify-content-left">
+	                	<li className="nav-item">
+	                		<a href="#" className={"nav-link active " + styles.navitem}>Etusivu</a>
+	                	</li>
+	                	<li className="nav-item">
+	                		<a href="#" className={"nav-link " + styles.navitem}>Esitykset</a>
+	                	</li>
+	                	<li className="nav-item">
+	                		<a href="#" className={"nav-link " + styles.navitem}>Liput</a>
+	                	</li>
+	                </ul>
 	                </div>
+
 	                {/*<div className={"col-sm-1 " + styles.nav}>
 	                	<span className={"align-middle"}>Etusivu</span>
 	                </div>

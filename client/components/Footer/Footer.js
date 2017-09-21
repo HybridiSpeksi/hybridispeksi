@@ -7,7 +7,7 @@ class Footer extends Component {
         return (
             <div className={"container-fluid " + styles.container}>
                 <div className={"row justify-content-center align-items-center " + styles.content}>
-                	<div className="col-sm-2">
+                	<div className="col-sm-2" className={styles.logo}>
                 		<h3>HybridiSpeksi</h3>
                 	</div>
                 	<div className="col-sm-1">

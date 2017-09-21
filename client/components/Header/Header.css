@@ -4,22 +4,10 @@
 .logo {
 	font-size:2rem;
 	color:white;
-	padding:5px;
-	padding-left:20px;
-	height:60px;
-	min-width:200px;
+	padding:10px;
 }
-.nav {
-	color:#dbdbdb;
-	text-align:center;
-	min-width:100px;
+
+.navigation {
+
 }
-.nav:hover {
-	color:red;
-}
-/*div {
-	border:1px solid red;
-}*/
-.subtopic {
-	margin-bottom:7px;
-}
+
