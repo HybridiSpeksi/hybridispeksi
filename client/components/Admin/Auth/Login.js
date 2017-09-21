@@ -48,6 +48,12 @@ class Login extends Component {
                     password: this.state.password
                 }
             })
+            .catch(function(err) {
+                console.warn(err);
+            })
+            .then(function(data) {
+                console.log(data);
+            })
         }
         console.log("submitted");
     }

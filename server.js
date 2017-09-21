@@ -5,7 +5,7 @@ const config = require('./config');
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 const path = require('path');
-var bodyParser  = require('body-parser');
+var bodyParser = require('body-parser');
 
 // Basic conf
 dotenv.load();
@@ -33,10 +33,12 @@ app.use('/', express.static(path.join(__dirname + '/dist')));
 app.use('/assets', express.static(path.join(__dirname + 'assets')));
 
 // Serve index.html for every other request. Client router handles the rest
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-})
-
+if (process.env.NODE_ENV === "production") {
+    app.get("*", function (req, res) {
+        console.log("asdf")
+        res.sendFile(path.join(__dirname + '/dist/index.html'));
+    })
+}
 app.listen(app.get('port'), function () {
     console.log('Node App Started on port ' + app.get('port'));
 });

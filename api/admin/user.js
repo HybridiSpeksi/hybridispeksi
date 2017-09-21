@@ -55,11 +55,11 @@ function authenticate(req, res, next) {
 
             if (!user) {
 
-                res.json({ success: false, message: 'Käyttäjää ei löytynyt' });
+                res.json({message: 'Käyttäjää ei löytynyt'});
 
             } else if (user.password != req.body.password) {
 
-                res.json({ success: false, message: 'Väärä salasana' });
+                res.json({message: 'Käyttäjää ei löytynyt'});
 
             } else {
 

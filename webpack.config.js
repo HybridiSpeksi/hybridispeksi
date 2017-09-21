@@ -58,7 +58,7 @@ module.exports = {
     inline: true,
     // contentBase: path.resolve(__dirname, 'assets'),
     proxy: {
-      '/api**': 'http://localhost:3001',
+      '/api/**': 'http://localhost:3001',
       secure: false,
       changeOrigin: true
     }
