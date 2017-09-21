@@ -1,97 +1,74 @@
 import React, { Component } from 'react'
+//import { BrowserRouter, Route } from 'react-router-dom';
 
-import styles from './Rekry.css';
+import Rekryform from './Rekryform';
 
-class Rekry extends Component {
-    render () {
+//import utils from '../../Utils/Utils';
+
+class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        // Initial state
+        this.state = {
+            fname: '',
+            sname: '',
+            email: '',
+            authState: 0
+        };
+
+        /*this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);*/
+    }
+
+    // Handle all input events
+    handleChange(e) {
+       /* let value = e.target.value;
+        
+        // Check if numeric value and parse
+        value = utils.parseNumberIfNumber(value);
+
+        this.setState({ [e.target.name]: value });*/
+    }
+
+    // Submit form
+    handleSubmit(e) {
+        /*console.log(e.target);
+        e.preventDefault();
+        let url = "/api";
+        if (e.target.name === "login") {
+            url += "/authenticate";
+            fetch(url, {
+                method: "POST",
+                data: {
+                    email: this.state.email,
+                    password: this.state.password
+                }
+            })
+        }
+        console.log("submitted"); */
+    }
+
+    render() {
+        let form = null;
         return (
-            <div className={"container-fluid " + styles.container}>
-                <div className={"row " + styles.banner}>
-                    bannerikuva
-                </div>
-
-            	<div className={"row justify-content-sm-center " + styles.content}>
-            		<div className={"col-sm-6 " + styles.form_canvas}>
-                        <h2>Rekryilmoittautuminen</h2>
-                        <br/>
-                        <form>
-
-                        <div className={"row form-group " + styles.fname}>
-                            <div className={"col-sm-3"}>
-                                <label for="fname" className={styles.label}>Etunimi:</label>
-                            </div>
-                            <div className={"col"}>
-                                <input className="form-control" type="text" placeholder="Etunimi"/>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.lname}>
-                            <div className={"col-sm-3"}>
-                                <label for="lname" className={styles.label}>Sukunimi:</label>
-                            </div>
-                            <div className={"col"}>
-                                <input className="form-control" type="text" placeholder="Sukunimi"/>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.email}>
-                            <div className={"col-sm-3"}>
-                                <label for="email" className={styles.label}>Sähköposti:</label>
-                            </div>
-                            <div className={"col"}>
-                                <input className="form-control" type="email" placeholder="Sähköposti"/>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.pnumber}>
-                            <div className={"col-sm-3"}>
-                                <label for="pnumber" className={styles.label}>Puhelinnumero:</label>
-                            </div>
-                            <div className={"col"}>
-                                <input className="form-control" type="number" placeholder="Puhelinnumero"/>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.tehtavat}>
-                            <div className={"col-sm-3"}>
-                                <label for="tehtavat" className={styles.label}>Tehtävät:</label>
-                            </div>
-                            <div className={"col"}>
-                                <select className="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.jarjesto}>
-                            <div className={"col-sm-3"}>
-                                <label for="jarjesto" className={styles.label}>Järjestö:</label>
-                            </div>
-                            <div className={"col"}>
-                                <select className="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className={"row form-group " + styles.lisatiedot}>
-                            <div className={"col-sm-3"}>
-                                <label for="lisatiedot" className={styles.label}>Lisätietoja:</label>
-                            </div>
-                            <div className={"col"}>
-                                <textarea className="form-control"></textarea>  
-                            </div>
-                        </div>
-
-                        </form>
-
-            		</div>
-            	</div>
+            <div>
+            {this.state.authState === 0 ? (
+            <Rekryform
+                fname={this.state.fname}
+                sname={this.state.sname}
+                email={this.state.email}
+                /*
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}*/ />
+            
+            ) : (
+                <div>Kiitos ilmoittautumisesta! Otamme yhteyttä HybridiSpeksiin 2018 valittuihin lähitulevaisuudessa!</div>
+            )}
             </div>
         )
     }
 }
 
-export default Rekry
+export default Login
+

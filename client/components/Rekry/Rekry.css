@@ -3,8 +3,7 @@
 	background-color: #dbdbdb;
 }
 .banner {
-	/*background-image:url("./../../assets/rekry-banner.jpg");*/
-	background:darkgray;
+	background:url(/assets/images/rekry-banner.jpg) no-repeat black center;
 	height:300px;
 }
 .content {
@@ -16,4 +15,5 @@
 	margin-bottom:100px;
 	padding:30px;
 	background-color:white;
+	min-width:600px;
 }
