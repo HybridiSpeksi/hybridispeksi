@@ -43,6 +43,7 @@ function checkToken(req, res, next) {
 
 function authenticate(req, res, next) {
 
+    console.log(req.body)
     User.findOne({
         email: req.body.email
     })
@@ -59,7 +60,7 @@ function authenticate(req, res, next) {
 
             } else if (user.password != req.body.password) {
 
-                res.json({message: 'Käyttäjää ei löytynyt'});
+                res.json({message: 'Virheellinen salasana'});
 
             } else {
 
