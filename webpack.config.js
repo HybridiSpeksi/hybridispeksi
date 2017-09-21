@@ -56,7 +56,7 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    contentBase: path.resolve(__dirname, 'assets'),
+    // contentBase: path.resolve(__dirname, 'assets'),
     proxy: {
       '/api**': 'http://localhost:3001',
       secure: false,
