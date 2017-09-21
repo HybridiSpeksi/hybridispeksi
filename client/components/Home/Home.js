@@ -12,7 +12,7 @@ class Home extends Component {
             <div className={"container-fluid " + styles.container}>
             	<div className={"row align-items-end " + styles.content}>
             		<div className={"col " + styles.slogan}>
-                		<h1 className={styles.slogan}>HybridiSpeksin rekrytilaisuus<br/>26.9.<br/>@ -lisää paikka tähän-</h1>
+                		<h1 className={styles.slogan}>HybridiSpeksin rekrytilaisuus<br/><span className={styles.date}>26.9.</span><br/>@ARC 1, Arcanum</h1>
                 	</div>
                 	<div className={"col"}>
                 		<img className={styles.mainimage} src=""></img>

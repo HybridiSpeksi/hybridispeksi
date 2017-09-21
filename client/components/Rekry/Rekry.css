@@ -1,5 +1,5 @@
 .container {
-	height:800px;
+	/*height:800px;*/
 	background-color: #dbdbdb;
 }
 .banner {
@@ -14,6 +14,12 @@
 	margin-top:50px;
 	margin-bottom:100px;
 	padding:30px;
+	padding-top:20px;
 	background-color:white;
 	min-width:600px;
+}
+.tahti {
+	color:red;
+	font-weight:bold;
+	font-size:110%;
 }

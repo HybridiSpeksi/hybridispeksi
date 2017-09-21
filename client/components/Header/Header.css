@@ -9,13 +9,6 @@
 	height:60px;
 	min-width:200px;
 }
-div {
-	/*border:red 1px solid;*/
-}
-h1 {
-	
-
-}
 .nav {
 	color:#dbdbdb;
 	text-align:center;
@@ -23,4 +16,10 @@ h1 {
 }
 .nav:hover {
 	color:red;
+}
+/*div {
+	border:1px solid red;
+}*/
+.subtopic {
+	margin-bottom:7px;
 }

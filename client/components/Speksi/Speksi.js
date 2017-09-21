@@ -15,22 +15,22 @@ class Speksi extends Component {
                 	</div>
             		<div className={"col " + styles.desc}>
                 		<h1>Mikä ihmeen Speksi?</h1>
-                		<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a iaculis risus. 
-                		In hac habitasse platea dictumst. Suspendisse at gravida tellus. 
-                		Nullam posuere lacinia ligula, quis imperdiet dolor ultrices in. 
-                		Maecenas orci lacus, semper vitae nisi ac, pretium mattis ligula. 
-                		Ut dictum nisi at sapien laoreet vestibulum. Mauris placerat vel lacus ultrices fringilla. 
-                		Donec ut enim aliquam, accumsan ligula in, convallis purus. In tristique erat nec egestas facilisis. 
-                		Suspendisse potenti. Morbi metus odio, pellentesque sed leo id, posuere venenatis libero. 
-                		Fusce tempor rhoncus tellus. Aliquam eu libero non nulla pellentesque dictum eu non lacus.</p>
-						<p>Proin vestibulum odio magna, sed lobortis nisl elementum a. 
-						Integer sollicitudin metus pellentesque, ultricies eros id, suscipit odio. 
-						Duis tincidunt et mauris a rhoncus. Donec fermentum ultrices metus sed sollicitudin. 
-						Aenean cursus ante eu tortor luctus viverra. Vestibulum suscipit vitae eros id scelerisque. 
-						Morbi aliquet, lacus id porttitor pretium, erat est sodales metus, efficitur pulvinar nisl risus quis enim. 
-						Aenean ex urna, rutrum in iaculis sed, mollis sit amet leo. Phasellus at tortor quam. 
-						Nunc luctus lorem sit amet arcu egestas eleifend. 
-						Mauris ultrices felis iaculis, vehicula elit ut, consectetur libero.</p>
+                		<p> Speksi on interaktiivista musiikki- ja tanssinumeroilla höystettyä opiskelijateatteria.
+                        Speksit ovat juurtuneet osaksi korkeakoulujen kulttuuritarjontaa.</p>
+
+                        <h3>Omstart!</h3>
+						<p>Speksissä yleisö voi ottaa osaa esitykseen huutamalla lavalle "Omstart!". 
+                        Tämän lisäksi on mahdollista huutaa varsinaisen omstart-huudon 
+                        perään tarkentavia ideoita siitä, mitä haluaisi näyttämöllä tapahtuvan, 
+                        esimerkiksi "Omstart, enemmän naurua!". Tällöin speksin interaktiivista 
+                        traditiota kunnioittava speksiteatteri reagoi huutoon ottamalla äskeiset tapahtumat 
+                        uudestaan niitä jotenkin varioiden, tarkempien ideoiden tapauksessa uusia ideoita 
+                        mahdollisuuksien mukaan toteuttaen. Jotta katsoja saa haluamansa ja esiintyjät voivat 
+                        huomioida hänen toiveensa, tulee omstart-huudon olla selkeä, lyhyt ja ytimekäs. Lisäksi 
+                        näyttelijöiden repliikkien päälle menevä huuto ei todennäköisesti tule huomioiduksi.</p>
+                        <p>Omstart-huudon tulisi olla jotakin toteuttamiskelpoista ja vain kerran huudettua. 
+                        Hyvää tai huonoa omstartia ei voida määritellä, vaan kyse on mielipiteistä. 
+                        Eri speksiryhmien innokkuus toteuttaa omstarteja vaihtelee paljon.</p>
                 	</div>
                 </div>
             </div>

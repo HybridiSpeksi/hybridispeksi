@@ -12,9 +12,13 @@ class Login extends Component {
         // Initial state
         this.state = {
             fname: '',
-            sname: '',
+            lname: '',
             email: '',
-            authState: 0
+            pnumber: '',
+            tehtavat: '',
+            jarjesto: '',
+            lisatiedot: '',
+            authState: 0    
         };
 
         /*this.handleChange = this.handleChange.bind(this);
@@ -23,12 +27,12 @@ class Login extends Component {
 
     // Handle all input events
     handleChange(e) {
-       /* let value = e.target.value;
+        let value = e.target.value;
         
         // Check if numeric value and parse
         value = utils.parseNumberIfNumber(value);
 
-        this.setState({ [e.target.name]: value });*/
+        this.setState({ [e.target.name]: value });
     }
 
     // Submit form
@@ -56,11 +60,14 @@ class Login extends Component {
             {this.state.authState === 0 ? (
             <Rekryform
                 fname={this.state.fname}
-                sname={this.state.sname}
+                lname={this.state.lname}
                 email={this.state.email}
-                /*
+                pnumber={this.state.pnumber}
+                tehtavat={this.state.tehtavat}
+                jarjesto={this.state.jarjesto}
+                lisatiedot={this.state.lisatiedot}
                 handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}*/ />
+                handleSubmit={this.handleSubmit} />
             
             ) : (
                 <div>Kiitos ilmoittautumisesta! Otamme yhteyttä HybridiSpeksiin 2018 valittuihin lähitulevaisuudessa!</div>
