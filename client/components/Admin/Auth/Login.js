@@ -27,7 +27,7 @@ class Login extends Component {
     // Handle all input events
     handleChange(e) {
         let value = e.target.value;
-        
+
         // Check if numeric value and parse
         value = utils.parseNumberIfNumber(value);
 
@@ -43,17 +43,24 @@ class Login extends Component {
             url += "/authenticate";
             fetch(url, {
                 method: "POST",
-                data: {
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
                     email: this.state.email,
                     password: this.state.password
-                }
+                })
             })
-            .catch(function(err) {
-                console.warn(err);
-            })
-            .then(function(data) {
-                console.log(data);
-            })
+                .catch(err => {
+                    console.warn(err);
+                })
+                .then(data => {
+                    data.json()
+                        .then(json => {
+                            console.log(json);
+                        })
+                })
         }
         console.log("submitted");
     }

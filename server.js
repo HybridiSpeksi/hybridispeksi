@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const morgan = require("morgan");
 const path = require('path');
 var bodyParser = require('body-parser');
+// var cors = require('cors');
 
 // Basic conf
 dotenv.load();
@@ -19,6 +20,8 @@ if (process.env.NODE_ENV !== "production") {
 } else {
     app.use(morgan('common'))
 }
+
+// app.use(cors({origin: 'http://localhost:3000'}))
 
 mongoose.connect(process.env.MONGOLAB_URI);
 mongoose.connection.on('connected', function () {
