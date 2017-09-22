@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../../schema/user-model');
+const sha1 = require('sha1');
 
 function newUser(req, res) {
 
@@ -47,27 +48,18 @@ function authenticate(req, res, next) {
     User.findOne({
         email: req.body.email
     })
-
         .catch(function (err) {
             res.json({ success: false, message: 'Error in getting user.' });
         })
-
         .then(function (user) {
-
             if (!user) {
-
-                res.json({message: 'Käyttäjää ei löytynyt'});
-
-            } else if (user.password != req.body.password) {
-
-                res.json({message: 'Virheellinen salasana'});
-
+                res.json({ message: 'Käyttäjää ei löytynyt' });
+            } else if (user.password != sha1(req.body.password)) {
+                res.json({ message: 'Virheellinen salasana' });
             } else {
-
                 const token = jwt.sign(user.toObject(), process.env.SECRET, {
                     expiresIn: 60 * 60, // expires in 24 hours
                 });
-
                 res.json({
                     success: true,
                     message: 'Enjoy your token!',

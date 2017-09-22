@@ -5,6 +5,8 @@ import Loginform from './Loginform';
 import Signupform from './Signupform';
 
 import utils from '../../Utils/Utils';
+import auth from '../../Utils/Auth';
+import ajax from '../../Utils/Ajax';
 
 class Login extends Component {
     constructor(props) {
@@ -36,33 +38,19 @@ class Login extends Component {
 
     // Submit form
     handleSubmit(e) {
-        console.log(e.target);
         e.preventDefault();
-        let url = "/api";
+        let url = "";
         if (e.target.name === "login") {
             url += "/authenticate";
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password
-                })
+            ajax.sendPost(
+                url,
+                {email: this.state.email, password: this.state.password}
+            ).then(data => {
+                auth.signIn(json.token);
+            }).catch(err => {
+
             })
-                .catch(err => {
-                    console.warn(err);
-                })
-                .then(data => {
-                    data.json()
-                        .then(json => {
-                            console.log(json);
-                        })
-                })
-        }
-        console.log("submitted");
+        } 
     }
 
     render() {
