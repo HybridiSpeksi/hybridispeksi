@@ -43,8 +43,8 @@ module.exports = {
             .catch(err => {
                 reject(Error(err));
             })
-            then(data => {
-                resolve(data.jsno());
+            .then(data => {
+                resolve(data.json());
             })
         })
     }

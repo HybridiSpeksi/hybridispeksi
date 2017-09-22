@@ -46,9 +46,9 @@ class Login extends Component {
                 url,
                 {email: this.state.email, password: this.state.password}
             ).then(data => {
-                auth.signIn(json.token);
+                auth.signIn(data.token);
             }).catch(err => {
-
+                
             })
         } 
     }
