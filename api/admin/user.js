@@ -19,12 +19,27 @@ function getUsers(req, res) {
         })
 }
 
+function isValidToken(req, res) {
+    const token = req.body.token || req.headers['x-access-token'];
+    if (token) {
+        jwt.verify(token, process.env.SECRET, function (err, decoded) {
+            if (err) {
+                return res.json({ success: false, message: 'Virheellinen token' })
+            } else {
+                req.decoded = decoded;
+                res.json({success: true, message: 'Validi token'});
+            }
+        })
+    } else {
+        res.status(403).send({
+            success: false,
+            message: 'Tokenia ei saatu'
+        })
+    } 
+}
 
 function checkToken(req, res, next) {
     const token = req.body.token || req.headers['x-access-token'];
-    console.log("checktoken")
-    console.log(token)
-
     if (token) {
         jwt.verify(token, process.env.SECRET, function (err, decoded) {
             if (err) {
@@ -44,7 +59,6 @@ function checkToken(req, res, next) {
 
 function authenticate(req, res, next) {
 
-    console.log(req.body)
     User.findOne({
         email: req.body.email
     })
@@ -75,3 +89,4 @@ module.exports.authenticate = authenticate;
 module.exports.getUsers = getUsers;
 module.exports.updateUser = updateUser;
 module.exports.checkToken = checkToken;
+module.exports.isValidToken = isValidToken;

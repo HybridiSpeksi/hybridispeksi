@@ -47,6 +47,7 @@ class Login extends Component {
                 {email: this.state.email, password: this.state.password}
             ).then(data => {
                 auth.signIn(data.token);
+                location.replace('/admin');
             }).catch(err => {
                 
             })

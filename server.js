@@ -38,7 +38,6 @@ app.use('/assets', express.static(path.join(__dirname + 'assets')));
 // Serve index.html for every other request. Client router handles the rest
 if (process.env.NODE_ENV === "production") {
     app.get("*", function (req, res) {
-        console.log("asdf")
         res.sendFile(path.join(__dirname + '/dist/index.html'));
     })
 }

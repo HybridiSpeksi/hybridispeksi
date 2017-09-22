@@ -15,7 +15,6 @@ function getAll (req, res) {
  * Return by req.body._id.
  */
 function getById (req, res) {
-    console.log(req.params._id)
     res.status(200).send("ok");
 }
 

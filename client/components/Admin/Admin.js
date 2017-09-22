@@ -9,21 +9,14 @@ class Admin extends Component {
     }
 
     componentWillMount() {
-        if (false) {
+        if (!auth.isUserLoggedIn) {
             location.replace('/login');
         }
-        ajax.sendGet('/admin/kayttajat')
-        .then(data => {
-            console.log(data);
-        }) 
-        .catch(err => {
-            console.log(err);
-        })
     }
 
     componentDidMount() {
-        console.log(this.props.test)
-        fetch('/api/')
+        auth.checkToken();
+        
     }
 
     render() {

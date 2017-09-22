@@ -30,7 +30,9 @@ module.exports = {
         })
     },
 
-    sendGet: function(url, callback) {
+    sendGet: function(url) {
+        console.log("sendget")
+        console.log(url)
         return new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
                 method: 'GET',
