@@ -1,9 +1,9 @@
 function isBoolean(a) {
-    return typeof(a) === "boolean";
+    return typeof (a) === "boolean";
 }
 
 function parseBooleanIfBoolean(a) {
-    if(isBoolean) {
+    if (isBoolean) {
         return a === 'true';
     } else {
         return a;
@@ -11,7 +11,10 @@ function parseBooleanIfBoolean(a) {
 }
 
 function isNumber(a) {
-    return !isNaN(a);
+    if (a !== "") {
+        return !isNaN(a);
+    }
+    return false;
 }
 
 function parseNumberIfNumber(a) {

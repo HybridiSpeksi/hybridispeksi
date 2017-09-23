@@ -26,6 +26,11 @@ class Loginform extends Component {
                         <button inputMode="numeric" type="button" className="btn btn-default" onClick={this.props.handleChange} name="authState" value={1}>Hae tunnusta</button>
                     </form>
                 </div>
+                <div className="row justify-content-center">
+                    <div className="col-sm-5">
+                        {this.props.messages}
+                    </div>
+                </div>
             </div>
         );
     }

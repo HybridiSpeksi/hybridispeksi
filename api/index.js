@@ -18,6 +18,7 @@ const index = require('./index/index');
     // Käyttäjät
     router.all('/admin*', user.checkToken);
     router.post('/authenticate', user.authenticate);
+    router.post('/signup', user.newUser);
     router.get('/isValidToken', user.isValidToken);
     router.get('/admin/kayttajat', user.getUsers);
     // router.post('/uusiKayttaja', user.newUser);

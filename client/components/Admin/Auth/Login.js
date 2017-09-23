@@ -7,6 +7,7 @@ import Signupform from './Signupform';
 import utils from '../../Utils/Utils';
 import auth from '../../Utils/Auth';
 import ajax from '../../Utils/Ajax';
+import Messages from '../../Utils/Messages';
 
 class Login extends Component {
     constructor(props) {
@@ -19,7 +20,10 @@ class Login extends Component {
             passwordAgain: '',
             fname: '',
             sname: '',
-            authState: 0
+            authState: 0,
+            messages: [],
+            warnings: [],
+            errors: []
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -44,14 +48,45 @@ class Login extends Component {
             url += "/authenticate";
             ajax.sendPost(
                 url,
-                {email: this.state.email, password: this.state.password}
+                { email: this.state.email, password: this.state.password }
             ).then(data => {
                 auth.signIn(data.token);
                 location.replace('/admin');
             }).catch(err => {
-                
+
             })
-        } 
+        } else if (e.target.name === "signup") {
+            console.log("signup")
+            if (this.validateSignup()) {
+                url += "/signup";
+                ajax.sendPost(
+                    url,
+                    {
+                        fname: this.state.fname,
+                        sname: this.state.sname,
+                        email: this.state.email,
+                        password: this.state.password
+                    }).then(data => {
+                        console.log(data)
+                    }).catch(err => {
+                        console.log(err);
+                    })
+            }
+        }
+    }
+
+    validateSignup() {
+        console.log("validate")
+        let valid = true;
+        if(this.state.password !== this.state.passwordAgain) {
+            console.log("nomatch")
+            let newWarnings = this.state.warnings
+            newWarnings.push({text: "Salasanat eivät täsmää"});
+            this.setState({warnings: newWarnings})
+            console.log(this.state.warnings);
+            valid = false;
+        }
+        return valid;
     }
 
     render() {
@@ -63,7 +98,8 @@ class Login extends Component {
                         email={this.state.email}
                         password={this.state.password}
                         handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit} />
+                        handleSubmit={this.handleSubmit}
+                        messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                 ) : (
                         <Signupform
                             fname={this.state.fname}
@@ -71,7 +107,8 @@ class Login extends Component {
                             email={this.state.email}
                             password={this.state.password}
                             handleChange={this.handleChange}
-                            handleSubmit={this.handleSubmit} />
+                            handleSubmit={this.handleSubmit}
+                            messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                     )}
             </div>
         )

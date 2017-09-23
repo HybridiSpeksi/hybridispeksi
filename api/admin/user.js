@@ -3,7 +3,8 @@ const User = require('../../schema/user-model');
 const sha1 = require('sha1');
 
 function newUser(req, res) {
-
+    console.log(req.body);
+    res.json({success: true})
 }
 
 function updateUser(req, res) {
@@ -39,7 +40,7 @@ function isValidToken(req, res) {
 }
 
 function checkToken(req, res, next) {
-    const token = req.body.token || req.headers['x-access-token'];
+    const token = req.headers['x-access-token'];
     if (token) {
         jwt.verify(token, process.env.SECRET, function (err, decoded) {
             if (err) {
@@ -72,7 +73,7 @@ function authenticate(req, res, next) {
                 res.json({ message: 'Virheellinen salasana' });
             } else {
                 const token = jwt.sign(user.toObject(), process.env.SECRET, {
-                    expiresIn: 60 * 60, // expires in 24 hours
+                    expiresIn: 60*1, // expires in 1 hours
                 });
                 res.json({
                     success: true,
