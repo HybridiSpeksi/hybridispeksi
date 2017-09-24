@@ -5,7 +5,7 @@ class ProduktionjasenLista extends Component {
     render () {
         let listarivit = this.props.jasenet.map((jasen, i) => {
             return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.props.valitseJasen(jasen)}>
                     <td>{jasen.fname} {jasen.sname}</td>
                     <td>{jasen.email}</td>
                     <td>{jasen.pnumber}</td>

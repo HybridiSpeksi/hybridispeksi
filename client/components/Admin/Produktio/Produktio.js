@@ -19,7 +19,8 @@ class Produktio extends Component {
 
             ajaxReady: false,
 
-            produktionjasenet: []
+            produktionjasenet: [],
+            valittuJasen: {}
         }
     }
 
@@ -39,6 +40,10 @@ class Produktio extends Component {
             })
     }
 
+    valitseJasen(jasen) {
+        this.setState({valitseJasen: jasen});
+    }
+
     render() {
         return (
             <div className="container-fluid">
@@ -51,7 +56,9 @@ class Produktio extends Component {
                 <div className="row">
                     <div className="col-sm-7 col-xs-12">
                         {this.state.ajaxReady ? (
-                            <ProduktionjasenLista jasenet={this.state.produktionjasenet} />
+                            <ProduktionjasenLista 
+                                jasenet={this.state.produktionjasenet}
+                                valitseJasen={this.valitseJasen} />
                         ) : (
                             <div><h4>Ladataan...</h4></div>
                         )}
