@@ -9,6 +9,9 @@ import utils from '../Utils/Utils';
 import ajax from '../Utils/Ajax';
 import Messages from '../Utils/Messages';
 
+let MESSAGE_SUCCESS = "success";
+let MESSAGE_WARNING = "warning";
+let MESSAGE_ERROR = "error";
 
 class Rekry extends Component {
     constructor(props) {
@@ -39,7 +42,6 @@ class Rekry extends Component {
     componentDidMount() {
         ajax.sendGet('/tehtavat')
         .then(tehtavat => {
-            console.log(tehtavat);
             this.setState({kaikkiTehtavat: tehtavat.data});
         })
         .catch(err => {
@@ -57,16 +59,25 @@ class Rekry extends Component {
         this.setState({ [e.target.name]: value });
     }
     handleTehtavaChange(e) {
+        let uusiTehtavat = this.state.tehtavat;
+
         if(e.target.name === "tehtavat1"){
+            uusiTehtavat[0] = e.target.value;
         }
-        console.log(e.target.name);
+        else if(e.target.name === "tehtavat2"){
+            uusiTehtavat[1] = e.target.value;
+        }
+        else { 
+            uusiTehtavat[2] = e.target.value;
+        }
+        
+        this.setState({ tehtavat: uusiTehtavat });
     }
 
     // Submit form
     handleSubmit(e) {
         e.preventDefault();
         let url = "/produktionjasen";
-
 
         if (this.validateRekry()) {
             ajax.sendPost(
@@ -76,13 +87,13 @@ class Rekry extends Component {
                     sname: this.state.sname,
                     email: this.state.email,
                     pnumber: this.state.pnumber,
-                    //tehtavat: this.state.[],
+                    tehtavat: this.state.tehtavat,
                     jarjesto: this.state.jarjesto,
                     lisatiedot: this.state.lisatiedot
 
                 }).then(data => {
                     if (data.success === true) {
-                        this.addMessage(MESSAGE_SUCCESS, "Rekisteröinti onnistui!", "Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.");
+                        this.setState({ authState: 1 });
                     }
                 }).catch(err => {
                     console.log(err);
@@ -99,7 +110,7 @@ class Rekry extends Component {
             || this.state.lname === ""
             || this.state.email === ""
             || this.state.pnumber === ""
-            || this.state.tehtavat1 === ""
+            || this.state.tehtavat[0] === ""
             || this.state.jarjesto === ""
        ) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
@@ -109,11 +120,24 @@ class Rekry extends Component {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
-        if (this.state.password !== this.state.passwordAgain) {
-            this.addMessage(MESSAGE_WARNING, "Virhe!", "Salasanat eivät täsmää");
-            valid = false;
-        }
         return valid;
+    }
+
+    //Add different kinds of error or warning messages
+    addMessage(type, newHeader, newText) {
+        if (type === MESSAGE_WARNING) {
+            let newWarnings = this.state.warnings;
+            newWarnings.push({ header: newHeader, text: newText });
+            this.setState({ warnings: newWarnings })
+        } else if (type === MESSAGE_ERROR) {
+            let newErrors = this.state.errors;
+            newErrors.push({ header: newHeader, text: newText });
+            this.setState({ erros: newErrors })
+        } else if (type === MESSAGE_SUCCESS) {
+            let newMessages = this.state.messages;
+            newMessages.push({ header: newHeader, text: newText });
+            this.setState({ messages: newMessages });
+        }
     }
 
     render() {
@@ -129,6 +153,7 @@ class Rekry extends Component {
                     tehtavat={this.state.tehtavat}
                     jarjesto={this.state.jarjesto}
                     lisatiedot={this.state.lisatiedot}
+                    kaikkiTehtavat={this.state.kaikkiTehtavat}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
                     handleTehtavaChange={this.handleTehtavaChange}/>
