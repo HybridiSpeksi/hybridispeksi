@@ -26,12 +26,25 @@ class Rekry extends Component {
             messages: [],
             warnings: [],
             errors: [],
-            authState: 0    
+            authState: 0,
+            kaikkiTehtavat: [],
+            kaikkiJarjestot: []  
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleTehtavaChange = this.handleTehtavaChange.bind(this);
+    }
+
+    componentDidMount() {
+        ajax.sendGet('/tehtavat')
+        .then(tehtavat => {
+            console.log(tehtavat);
+            this.setState({kaikkiTehtavat: tehtavat});
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     // Handle all input events
