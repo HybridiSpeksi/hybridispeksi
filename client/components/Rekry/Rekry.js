@@ -60,10 +60,6 @@ class Rekry extends Component {
     // Handle all input events
     handleChange(e) {
         let value = e.target.value;
-        
-        // Check if numeric value and parse
-        value = utils.parseNumberIfNumber(value);
-        // value = utils.parseBooleanIfBoolean(value);
 
         this.setState({ [e.target.name]: value });
     }
@@ -81,6 +77,7 @@ class Rekry extends Component {
         }
         
         this.setState({ tehtavat: uusiTehtavat });
+
     }
 
     // Submit form
@@ -99,7 +96,7 @@ class Rekry extends Component {
                     tehtavat: this.state.tehtavat,
                     jarjesto: this.state.jarjesto,
                     lisatiedot: this.state.lisatiedot,
-                    jasenyys: utils.parseBooleanIfBoolean(this.state.jasenyys)
+                    jasenyys:this.state.jasenyys === "true"
 
                 }).then(data => {
                     if (data.success === true) {
