@@ -13,11 +13,11 @@ function isUserLoggedIn() {
  * Redirects to login if invalid and removes token from localstorage
  */
 function checkToken() {
+    console.log("checktoken");
     ajax.sendGet('/isValidToken')
         .then(data => {
             if (!data.success) {
                 signOut();
-                location.replace('/login');
             }
         })
 }
@@ -35,7 +35,9 @@ function signIn(jwt) {
 }
 
 function signOut() {
+    console.log("signout")
     localStorage.removeItem("jwt");
+    location.replace('/login');
 }
 
 module.exports.isUserLoggedIn = isUserLoggedIn;

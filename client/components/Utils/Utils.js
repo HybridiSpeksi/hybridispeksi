@@ -4,7 +4,7 @@ function isBoolean(a) {
 
 function parseBooleanIfBoolean(a) {
     if (isBoolean) {
-        return a === 'true';
+        return a === true;
     } else {
         return a;
     }
