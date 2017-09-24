@@ -6,26 +6,29 @@ const user = require('./admin/user');
 
 const index = require('./index/index');
 
-    router.get('/', index.test);
 
-    // Ohjaustiedot
-    router.get('/tehtavat', ohjaustiedot.haeTehtavat);
-    router.get('/jarjestot', ohjaustiedot.haeJarjestot);
+router.all('/admin*', user.checkToken);
 
-    // Produktion jäsenet
-    router.get('/produktionjasen', auth.isLoggedIn, produktionjasen.getAll);
-    router.get('/produktionjasen/:_id', produktionjasen.getById);
-    router.post('/produktionjasen', produktionjasen.newJasen);
-    
-    // Jäsenrekisteri
+router.get('/', index.test);
 
-    // Käyttäjät
-    router.all('/admin*', user.checkToken);
-    router.post('/authenticate', user.authenticate);
-    router.post('/signup', user.newUser);
-    router.get('/isValidToken', user.isValidToken);
-    router.get('/admin/kayttajat', user.getUsers);
-    // router.post('/uusiKayttaja', user.newUser);
-    
+// Ohjaustiedot
+router.get('/tehtavat', ohjaustiedot.haeTehtavat);
+router.get('/jarjestot', ohjaustiedot.haeJarjestot);
+
+// Produktion jäsenet
+router.get('/admin/produktionjasen', produktionjasen.getAll);
+router.get('/produktionjasen/:_id', produktionjasen.getById);
+router.post('/produktionjasen', produktionjasen.newJasen);
+
+// Jäsenrekisteri
+
+// Käyttäjät
+
+router.post('/authenticate', user.authenticate);
+router.post('/signup', user.newUser);
+router.get('/isValidToken', user.isValidToken);
+router.get('/admin/kayttajat', user.getUsers);
+// router.post('/uusiKayttaja', user.newUser);
+
 
 module.exports = router;

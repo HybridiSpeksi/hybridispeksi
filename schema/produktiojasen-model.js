@@ -8,9 +8,8 @@ var henkiloSchema = new mongoose.Schema({
     tehtavat: [String],
     jarjesto: String,
     lisatiedot: String,
-    jasenyys: String,
+    hakeeJaseneksi: String,
     tuotannonMuistiinpanot: String,
-    member: Boolean,
     vuosi: Number
 }, 
 {

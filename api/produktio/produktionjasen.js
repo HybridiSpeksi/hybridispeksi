@@ -1,6 +1,5 @@
 const jasen = require('../../schema/produktiojasen-model');
 
-// TODO: restrictions
 function getAll (req, res) {
     jasen.find()
     .catch(function(err) {
@@ -19,7 +18,22 @@ function getById (req, res) {
 }
 
 function newJasen (req, res) {
-    console.log(req.body);
+    let uusiJasen = req.body;
+    let jasen = new jasen({
+        fname: uusiJasen.fname,
+        sname: uusiJasen.sname,
+        email: uusiJasen.email,
+        pnumber: uusiJasen.pnumber,
+        tehtavat: uusiJasen.tehtavat,
+        jarjesto: uusiJasen.jarjesto,
+        lisatiedot: uusiJasen.lisatiedot,
+        hakeeJaseneksi: uusiJasen.jasenyys,
+        vuosi: '2018'
+    })
+    jasen.save()
+    .then(jasen => {
+        res.json({success: true, data: jasen});
+    })
     res.json({success: true});
 }
 
