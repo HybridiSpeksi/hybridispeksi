@@ -77,7 +77,6 @@ export default class App extends React.Component {
             <div id="admin-wrapper">
               <LoginLayout exact path="/login" component={Login} />
               <AdminLayout exact path="/admin"component={Admin} />
-              
             </div>
           </div>
         </BrowserRouter>

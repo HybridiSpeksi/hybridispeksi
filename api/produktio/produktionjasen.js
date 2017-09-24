@@ -19,7 +19,8 @@ function getById (req, res) {
 }
 
 function newJasen (req, res) {
-
+    console.log(req.body);
+    res.json({success: true});
 }
 
 module.exports.getAll = getAll;
