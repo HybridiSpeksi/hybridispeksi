@@ -16,6 +16,8 @@ import Rekry from './Rekry/Rekry';
 import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
+import Produktio from './Admin/Produktio/Produktio';
+
 import Login from './Admin/Auth/Login';
 
 
@@ -75,8 +77,11 @@ export default class App extends React.Component {
             </div>
 
             <div id="admin-wrapper">
-              <LoginLayout exact path="/login" component={Login} />
-              <AdminLayout exact path="/admin"component={Admin} />
+              <Switch>
+              <LoginLayout path="/login" component={Login} />
+              <AdminLayout path="/admin" component={Admin} />
+              <AdminLayout path="/produktionhallinta" component={Produktio} /> 
+              </Switch>
             </div>
           </div>
         </BrowserRouter>

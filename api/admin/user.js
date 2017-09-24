@@ -3,7 +3,6 @@ const User = require('../../schema/user-model');
 const sha1 = require('sha1');
 
 function newUser(req, res) {
-    console.log(req.body);
     let userJson = req.body;
     let user = new User({
         fname: userJson.fname,
@@ -40,7 +39,6 @@ function isValidToken(req, res) {
                 return res.json({ success: false, message: 'Virheellinen token' })
             } else {
                 req.decoded = decoded;
-                console.log(decoded);
                 res.json({success: true, message: 'Validi token'});
             }
         })
@@ -86,7 +84,7 @@ function authenticate(req, res, next) {
                 res.json({ message: 'Virheellinen salasana' });
             } else {
                 const token = jwt.sign(user.toObject(), process.env.SECRET, {
-                    expiresIn: 60*1, // expires in 1 hours
+                    expiresIn: '1h', // expires in 1 hours
                 });
                 res.json({
                     success: true,

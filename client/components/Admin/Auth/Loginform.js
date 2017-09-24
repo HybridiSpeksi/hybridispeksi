@@ -14,7 +14,7 @@ class Loginform extends Component {
                         
                         <div className="form-group">
                             <label htmlFor="emailInput">Sähköposti</label>
-                            <input name="email" type="email" onChange={this.props.handleChange} value={this.props.email} className="form-control" id="emailInput" placeholder="Sähköpostiosoite" />
+                            <input autoFocus="true" name="email" type="email" onChange={this.props.handleChange} value={this.props.email} className="form-control" id="emailInput" placeholder="Sähköpostiosoite" />
                         </div>
 
                         <div className="form-group">

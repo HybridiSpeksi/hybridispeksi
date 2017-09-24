@@ -34,7 +34,6 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state.warnings);
     }
 
     // Handle all input events
