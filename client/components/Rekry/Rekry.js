@@ -40,7 +40,7 @@ class Rekry extends Component {
         ajax.sendGet('/tehtavat')
         .then(tehtavat => {
             console.log(tehtavat);
-            this.setState({kaikkiTehtavat: tehtavat});
+            this.setState({kaikkiTehtavat: tehtavat.data});
         })
         .catch(err => {
             console.log(err)
