@@ -10,6 +10,7 @@ const index = require('./index/index');
 
     // Ohjaustiedot
     router.get('/tehtavat', ohjaustiedot.haeTehtavat);
+    router.get('/jarjestot', ohjaustiedot.haeJarjestot);
 
     // Produktion jäsenet
     router.get('/produktionjasen', auth.isLoggedIn, produktionjasen.getAll);

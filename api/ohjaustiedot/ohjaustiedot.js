@@ -8,6 +8,17 @@ module.exports =  {
         .catch(err => {
             res.json({success: false, data: err})
         })
-    }
+    },
 
+    haeJarjestot: (req, res) => {
+        console.log("haejarjestot")
+        Ohjaustieto.find({key: "jarjesto"})
+        .then(jarjestot => {
+            res.json({success: true, data: jarjestot})
+        })
+        .catch(err => {
+            console.log(err);
+            res.json({success: false, data: err})
+        })
+    }
 }
