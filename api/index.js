@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const auth = require('./auth')
 const produktionjasen = require('./produktio/produktionjasen');
+const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const user = require('./admin/user');
 
 const index = require('./index/index');
 
     router.get('/', index.test);
 
+    // Ohjaustiedot
+    router.get('/tehtavat', ohjaustiedot.haeTehtavat);
 
     // Produktion jäsenet
     router.get('/produktionjasen', auth.isLoggedIn, produktionjasen.getAll);

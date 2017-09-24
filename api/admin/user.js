@@ -4,7 +4,21 @@ const sha1 = require('sha1');
 
 function newUser(req, res) {
     console.log(req.body);
-    res.json({success: true})
+    let userJson = req.body;
+    let user = new User({
+        fname: userJson.fname,
+        sname: userJson.sname,
+        email: userJson.email,
+        password: sha1(userJson.password),
+        role: 'not_approved'
+    })
+    user.save()
+    .then(user => {
+        res.json({success: true, data: user})
+    })
+    .catch(err => {
+        res.json({success: false, data: err});
+    })
 }
 
 function updateUser(req, res) {
