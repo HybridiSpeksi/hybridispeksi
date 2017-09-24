@@ -5,6 +5,7 @@ import ajax from '../../Utils/Ajax';
 import Messages from '../../Utils/Messages';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
+import Jasentiedot from './Jasentiedot';
 
 import css from './Produktionjasenet.css';
 
@@ -22,6 +23,7 @@ class Produktio extends Component {
             produktionjasenet: [],
             valittuJasen: {}
         }
+        this.valitseJasen = this.valitseJasen.bind(this);
     }
 
     componentWillMount() {
@@ -41,7 +43,7 @@ class Produktio extends Component {
     }
 
     valitseJasen(jasen) {
-        this.setState({valitseJasen: jasen});
+        this.setState({valittuJasen: jasen});
     }
 
     render() {
@@ -65,7 +67,7 @@ class Produktio extends Component {
                     </div>
                     <div className="col">
                         <h3>Haku</h3>
-                        <h3>Jäsentiedot</h3>
+                        <Jasentiedot jasen={this.state.valittuJasen} />
                     </div>
                 </div>
 
