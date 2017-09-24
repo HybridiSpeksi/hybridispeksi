@@ -39,7 +39,7 @@ class Rekry extends Component {
                                 <label htmlFor="emailInput" className={styles.label}>Sähköposti:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
-                                <input name="email" id="emailInput" className="form-control" type="email" onChange={this.props.handleChange} value={this.props.email} placeholder="Sähköposti"/>
+                                <input name="email" id="emailInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.email} placeholder="Sähköposti"/>
                             </div>
                         </div>
                         <div className={"row form-group align-items-center " + styles.pnumber}>
@@ -55,7 +55,7 @@ class Rekry extends Component {
                                 <label htmlFor="tehtavatInput" className={styles.label}>Ensisijainen tehtävä:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
-                                <select name="tehtavat" id="tehtavatInput" className="form-control" onChange={this.props.handleChange} value={this.props.tehtavat}>
+                                <select name="tehtavat1" id="tehtavatInput" className="form-control" onChange={this.props.handleTehtavaChange} value={this.props.tehtavat1}>
                                     <option></option>
                                     <option>Näyttelijät</option>
                                     <option>Tanssijat</option>
@@ -76,7 +76,7 @@ class Rekry extends Component {
                                 <label htmlFor="tehtavatInput" className={styles.label}>Ensimmäinen varatehtävä:</label>
                             </div>
                             <div className={"col"}>
-                                <select name="tehtavat" id="tehtavatInput" className="form-control" onChange={this.props.handleChange} value={this.props.tehtavat}>
+                                <select name="tehtavat2" id="tehtavatInput" className="form-control" onChange={this.props.handleTehtavaChange} value={this.props.tehtavat2}>
                                     <option></option>
                                     <option>Näyttelijät</option>
                                     <option>Tanssijat</option>
@@ -97,7 +97,7 @@ class Rekry extends Component {
                                 <label htmlFor="tehtavatInput" className={styles.label}>Toinen varatehtävä:</label>
                             </div>
                             <div className={"col"}>
-                                <select name="tehtavat" id="tehtavatInput" className="form-control" onChange={this.props.handleChange} value={this.props.tehtavat}>
+                                <select name="tehtavat3" id="tehtavatInput" className="form-control" onChange={this.props.handleTehtavaChange} value={this.props.tehtavat3}>
                                     <option></option>
                                     <option>Näyttelijät</option>
                                     <option>Tanssijat</option>

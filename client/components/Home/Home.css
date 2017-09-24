@@ -16,4 +16,11 @@
 }
 .carousel {
 	height:calc(80vh - 60px);
+	background: black;
+}
+.carousel_image {
+	height:500px;
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
 }

@@ -5,9 +5,12 @@ import styles from './Rekry.css';
 import Rekryform from './Rekryform';
 import Kiitos from './Kiitos';
 
-//import utils from '../../Utils/Utils';
+import utils from '../Utils/Utils';
+import ajax from '../Utils/Ajax';
+import Messages from '../Utils/Messages';
 
-class Login extends Component {
+
+class Rekry extends Component {
     constructor(props) {
         super(props);
 
@@ -17,14 +20,18 @@ class Login extends Component {
             lname: '',
             email: '',
             pnumber: '',
-            tehtavat: '',
+            tehtavat: [],
             jarjesto: '',
             lisatiedot: '',
+            messages: [],
+            warnings: [],
+            errors: [],
             authState: 0    
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTehtavaChange = this.handleTehtavaChange.bind(this);
     }
 
     // Handle all input events
@@ -36,23 +43,64 @@ class Login extends Component {
 
         this.setState({ [e.target.name]: value });
     }
+    handleTehtavaChange(e) {
+        if(e.target.name === "tehtavat1"){
+        }
+        console.log(e.target.name);
+    }
 
     // Submit form
     handleSubmit(e) {
-        /*console.log(e.target);
         e.preventDefault();
-        let url = "/api";
-        if (e.target.name === "login") {
-            url += "/authenticate";
-            fetch(url, {
-                method: "POST",
-                data: {
+        let url = "/produktionjasen";
+
+
+        if (this.validateRekry()) {
+            ajax.sendPost(
+                url,
+                {
+                    fname: this.state.fname,
+                    sname: this.state.sname,
                     email: this.state.email,
-                    password: this.state.password
-                }
-            })
+                    pnumber: this.state.pnumber,
+                    //tehtavat: this.state.[],
+                    jarjesto: this.state.jarjesto,
+                    lisatiedot: this.state.lisatiedot
+
+                }).then(data => {
+                    if (data.success === true) {
+                        this.addMessage(MESSAGE_SUCCESS, "Rekisteröinti onnistui!", "Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.");
+                    }
+                }).catch(err => {
+                    console.log(err);
+                    this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
+                })
+            }
+    }
+
+    //Validates if all necessary info has been given
+    validateRekry() {
+        let valid = true;
+        if (
+            this.state.fname === ""
+            || this.state.lname === ""
+            || this.state.email === ""
+            || this.state.pnumber === ""
+            || this.state.tehtavat1 === ""
+            || this.state.jarjesto === ""
+       ) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
+            valid = false;
         }
-        console.log("submitted"); */
+        if (!utils.isValidEmail(this.state.email)) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
+            valid = false;
+        }
+        if (this.state.password !== this.state.passwordAgain) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Salasanat eivät täsmää");
+            valid = false;
+        }
+        return valid;
     }
 
     render() {
@@ -69,7 +117,8 @@ class Login extends Component {
                     jarjesto={this.state.jarjesto}
                     lisatiedot={this.state.lisatiedot}
                     handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit} />
+                    handleSubmit={this.handleSubmit} 
+                    handleTehtavaChange={this.handleTehtavaChange}/>
             
             ) : (
                 <Kiitos/>
@@ -79,5 +128,5 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default Rekry
 
