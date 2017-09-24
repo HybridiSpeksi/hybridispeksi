@@ -1,7 +1,8 @@
 const Jasen = require('../../schema/produktiojasen-model');
 
 function getAll (req, res) {
-    Jasen.find()
+    console.log('getall')
+    Jasen.find({vuosi: req.params.vuosi})
     .catch(function(err) {
         res.status(500).send(err);
     })

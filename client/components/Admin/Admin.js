@@ -9,20 +9,16 @@ class Admin extends Component {
     }
 
     componentWillMount() {
-        if (!auth.isUserLoggedIn) {
-            location.replace('/login');
-        }
+        auth.checkToken();
     }
 
     componentDidMount() {
-        auth.checkToken();
-        
     }
 
     render() {
         return (
-            <div>
-                <h1>Admin</h1>
+            <div className="container">
+                <h1>HybridiSpeksi <small>tuotantopaneeli</small></h1>
             </div>
         )
     }

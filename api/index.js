@@ -16,7 +16,7 @@ router.get('/tehtavat', ohjaustiedot.haeTehtavat);
 router.get('/jarjestot', ohjaustiedot.haeJarjestot);
 
 // Produktion jäsenet
-router.get('/admin/produktionjasen', produktionjasen.getAll);
+router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
 router.get('/produktionjasen/:_id', produktionjasen.getById);
 router.post('/produktionjasen', produktionjasen.newJasen);
 

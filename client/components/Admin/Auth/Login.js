@@ -58,7 +58,7 @@ class Login extends Component {
                 { email: this.state.email, password: this.state.password }
             ).then(data => {
                 if (data.success === true) {
-                    auth.signIn(data.token);
+                    auth.signIn(data.token, data.user);
                     location.replace('/admin');
                 } else {
                     this.addMessage(MESSAGE_WARNING, "Kirjautuminen epäonnistui!", data.message)

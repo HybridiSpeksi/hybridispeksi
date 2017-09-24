@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var henkiloSchema = new mongoose.Schema({
+ module.exports = mongoose.model('Produktionjasen', new mongoose.Schema({
     fname: String,
     sname: String,
     email: String,
@@ -11,9 +12,9 @@ var henkiloSchema = new mongoose.Schema({
     hakeeJaseneksi: Boolean,
     tuotannonMuistiinpanot: String,
     vuosi: Number
-}, 
+}, {
+    collection: 'produktionjasenet'
+},
 {
     timestamps: true
-})
-
-module.exports = mongoose.model('Henkilo', henkiloSchema);
+}))

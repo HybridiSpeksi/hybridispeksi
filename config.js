@@ -6,5 +6,12 @@ module.exports = {
     //Hinnasto
     sprice: 12,
     nprice: 14,
-    oprice_default: 25
+    oprice_default: 25,
+
+    // Roolit
+    EI_HYVAKSYTTY: 0,
+    ROLE_LIPUNMYYNTI: 1,
+    ROLE_TUOTANTO: 3,
+    ROLE_HALLITUS: 4,
+    ROLE_ADMIN: 5,
 };

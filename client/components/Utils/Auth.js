@@ -13,30 +13,35 @@ function isUserLoggedIn() {
  * Redirects to login if invalid and removes token from localstorage
  */
 function checkToken() {
-    console.log("checktoken");
-    ajax.sendGet('/isValidToken')
-        .then(data => {
-            if (!data.success) {
-                signOut();
-            }
-        })
+    if (!isUserLoggedIn) {
+        signOut();
+    } else {
+        ajax.sendGet('/isValidToken')
+            .then(data => {
+                if (!data.success) {
+                    signOut();
+                }
+            })
+    }
 }
 
 function getUserInfo() {
-
+    return JSON.parse(localStorage.getItem("user"));
 }
 
 function getUserRole() {
-
+    return JSON.parse(localStorage.getItem("user")).role;
 }
 
-function signIn(jwt) {
+function signIn(jwt, user) {
     localStorage.setItem("jwt", jwt);
+    localStorage.setItem("user", JSON.stringify(user));
 }
 
 function signOut() {
     console.log("signout")
     localStorage.removeItem("jwt");
+    localStorage.removeItem("user");
     location.replace('/login');
 }
 
