@@ -2,7 +2,7 @@ import React from 'react';
 
 import globalStyles from './App.css';
 
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import auth from './Utils/Auth';
 
 import Header from './Header/Header';
@@ -13,8 +13,12 @@ import Speksi from './Speksi/Speksi';
 
 import Rekry from './Rekry/Rekry';
 
+import AdminHeader from './Admin/Layout/AdminHeader';
+import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
 import Login from './Admin/Auth/Login';
+
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,25 +26,58 @@ export default class App extends React.Component {
 
   }
 
-
-
   render() {
+    const PublicLayout = ({ component: Component, ...rest }) => {
+      return (
+        <Route {...rest} render={props => (
+          <div>
+            <Header />
+            <Component globalStyles={globalStyles} />
+            <Footer />
+          </div>
+        )} />
+      )
+    };
+
+    const LoginLayout = ({ component: Component, ...rest }) => {
+      return (
+        <Route {...rest} render={props => (
+          <div>
+            <Component globalStyles={globalStyles} />
+          </div>
+        )} />
+      )
+    };
+
+    const AdminLayout = ({ component: Component, ...rest }) => {
+      return (
+        <Route {...rest} render={props => (
+          <div>
+            <AdminHeader />
+            <Component globalStyles={globalStyles} />
+            <AdminFooter />
+          </div>
+        )} />
+      )
+    };
+
     return (
       <div id="main-wrapper">
 
         <BrowserRouter>
           <div>
-            <Header />
-            <div id="content-wrapper">
-              <Route exact path="/" render={() => <Home globalStyles={globalStyles} />} />
-              <Route exact path="/" render={() => <Speksi />} />
-              <Route exact path="/rekry" render={() => <Rekry />} />
+            <div id="public-wrapper">
+              <Switch >
+              <PublicLayout exact path="/" component={Home} />
+              <PublicLayout exact path="/" component={Speksi} />
+              <PublicLayout exact path="/rekry" component={Rekry} />
+              </Switch>
             </div>
-            <Footer />
 
             <div id="admin-wrapper">
-              <Route exact path="/admin" render={() => <Admin />} />
-              <Route exact path="/login" render={() => <Login />} />
+              <LoginLayout exact path="/login" component={Login} />
+              <AdminLayout exact path="/admin"component={Admin} />
+              
             </div>
           </div>
         </BrowserRouter>

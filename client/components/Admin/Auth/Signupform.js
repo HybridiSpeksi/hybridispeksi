@@ -25,7 +25,7 @@ class Signupform extends Component {
 
                         <div className="form-group">
                             <label htmlFor="emailInput">Sähköposti</label>
-                            <input name="email" type="email" onChange={this.props.handleChange} value={this.props.email} className="form-control" id="emailInput" placeholder="Sähköpostiosoite" />
+                            <input name="email" type="text" onChange={this.props.handleChange} value={this.props.email} className="form-control" id="emailInput" placeholder="Sähköpostiosoite" />
                         </div>
 
                         <div className="form-group">
@@ -44,6 +44,11 @@ class Signupform extends Component {
                 <div className="row justify-content-center">
                     <div className="col-sm-5">
                         <p>Saat tunnukset käyttöön kun ne on tuotannon toimesta hyväksytty</p>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-sm-5">
+                        {this.props.messages}
                     </div>
                 </div>
 

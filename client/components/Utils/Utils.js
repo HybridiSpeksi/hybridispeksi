@@ -25,7 +25,14 @@ function parseNumberIfNumber(a) {
     }
 }
 
+function isValidEmail(a) {
+    console.log("validateemali")
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(a);
+}
+
 module.exports.isBoolean = isBoolean;
 module.exports.parseBooleanIfBoolean = parseBooleanIfBoolean;
 module.exports.isNumber = isNumber;
 module.exports.parseNumberIfNumber = parseNumberIfNumber;
+module.exports.isValidEmail = isValidEmail;

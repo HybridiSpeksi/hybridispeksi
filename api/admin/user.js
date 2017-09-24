@@ -12,9 +12,7 @@ function updateUser(req, res) {
 }
 
 function getUsers(req, res) {
-
     User.find()
-
         .then(function (users) {
             res.json({ success: true, data: users });
         })
@@ -28,6 +26,7 @@ function isValidToken(req, res) {
                 return res.json({ success: false, message: 'Virheellinen token' })
             } else {
                 req.decoded = decoded;
+                console.log(decoded);
                 res.json({success: true, message: 'Validi token'});
             }
         })

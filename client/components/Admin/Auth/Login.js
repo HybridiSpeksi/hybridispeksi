@@ -9,6 +9,9 @@ import auth from '../../Utils/Auth';
 import ajax from '../../Utils/Ajax';
 import Messages from '../../Utils/Messages';
 
+let MESSAGE_SUCCESS = "success";
+let MESSAGE_WARNING = "warning";
+let MESSAGE_ERROR = "error";
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -30,8 +33,13 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        console.log(this.state.warnings);
+    }
+
     // Handle all input events
     handleChange(e) {
+        this.setState({ warnings: [] })
         let value = e.target.value;
 
         // Check if numeric value and parse
@@ -50,13 +58,16 @@ class Login extends Component {
                 url,
                 { email: this.state.email, password: this.state.password }
             ).then(data => {
-                auth.signIn(data.token);
-                location.replace('/admin');
+                if (data.success === true) {
+                    auth.signIn(data.token);
+                    location.replace('/admin');
+                } else {
+                    this.addMessage(MESSAGE_WARNING, "Kirjautuminen epäonnistui!", data.message)
+                }
             }).catch(err => {
-
+                this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
             })
         } else if (e.target.name === "signup") {
-            console.log("signup")
             if (this.validateSignup()) {
                 url += "/signup";
                 ajax.sendPost(
@@ -67,26 +78,52 @@ class Login extends Component {
                         email: this.state.email,
                         password: this.state.password
                     }).then(data => {
-                        console.log(data)
+                        if (data.success === true) {
+                            this.addMessage(MESSAGE_SUCCESS, "Rekisteröinti onnistui!", "Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.");
+                        }
                     }).catch(err => {
                         console.log(err);
+                        this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
                     })
             }
         }
     }
 
     validateSignup() {
-        console.log("validate")
         let valid = true;
-        if(this.state.password !== this.state.passwordAgain) {
-            console.log("nomatch")
-            let newWarnings = this.state.warnings
-            newWarnings.push({text: "Salasanat eivät täsmää"});
-            this.setState({warnings: newWarnings})
-            console.log(this.state.warnings);
+        if (
+            this.state.fname === ""
+            || this.state.sname === ""
+            || this.state.email === ""
+        ) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
+            valid = false;
+        }
+        if (!utils.isValidEmail(this.state.email)) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
+            valid = false;
+        }
+        if (this.state.password !== this.state.passwordAgain) {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Salasanat eivät täsmää");
             valid = false;
         }
         return valid;
+    }
+
+    addMessage(type, newHeader, newText) {
+        if (type === MESSAGE_WARNING) {
+            let newWarnings = this.state.warnings;
+            newWarnings.push({ header: newHeader, text: newText });
+            this.setState({ warnings: newWarnings })
+        } else if (type === MESSAGE_ERROR) {
+            let newErrors = this.state.errors;
+            newErrors.push({ header: newHeader, text: newText });
+            this.setState({ erros: newErrors })
+        } else if (type === MESSAGE_SUCCESS) {
+            let newMessages = this.state.messages;
+            newMessages.push({ header: newHeader, text: newText });
+            this.setState({ messages: newMessages });
+        }
     }
 
     render() {
