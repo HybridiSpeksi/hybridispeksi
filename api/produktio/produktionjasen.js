@@ -34,7 +34,9 @@ function newJasen (req, res) {
     .then(jasen => {
         res.json({success: true, data: jasen});
     })
-    res.json({success: true});
+    .catch(err => {
+        res.json({success: false, data: err});
+    })
 }
 
 module.exports.getAll = getAll;
