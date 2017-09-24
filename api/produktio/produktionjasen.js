@@ -1,7 +1,7 @@
-const jasen = require('../../schema/produktiojasen-model');
+const Jasen = require('../../schema/produktiojasen-model');
 
 function getAll (req, res) {
-    jasen.find()
+    Jasen.find()
     .catch(function(err) {
         res.status(500).send(err);
     })
@@ -19,7 +19,7 @@ function getById (req, res) {
 
 function newJasen (req, res) {
     let uusiJasen = req.body;
-    let jasen = new jasen({
+    let jasen = new Jasen({
         fname: uusiJasen.fname,
         sname: uusiJasen.sname,
         email: uusiJasen.email,
