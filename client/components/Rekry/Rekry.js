@@ -20,7 +20,7 @@ class Rekry extends Component {
         // Initial state
         this.state = {
             fname: '',
-            lname: '',
+            sname: '',
             email: '',
             pnumber: '',
             tehtavat: [],
@@ -48,6 +48,13 @@ class Rekry extends Component {
         .catch(err => {
             console.log(err)
         })
+        ajax.sendGet('/jarjestot')
+        .then(jarjestot => {
+            this.setState({kaikkiJarjestot: jarjestot.data});
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     // Handle all input events
@@ -59,8 +66,6 @@ class Rekry extends Component {
         // value = utils.parseBooleanIfBoolean(value);
 
         this.setState({ [e.target.name]: value });
-        console.log(e.target.name + " " + e.target.value);
-        console.log(this.state.jasenyys)
     }
     handleTehtavaChange(e) {
         let uusiTehtavat = this.state.tehtavat;
@@ -112,7 +117,7 @@ class Rekry extends Component {
         let valid = true;
         if (
             this.state.fname === ""
-            || this.state.lname === ""
+            || this.state.sname === ""
             || this.state.email === ""
             || this.state.pnumber === ""
             || this.state.tehtavat[0] === ""
@@ -152,7 +157,7 @@ class Rekry extends Component {
             {this.state.authState === 0 ? (
                 <Rekryform
                     fname={this.state.fname}
-                    lname={this.state.lname}
+                    sname={this.state.sname}
                     email={this.state.email}
                     pnumber={this.state.pnumber}
                     tehtavat={this.state.tehtavat}

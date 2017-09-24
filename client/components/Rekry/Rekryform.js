@@ -44,12 +44,12 @@ class Rekry extends Component {
                                 <input name="fname" id="fnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.fname} placeholder="Etunimi"/>
                             </div>
                         </div>
-                        <div className={"row form-group align-items-center " + styles.lname}>
+                        <div className={"row form-group align-items-center " + styles.sname}>
                             <div className={"col-sm-3"}>
-                                <label htmlFor="lnameInput" className={styles.label}>Sukunimi:<span className={styles.tahti}>*</span></label>
+                                <label htmlFor="snameInput" className={styles.label}>Sukunimi:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
-                                <input name="lname" id="lnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.lname} placeholder="Sukunimi"/>
+                                <input name="sname" id="snameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.sname} placeholder="Sukunimi"/>
                             </div>
                         </div>
                         <div className={"row form-group align-items-center " + styles.email}>
@@ -65,7 +65,7 @@ class Rekry extends Component {
                                 <label htmlFor="pnumberInput" className={styles.label}>Puhelinnumero:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
-                                <input name="pnumber" id="pnumberInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.pnumber} placeholder="Puhelinnumero"/>
+                                <input name="pnumber" id="pnumberInput" className="form-control" type="tel" onChange={this.props.handleChange} value={this.props.pnumber} placeholder="Puhelinnumero"/>
                             </div>
                         </div>
                         <div className={"row form-group align-items-center " + styles.tehtavat}>
