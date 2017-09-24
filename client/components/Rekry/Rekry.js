@@ -26,7 +26,7 @@ class Rekry extends Component {
             tehtavat: [],
             jarjesto: '',
             lisatiedot: '',
-            jasenyys: true,
+            jasenyys: "true",
             messages: [],
             warnings: [],
             errors: [],
@@ -56,7 +56,7 @@ class Rekry extends Component {
         
         // Check if numeric value and parse
         value = utils.parseNumberIfNumber(value);
-        value = utils.parseBooleanIfBoolean(value);
+        // value = utils.parseBooleanIfBoolean(value);
 
         this.setState({ [e.target.name]: value });
         console.log(e.target.name + " " + e.target.value);
@@ -94,7 +94,7 @@ class Rekry extends Component {
                     tehtavat: this.state.tehtavat,
                     jarjesto: this.state.jarjesto,
                     lisatiedot: this.state.lisatiedot,
-                    jasenyys: this.state.jasenyys
+                    jasenyys: utils.parseBooleanIfBoolean(this.state.jasenyys)
 
                 }).then(data => {
                     if (data.success === true) {
