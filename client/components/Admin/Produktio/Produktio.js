@@ -67,7 +67,9 @@ class Produktio extends Component {
                     </div>
                     <div className="col">
                         <h3>Haku</h3>
-                        <Jasentiedot jasen={this.state.valittuJasen} />
+                        <Jasentiedot 
+                            jasen={this.state.valittuJasen}
+                            valitseJasen={this.valitseJasen} />
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@
     background-color: #121212;
 }
 .content_home {
-	height:calc(100vh - 70px);
+	height:calc(100vh - 40px);
 	background:url("/assets/images/carousel/3_ilmari2.jpg") no-repeat fixed right bottom black;
 }
 .content_speksi {

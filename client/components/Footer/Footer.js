@@ -7,9 +7,6 @@ class Footer extends Component {
         return (
             <div className={"container-fluid " + styles.container}>
                 <div className={"row justify-content-center align-items-center " + styles.content}>
-                	<div className="col-sm-2" className={styles.logo}>
-                		<h3>HybridiSpeksi</h3>
-                	</div>
                 	<div className="col-sm-1">
                 		<a href="https://www.facebook.com/HybridiSpeksi/"><img src="assets/images/facebook.svg" className={styles.link}/></a>
                 	</div>
