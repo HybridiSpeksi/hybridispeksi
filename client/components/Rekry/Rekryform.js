@@ -131,7 +131,8 @@ class Rekry extends Component {
                         </div>
                         <div className={"row form-group align-items-center justify-content-sm-center " + styles.submit}>
                             <div className={"col-sm-3"}>
-                                <button className="btn btn-default" type="submit">Lähetä hakemus</button>
+                                {/* <button className="btn btn-default" type="submit">Lähetä hakemus</button> */}
+                                <p><i>Rekry ei ole vielä auki!</i></p>
                             </div>
                         </div>
 

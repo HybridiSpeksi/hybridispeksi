@@ -21,31 +21,18 @@ class Home extends Component {
                     <div className={"col-sm-6 " + styles.speksi_desc}>
                         <h1>HybridiSpeksi</h1>
                         <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
-                          Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker -teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
+                          Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
                         </p>
-                        <p>2016 Tanssiteatteri ERIn valtasi <strong>Bratva Kontra</strong>, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu. 2017 HybridiSpeksi siirtyi 
+                        <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu. 2017 HybridiSpeksi siirtyi 
                           Manilla-teatteriin jossa nähtiin kansallisromanttinen <strong>Kruunun Kohtalo - Kalevalan perintö</strong>
                         </p>
+                        <h3>2018</h3>
+                        <p>HybridiSpeksin tuotantotiimi vuoden 2018 speksiin valittiin ennen kesää, ja töitä on tehty jo kovalla tahdilla. 26.9. järjestetään <strong>rekrytilaisuus </strong> 
+                        Arc 1 -salissa, jossa hybridiläiset voivat hakea mukaan toteuttamaan tämän vuoden speksiä.</p>
                         <h3>Speksi</h3>
-                        <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali. yleisö voi milloin tahansa osallistua 
+                        <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali. Yleisö voi milloin tahansa osallistua 
                           esitykseen huutamalla <strong>Omstart!</strong> Huudon kuultuaan esiintyjät toteuttavat edellisen kohtauksen/ohjelmanumeron uudelleen improvisoiden.
                         </p>
-                        {/* <p> Speksi on interaktiivista musiikki- ja tanssinumeroilla höystettyä opiskelijateatteria.
-                        Speksit ovat juurtuneet osaksi korkeakoulujen kulttuuritarjontaa.</p>
-
-                        <h3>Omstart!</h3>
-                        <p>Speksissä yleisö voi ottaa osaa esitykseen huutamalla lavalle "Omstart!". 
-                        Tämän lisäksi on mahdollista huutaa varsinaisen omstart-huudon 
-                        perään tarkentavia ideoita siitä, mitä haluaisi näyttämöllä tapahtuvan, 
-                        esimerkiksi "Omstart, enemmän naurua!". Tällöin speksin interaktiivista 
-                        traditiota kunnioittava speksiteatteri reagoi huutoon ottamalla äskeiset tapahtumat 
-                        uudestaan niitä jotenkin varioiden, tarkempien ideoiden tapauksessa uusia ideoita 
-                        mahdollisuuksien mukaan toteuttaen. Jotta katsoja saa haluamansa ja esiintyjät voivat 
-                        huomioida hänen toiveensa, tulee omstart-huudon olla selkeä, lyhyt ja ytimekäs. Lisäksi 
-                        näyttelijöiden repliikkien päälle menevä huuto ei todennäköisesti tule huomioiduksi.</p>
-                        <p>Omstart-huudon tulisi olla jotakin toteuttamiskelpoista ja vain kerran huudettua. 
-                        Hyvää tai huonoa omstartia ei voida määritellä, vaan kyse on mielipiteistä. 
-                        Eri speksiryhmien innokkuus toteuttaa omstarteja vaihtelee paljon.</p> */}
                     </div>
                 </div>
             </div>
