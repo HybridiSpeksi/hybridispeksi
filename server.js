@@ -33,7 +33,7 @@ app.use('/api', require('./api/index'));
 
 // Static assets
 app.use('/', express.static(path.join(__dirname + '/dist')));
-app.use('/assets', express.static(path.join(__dirname + 'assets')));
+app.use('/assets', express.static(path.join(__dirname + '/assets')));
 
 // Serve index.html for every other request. Client router handles the rest
 if (process.env.NODE_ENV === "production") {
