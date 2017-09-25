@@ -28046,7 +28046,7 @@ var Header = function (_Component) {
 					),
 					_react2.default.createElement(
 						_reactRouterDom.Link,
-						{ className: 'navbar-brand', to: '/admin' },
+						{ className: 'navbar-brand', to: '/' },
 						'HybridiSpeksi'
 					)
 				)
