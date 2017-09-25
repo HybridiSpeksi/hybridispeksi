@@ -136,8 +136,14 @@ class Rekry extends Component {
                         </div>
 
                         </form>
+                        <div className="row justify-content-center">
+                            <div className="col-sm-7">
+                                {this.props.messages}
+                            </div>
+                        </div>
 
             		</div>
+
             	</div>
             </div>
         )

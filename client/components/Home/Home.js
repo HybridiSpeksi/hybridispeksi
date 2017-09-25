@@ -48,6 +48,11 @@ class Home extends Component {
                         Eri speksiryhmien innokkuus toteuttaa omstarteja vaihtelee paljon.</p> */}
                     </div>
                 </div>
+                <div className={"row align-items-center justify-content-center " + styles.content_contact}>
+                    <div className={"col-sm-8 " + styles.contact_box}>
+                        <h1>Yhteystiedot</h1>
+                    </div>
+                </div>
             </div>
 
                     /*

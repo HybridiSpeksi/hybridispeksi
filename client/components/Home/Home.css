@@ -7,7 +7,12 @@
 }
 .content_speksi {
 	background:url("/assets/images/mikaspeksi.jpg") no-repeat fixed left bottom #d8d8d8;
+	box-shadow: 5px 5px 5px;
 	padding:50px;
+}
+.content_contact {
+	height:50vh;
+	background:#d8d8d8;
 }
 .slogan {
 	padding:20px;
@@ -24,6 +29,11 @@
 }
 .speksi_desc {
 	text-align:justify;
+}
+.contact_box {
+	padding:20px;
+	height:80%;
+	border:4px dashed darkgray;
 }
 
 /*
