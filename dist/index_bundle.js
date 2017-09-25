@@ -24732,13 +24732,7 @@ var App = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { id: 'admin-wrapper' },
-              _react2.default.createElement(
-                _reactRouterDom.Switch,
-                null,
-                _react2.default.createElement(LoginLayout, { path: '/login', component: _Login2.default }),
-                _react2.default.createElement(AdminLayout, { path: '/admin', component: _Admin2.default }),
-                _react2.default.createElement(AdminLayout, { path: '/produktionhallinta', component: _Produktio2.default })
-              )
+              _react2.default.createElement(_reactRouterDom.Switch, null)
             )
           )
         )
