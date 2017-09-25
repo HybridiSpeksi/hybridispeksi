@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import styles from './Speksi.css'
 
 class Speksi extends Component {
 	componentDidMount() {

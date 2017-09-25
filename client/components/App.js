@@ -9,7 +9,6 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 import Home from './Home/Home';
-import Speksi from './Speksi/Speksi';
 
 import Rekry from './Rekry/Rekry';
 
@@ -71,7 +70,6 @@ export default class App extends React.Component {
             <div id="public-wrapper">
               <Switch >
               <PublicLayout exact path="/" component={Home} />
-              <PublicLayout exact path="/" component={Speksi} />
               <PublicLayout exact path="/rekry" component={Rekry} />
               </Switch>
             </div>

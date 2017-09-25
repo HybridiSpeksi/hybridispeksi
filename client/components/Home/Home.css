@@ -1,19 +1,32 @@
 .container {
     background-color: #121212;
-    height:500px;
 }
-.content {
-	height:500px;
-	width:100%;
+.content_home {
+	height:calc(100vh - 70px);
+	background:url("/assets/images/carousel/3_ilmari2.jpg") no-repeat fixed right bottom black;
+}
+.content_speksi {
+	background:url("/assets/images/mikaspeksi.jpg") no-repeat fixed left bottom #d8d8d8;
+	padding:50px;
 }
 .slogan {
 	padding:20px;
 	font-size:200%;
 	color:white;
 }
+.mainimage {
+	background:url("/assets/images/carousel/3_ilmari2.jpg") no-repeat fixed right bottom;
+	height:100%;
+	width:100%;
+}
 .date {
 	font-size:200%;
 }
+.speksi_desc {
+	text-align:justify;
+}
+
+/*
 .carousel {
 	height:calc(80vh - 60px);
 	background: black;
@@ -23,4 +36,4 @@
 	width:auto;
 	margin-left:auto;
 	margin-right:auto;
-}
+}*/
