@@ -24731,7 +24731,13 @@ var App = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { id: 'admin-wrapper' },
-              _react2.default.createElement(_reactRouterDom.Switch, null)
+              _react2.default.createElement(
+                _reactRouterDom.Switch,
+                null,
+                _react2.default.createElement(LoginLayout, { path: '/login', component: _Login2.default }),
+                _react2.default.createElement(AdminLayout, { path: '/admin', component: _Admin2.default }),
+                _react2.default.createElement(AdminLayout, { path: '/produktionhallinta', component: _Produktio2.default })
+              )
             )
           )
         )
@@ -29543,7 +29549,7 @@ var Produktio = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            _Ajax2.default.sendGet('/admin/produktionjasen/2017').then(function (jasenet) {
+            _Ajax2.default.sendGet('/admin/produktionjasen/2018').then(function (jasenet) {
                 _this2.setState({ produktionjasenet: jasenet });
                 _this2.setState({ ajaxReady: true });
             }).catch(function (err) {
