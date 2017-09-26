@@ -32,12 +32,17 @@
 	border:4px dashed darkgray;
 }
 
-@media (max-width:400px){
+@media (max-width:500px){
 	.content_home {
 		background:url("/assets/images/frontbg_mobile.jpg") no-repeat fixed center top black;
 	}
 	.content_speksi {
 		background-image:none;
+		padding:12px;
+		padding-top:20px;
+	}
+	.speksi_desc {
+		text-align:left;
 	}
 
 }

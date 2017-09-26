@@ -135,6 +135,7 @@ class Rekry extends Component {
             || this.state.pnumber === ""
             || this.state.tehtavat[0] === ""
             || this.state.jarjesto === ""
+            || this.state.lisatiedot === ""
        ) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
             valid = false;
