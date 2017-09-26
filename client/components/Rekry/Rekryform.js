@@ -129,6 +129,12 @@ class Rekry extends Component {
                                 <input checked={this.props.jasenyys === "false"} className={styles.jasenradio} type="radio" name="jasenyys" value="false" onChange={this.props.handleChange}/> Ei
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="col">
+                            <p>Mikäli haet yhdistyksen jäseneksi, kirjoita lisätietoihin oma verotuskuntasi ja Etunimi -kenttään kaikki etunimet.</p>
+                            </div>
+                        </div>
+
                         <div className={"row form-group align-items-center justify-content-sm-center " + styles.submit}>
                             <div className={"col-sm-3"}>
                                 {/*<button className="btn btn-default" type="submit">Lähetä hakemus</button>*/}
