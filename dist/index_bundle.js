@@ -29071,6 +29071,19 @@ var Rekry = function (_Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        'Mik\xE4li haet yhdistyksen j\xE4seneksi, kirjoita lis\xE4tietoihin oma verotuskuntasi ja Etunimi -kentt\xE4\xE4n kaikki etunimet.'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
                                 { className: "row form-group align-items-center justify-content-sm-center " + _Rekry2.default.submit },
                                 _react2.default.createElement(
                                     'div',
