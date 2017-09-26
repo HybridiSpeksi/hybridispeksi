@@ -31,7 +31,7 @@ class Rekry extends Component {
                         <h2>Rekryilmoittautuminen</h2>
                         <br/>
                         <p>Täytä tietosi allaoleviin kenttiin. Tähdellä merkityt kentät ovat pakollisia. Haettaviin tehtäviin pitää 
-                        täyttää vähintään ensisijainen hakutoive. Lisätietoja-kenttään voit täyttää omia taustojasi,
+                        täyttää vähintään ensisijainen hakutoive. Lisätietoja-kenttään tulee täyttää omia taustojasi,
                         jotka tukevat hakutoiveitasi.</p>
                         <br/>
                         <form onSubmit={this.props.handleSubmit}>
@@ -114,10 +114,10 @@ class Rekry extends Component {
                         </div>
                         <div className={"row form-group align-items-center " + styles.lisatiedot}>
                             <div className={"col-sm-3"}>
-                                <label htmlFor="lisatiedotInput" className={styles.label}>Lisätietoja:</label>
+                                <label htmlFor="lisatiedotInput" className={styles.label}>Lisätietoja:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
-                                <textarea name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={this.props.handleChange} value={this.props.lisatiedot}></textarea>  
+                                <textarea rows="4" name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={this.props.handleChange} value={this.props.lisatiedot}></textarea>  
                             </div>
                         </div>
                         <div className={"row form-group align-items-center " + styles.jasen}>
