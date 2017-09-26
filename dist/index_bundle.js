@@ -28226,13 +28226,12 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Footer__container___3W7XZ {\r\n\tbackground-color:#444444;\r\n\tmin-width:300px;\r\n}\r\n.Footer__content___3lIgs {\r\n\theight:70px;\r\n}\r\n.Footer__logo___QttvE {\r\n\tmin-width:200px;\r\n}\r\n.Footer__link___1gqai{\r\n\theight:30px;\r\n\twidth:30px;\r\n}", ""]);
+exports.push([module.i, ".Footer__container___3W7XZ {\r\n\tbackground-color:#444444;\r\n}\r\n.Footer__content___3lIgs {\r\n\theight:70px;\r\n\tmin-width:500px;\r\n}\r\n.Footer__link___1gqai{\r\n\theight:30px;\r\n\twidth:30px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
 	"container": "Footer__container___3W7XZ",
 	"content": "Footer__content___3lIgs",
-	"logo": "Footer__logo___QttvE",
 	"link": "Footer__link___1gqai"
 };
 
@@ -28291,7 +28290,7 @@ var Home = function (_Component) {
             { className: "col-sm-6 " + _Home2.default.slogan },
             _react2.default.createElement(
               'h1',
-              { className: _Home2.default.slogan },
+              { className: "hidden-xs " + _Home2.default.slogan },
               'HybridiSpeksin rekrytilaisuus',
               _react2.default.createElement('br', null),
               _react2.default.createElement(
@@ -28299,6 +28298,15 @@ var Home = function (_Component) {
                 { className: _Home2.default.date },
                 '26.9.'
               ),
+              _react2.default.createElement('br', null),
+              '@ARC 1, Arcanum'
+            ),
+            _react2.default.createElement(
+              'h1',
+              { className: 'hidden-md hidden-sm hidden-lg' },
+              'HybridiSpeksin rekrytilaisuus',
+              _react2.default.createElement('br', null),
+              '26.9.',
               _react2.default.createElement('br', null),
               '@ARC 1, Arcanum'
             )
@@ -28464,17 +28472,18 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Home__container___boLJW {\r\n    background-color: #121212;\r\n}\r\n.Home__content_home___301eN {\r\n\theight:calc(100vh - 40px);\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom black;\r\n}\r\n.Home__content_speksi___3nkf9 {\r\n\tbackground:url(\"/assets/images/mikaspeksi.jpg\") no-repeat fixed left bottom #d8d8d8;\r\n\tpadding:50px;\r\n}\r\n.Home__slogan___GgwJt {\r\n\tpadding:20px;\r\n\tfont-size:200%;\r\n\tcolor:white;\r\n}\r\n.Home__mainimage___1yp76 {\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom;\r\n\theight:100%;\r\n\twidth:100%;\r\n}\r\n.Home__date___3_0Pu {\r\n\tfont-size:200%;\r\n}\r\n.Home__speksi_desc___25C7u {\r\n\ttext-align:justify;\r\n}\r\n\r\n/*\r\n.carousel {\r\n\theight:calc(80vh - 60px);\r\n\tbackground: black;\r\n}\r\n.carousel_image {\r\n\theight:500px;\r\n\twidth:auto;\r\n\tmargin-left:auto;\r\n\tmargin-right:auto;\r\n}*/", ""]);
+exports.push([module.i, ".Home__container___boLJW {\r\n    background-color: #121212;\r\n}\r\n.Home__content_home___301eN {\r\n\theight:calc(100vh - 40px);\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom black;\r\n}\r\n.Home__content_speksi___3nkf9 {\r\n\tbackground:url(\"/assets/images/mikaspeksi.jpg\") no-repeat fixed left bottom #d8d8d8;\r\n\tbox-shadow: 5px 5px 5px;\r\n\tpadding:50px;\r\n}\r\n.Home__content_contact___10PgX {\r\n\theight:50vh;\r\n\tbackground:#d8d8d8;\r\n}\r\n.Home__slogan___GgwJt {\r\n\tpadding:20px;\r\n\tfont-size:200%;\r\n\tcolor:white;\r\n}\r\n.Home__date___3_0Pu {\r\n\tfont-size:200%;\r\n}\r\n\r\n.Home__speksi_desc___25C7u {\r\n\ttext-align:justify;\r\n}\r\n.Home__contact_box___3aWXh {\r\n\tpadding:20px;\r\n\theight:80%;\r\n\tborder:4px dashed darkgray;\r\n}\r\n\r\n@media screen \r\n  and (device-width: 320px) \r\n  and (-webkit-device-pixel-ratio: 2) \r\n  and (orientation: portrait) {\r\n\t.Home__slogan___GgwJt {\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.Home__date___3_0Pu {\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.Home__speksi_desc___25C7u {\r\n\t\ttext-align:left;\r\n\t}\r\n\t.Home__content_home___301eN {\r\n\t\tbackground-size:30%;\r\n\t}\r\n\t.Home__content_speksi___3nkf9 {\r\n\t\tbackground-size:30%;\r\n\t}\r\n\r\n}\r\n\r\n/*\r\n.mainimage {\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom;\r\n\theight:100%;\r\n\twidth:100%;\r\n}\r\n.carousel {\r\n\theight:calc(80vh - 60px);\r\n\tbackground: black;\r\n}\r\n.carousel_image {\r\n\theight:500px;\r\n\twidth:auto;\r\n\tmargin-left:auto;\r\n\tmargin-right:auto;\r\n}*/", ""]);
 
 // exports
 exports.locals = {
 	"container": "Home__container___boLJW",
 	"content_home": "Home__content_home___301eN",
 	"content_speksi": "Home__content_speksi___3nkf9",
+	"content_contact": "Home__content_contact___10PgX",
 	"slogan": "Home__slogan___GgwJt",
-	"mainimage": "Home__mainimage___1yp76",
 	"date": "Home__date___3_0Pu",
-	"speksi_desc": "Home__speksi_desc___25C7u"
+	"speksi_desc": "Home__speksi_desc___25C7u",
+	"contact_box": "Home__contact_box___3aWXh"
 };
 
 /***/ }),
@@ -28648,10 +28657,12 @@ var Rekry = function (_Component) {
             if (this.state.fname === "" || this.state.sname === "" || this.state.email === "" || this.state.pnumber === "" || this.state.tehtavat[0] === "" || this.state.jarjesto === "") {
                 this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
                 valid = false;
+                console.log("Perkele, tämä on virhe!");
             }
             if (!_Utils2.default.isValidEmail(this.state.email)) {
                 this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
                 valid = false;
+                console.log("Maili meni reisille");
             }
             return valid;
         }
@@ -28695,7 +28706,8 @@ var Rekry = function (_Component) {
                     kaikkiJarjestot: this.state.kaikkiJarjestot,
                     handleChange: this.handleChange,
                     handleSubmit: this.handleSubmit,
-                    handleTehtavaChange: this.handleTehtavaChange }) : _react2.default.createElement(_Kiitos2.default, null)
+                    handleTehtavaChange: this.handleTehtavaChange,
+                    messages: _react2.default.createElement(_Messages2.default, { messages: this.state.messages, warnings: this.state.warnings, errors: this.state.errors }) }) : _react2.default.createElement(_Kiitos2.default, null)
             );
         }
     }]);
@@ -29059,6 +29071,15 @@ var Rekry = function (_Component) {
                                         )
                                     )
                                 )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row justify-content-center' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-sm-7' },
+                                this.props.messages
                             )
                         )
                     )
