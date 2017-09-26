@@ -76,9 +76,9 @@ export default class App extends React.Component {
 
             <div id="admin-wrapper">
               <Switch>
-              {/* <LoginLayout path="/login" component={Login} />
+              <LoginLayout path="/login" component={Login} />
               <AdminLayout path="/admin" component={Admin} />
-              <AdminLayout path="/produktionhallinta" component={Produktio} />  */}
+              <AdminLayout path="/produktionhallinta" component={Produktio} /> 
               </Switch>
             </div>
           </div>
