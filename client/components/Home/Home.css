@@ -7,26 +7,59 @@
 }
 .content_speksi {
 	background:url("/assets/images/mikaspeksi.jpg") no-repeat fixed left bottom #d8d8d8;
+	box-shadow: 5px 5px 5px;
 	padding:50px;
+}
+.content_contact {
+	height:50vh;
+	background:#d8d8d8;
 }
 .slogan {
 	padding:20px;
 	font-size:200%;
 	color:white;
 }
+.date {
+	font-size:200%;
+}
+
+.speksi_desc {
+	text-align:justify;
+}
+.contact_box {
+	padding:20px;
+	height:80%;
+	border:4px dashed darkgray;
+}
+
+@media screen 
+  and (device-width: 320px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+	.slogan {
+		font-size:100%;
+	}
+	.date {
+		font-size:100%;
+	}
+	.speksi_desc {
+		text-align:left;
+	}
+	.content_home {
+		background-size:30%;
+	}
+	.content_speksi {
+		background-size:30%;
+	}
+
+}
+
+/*
 .mainimage {
 	background:url("/assets/images/carousel/3_ilmari2.jpg") no-repeat fixed right bottom;
 	height:100%;
 	width:100%;
 }
-.date {
-	font-size:200%;
-}
-.speksi_desc {
-	text-align:justify;
-}
-
-/*
 .carousel {
 	height:calc(80vh - 60px);
 	background: black;

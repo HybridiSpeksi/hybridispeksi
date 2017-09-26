@@ -122,10 +122,12 @@ class Rekry extends Component {
        ) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
             valid = false;
+            console.log("Perkele, tämä on virhe!");
         }
         if (!utils.isValidEmail(this.state.email)) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
+            console.log("Maili meni reisille");
         }
         return valid;
     }
@@ -165,8 +167,8 @@ class Rekry extends Component {
                     kaikkiJarjestot={this.state.kaikkiJarjestot}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
-                    handleTehtavaChange={this.handleTehtavaChange}/>
-            
+                    handleTehtavaChange={this.handleTehtavaChange}
+                    messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
             ) : (
                 <Kiitos/>
             )}

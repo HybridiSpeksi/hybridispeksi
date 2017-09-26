@@ -12,7 +12,8 @@ class Home extends Component {
             <div className={"container-fluid " + styles.container}>
             	<div className={"row align-items-end " + styles.content_home}>
             		<div className={"col-sm-6 " + styles.slogan}>
-                		<h1 className={styles.slogan}>HybridiSpeksin rekrytilaisuus<br/><span className={styles.date}>26.9.</span><br/>@ARC 1, Arcanum</h1>
+                		<h1 className={"hidden-xs " + styles.slogan}>HybridiSpeksin rekrytilaisuus<br/><span className={styles.date}>26.9.</span><br/>@ARC 1, Arcanum</h1>
+                        <h1 className="hidden-md hidden-sm hidden-lg">HybridiSpeksin rekrytilaisuus<br/>26.9.<br/>@ARC 1, Arcanum</h1>
                 	</div>
                 </div>
                 <div className={"row align-items-end " + styles.content_speksi}>
@@ -35,6 +36,13 @@ class Home extends Component {
                         </p>
                     </div>
                 </div>
+                {/*
+                <div className={"row align-items-center justify-content-center " + styles.content_contact}>
+                    <div className={"col-sm-8 " + styles.contact_box}>
+                        <h1>Yhteystiedot</h1>
+                    </div>
+                </div>
+                */}
             </div>
 
                     /*
