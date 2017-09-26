@@ -1,9 +1,9 @@
 .container {
 	background-color:#444444;
-	min-width:300px;
 }
 .content {
 	height:70px;
+	min-width:500px;
 }
 .link{
 	height:30px;
