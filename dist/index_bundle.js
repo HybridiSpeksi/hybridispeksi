@@ -24676,8 +24676,7 @@ var App = function (_React$Component) {
               'div',
               null,
               _react2.default.createElement(_Header2.default, null),
-              _react2.default.createElement(Component, { globalStyles: _App2.default }),
-              _react2.default.createElement(_Footer2.default, null)
+              _react2.default.createElement(Component, { globalStyles: _App2.default })
             );
           } }));
       };
@@ -28290,7 +28289,7 @@ var Home = function (_Component) {
             { className: "col-sm-6 " + _Home2.default.slogan },
             _react2.default.createElement(
               'h1',
-              { className: "hidden-xs " + _Home2.default.slogan },
+              { className: "d-none d-sm-block " + _Home2.default.slogan },
               'HybridiSpeksin rekrytilaisuus',
               _react2.default.createElement('br', null),
               _react2.default.createElement(
@@ -28303,7 +28302,7 @@ var Home = function (_Component) {
             ),
             _react2.default.createElement(
               'h1',
-              { className: 'hidden-md hidden-sm hidden-lg' },
+              { className: 'd-sm-none' },
               'HybridiSpeksin rekrytilaisuus',
               _react2.default.createElement('br', null),
               '26.9.',
@@ -28726,7 +28725,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Rekry__container___2wWoY {\r\n\t/*height:800px;*/\r\n\tbackground-color: #dbdbdb;\r\n}\r\n.Rekry__banner___yp1pe {\r\n\tbackground:url(/assets/images/rekry-banner.jpg) no-repeat black center;\r\n\theight:300px;\r\n\tbox-shadow: -1px 5px 5px\r\n}\r\n.Rekry__content___iGuKQ {\r\n    min-width:600px;\r\n    margin-top:-100px;\r\n}\r\n.Rekry__form_canvas___g9vcb {\r\n\tmargin-top:50px;\r\n\tmargin-bottom:100px;\r\n\tpadding:30px;\r\n\tpadding-top:20px;\r\n\tbackground-color:white;\r\n\tmin-width:600px;\r\n}\r\n.Rekry__tahti___2vpCW {\r\n\tcolor:red;\r\n\tfont-weight:bold;\r\n\tfont-size:110%;\r\n}\r\n.Rekry__kiitoskuva___VgFqD {\r\n\theight:500px;\r\n\twidth:500px;\r\n\tborder-radius:250px 250px 250px 250px;\r\n\tmargin:20px;\r\n}\r\n.Rekry__jasenradio___2I9Hv {\r\n\tmargin-left:20px;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".Rekry__container___2wWoY {\r\n\t/*height:800px;*/\r\n\tbackground-color: #dbdbdb;\r\n}\r\n.Rekry__banner___yp1pe {\r\n\tbackground:url(/assets/images/rekry-banner.jpg) no-repeat black center;\r\n\theight:300px;\r\n\tbox-shadow: -1px 5px 5px\r\n}\r\n.Rekry__content___iGuKQ {\r\n    /* min-width:600px; */\r\n    margin-top:-100px;\r\n}\r\n.Rekry__form_canvas___g9vcb {\r\n\tmargin-top:50px;\r\n\tmargin-bottom:100px;\r\n\tpadding:30px;\r\n\tpadding-top:20px;\r\n\tbackground-color:white;\r\n\t/* min-width:600px; */\r\n}\r\n.Rekry__tahti___2vpCW {\r\n\tcolor:red;\r\n\tfont-weight:bold;\r\n\tfont-size:110%;\r\n}\r\n.Rekry__kiitoskuva___VgFqD {\r\n\theight:500px;\r\n\twidth:500px;\r\n\tborder-radius:250px 250px 250px 250px;\r\n\tmargin:20px;\r\n}\r\n.Rekry__jasenradio___2I9Hv {\r\n\tmargin-left:20px;\r\n}\r\n\r\n\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -29061,6 +29060,11 @@ var Rekry = function (_Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: "col-sm-3" },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'btn btn-default', type: 'submit' },
+                                        'L\xE4het\xE4 hakemus'
+                                    ),
                                     _react2.default.createElement(
                                         'p',
                                         null,
