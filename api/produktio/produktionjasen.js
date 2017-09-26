@@ -21,14 +21,14 @@ function getById (req, res) {
 function newJasen (req, res) {
     let uusiJasen = req.body;
     let jasen = new Jasen({
-        fname: uusiJasen.fname,
-        sname: uusiJasen.sname,
-        email: uusiJasen.email,
-        pnumber: uusiJasen.pnumber,
-        tehtavat: uusiJasen.tehtavat,
-        jarjesto: uusiJasen.jarjesto,
-        lisatiedot: uusiJasen.lisatiedot,
-        hakeeJaseneksi: uusiJasen.jasenyys,
+        fname: req.body.fname,
+        sname: req.body.sname,
+        email: req.body.email,
+        pnumber: req.body.pnumber,
+        tehtavat: req.body.tehtavat,
+        jarjesto: req.body.jarjesto,
+        lisatiedot: req.body.lisatiedot,
+        hakeeJaseneksi: req.body.jasenyys,
         vuosi: '2018'
     })
     jasen.save()
