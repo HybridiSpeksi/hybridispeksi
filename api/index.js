@@ -14,6 +14,7 @@ router.get('/', index.test);
 // Ohjaustiedot
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);
 router.get('/jarjestot', ohjaustiedot.haeJarjestot);
+router.get('/rekryAuki', ohjaustiedot.haeRekryAuki);
 
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);

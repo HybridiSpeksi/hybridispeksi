@@ -4,6 +4,8 @@ import styles from './Rekry.css';
 
 class Rekry extends Component {
     render() {
+        // console.log("rekryauki:")
+        // console.log(this.props.rekryAuki)
         let tehtavatOptions = this.props.kaikkiTehtavat.map((tehtava, i) => {
             if( tehtava.value !== "hallitus" ) {
                 return (
@@ -137,8 +139,7 @@ class Rekry extends Component {
 
                         <div className={"row form-group align-items-center justify-content-sm-center " + styles.submit}>
                             <div className={"col-sm-3"}>
-                                {/*<button className="btn btn-default" type="submit">Lähetä hakemus</button>*/}
-                                <p><i>Rekry ei ole vielä auki!</i></p>
+                                {this.props.rekryAuki ? <button className="btn btn-default" type="submit">Lähetä hakemus</button> : <p><i>Rekry ei ole vielä auki!</i></p>}
                             </div>
                         </div>
 
