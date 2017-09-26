@@ -32,24 +32,12 @@
 	border:4px dashed darkgray;
 }
 
-@media screen 
-  and (device-width: 320px) 
-  and (-webkit-device-pixel-ratio: 2) 
-  and (orientation: portrait) {
-	.slogan {
-		font-size:100%;
-	}
-	.date {
-		font-size:100%;
-	}
-	.speksi_desc {
-		text-align:left;
-	}
+@media (max-width:400px){
 	.content_home {
-		background-size:30%;
+		background:url("/assets/images/frontbg_mobile.jpg") no-repeat fixed center top black;
 	}
 	.content_speksi {
-		background-size:30%;
+		background-image:none;
 	}
 
 }
