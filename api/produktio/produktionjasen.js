@@ -20,6 +20,7 @@ function getById (req, res) {
 
 function newJasen (req, res) {
     let uusiJasen = req.body;
+    console.log(req.body)
     let jasen = new Jasen({
         fname: req.body.fname,
         sname: req.body.sname,
