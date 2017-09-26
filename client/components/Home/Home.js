@@ -12,8 +12,8 @@ class Home extends Component {
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-end " + styles.content_home}>
           <div className={"col-sm-6 " + styles.slogan}>
-            <h1 className={"d-none d-sm-block " + styles.slogan}>ASDFASDFHybridiSpeksin rekrytilaisuus<br /><span className={styles.date}>26.9.</span><br />@ARC 1, Arcanum</h1>
-            <h1 className="d-sm-none">HybridiSpeksin rekrytilaisuusDGSBSDGB<br />26.9.<br />@ARC 1, Arcanum</h1>
+            <h1 className={"d-none d-sm-block " + styles.slogan}>HybridiSpeksin rekrytilaisuus<br /><span className={styles.date}>26.9.</span><br />@ARC 1, Arcanum</h1>
+            <h1 className="d-sm-none">HybridiSpeksin rekrytilaisuus<br />26.9.<br />@ARC 1, Arcanum</h1>
           </div>
         </div>
         <div className={"row align-items-end " + styles.content_speksi}>
