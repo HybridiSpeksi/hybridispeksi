@@ -25,10 +25,9 @@
 	font-size:110%;
 }
 .kiitoskuva {
-	height:500px;
-	width:500px;
-	border-radius:250px 250px 250px 250px;
-	margin:20px;
+	border-radius:50% 50% 50% 50%;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 .jasenradio {
 	margin-left:20px;

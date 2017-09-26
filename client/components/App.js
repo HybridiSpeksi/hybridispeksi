@@ -34,7 +34,7 @@ export default class App extends React.Component {
           <div>
             <Header />
             <Component globalStyles={globalStyles} />
-            {/* <Footer /> */}
+            <Footer />
           </div>
         )} />
       )
