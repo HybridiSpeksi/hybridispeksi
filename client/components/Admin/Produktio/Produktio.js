@@ -7,6 +7,7 @@ import utils from '../../Utils/Utils'
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
+import Haku from './Haku';
 
 import css from './Produktionjasenet.css';
 
@@ -104,7 +105,7 @@ class Produktio extends Component {
                             )}
                     </div>
                     <div className="col">
-                        <h3>Haku</h3>
+                        <Haku />
                         <Jasentiedot
                             jasen={this.state.valittuJasen}
                             valitseJasen={this.valitseJasen}

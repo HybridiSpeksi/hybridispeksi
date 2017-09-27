@@ -34,6 +34,7 @@ class Jasentiedot extends Component {
                             placeholder="Sähköposti"
                             id="email-input"
                             autofocus="false"
+                            label=""
                             />
                     </div>
                     <div className="col-sm-6">
