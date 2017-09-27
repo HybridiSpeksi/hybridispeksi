@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import auth from '../../Utils/Auth';
 import ajax from '../../Utils/Ajax';
 import Messages from '../../Utils/Messages';
+import utils from '../../Utils/Utils'
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
@@ -21,9 +22,12 @@ class Produktio extends Component {
             ajaxReady: false,
 
             produktionjasenet: [],
-            valittuJasen: {}
+            valittuJasen: {
+                fname: ""
+            }
         }
         this.valitseJasen = this.valitseJasen.bind(this);
+        this.handleJasenChange = this.handleJasenChange.bind(this);
     }
 
     componentWillMount() {
@@ -44,6 +48,20 @@ class Produktio extends Component {
 
     valitseJasen(jasen) {
         this.setState({valittuJasen: jasen});
+    }
+
+    handleJasenChange(e) {
+        let jasen = this.state.valittuJasen;
+        // jasen[e.target.name] = e.target.value;
+
+        // this.setState({ warnings: [] })
+        let value = e.target.value;
+
+        console.log(e.target);
+        // Check if numeric value and parse
+        value = utils.parseNumberIfNumber(value);
+
+        this.setState({ [e.target.name]: value });
     }
 
     render() {
@@ -69,7 +87,8 @@ class Produktio extends Component {
                         <h3>Haku</h3>
                         <Jasentiedot 
                             jasen={this.state.valittuJasen}
-                            valitseJasen={this.valitseJasen} />
+                            valitseJasen={this.valitseJasen}
+                            handleChange={this.handleJasenChange} />
                     </div>
                 </div>
 
