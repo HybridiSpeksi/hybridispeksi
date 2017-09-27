@@ -32,7 +32,8 @@ class Rekry extends Component {
             errors: [],
             authState: 0,
             kaikkiTehtavat: [],
-            kaikkiJarjestot: []  
+            kaikkiJarjestot: [] ,
+            rekryAuki: false 
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -54,6 +55,11 @@ class Rekry extends Component {
         })
         .catch(err => {
             console.log(err)
+        })
+        ajax.sendGet('/rekryAuki')
+        .then(tag => {
+            console.log(tag.data[0])
+            this.setState({rekryAuki: tag.data[0].truefalse})
         })
     }
 
@@ -164,6 +170,7 @@ class Rekry extends Component {
             <div>
             {this.state.authState === 0 ? (
                 <Rekryform
+                    rekryAuki={this.state.rekryAuki}
                     fname={this.state.fname}
                     sname={this.state.sname}
                     email={this.state.email}
@@ -177,7 +184,8 @@ class Rekry extends Component {
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
                     handleTehtavaChange={this.handleTehtavaChange}
-                    messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
+                    messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors}
+                     />} />
             ) : (
                 <Kiitos/>
             )}

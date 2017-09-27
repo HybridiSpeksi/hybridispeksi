@@ -69,7 +69,7 @@ class Produktio extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col">
-                        <h1>Produktion jäsenten hallinta</h1>
+                        <h1>Produktion jäsenten hallinta <small>{this.state.produktionjasenet.length} hlö</small></h1>
                     </div>
                 </div>
 

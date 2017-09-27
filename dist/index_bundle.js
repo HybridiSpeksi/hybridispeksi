@@ -24676,7 +24676,8 @@ var App = function (_React$Component) {
               'div',
               null,
               _react2.default.createElement(_Header2.default, null),
-              _react2.default.createElement(Component, { globalStyles: _App2.default })
+              _react2.default.createElement(Component, { globalStyles: _App2.default }),
+              _react2.default.createElement(_Footer2.default, null)
             );
           } }));
       };
@@ -28156,7 +28157,7 @@ var Footer = function (_Component) {
                     { className: "row justify-content-center align-items-center " + _Footer2.default.content },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-sm-1' },
+                        { className: 'col-sm-1 col-2' },
                         _react2.default.createElement(
                             'a',
                             { href: 'https://www.facebook.com/HybridiSpeksi/' },
@@ -28165,7 +28166,7 @@ var Footer = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-sm-1' },
+                        { className: 'col-sm-1 col-2' },
                         _react2.default.createElement(
                             'a',
                             { href: 'https://www.instagram.com/hybridispeksi/' },
@@ -28174,7 +28175,7 @@ var Footer = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-sm-1' },
+                        { className: 'col-sm-1 col-2' },
                         _react2.default.createElement(
                             'a',
                             { href: 'https://www.youtube.com/channel/UCVkhBQHSqKtwC5X7qXe6HSg' },
@@ -28231,7 +28232,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Footer__container___3W7XZ {\r\n\tbackground-color:#444444;\r\n}\r\n.Footer__content___3lIgs {\r\n\theight:70px;\r\n\tmin-width:500px;\r\n}\r\n.Footer__link___1gqai{\r\n\theight:30px;\r\n\twidth:30px;\r\n}\r\n", ""]);
+exports.push([module.i, ".Footer__container___3W7XZ {\r\n\tbackground-color:#444444;\r\n}\r\n.Footer__content___3lIgs {\r\n\theight:70px;\r\n}\r\n.Footer__link___1gqai{\r\n\theight:30px;\r\n\twidth:30px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -28477,7 +28478,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Home__container___boLJW {\r\n    background-color: #121212;\r\n}\r\n.Home__content_home___301eN {\r\n\theight:calc(100vh - 40px);\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom black;\r\n}\r\n.Home__content_speksi___3nkf9 {\r\n\tbackground:url(\"/assets/images/mikaspeksi.jpg\") no-repeat fixed left bottom #d8d8d8;\r\n\tbox-shadow: 5px 5px 5px;\r\n\tpadding:50px;\r\n}\r\n.Home__content_contact___10PgX {\r\n\theight:50vh;\r\n\tbackground:#d8d8d8;\r\n}\r\n.Home__slogan___GgwJt {\r\n\tpadding:20px;\r\n\tfont-size:200%;\r\n\tcolor:white;\r\n}\r\n.Home__date___3_0Pu {\r\n\tfont-size:200%;\r\n}\r\n\r\n.Home__speksi_desc___25C7u {\r\n\ttext-align:justify;\r\n}\r\n.Home__contact_box___3aWXh {\r\n\tpadding:20px;\r\n\theight:80%;\r\n\tborder:4px dashed darkgray;\r\n}\r\n\r\n@media screen \r\n  and (device-width: 320px) \r\n  and (-webkit-device-pixel-ratio: 2) \r\n  and (orientation: portrait) {\r\n\t.Home__slogan___GgwJt {\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.Home__date___3_0Pu {\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.Home__speksi_desc___25C7u {\r\n\t\ttext-align:left;\r\n\t}\r\n\t.Home__content_home___301eN {\r\n\t\tbackground-size:30%;\r\n\t}\r\n\t.Home__content_speksi___3nkf9 {\r\n\t\tbackground-size:30%;\r\n\t}\r\n\r\n}\r\n\r\n/*\r\n.mainimage {\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom;\r\n\theight:100%;\r\n\twidth:100%;\r\n}\r\n.carousel {\r\n\theight:calc(80vh - 60px);\r\n\tbackground: black;\r\n}\r\n.carousel_image {\r\n\theight:500px;\r\n\twidth:auto;\r\n\tmargin-left:auto;\r\n\tmargin-right:auto;\r\n}*/", ""]);
+exports.push([module.i, ".Home__container___boLJW {\r\n    background-color: #121212;\r\n}\r\n.Home__content_home___301eN {\r\n\theight:calc(100vh - 40px);\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom black;\r\n}\r\n.Home__content_speksi___3nkf9 {\r\n\tbackground:url(\"/assets/images/mikaspeksi.jpg\") no-repeat fixed left bottom #d8d8d8;\r\n\tbox-shadow: 5px 5px 5px;\r\n\tpadding:50px;\r\n}\r\n.Home__content_contact___10PgX {\r\n\theight:50vh;\r\n\tbackground:#d8d8d8;\r\n}\r\n.Home__slogan___GgwJt {\r\n\tpadding:20px;\r\n\tfont-size:200%;\r\n\tcolor:white;\r\n}\r\n.Home__date___3_0Pu {\r\n\tfont-size:200%;\r\n}\r\n\r\n.Home__speksi_desc___25C7u {\r\n\ttext-align:justify;\r\n}\r\n.Home__contact_box___3aWXh {\r\n\tpadding:20px;\r\n\theight:80%;\r\n\tborder:4px dashed darkgray;\r\n}\r\n\r\n@media (max-width:500px){\r\n\t.Home__content_home___301eN {\r\n\t\tbackground:url(\"/assets/images/frontbg_mobile.jpg\") no-repeat fixed center top black;\r\n\t}\r\n\t.Home__content_speksi___3nkf9 {\r\n\t\tbackground-image:none;\r\n\t\tpadding:12px;\r\n\t\tpadding-top:20px;\r\n\t}\r\n\t.Home__speksi_desc___25C7u {\r\n\t\ttext-align:left;\r\n\t}\r\n\r\n}\r\n\r\n/*\r\n.mainimage {\r\n\tbackground:url(\"/assets/images/carousel/3_ilmari2.jpg\") no-repeat fixed right bottom;\r\n\theight:100%;\r\n\twidth:100%;\r\n}\r\n.carousel {\r\n\theight:calc(80vh - 60px);\r\n\tbackground: black;\r\n}\r\n.carousel_image {\r\n\theight:500px;\r\n\twidth:auto;\r\n\tmargin-left:auto;\r\n\tmargin-right:auto;\r\n}*/", ""]);
 
 // exports
 exports.locals = {
@@ -28570,7 +28571,8 @@ var Rekry = function (_Component) {
             errors: [],
             authState: 0,
             kaikkiTehtavat: [],
-            kaikkiJarjestot: []
+            kaikkiJarjestot: [],
+            rekryAuki: false
         };
 
         _this.handleChange = _this.handleChange.bind(_this);
@@ -28594,6 +28596,10 @@ var Rekry = function (_Component) {
             }).catch(function (err) {
                 console.log(err);
             });
+            _Ajax2.default.sendGet('/rekryAuki').then(function (tag) {
+                console.log(tag.data[0]);
+                _this2.setState({ rekryAuki: tag.data[0].truefalse });
+            });
         }
 
         // Handle all input events
@@ -28604,6 +28610,11 @@ var Rekry = function (_Component) {
             var value = e.target.value;
 
             this.setState(_defineProperty({}, e.target.name, value));
+            this.setState({
+                messages: [],
+                warnings: [],
+                errors: []
+            });
         }
     }, {
         key: 'handleTehtavaChange',
@@ -28619,6 +28630,11 @@ var Rekry = function (_Component) {
             }
 
             this.setState({ tehtavat: uusiTehtavat });
+            this.setState({
+                messages: [],
+                warnings: [],
+                errors: []
+            });
         }
 
         // Submit form
@@ -28659,15 +28675,13 @@ var Rekry = function (_Component) {
         key: 'validateRekry',
         value: function validateRekry() {
             var valid = true;
-            if (this.state.fname === "" || this.state.sname === "" || this.state.email === "" || this.state.pnumber === "" || this.state.tehtavat[0] === "" || this.state.jarjesto === "") {
+            if (this.state.fname === "" || this.state.sname === "" || this.state.email === "" || this.state.pnumber === "" || this.state.tehtavat[0] === "" || this.state.jarjesto === "" || this.state.lisatiedot === "") {
                 this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
                 valid = false;
-                console.log("Perkele, tämä on virhe!");
             }
             if (!_Utils2.default.isValidEmail(this.state.email)) {
                 this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
                 valid = false;
-                console.log("Maili meni reisille");
             }
             return valid;
         }
@@ -28699,6 +28713,7 @@ var Rekry = function (_Component) {
                 'div',
                 null,
                 this.state.authState === 0 ? _react2.default.createElement(_Rekryform2.default, {
+                    rekryAuki: this.state.rekryAuki,
                     fname: this.state.fname,
                     sname: this.state.sname,
                     email: this.state.email,
@@ -28712,7 +28727,8 @@ var Rekry = function (_Component) {
                     handleChange: this.handleChange,
                     handleSubmit: this.handleSubmit,
                     handleTehtavaChange: this.handleTehtavaChange,
-                    messages: _react2.default.createElement(_Messages2.default, { messages: this.state.messages, warnings: this.state.warnings, errors: this.state.errors }) }) : _react2.default.createElement(_Kiitos2.default, null)
+                    messages: _react2.default.createElement(_Messages2.default, { messages: this.state.messages, warnings: this.state.warnings, errors: this.state.errors
+                    }) }) : _react2.default.createElement(_Kiitos2.default, null)
             );
         }
     }]);
@@ -28731,7 +28747,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".Rekry__container___2wWoY {\r\n\t/*height:800px;*/\r\n\tbackground-color: #dbdbdb;\r\n}\r\n.Rekry__banner___yp1pe {\r\n\tbackground:url(/assets/images/rekry-banner.jpg) no-repeat black center;\r\n\theight:300px;\r\n\tbox-shadow: -1px 5px 5px\r\n}\r\n.Rekry__content___iGuKQ {\r\n    /* min-width:600px; */\r\n    margin-top:-100px;\r\n}\r\n.Rekry__form_canvas___g9vcb {\r\n\tmargin-top:50px;\r\n\tmargin-bottom:100px;\r\n\tpadding:30px;\r\n\tpadding-top:20px;\r\n\tbackground-color:white;\r\n\t/* min-width:600px; */\r\n}\r\n.Rekry__tahti___2vpCW {\r\n\tcolor:red;\r\n\tfont-weight:bold;\r\n\tfont-size:110%;\r\n}\r\n.Rekry__kiitoskuva___VgFqD {\r\n\theight:500px;\r\n\twidth:500px;\r\n\tborder-radius:250px 250px 250px 250px;\r\n\tmargin:20px;\r\n}\r\n.Rekry__jasenradio___2I9Hv {\r\n\tmargin-left:20px;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".Rekry__container___2wWoY {\r\n\t/*height:800px;*/\r\n\tbackground-color: #dbdbdb;\r\n}\r\n.Rekry__banner___yp1pe {\r\n\tbackground:url(/assets/images/rekry-banner.jpg) no-repeat black center;\r\n\theight:300px;\r\n\tbox-shadow: -1px 5px 5px\r\n}\r\n.Rekry__content___iGuKQ {\r\n    /* min-width:600px; */\r\n    margin-top:-100px;\r\n}\r\n.Rekry__form_canvas___g9vcb {\r\n\tmargin-top:50px;\r\n\tmargin-bottom:100px;\r\n\tpadding:30px;\r\n\tpadding-top:20px;\r\n\tbackground-color:white;\r\n\t/* min-width:600px; */\r\n}\r\n.Rekry__tahti___2vpCW {\r\n\tcolor:red;\r\n\tfont-weight:bold;\r\n\tfont-size:110%;\r\n}\r\n.Rekry__kiitoskuva___VgFqD {\r\n\tborder-radius:50% 50% 50% 50%;\r\n\tmargin-top:20px;\r\n\tmargin-bottom:20px;\r\n}\r\n.Rekry__jasenradio___2I9Hv {\r\n\tmargin-left:20px;\r\n}\r\n\r\n\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -28785,6 +28801,8 @@ var Rekry = function (_Component) {
     _createClass(Rekry, [{
         key: 'render',
         value: function render() {
+            // console.log("rekryauki:")
+            // console.log(this.props.rekryAuki)
             var tehtavatOptions = this.props.kaikkiTehtavat.map(function (tehtava, i) {
                 if (tehtava.value !== "hallitus") {
                     return _react2.default.createElement(
@@ -28821,7 +28839,7 @@ var Rekry = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'T\xE4yt\xE4 tietosi allaoleviin kenttiin. T\xE4hdell\xE4 merkityt kent\xE4t ovat pakollisia. Haettaviin teht\xE4viin pit\xE4\xE4 t\xE4ytt\xE4\xE4 v\xE4hint\xE4\xE4n ensisijainen hakutoive. Lis\xE4tietoja-kentt\xE4\xE4n voit t\xE4ytt\xE4\xE4 omia taustojasi, jotka tukevat hakutoiveitasi.'
+                            'T\xE4yt\xE4 tietosi allaoleviin kenttiin. T\xE4hdell\xE4 merkityt kent\xE4t ovat pakollisia. Haettaviin teht\xE4viin pit\xE4\xE4 t\xE4ytt\xE4\xE4 v\xE4hint\xE4\xE4n ensisijainen hakutoive. Lis\xE4tietoja-kentt\xE4\xE4n tulee t\xE4ytt\xE4\xE4 omia taustojasi, jotka tukevat hakutoiveitasi.'
                         ),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
@@ -29030,13 +29048,18 @@ var Rekry = function (_Component) {
                                     _react2.default.createElement(
                                         'label',
                                         { htmlFor: 'lisatiedotInput', className: _Rekry2.default.label },
-                                        'Lis\xE4tietoja:'
+                                        'Lis\xE4tietoja:',
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: _Rekry2.default.tahti },
+                                            '*'
+                                        )
                                     )
                                 ),
                                 _react2.default.createElement(
                                     'div',
                                     { className: "col" },
-                                    _react2.default.createElement('textarea', { name: 'lisatiedot', id: 'lisatiedotInput', className: 'form-control', onChange: this.props.handleChange, value: this.props.lisatiedot })
+                                    _react2.default.createElement('textarea', { rows: '4', name: 'lisatiedot', id: 'lisatiedotInput', className: 'form-control', onChange: this.props.handleChange, value: this.props.lisatiedot })
                                 )
                             ),
                             _react2.default.createElement(
@@ -29062,16 +29085,28 @@ var Rekry = function (_Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        'Mik\xE4li haet yhdistyksen j\xE4seneksi, kirjoita lis\xE4tietoihin oma verotuskuntasi ja Etunimi -kentt\xE4\xE4n kaikki etunimet.'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
                                 { className: "row form-group align-items-center justify-content-sm-center " + _Rekry2.default.submit },
                                 _react2.default.createElement(
                                     'div',
                                     { className: "col-sm-3" },
-                                    _react2.default.createElement(
+                                    this.props.rekryAuki ? _react2.default.createElement(
                                         'button',
                                         { className: 'btn btn-default', type: 'submit' },
                                         'L\xE4het\xE4 hakemus'
-                                    ),
-                                    _react2.default.createElement(
+                                    ) : _react2.default.createElement(
                                         'p',
                                         null,
                                         _react2.default.createElement(
@@ -29156,8 +29191,8 @@ var Kiitos = function (_Component) {
                     { className: "row justify-content-sm-center " + _Rekry2.default.content },
                     _react2.default.createElement(
                         'div',
-                        { className: "col-sm-6 text-center " + _Rekry2.default.form_canvas },
-                        _react2.default.createElement('img', { src: 'assets/images/rekrykiitos.jpg', className: _Rekry2.default.kiitoskuva }),
+                        { className: "col-sm-6 text-center justify-content-center " + _Rekry2.default.form_canvas },
+                        _react2.default.createElement('img', { src: 'assets/images/rekrykiitos.jpg', className: "img-fluid " + _Rekry2.default.kiitoskuva }),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'h1',
@@ -29577,7 +29612,13 @@ var Produktio = function (_Component) {
                         _react2.default.createElement(
                             'h1',
                             null,
-                            'Produktion j\xE4senten hallinta'
+                            'Produktion j\xE4senten hallinta ',
+                            _react2.default.createElement(
+                                'small',
+                                null,
+                                this.state.produktionjasenet.length,
+                                ' hl\xF6'
+                            )
                         )
                     )
                 ),
