@@ -42,6 +42,6 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname + '/dist/index.html'));
     })
 }
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), 'localhost', function () {
     console.log('Node App Started on port ' + app.get('port'));
 });

@@ -21,9 +21,15 @@ class Produktio extends Component {
 
             ajaxReady: false,
 
+            tehtavat: [],
             produktionjasenet: [],
             valittuJasen: {
-                fname: ""
+                fname: "",
+                sname: "",
+                email: "",
+                pnumber: "",
+                tehtavat: [],
+                tuotannonMuistiinpanot: ""
             }
         }
         this.valitseJasen = this.valitseJasen.bind(this);
@@ -37,31 +43,45 @@ class Produktio extends Component {
     componentDidMount() {
         ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
-                this.setState({produktionjasenet: jasenet});
-                this.setState({ajaxReady: true});
+                this.setState({ produktionjasenet: jasenet });
+                this.setState({ ajaxReady: true });
             })
             .catch(err => {
                 console.log(err);
-                this.setState({errors: [{header: "Palvelinvirhe!", text: "Virhe haettaessa produktionjäseniä palvelimelta"}]})
+                this.setState({ errors: [{ header: "Palvelinvirhe!", text: "Virhe haettaessa produktionjäseniä palvelimelta" }] })
+            })
+        ajax.sendGet('/tehtavat')
+            .then(t => {
+                console.log(t)
+                this.setState({ tehtavat: t.data })
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 
     valitseJasen(jasen) {
-        this.setState({valittuJasen: jasen});
+        if (!jasen) {
+            jasen = {
+                email: "",
+                pnumber: "",
+                tehtavat: [""]
+            }
+        }
+        this.setState({ valittuJasen: jasen });
     }
 
     handleJasenChange(e) {
         let jasen = this.state.valittuJasen;
-        // jasen[e.target.name] = e.target.value;
-
-        // this.setState({ warnings: [] })
-        let value = e.target.value;
-
-        console.log(e.target);
-        // Check if numeric value and parse
-        value = utils.parseNumberIfNumber(value);
-
-        this.setState({ [e.target.name]: value });
+        if (e.target.name === "tehtavat") {
+            let idNumber = utils.parseNumberIfNumber(e.target.id)
+            console.log(idNumber)
+            jasen.tehtavat[idNumber] = e.target.value;
+        } else {
+            jasen[e.target.name] = e.target.value;
+        }
+        console.log(jasen)
+        this.setState({ valittuJasen: jasen })
     }
 
     render() {
@@ -76,19 +96,20 @@ class Produktio extends Component {
                 <div className="row">
                     <div className="col-sm-7 col-xs-12">
                         {this.state.ajaxReady ? (
-                            <ProduktionjasenLista 
+                            <ProduktionjasenLista
                                 jasenet={this.state.produktionjasenet}
                                 valitseJasen={this.valitseJasen} />
                         ) : (
-                            <div><h4>Ladataan...</h4></div>
-                        )}
+                                <div><h4>Ladataan...</h4></div>
+                            )}
                     </div>
                     <div className="col">
                         <h3>Haku</h3>
-                        <Jasentiedot 
+                        <Jasentiedot
                             jasen={this.state.valittuJasen}
                             valitseJasen={this.valitseJasen}
-                            handleChange={this.handleJasenChange} />
+                            handleChange={this.handleJasenChange}
+                            tehtavat={this.state.tehtavat} />
                     </div>
                 </div>
 

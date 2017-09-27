@@ -1,49 +1,66 @@
 import React, { Component } from 'react'
 
 class Text extends Component {
-    render () {
+    render() {
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label}</label>
-                <input 
-                    type={this.props.type} 
+                <input
+                    type={this.props.type}
                     autoFocus={this.props.autoFocus}
                     name={this.props.name}
                     onChange={this.props.onChange}
                     value={this.props.value}
                     className="form-control"
                     placeholder={this.props.placeholder}
-                    id={this.props.id}/>
+                    id={this.props.id} />
             </div>
         )
     }
 }
 
 class Dropdown extends Component {
-    render () {
+    render() {
+        if(!this.props.options) {
+            this.props.otions = []
+        }
+        let options = this.props.options.map((opt, i) => {
+            return (
+                <option key={i} value={opt.value}>{opt.name}</option>
+            )
+        })
         return (
-            <div>
-                
+            <div className="form-group">
+                <label htmlFor={this.props.id}>{this.props.label}</label>
+                <select
+                    name={this.props.name}
+                    onChange={this.props.onChange}
+                    value={this.props.selected}
+                    className="form-control"
+                    id={this.props.id}
+                    >
+                    {options}
+                </select>
             </div>
         )
     }
 }
 
 class Radio extends Component {
-    render () {
+    render() {
         return (
             <div>
-                
+
             </div>
         )
     }
 }
 
 class Checkbox extends Component {
-    render () {
+    render() {
         return (
             <div>
-                
+
             </div>
         )
     }
