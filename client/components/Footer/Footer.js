@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 import styles from './Footer.css';
 
 class Footer extends Component {
+	addEmail(){
+		return (
+			<a href="mailto:hallitus@hybridispeksi.fi" className="navbar-brand">hallitus@hybridispeksi.fi</a>
+		)
+	}
+
     render () {
         return (
             <div className={"container-fluid " + styles.container}>
                 <div className={"row justify-content-center align-items-center " + styles.content}>
                     <div className="col-md-2 col-sm-12 col-12 text-center">
                 		<nav className="navbar navbar-inverse">
-                			<a className="navbar-brand" href="/">HybridiSpeksi</a>
+                			<Link className="navbar-brand" to="/">HybridiSpeksi</Link>
                 		</nav>
                 	</div>
                 	<div className="col-md-1 col-sm-2 col-2 text-center">
@@ -23,7 +30,7 @@ class Footer extends Component {
                 	</div>
                 	<div className="col-md-2 col-sm-12 col-12 text-center">
                 		<nav className="navbar navbar-inverse">
-                			<span className="navbar-brand">hallitus[ät]hybridispeksi.fi</span>
+                			{this.addEmail()}
                 		</nav>
                 	</div>
                 </div>
