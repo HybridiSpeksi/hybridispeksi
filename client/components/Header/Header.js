@@ -14,7 +14,7 @@ class Header extends Component {
 				<Link className="navbar-brand" to="/">HybridiSpeksi</Link>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav">
-						<li className="nav-item">
+						{/* <li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/esitykset">Esitykset</Link>
 							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="/esitykset">Esitykset</Link>
 							
@@ -30,7 +30,7 @@ class Header extends Component {
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="#">Yhdistys</Link>
 							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="#">Yhdistys</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 

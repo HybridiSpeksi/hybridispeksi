@@ -72,9 +72,9 @@ export default class App extends React.Component {
             <div id="public-wrapper">
               <Switch >
               <PublicLayout exact path="/" component={Home} />
-              <PublicLayout exact path="/rekry" component={Rekry} />
+              {/* <PublicLayout exact path="/rekry" component={Rekry} />
               <PublicLayout exact path="/speksit" component={Speksit} />
-              <PublicLayout exact path="/esitykset" component={Esitykset} />
+              <PublicLayout exact path="/esitykset" component={Esitykset} /> */}
               </Switch>
             </div>
 
