@@ -8,6 +8,7 @@ import utils from '../../Utils/Utils'
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
 import Haku from './Haku';
+import Sahkopostit from './Sahkopostit';
 
 import css from './Produktionjasenet.css';
 
@@ -21,6 +22,7 @@ class Produktio extends Component {
             errors: [],
 
             ajaxReady: false,
+            naytaSahkopostit: false,
 
             tehtavat: [],
             produktionjasenet: [],
@@ -44,6 +46,7 @@ class Produktio extends Component {
         this.valitseJasen = this.valitseJasen.bind(this);
         this.handleJasenChange = this.handleJasenChange.bind(this);
         this.handleHaku = this.handleHaku.bind(this);
+        this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
     }
 
     componentWillMount() {
@@ -54,7 +57,7 @@ class Produktio extends Component {
         ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
                 this.setState({ produktionjasenet: jasenet });
-                this.setState({ produktionjasenetFilteded: jasenet })
+                this.setState({ produktionjasenetFiltered: jasenet })
                 this.setState({ ajaxReady: true });
             })
             .catch(err => {
@@ -117,9 +120,11 @@ class Produktio extends Component {
                 return bool;
             })
         }
-        console.log(filtered)
-        console.log(this.state.produktionjasenet)
-        this.setState({ produktionjasenetFilteded: filtered });
+        this.setState({ produktionjasenetFiltered: filtered });
+    }
+
+    toggleSahkopostit() {
+        this.setState({naytaSahkopostit: !this.state.naytaSahkopostit})
     }
 
     handleJasenChange(e) {
@@ -148,7 +153,7 @@ class Produktio extends Component {
                     <div className="col-sm-7 col-xs-12">
                         {this.state.ajaxReady ? (
                             <ProduktionjasenLista
-                                jasenet={this.state.produktionjasenetFilteded}
+                                jasenet={this.state.produktionjasenetFiltered}
                                 valitseJasen={this.valitseJasen} />
                         ) : (
                                 <div><h4>Ladataan...</h4></div>
@@ -165,6 +170,17 @@ class Produktio extends Component {
                                 handleChange={this.handleJasenChange}
                                 tehtavat={this.state.tehtavat} />
                         ) : ("")}
+
+                        {this.state.naytaSahkopostit ? (
+                            <Sahkopostit 
+                                jasenet={this.state.produktionjasenetFiltered}
+                                toggleSahkopostit={this.toggleSahkopostit} />
+                                
+                        ): (
+                            <button 
+                                className="btn btn-default"
+                                onClick={this.toggleSahkopostit}>Näytä sähköpostit</button>
+                        )}
 
                     </div>
                 </div>

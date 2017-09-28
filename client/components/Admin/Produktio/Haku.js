@@ -15,8 +15,9 @@ class Haku extends Component {
                     value={this.props.haku.pikahaku}
                     placeholder="Pikahaku"
                     id="pikahaku-input"
+                    label=""
                     />
-                    
+                    <p>Hae nimellä, sähköpostilla tai tehtävällä. Kirjoita tehtävä kokonaan. Vain yksi hakutermi.</p>
                 </div>
             </div>
         )
