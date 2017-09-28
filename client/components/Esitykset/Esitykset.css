@@ -1,0 +1,16 @@
+.container {
+	background:lightgray;
+}
+.content {
+	height:calc(100vh - 50px);
+}
+.content_row {
+	background-color:   rgba(255, 255, 255, 0.4);
+}
+.esitykset_desc {
+	padding:20px;
+	opacity:1!important;
+}
+/*div {
+	border:1px solid red;
+}*/
