@@ -8,5 +8,8 @@
 }
 
 .jasentiedotlaatikko {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 5px;
     background-color: #E4E4E4;
 }

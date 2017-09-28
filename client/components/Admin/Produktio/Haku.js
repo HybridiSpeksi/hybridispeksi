@@ -11,8 +11,8 @@ class Haku extends Component {
                     type="text"
                     autoFocus="false"
                     name="pikahaku"
-                    onChange=""
-                    value=""
+                    onChange={this.props.handleChange}
+                    value={this.props.haku.pikahaku}
                     placeholder="Pikahaku"
                     id="pikahaku-input"
                     />

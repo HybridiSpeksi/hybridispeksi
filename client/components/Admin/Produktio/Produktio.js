@@ -24,6 +24,14 @@ class Produktio extends Component {
 
             tehtavat: [],
             produktionjasenet: [],
+            produktionjasenetFiltered: [],
+            haku: {
+                pikahaku: "",
+                fname: "",
+                sname: "",
+                email: "",
+                tehtava: ""
+            },
             valittuJasen: {
                 fname: "",
                 sname: "",
@@ -35,6 +43,7 @@ class Produktio extends Component {
         }
         this.valitseJasen = this.valitseJasen.bind(this);
         this.handleJasenChange = this.handleJasenChange.bind(this);
+        this.handleHaku = this.handleHaku.bind(this);
     }
 
     componentWillMount() {
@@ -45,6 +54,7 @@ class Produktio extends Component {
         ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
                 this.setState({ produktionjasenet: jasenet });
+                this.setState({ produktionjasenetFilteded: jasenet })
                 this.setState({ ajaxReady: true });
             })
             .catch(err => {
@@ -70,6 +80,46 @@ class Produktio extends Component {
             }
         }
         this.setState({ valittuJasen: jasen });
+    }
+
+    handleHaku(e) {
+        // console.log(e.target);
+        let _haku = this.state.haku;
+        _haku[e.target.name] = e.target.value;
+        this.setState({ haku: _haku })
+
+        let filtered = Object.assign([], this.state.produktionjasenet)
+        if (_haku.pikahaku !== "" || _haku.fname !== "" || _haku.email !== "" || _haku.tehtava !== "") {
+
+
+            // let toFilter = Object.assign([], this.state.produktionjasenet)
+            filtered = filtered.filter((jasen) => {
+                let bool = false;
+                if (_haku.pikahaku !== "") {
+                    let l = _haku.pikahaku.toLowerCase()
+                    if (
+                        jasen.fname.toLowerCase().indexOf(l) !== -1
+                        || jasen.sname.toLowerCase().indexOf(l) !== -1
+                        || jasen.email.toLowerCase().indexOf(l) !== -1
+                        || jasen.tehtavat.indexOf(l) !== -1
+                    ) {
+                        bool = true;
+                    }
+                } else if (_haku.fname !== "") {
+                    bool = true
+                } else if (_haku.sname !== "") {
+
+                } else if (_haku.email !== "") {
+
+                } else if (_haku.tehtava !== "") {
+
+                }
+                return bool;
+            })
+        }
+        console.log(filtered)
+        console.log(this.state.produktionjasenet)
+        this.setState({ produktionjasenetFilteded: filtered });
     }
 
     handleJasenChange(e) {
@@ -98,19 +148,24 @@ class Produktio extends Component {
                     <div className="col-sm-7 col-xs-12">
                         {this.state.ajaxReady ? (
                             <ProduktionjasenLista
-                                jasenet={this.state.produktionjasenet}
+                                jasenet={this.state.produktionjasenetFilteded}
                                 valitseJasen={this.valitseJasen} />
                         ) : (
                                 <div><h4>Ladataan...</h4></div>
                             )}
                     </div>
                     <div className="col">
-                        <Haku />
-                        <Jasentiedot
-                            jasen={this.state.valittuJasen}
-                            valitseJasen={this.valitseJasen}
-                            handleChange={this.handleJasenChange}
-                            tehtavat={this.state.tehtavat} />
+                        <Haku
+                            handleChange={this.handleHaku}
+                            haku={this.state.haku} />
+                        {this.state.valittuJasen.fname ? (
+                            <Jasentiedot
+                                jasen={this.state.valittuJasen}
+                                valitseJasen={this.valitseJasen}
+                                handleChange={this.handleJasenChange}
+                                tehtavat={this.state.tehtavat} />
+                        ) : ("")}
+
                     </div>
                 </div>
 
