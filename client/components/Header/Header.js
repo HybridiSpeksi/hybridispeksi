@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import styles from './Header.css';
 
 class Header extends Component {
+	componentDidMount() {
+        $('.small-screen-link').on('click', function(){
+            $(".navbar-toggler").click();
+        });
+    }
     render () {
         return (
             <div>
@@ -16,20 +21,20 @@ class Header extends Component {
 					<ul className="navbar-nav">
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/esitykset">Esitykset</Link>
-							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="/esitykset">Esitykset</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/esitykset">Esitykset</Link>
 							
 						</li>
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/speksit">Aiemmat Speksit</Link>
-							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="/speksit">Aiemmat Speksit</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/speksit">Aiemmat Speksit</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link d-none d-md-block" to="#">Galleria</Link>
-							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="#">Galleria</Link>
+							<Link className="nav-link d-none d-md-block" to="/galleria">Galleria</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/galleria">Galleria</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link d-none d-md-block" to="#">Yhdistys</Link>
-							<Link className="nav-link d-md-none" data-target="#navbarSupportedContent" data-toggle="collapse" to="#">Yhdistys</Link>
+							<Link className="nav-link d-none d-md-block" to="/yhdistys">Yhdistys</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/yhdistys">Yhdistys</Link>
 						</li>
 					</ul>
 				</div>

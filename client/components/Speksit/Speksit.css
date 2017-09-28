@@ -18,3 +18,23 @@
 	border:4px dashed gray;
 	border-bottom:none;
 }
+@media (max-width:576px){
+	.container {
+		background:lightgray;
+		padding:0px;
+	}	
+	.content_hali {
+		border:none;
+		margin:0px;
+		padding:0px;
+		padding-top:20px;
+	}
+	.content_bratva {
+		padding:10px;
+	}
+	.content_kruunu {
+		border:none;
+		margin:0px;
+		padding:0px;
+	}
+}
