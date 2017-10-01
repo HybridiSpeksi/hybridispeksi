@@ -57,7 +57,7 @@ class Produktio extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/admin/produktionjasen/2018')
+        ajax.sendGet('/admin/produktionjasen/2017')
             .then(jasenet => {
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
@@ -69,7 +69,7 @@ class Produktio extends Component {
             })
         ajax.sendGet('/tehtavat')
             .then(t => {
-                t.data.unshift({ key: "tehtava", name: "Tehtava", value: "" })
+                t.data.unshift({ key: "tehtava", name: "Tehtävä", value: "" })
                 this.setState({ tehtavat: t.data })
             })
             .catch(err => {

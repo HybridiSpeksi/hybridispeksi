@@ -6,6 +6,7 @@ class ProduktionjasenLista extends Component {
         let listarivit = this.props.jasenet.map((jasen, i) => {
             return (
                 <tr key={i} onClick={() => this.props.valitseJasen(jasen)}>
+                    <td>{i + 1}</td>
                     <td>{jasen.fname} {jasen.sname}</td>
                     <td>{jasen.email}</td>
                     <td>{jasen.pnumber}</td>
@@ -18,6 +19,7 @@ class ProduktionjasenLista extends Component {
                 <table className={"table table-inverse table-striped"}>
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Nimi</th>
                             <th>Sähköposti</th>
                             <th>Puh</th>
