@@ -60,6 +60,11 @@ class Jasentiedot extends Component {
                             <p><i>"{this.props.jasen.lisatiedot}"</i></p>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col">
+                            <p>{this.props.jasen.jarjesto}</p>
+                        </div>
+                    </div>
                     {this.props.jasen.email ? <button className="btn btn-warning" onClick={() => this.props.valitseJasen(false)}>Tyhjennä valinta</button> : ""}
                 </div>
             </div>

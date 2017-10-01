@@ -25,6 +25,7 @@ class Produktio extends Component {
             naytaSahkopostit: false,
 
             tehtavat: [],
+            jarjestot: [],
             produktionjasenet: [],
             produktionjasenetFiltered: [],
             haku: {
@@ -32,7 +33,8 @@ class Produktio extends Component {
                 fname: "",
                 sname: "",
                 email: "",
-                tehtava: ""
+                tehtava: "",
+                jarjesto: ""
             },
             valittuJasen: {
                 fname: "",
@@ -67,11 +69,19 @@ class Produktio extends Component {
             })
         ajax.sendGet('/tehtavat')
             .then(t => {
-                console.log(t)
+                t.data.unshift({ key: "tehtava", name: "Tehtava", value: "" })
                 this.setState({ tehtavat: t.data })
             })
             .catch(err => {
                 console.log(err);
+            })
+        ajax.sendGet('/jarjestot')
+            .then(j => {
+                j.data.unshift({ key: "jarjesto", name: "Järjestö", value: "" })
+                this.setState({ jarjestot: j.data })
+            })
+            .catch(err => {
+                console.log(err)
             })
     }
 
@@ -99,7 +109,9 @@ class Produktio extends Component {
 
             // let toFilter = Object.assign([], this.state.produktionjasenet)
             filtered = filtered.filter((jasen) => {
-                let bool = false;
+                let pikaB = true;
+                let jarjestoB = true;
+                let tehtavaB = true;
                 if (_haku.pikahaku !== "") {
                     let l = _haku.pikahaku.toLowerCase()
                     if (
@@ -108,31 +120,38 @@ class Produktio extends Component {
                         || jasen.email.toLowerCase().indexOf(l) !== -1
                         || jasen.tehtavat.indexOf(l) !== -1
                     ) {
-                        bool = true;
-                    }
+                        pikaB = true;
+                    } else 
+                        pikaB = false
                 } else if (_haku.fname !== "") {
-                    bool = true
+                    
                 } else if (_haku.sname !== "") {
 
                 } else if (_haku.email !== "") {
 
-                } else if (_haku.tehtava !== "") {
-
+                }  if (_haku.jarjesto !== "") {
+                    if (jasen.jarjesto !== _haku.jarjesto) {
+                        jarjestoB = false
+                    }
+                }  if (_haku.tehtava !== "") {
+                    if (jasen.tehtavat.indexOf(_haku.tehtava) === -1) {
+                        tehtavaB = false;
+                    } 
                 }
-                return bool;
+                return pikaB && tehtavaB && jarjestoB;
             })
         }
         this.setState({ produktionjasenetFiltered: filtered });
     }
 
     toggleSahkopostit() {
-        this.setState({naytaSahkopostit: !this.state.naytaSahkopostit})
+        this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit })
     }
 
     poistaTehtava(i) {
         let jasen = this.state.valittuJasen;
         jasen.tehtavat.splice(i, 1);
-        this.setState({valittuJasen: jasen})
+        this.setState({ valittuJasen: jasen })
     }
 
     handleJasenChange(e) {
@@ -170,7 +189,9 @@ class Produktio extends Component {
                     <div className="col">
                         <Haku
                             handleChange={this.handleHaku}
-                            haku={this.state.haku} />
+                            haku={this.state.haku}
+                            tehtavat={this.state.tehtavat}
+                            jarjestot={this.state.jarjestot} />
                         {this.state.valittuJasen.fname ? (
                             <Jasentiedot
                                 jasen={this.state.valittuJasen}
@@ -181,15 +202,15 @@ class Produktio extends Component {
                         ) : ("")}
 
                         {this.state.naytaSahkopostit ? (
-                            <Sahkopostit 
+                            <Sahkopostit
                                 jasenet={this.state.produktionjasenetFiltered}
                                 toggleSahkopostit={this.toggleSahkopostit} />
-                                
-                        ): (
-                            <button 
-                                className="btn btn-default"
-                                onClick={this.toggleSahkopostit}>Näytä sähköpostit</button>
-                        )}
+
+                        ) : (
+                                <button
+                                    className="btn btn-default"
+                                    onClick={this.toggleSahkopostit}>Näytä sähköpostit</button>
+                            )}
 
                     </div>
                 </div>
