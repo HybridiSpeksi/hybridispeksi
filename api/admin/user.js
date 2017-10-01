@@ -33,6 +33,9 @@ function getUsers(req, res) {
 }
 
 function isValidToken(req, res) {
+    if(process.env.NODE_ENV === "develop") {
+        res.json({success: true, message: 'In develop mode, token not required'});
+    }
     const token = req.body.token || req.headers['x-access-token'];
     if (token) {
         jwt.verify(token, process.env.SECRET, function (err, decoded) {

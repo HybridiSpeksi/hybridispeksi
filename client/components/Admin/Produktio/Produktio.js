@@ -47,6 +47,7 @@ class Produktio extends Component {
         this.handleJasenChange = this.handleJasenChange.bind(this);
         this.handleHaku = this.handleHaku.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
+        this.poistaTehtava = this.poistaTehtava.bind(this);
     }
 
     componentWillMount() {
@@ -54,7 +55,7 @@ class Produktio extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/admin/produktionjasen/2018')
+        ajax.sendGet('/admin/produktionjasen/2017')
             .then(jasenet => {
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
@@ -82,7 +83,8 @@ class Produktio extends Component {
                 tehtavat: [""]
             }
         }
-        this.setState({ valittuJasen: jasen });
+        let uusiJasen = JSON.parse(JSON.stringify(jasen));
+        this.setState({ valittuJasen: uusiJasen });
     }
 
     handleHaku(e) {
@@ -127,6 +129,12 @@ class Produktio extends Component {
         this.setState({naytaSahkopostit: !this.state.naytaSahkopostit})
     }
 
+    poistaTehtava(i) {
+        let jasen = this.state.valittuJasen;
+        jasen.tehtavat.splice(i, 1);
+        this.setState({valittuJasen: jasen})
+    }
+
     handleJasenChange(e) {
         let jasen = this.state.valittuJasen;
         if (e.target.name === "tehtavat") {
@@ -168,7 +176,8 @@ class Produktio extends Component {
                                 jasen={this.state.valittuJasen}
                                 valitseJasen={this.valitseJasen}
                                 handleChange={this.handleJasenChange}
-                                tehtavat={this.state.tehtavat} />
+                                tehtavat={this.state.tehtavat}
+                                poistaTehtava={this.poistaTehtava} />
                         ) : ("")}
 
                         {this.state.naytaSahkopostit ? (

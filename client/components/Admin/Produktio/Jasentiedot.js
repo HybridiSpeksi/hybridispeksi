@@ -19,6 +19,7 @@ class Jasentiedot extends Component {
                         name={"tehtavat"}
                         onChange={this.props.handleChange}
                     />
+                    <button onClick={() => this.props.poistaTehtava(i)}><i className="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
             )
         })
