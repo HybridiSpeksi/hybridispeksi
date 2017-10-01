@@ -55,7 +55,7 @@ class Produktio extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/admin/produktionjasen/2017')
+        ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
