@@ -139,8 +139,8 @@ class Rekry extends Component {
 
                         <div className={"row form-group align-items-center justify-content-sm-center " + styles.submit}>
                             <div className={"col-sm-3"}>
-                                {this.props.rekryAuki ? <button className="btn btn-default" type="submit">Lähetä hakemus</button> : <p><i>Rekry on suljettu!</i></p>}
-                                {/* <button className="btn btn-default" type="submit">Lähetä hakemus</button> */}
+                                {/* {this.props.rekryAuki ? <button className="btn btn-default" type="submit">Lähetä hakemus</button> : <p><i>Rekry on suljettu!</i></p>} */}
+                                <button className="btn btn-default" type="submit">Lähetä hakemus</button>
                             </div>
                         </div>
 
