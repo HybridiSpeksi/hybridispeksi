@@ -102,8 +102,9 @@ class Produktio extends Component {
         _haku[e.target.name] = e.target.value;
         this.setState({ haku: _haku })
 
+        console.log(_haku)
         let filtered = Object.assign([], this.state.produktionjasenet)
-        if (_haku.pikahaku !== "" || _haku.fname !== "" || _haku.email !== "" || _haku.tehtava !== "") {
+        if (_haku.pikahaku !== "" || _haku.fname !== "" || _haku.email !== "" || _haku.tehtava !== "" || _haku.jarjesto) {
 
 
             // let toFilter = Object.assign([], this.state.produktionjasenet)
@@ -111,6 +112,7 @@ class Produktio extends Component {
                 let pikaB = true;
                 let jarjestoB = true;
                 let tehtavaB = true;
+                console.log("asdf")
                 if (_haku.pikahaku !== "") {
                     let l = _haku.pikahaku.toLowerCase()
                     if (
@@ -122,21 +124,21 @@ class Produktio extends Component {
                         pikaB = true;
                     } else 
                         pikaB = false
-                } else if (_haku.fname !== "") {
-                    
-                } else if (_haku.sname !== "") {
-
-                } else if (_haku.email !== "") {
-
-                }  if (_haku.jarjesto !== "") {
+                } 
+                
+                if (_haku.jarjesto !== "") {
+                    console.log("jarjesto")
                     if (jasen.jarjesto !== _haku.jarjesto) {
                         jarjestoB = false
                     }
-                }  if (_haku.tehtava !== "") {
+                }
+
+                if (_haku.tehtava !== "") {
                     if (jasen.tehtavat.indexOf(_haku.tehtava) === -1) {
                         tehtavaB = false;
                     } 
                 }
+                
                 return pikaB && tehtavaB && jarjestoB;
             })
         }
