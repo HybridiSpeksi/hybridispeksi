@@ -10,7 +10,7 @@ var jasenSchema = new mongoose.Schema({
 	joinDate: Date,
 	approveDate: Date
 }, 
-{ collection: 'members' },
-{ timestamps: true })
+{ collection: 'members', 
+timestamps: true })
 
 module.exports = mongoose.model('Jasen', jasenSchema);

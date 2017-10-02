@@ -6,5 +6,8 @@ module.exports = mongoose.model('Ohjaustieto', new Schema({
     value: String,
     name: String
 },
-{collection: 'ohjaustietos'}));
+{
+    collection: 'ohjaustietos',
+    timestamps: true
+}));
 

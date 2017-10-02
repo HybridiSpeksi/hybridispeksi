@@ -102,7 +102,7 @@ class Rekry extends Component {
         let url = "/produktionjasen";
 
         if (this.validateRekry()) {
-            ajax.sendPost(
+            ajax.sendPut(
                 url,
                 {
                     fname: this.state.fname,

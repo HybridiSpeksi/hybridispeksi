@@ -54,6 +54,10 @@ class Jasentiedot extends Component {
                     </div>
                     <div className="row">
                         {tehtavaValinnat}
+                        
+                    </div>
+                    <div className="row">
+                        {/* <div className="col"><button className="btn" onClick={this.lisaaTehtava}>Lisää tehtävä</button></div> */}
                     </div>
                     <div className="row">
                         <div className="col">
@@ -66,6 +70,7 @@ class Jasentiedot extends Component {
                         </div>
                     </div>
                     {this.props.jasen.email ? <button className="btn btn-warning" onClick={() => this.props.valitseJasen(false)}>Tyhjennä valinta</button> : ""}
+                    {this.props.henkilotiedotMuuttuneet ? <button className="btn btn-primary" onClick={() => this.props.tallennaMuutokset()}>Tallenna muutokset</button> : ""}
                 </div>
             </div>
         )

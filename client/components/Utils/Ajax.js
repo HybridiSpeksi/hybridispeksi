@@ -47,6 +47,26 @@ module.exports = {
                 resolve(data.json());
             })
         })
+    },
+
+    sendPut: function(url, data) {
+        return new Promise((resolve, reject) => {
+            fetch(URL_PREFIX + url, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json, text/plain',
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwt')
+                },
+                body: JSON.stringify(data)
+            })
+            .catch(err => {
+                reject(Error(err));
+            })
+            .then(data => {
+                resolve(data.json());
+            })
+        })
     }
 
 

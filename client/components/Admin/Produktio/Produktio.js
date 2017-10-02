@@ -23,6 +23,7 @@ class Produktio extends Component {
 
             ajaxReady: false,
             naytaSahkopostit: false,
+            henkilotiedotMuuttuneet: false,
 
             tehtavat: [],
             jarjestot: [],
@@ -50,6 +51,7 @@ class Produktio extends Component {
         this.handleHaku = this.handleHaku.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.poistaTehtava = this.poistaTehtava.bind(this);
+        this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
     }
 
     componentWillMount() {
@@ -85,7 +87,30 @@ class Produktio extends Component {
             })
     }
 
+    tallennaMuutokset() {
+        ajax.sendPost('/admin/produktionjasen', this.state.valittuJasen)
+        .then(data => {
+            let _messages = this.state.messages;
+            _messages.push({header: "Muutokset tallennettu!", text: "Muutokset tallennettiin onnistuneesti"})
+            this.setState({messages: _messages, henkilotiedotMuuttuneet: false});
+            setTimeout(() => {
+                this.setState({messages: []});
+                location.reload();
+            }, 3000)
+        })
+        .catch(err => {
+            console.log(err);
+            let _errors = this.state.errors;
+            _errors.push({header: "Muutosten tallentaminen ei onnistunut:", text: err.status});
+            this.setState({errors: _errors})
+            setTimeout(() => {
+                this.setState({errors: []});
+            }, 4000)
+        })
+    }
+
     valitseJasen(jasen) {
+        this.setState({henkilotiedotMuuttuneet: false})
         if (!jasen) {
             jasen = {
                 email: "",
@@ -102,7 +127,6 @@ class Produktio extends Component {
         _haku[e.target.name] = e.target.value;
         this.setState({ haku: _haku })
 
-        console.log(_haku)
         let filtered = Object.assign([], this.state.produktionjasenet)
         if (_haku.pikahaku !== "" || _haku.fname !== "" || _haku.email !== "" || _haku.tehtava !== "" || _haku.jarjesto) {
 
@@ -112,7 +136,6 @@ class Produktio extends Component {
                 let pikaB = true;
                 let jarjestoB = true;
                 let tehtavaB = true;
-                console.log("asdf")
                 if (_haku.pikahaku !== "") {
                     let l = _haku.pikahaku.toLowerCase()
                     if (
@@ -127,7 +150,6 @@ class Produktio extends Component {
                 } 
                 
                 if (_haku.jarjesto !== "") {
-                    console.log("jarjesto")
                     if (jasen.jarjesto !== _haku.jarjesto) {
                         jarjestoB = false
                     }
@@ -152,7 +174,7 @@ class Produktio extends Component {
     poistaTehtava(i) {
         let jasen = this.state.valittuJasen;
         jasen.tehtavat.splice(i, 1);
-        this.setState({ valittuJasen: jasen })
+        this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true })
     }
 
     handleJasenChange(e) {
@@ -163,7 +185,13 @@ class Produktio extends Component {
         } else {
             jasen[e.target.name] = e.target.value;
         }
-        this.setState({ valittuJasen: jasen })
+        this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true })
+    }
+
+    lisaaTehtava() {
+        let _jasen = this.state.valittuJasen;
+        _jasen.tehtavat.push("");
+        this.setState({valittuJasen: _jasen, henkilotiedotMuuttuneet: true})
     }
 
     render() {
@@ -197,8 +225,11 @@ class Produktio extends Component {
                                 valitseJasen={this.valitseJasen}
                                 handleChange={this.handleJasenChange}
                                 tehtavat={this.state.tehtavat}
-                                poistaTehtava={this.poistaTehtava} />
+                                poistaTehtava={this.poistaTehtava}
+                                tallennaMuutokset={this.tallennaMuutokset}
+                                henkilotiedotMuuttuneet={this.state.henkilotiedotMuuttuneet} />
                         ) : ("")}
+                        <Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />
 
                         {this.state.naytaSahkopostit ? (
                             <Sahkopostit
@@ -216,7 +247,7 @@ class Produktio extends Component {
 
                 <div className="row">
                     <div className="col">
-                        <Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />
+                        
                     </div>
                 </div>
             </div>

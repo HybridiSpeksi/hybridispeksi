@@ -20,7 +20,6 @@ function getById (req, res) {
 
 function newJasen (req, res) {
     let uusiJasen = req.body;
-    console.log(req.body)
     let jasen = new Jasen({
         fname: req.body.fname,
         sname: req.body.sname,
@@ -41,6 +40,18 @@ function newJasen (req, res) {
     })
 }
 
+function muokkaaJasen (req, res) {
+    let jasen = req.body;
+    Jasen.findByIdAndUpdate(jasen._id, jasen)
+    .then(jasen => {
+        res.json({success: true, data: jasen})
+    })
+    .catch(err => {
+        res.json({success: false, data: err})
+    })
+}
+
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.newJasen = newJasen;
+module.exports.muokkaaJasen = muokkaaJasen;

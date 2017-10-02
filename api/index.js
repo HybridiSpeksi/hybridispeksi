@@ -19,7 +19,8 @@ router.get('/rekryAuki', ohjaustiedot.haeRekryAuki);
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
 router.get('/produktionjasen/:_id', produktionjasen.getById);
-router.post('/produktionjasen', produktionjasen.newJasen);
+router.put('/produktionjasen', produktionjasen.newJasen);
+router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 
 // Jäsenrekisteri
 

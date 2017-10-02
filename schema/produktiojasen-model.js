@@ -13,8 +13,6 @@ var Schema = mongoose.Schema;
     tuotannonMuistiinpanot: String,
     vuosi: Number
 }, {
-    collection: 'produktionjasenet'
-},
-{
+    collection: 'produktionjasenet',
     timestamps: true
 }))
