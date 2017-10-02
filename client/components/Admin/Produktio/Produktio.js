@@ -98,7 +98,6 @@ class Produktio extends Component {
     }
 
     handleHaku(e) {
-        // console.log(e.target);
         let _haku = this.state.haku;
         _haku[e.target.name] = e.target.value;
         this.setState({ haku: _haku })
@@ -158,12 +157,10 @@ class Produktio extends Component {
         let jasen = this.state.valittuJasen;
         if (e.target.name === "tehtavat") {
             let idNumber = utils.parseNumberIfNumber(e.target.id)
-            console.log(idNumber)
             jasen.tehtavat[idNumber] = e.target.value;
         } else {
             jasen[e.target.name] = e.target.value;
         }
-        console.log(jasen)
         this.setState({ valittuJasen: jasen })
     }
 
