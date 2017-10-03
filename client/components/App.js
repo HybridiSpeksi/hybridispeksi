@@ -18,6 +18,7 @@ import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
 import Produktio from './Admin/Produktio/Produktio';
+import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri'
 
 import Login from './Admin/Auth/Login';
 
@@ -84,6 +85,7 @@ export default class App extends React.Component {
               <LoginLayout path="/login" component={Login} />
               <AdminLayout path="/admin" component={Admin} />
               <AdminLayout path="/produktionhallinta" component={Produktio} /> 
+              <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
               </Switch>
             </div>
           </div>

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const auth = require('./auth')
 const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
+const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 
 const index = require('./index/index');
@@ -23,6 +24,7 @@ router.put('/produktionjasen', produktionjasen.newJasen);
 router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 
 // Jäsenrekisteri
+router.get('/admin/jasenrekisteri', jasenrekisteri.getAll);
 
 // Käyttäjät
 
