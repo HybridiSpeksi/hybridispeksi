@@ -33,9 +33,9 @@ function getUsers(req, res) {
 }
 
 function isValidToken(req, res) {
-    if(process.env.NODE_ENV === "develop") {
-        res.json({success: true, message: 'In develop mode, token not required'});
-    }
+    /* if (process.env.NODE_ENV === "develop") {
+        res.json({ success: true, message: 'In develop mode, token not required' });
+    } */
     const token = req.body.token || req.headers['x-access-token'];
     if (token) {
         jwt.verify(token, process.env.SECRET, function (err, decoded) {
@@ -88,7 +88,7 @@ function authenticate(req, res, next) {
             } else if (user.password != sha1(req.body.password)) {
                 res.json({ message: 'Virheellinen salasana' });
             } else if (user.role === config.EI_HYVAKSYTTY) {
-                res.json({success: false,  message: 'Käyttäjää ei ole vielä hyväksytty' })
+                res.json({ success: false, message: 'Käyttäjää ei ole vielä hyväksytty' })
             } else {
                 const token = jwt.sign(user.toObject(), process.env.SECRET, {
                     expiresIn: '1h', // expires in 1 hours

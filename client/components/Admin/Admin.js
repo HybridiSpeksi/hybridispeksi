@@ -11,7 +11,7 @@ class Admin extends Component {
     }
 
     componentWillMount() {
-        auth.checkToken();
+        // auth.checkToken();
     }
 
     componentDidMount() {

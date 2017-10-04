@@ -56,10 +56,6 @@ class Produktio extends Component {
         this.ajaKutsut = this.ajaKutsut.bind(this);
     }
 
-    componentWillMount() {
-        auth.checkToken();
-    }
-
     componentDidMount() {
         this.ajaKutsut()
     }

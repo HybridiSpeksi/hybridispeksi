@@ -7,10 +7,8 @@ const user = require('./admin/user');
 
 const index = require('./index/index');
 
-if (!process.env.NODE_ENV === "develop") {
-    router.all('/admin*', user.checkToken);
-}
-router.get('/', index.test);
+
+router.all('/admin*', user.checkToken);
 
 // Ohjaustiedot
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);

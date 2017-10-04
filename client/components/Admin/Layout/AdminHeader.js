@@ -38,7 +38,7 @@ class AdminHeader extends Component {
                             </li>
                             <li className="nav-item">
                                 {auth.getUserRole() > 4 ? (
-                                    <Link className="nav-link" to="/jasenrekisteri">Käyttäjät</Link>
+                                    <Link className="nav-link" to="/kayttajat">Käyttäjät</Link>
                                 ) : (
                                         <a className="nav-link disabled" to="#">Käyttäjät <i className="fa fa-lock" aria-hidden="true"></i></a>
                                     )}
