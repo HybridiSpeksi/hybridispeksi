@@ -24,7 +24,7 @@ class Jasenrekisteri extends Component {
     }
 
     haeJasenet() {
-        ajax.sendGet('/admin/jasenrekisteri')
+        ajax.sendGet('/admin/h/jasenrekisteri')
         .then(j => {
             this.setState({jasenet: j.data})
         })

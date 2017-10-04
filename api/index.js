@@ -9,6 +9,8 @@ const index = require('./index/index');
 
 
 router.all('/admin*', user.checkToken);
+router.all('/admin/h/*', user.isHallitus);
+router.all('/admin/w/*', user.isWebmaster)
 
 // Ohjaustiedot
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);
@@ -22,14 +24,15 @@ router.put('/produktionjasen', produktionjasen.newJasen);
 router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 
 // Jäsenrekisteri
-router.get('/admin/jasenrekisteri', jasenrekisteri.getAll);
+router.get('/admin/h/jasenrekisteri', jasenrekisteri.getAll);
 
 // Käyttäjät
 
 router.post('/authenticate', user.authenticate);
 router.post('/signup', user.newUser);
 router.get('/isValidToken', user.isValidToken);
-router.get('/admin/kayttajat', user.getUsers);
+router.get('/admin/w/kayttajat', user.getUsers);
+router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // router.post('/uusiKayttaja', user.newUser);
 
 

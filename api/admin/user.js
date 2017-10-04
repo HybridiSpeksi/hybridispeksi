@@ -22,7 +22,18 @@ function newUser(req, res) {
 }
 
 function updateUser(req, res) {
+    let user = req.body;
+    User.findByIdAndUpdate(user._id, user)
+}
 
+function deleteUser(req, res) {
+    User.findByIdAndRemove(req.params._id)
+    .then(_data => {
+        res.json({success: true, data: _data})
+    })
+    .catch(err => {
+        res.json({success: false, data: err})
+    })
 }
 
 function getUsers(req, res) {
@@ -101,7 +112,20 @@ function authenticate(req, res, next) {
                 });
             }
         })
+}
 
+function isHallitus(req, res, next) {
+    if(req.decoded.role <4) {
+        res.json({success: false, message: 'Hallitusoikeudet vaadittu'})
+    } else
+        next();
+}
+
+function isWebmaster(req, res, next) {
+    if(req.decoded.role <5) {
+        res.json({success: false, message: 'Webmaster-oikeudet vaadittu'})
+    } else
+        next();
 }
 
 module.exports.newUser = newUser;
@@ -110,3 +134,6 @@ module.exports.getUsers = getUsers;
 module.exports.updateUser = updateUser;
 module.exports.checkToken = checkToken;
 module.exports.isValidToken = isValidToken;
+module.exports.isHallitus = isHallitus;
+module.exports.isWebmaster = isWebmaster;
+module.exports.deleteUser = deleteUser;
