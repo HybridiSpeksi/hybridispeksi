@@ -9,6 +9,9 @@ class Jasentiedot extends Component {
             this.props.jasen.tehtavat = []
         }
         let tehtavaValinnat = this.props.jasen.tehtavat.map((t, i) => {
+            if(t === "") {
+                t = "tyhja"
+            }
             return (
                 <div className="col" key={i}>
                     <Dropdown
@@ -57,7 +60,7 @@ class Jasentiedot extends Component {
                         
                     </div>
                     <div className="row">
-                        {/* <div className="col"><button className="btn" onClick={this.lisaaTehtava}>Lisää tehtävä</button></div> */}
+                        <div className="col"><button className="btn" onClick={this.props.lisaaTehtava}>Lisää tehtävä</button></div>
                     </div>
                     <div className="row">
                         <div className="col">

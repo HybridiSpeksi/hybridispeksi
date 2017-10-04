@@ -15,7 +15,7 @@ class Sahkopostit extends Component {
             if (jasen.email && jasen.email !== "") {
                 sahkopostit += jasen.email;
                 if (this.props.jasenet[i + 1]) {
-                    sahkopostit += ", "
+                    sahkopostit += "; "
                 }
             }
             /* console.log("asdf")

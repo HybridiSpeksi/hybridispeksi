@@ -52,6 +52,8 @@ class Produktio extends Component {
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.poistaTehtava = this.poistaTehtava.bind(this);
         this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
+        this.lisaaTehtava = this.lisaaTehtava.bind(this);
+        this.ajaKutsut = this.ajaKutsut.bind(this);
     }
 
     componentWillMount() {
@@ -59,58 +61,33 @@ class Produktio extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/admin/produktionjasen/2018')
-            .then(jasenet => {
-                this.setState({ produktionjasenet: jasenet });
-                this.setState({ produktionjasenetFiltered: jasenet })
-                this.setState({ ajaxReady: true });
-            })
-            .catch(err => {
-                console.log(err);
-                this.setState({ errors: [{ header: "Palvelinvirhe!", text: "Virhe haettaessa produktionjäseniä palvelimelta" }] })
-            })
-        ajax.sendGet('/tehtavat')
-            .then(t => {
-                t.data.unshift({ key: "tehtava", name: "Tehtävä", value: "" })
-                this.setState({ tehtavat: t.data })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        ajax.sendGet('/jarjestot')
-            .then(j => {
-                j.data.unshift({ key: "jarjesto", name: "Järjestö", value: "" })
-                this.setState({ jarjestot: j.data })
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        this.ajaKutsut()
     }
 
     tallennaMuutokset() {
         ajax.sendPost('/admin/produktionjasen', this.state.valittuJasen)
-        .then(data => {
-            let _messages = this.state.messages;
-            _messages.push({header: "Muutokset tallennettu!", text: "Muutokset tallennettiin onnistuneesti"})
-            this.setState({messages: _messages, henkilotiedotMuuttuneet: false});
-            setTimeout(() => {
-                this.setState({messages: []});
-                location.reload();
-            }, 3000)
-        })
-        .catch(err => {
-            console.log(err);
-            let _errors = this.state.errors;
-            _errors.push({header: "Muutosten tallentaminen ei onnistunut:", text: err.status});
-            this.setState({errors: _errors})
-            setTimeout(() => {
-                this.setState({errors: []});
-            }, 4000)
-        })
+            .then(data => {
+                let _messages = this.state.messages;
+                _messages.push({ header: "Muutokset tallennettu!", text: "Muutokset tallennettiin onnistuneesti" })
+                this.setState({ messages: _messages, henkilotiedotMuuttuneet: false });
+                setTimeout(() => {
+                    this.setState({ messages: [] });
+                    this.ajaKutsut()
+                }, 3000)
+            })
+            .catch(err => {
+                console.log(err);
+                let _errors = this.state.errors;
+                _errors.push({ header: "Muutosten tallentaminen ei onnistunut:", text: err.status });
+                this.setState({ errors: _errors })
+                setTimeout(() => {
+                    this.setState({ errors: [] });
+                }, 4000)
+            })
     }
 
     valitseJasen(jasen) {
-        this.setState({henkilotiedotMuuttuneet: false})
+        this.setState({ henkilotiedotMuuttuneet: false })
         if (!jasen) {
             jasen = {
                 email: "",
@@ -145,10 +122,10 @@ class Produktio extends Component {
                         || jasen.tehtavat.indexOf(l) !== -1
                     ) {
                         pikaB = true;
-                    } else 
+                    } else
                         pikaB = false
-                } 
-                
+                }
+
                 if (_haku.jarjesto !== "") {
                     if (jasen.jarjesto !== _haku.jarjesto) {
                         jarjestoB = false
@@ -158,9 +135,9 @@ class Produktio extends Component {
                 if (_haku.tehtava !== "") {
                     if (jasen.tehtavat.indexOf(_haku.tehtava) === -1) {
                         tehtavaB = false;
-                    } 
+                    }
                 }
-                
+
                 return pikaB && tehtavaB && jarjestoB;
             })
         }
@@ -191,7 +168,36 @@ class Produktio extends Component {
     lisaaTehtava() {
         let _jasen = this.state.valittuJasen;
         _jasen.tehtavat.push("");
-        this.setState({valittuJasen: _jasen, henkilotiedotMuuttuneet: true})
+        this.setState({ valittuJasen: _jasen })
+    }
+
+    ajaKutsut() {
+        ajax.sendGet('/admin/produktionjasen/2018')
+            .then(jasenet => {
+                this.setState({ produktionjasenet: jasenet });
+                this.setState({ produktionjasenetFiltered: jasenet })
+                this.setState({ ajaxReady: true });
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({ errors: [{ header: "Palvelinvirhe!", text: "Virhe haettaessa produktionjäseniä palvelimelta" }] })
+            })
+        ajax.sendGet('/tehtavat')
+            .then(t => {
+                t.data.unshift({ key: "tehtava", name: "Tehtävä", value: "" })
+                this.setState({ tehtavat: t.data })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        ajax.sendGet('/jarjestot')
+            .then(j => {
+                j.data.unshift({ key: "jarjesto", name: "Järjestö", value: "" })
+                this.setState({ jarjestot: j.data })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
@@ -227,7 +233,8 @@ class Produktio extends Component {
                                 tehtavat={this.state.tehtavat}
                                 poistaTehtava={this.poistaTehtava}
                                 tallennaMuutokset={this.tallennaMuutokset}
-                                henkilotiedotMuuttuneet={this.state.henkilotiedotMuuttuneet} />
+                                henkilotiedotMuuttuneet={this.state.henkilotiedotMuuttuneet}
+                                lisaaTehtava={this.lisaaTehtava} />
                         ) : ("")}
                         <Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />
 
@@ -247,7 +254,7 @@ class Produktio extends Component {
 
                 <div className="row">
                     <div className="col">
-                        
+
                     </div>
                 </div>
             </div>
