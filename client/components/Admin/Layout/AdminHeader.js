@@ -9,8 +9,6 @@ class AdminHeader extends Component {
     }
 
     componentDidMount() {
-        console.log(auth.getUserRole())
-        // auth.getUserRole();
     }
 
     render() {

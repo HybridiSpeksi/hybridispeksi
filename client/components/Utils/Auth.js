@@ -30,8 +30,11 @@ function getUserInfo() {
 }
 
 function getUserRole() {
-    let role = JSON.parse(localStorage.getItem("user")).role;
-    return role;
+    let user = JSON.parse(localStorage.getItem("user"))
+    if(!user) {
+        return 0;
+    }
+    return user.role;
 }
 
 function signIn(jwt, user) {
