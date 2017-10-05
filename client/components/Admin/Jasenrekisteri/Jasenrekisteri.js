@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ajax from '../../Utils/Ajax';
 
 import List from './List'
+import Jasentiedot from './Jasentiedot'
 
 class Jasenrekisteri extends Component {
     constructor(props) {
@@ -9,28 +10,29 @@ class Jasenrekisteri extends Component {
 
         this.state = {
             jasenet: [],
-
+            valittuJasen: {}
         }
 
-        this.haeJasenet = this.haeJasenet.bind(this);
+        this.teeHaut = this.teeHaut.bind(this);
+        this.valitseJasen = this.valitseJasen.bind(this);
     }
 
     componentDidMount() {
-        this.haeJasenet();
+        this.teeHaut();
     }
 
     valitseJasen(jasen) {
-        this.setState({valittuJasen: jasen})
+        this.setState({ valittuJasen: jasen })
     }
 
-    haeJasenet() {
+    teeHaut() {
         ajax.sendGet('/admin/h/jasenrekisteri')
-        .then(j => {
-            this.setState({jasenet: j.data})
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(j => {
+                this.setState({ jasenet: j.data })
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     render() {
@@ -43,8 +45,15 @@ class Jasenrekisteri extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col">
-                        <List jasenet={this.state.jasenet} />
+                    <div className="col-sm-6">
+                        <List
+                            jasenet={this.state.jasenet}
+                            valitseJasen={this.valitseJasen} />
+                    </div>
+                    <div className="col-sm-6">
+                        {this.state.valittuJasen._id ? (
+                            <Jasentiedot jasen={this.state.valitseJasen} />
+                        ): ""}
                     </div>
                 </div>
             </div>
@@ -55,5 +64,5 @@ class Jasenrekisteri extends Component {
 export default Jasenrekisteri
 
 haeJasenet: () => {
-    
+
 }

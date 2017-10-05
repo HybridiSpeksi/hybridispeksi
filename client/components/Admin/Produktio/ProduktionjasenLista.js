@@ -7,7 +7,6 @@ class ProduktionjasenLista extends Component {
             let tehtavat = ""
             jasen.tehtavat.map((t, k) => {
                 tehtavat += t;
-                console.log(jasen)
                 if (jasen.tehtavat.length > k + 1) {
                     tehtavat += ", "
                 }
