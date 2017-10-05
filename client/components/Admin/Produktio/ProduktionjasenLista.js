@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import css from './Produktionjasenet.css';
 
 class ProduktionjasenLista extends Component {
-    render () {
+    render() {
         let listarivit = this.props.jasenet.map((jasen, i) => {
+            let tehtavat = ""
+            jasen.tehtavat.map((t, i) => {
+                tehtavat = + t;
+                if (jasen.tehtavat.length < i-1) {
+                    tehtavat = + ", "
+                }
+            })
             return (
                 <tr key={i} onClick={() => this.props.valitseJasen(jasen)}>
                     <td>{i + 1}</td>
