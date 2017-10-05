@@ -5,10 +5,11 @@ class ProduktionjasenLista extends Component {
     render() {
         let listarivit = this.props.jasenet.map((jasen, i) => {
             let tehtavat = ""
-            jasen.tehtavat.map((t, i) => {
-                tehtavat = + t;
-                if (jasen.tehtavat.length < i-1) {
-                    tehtavat = + ", "
+            jasen.tehtavat.map((t, k) => {
+                tehtavat += t;
+                console.log(jasen)
+                if (jasen.tehtavat.length > k + 1) {
+                    tehtavat += ", "
                 }
             })
             return (
@@ -17,7 +18,7 @@ class ProduktionjasenLista extends Component {
                     <td>{jasen.fname} {jasen.sname}</td>
                     <td>{jasen.email}</td>
                     <td>{jasen.pnumber}</td>
-                    <td>{jasen.tehtavat[0]}, {jasen.tehtavat[1]}, {jasen.tehtavat[2]}</td>
+                    <td>{tehtavat}</td>
                 </tr>
             )
         })
