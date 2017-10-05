@@ -4,7 +4,7 @@ class Kayttajalista extends Component {
     render () {
         let rows = this.props.kayttajat.map((kayttaja, i) => {
             return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.props.valitseKayttaja(kayttaja)}>
                     <td>{kayttaja.fname} {kayttaja.sname}</td>
                     <td>{kayttaja.email}</td>
                     <td>{kayttaja.role}</td>

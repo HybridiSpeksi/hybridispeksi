@@ -32,6 +32,7 @@ router.post('/authenticate', user.authenticate);
 router.post('/signup', user.newUser);
 router.get('/isValidToken', user.isValidToken);
 router.get('/admin/w/kayttajat', user.getUsers);
+router.post('/admin/w/kayttaja', user.updateUser)
 router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // router.post('/uusiKayttaja', user.newUser);
 

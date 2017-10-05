@@ -68,8 +68,8 @@ class Produktio extends Component {
                 this.setState({ messages: _messages, henkilotiedotMuuttuneet: false });
                 setTimeout(() => {
                     this.setState({ messages: [] });
-                    this.ajaKutsut()
                 }, 3000)
+                this.ajaKutsut()
             })
             .catch(err => {
                 console.log(err);

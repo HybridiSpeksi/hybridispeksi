@@ -24,6 +24,12 @@ function newUser(req, res) {
 function updateUser(req, res) {
     let user = req.body;
     User.findByIdAndUpdate(user._id, user)
+    .then(_data => {
+        res.json({success: true, data: _data})
+    })
+    .catch(err => {
+        res.json({success: true, data: err});
+    })
 }
 
 function deleteUser(req, res) {
