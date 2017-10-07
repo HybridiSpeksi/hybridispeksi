@@ -15,18 +15,23 @@ function newUser(req, res) {
     })
     User.findOne({email: userJson.email})
     .then(data => {
-        console.log("user found")
-        res.json({success: false, message: "Käyttäjä on jo olemassa!"})
+        if(data) {
+            console.log("user found")
+            res.json({success: false, message: "Käyttäjä on jo olemassa!"})
+        } else {
+            console.log("user not found")
+            user.save()
+            .then(user => {
+                res.json({ success: true, data: user })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err });
+            })
+        }
+        
     })
     .catch(err => {
-        console.log("user not found")
-        user.save()
-        .then(user => {
-            res.json({ success: true, data: user })
-        })
-        .catch(err => {
-            res.json({ success: false, data: err });
-        })
+        
     })
     
 }
