@@ -4,6 +4,7 @@ const sha1 = require('sha1');
 const config = require('../../config');
 
 function newUser(req, res) {
+
     let userJson = req.body;
     let user = new User({
         fname: userJson.fname,
@@ -12,13 +13,22 @@ function newUser(req, res) {
         password: sha1(userJson.password),
         role: config.EI_HYVAKSYTTY
     })
-    user.save()
+    User.findOne({email: userJson.email})
+    .then(data => {
+        console.log("user found")
+        res.json({success: false, message: "Käyttäjä on jo olemassa!"})
+    })
+    .catch(err => {
+        console.log("user not found")
+        user.save()
         .then(user => {
             res.json({ success: true, data: user })
         })
         .catch(err => {
             res.json({ success: false, data: err });
         })
+    })
+    
 }
 
 function updateUser(req, res) {

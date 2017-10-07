@@ -79,6 +79,8 @@ class Login extends Component {
                     }).then(data => {
                         if (data.success === true) {
                             this.addMessage(MESSAGE_SUCCESS, "Rekisteröinti onnistui!", "Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.");
+                        } else {
+                            this.addMessage(MESSAGE_WARNING, "Rekisteröinti epäonnistui:", data.message)
                         }
                     }).catch(err => {
                         console.log(err);
