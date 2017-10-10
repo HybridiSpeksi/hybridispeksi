@@ -9,7 +9,7 @@ class Jasentiedot extends Component {
             this.props.jasen.tehtavat = []
         }
         let tehtavaValinnat = this.props.jasen.tehtavat.map((t, i) => {
-            if(t === "") {
+            if (t === "") {
                 t = "tyhja"
             }
             return (
@@ -29,7 +29,16 @@ class Jasentiedot extends Component {
         return (
             <div className="row">
                 <div className={"col " + styles.jasentiedotlaatikko}>
-                    <h3>{this.props.jasen.fname} {this.props.jasen.sname}</h3>
+                    <div className="row">
+                        <div className="col">
+                            <h3>{this.props.jasen.fname} {this.props.jasen.sname}</h3>
+                        </div>
+                        <div className="col text-right">
+                            <button onClick={() => this.props.valitseJasen(false)} className="btn btn-default">
+                                <i className="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-sm-6">
                             <Text
@@ -57,7 +66,7 @@ class Jasentiedot extends Component {
                     </div>
                     <div className="row">
                         {tehtavaValinnat}
-                        
+
                     </div>
                     <div className="row">
                         <div className="col"><button className="btn" onClick={this.props.lisaaTehtava}>Lisää tehtävä</button></div>
@@ -72,7 +81,6 @@ class Jasentiedot extends Component {
                             <p>{this.props.jasen.jarjesto}</p>
                         </div>
                     </div>
-                    {this.props.jasen.email ? <button className="btn btn-warning" onClick={() => this.props.valitseJasen(false)}>Tyhjennä valinta</button> : ""}
                     {this.props.henkilotiedotMuuttuneet ? <button className="btn btn-primary" onClick={() => this.props.tallennaMuutokset()}>Tallenna muutokset</button> : ""}
                 </div>
             </div>

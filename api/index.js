@@ -25,6 +25,9 @@ router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 
 // Jäsenrekisteri
 router.get('/admin/h/jasenrekisteri', jasenrekisteri.getAll);
+router.post('/admin/h/jasenrekisteri', jasenrekisteri.muokkaaJasen);
+router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasjen);
+router.put('/admin/h/jasenrekisteri', jasenrekisteri.newJasen);
 
 // Käyttäjät
 

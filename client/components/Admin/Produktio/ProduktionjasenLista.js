@@ -18,6 +18,7 @@ class ProduktionjasenLista extends Component {
                     <td>{jasen.email}</td>
                     <td>{jasen.pnumber}</td>
                     <td>{tehtavat}</td>
+                    <td>{jasen.member}</td>
                 </tr>
             )
         })
@@ -31,6 +32,7 @@ class ProduktionjasenLista extends Component {
                             <th>Sähköposti</th>
                             <th>Puh</th>
                             <th>Tehtävä</th>
+                            <th>Yhdistyksen jäsen</th>
                         </tr>
                     </thead>
                     <tbody>

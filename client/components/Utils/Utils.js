@@ -2,12 +2,8 @@ function isBoolean(a) {
     return typeof (a) === "boolean";
 }
 
-function parseBooleanIfBoolean(a) {
-    if (isBoolean) {
-        return a === true;
-    } else {
-        return a;
-    }
+function parseBoolean(a) {
+    return a === "true";
 }
 
 function isNumber(a) {
@@ -31,7 +27,7 @@ function isValidEmail(a) {
 }
 
 module.exports.isBoolean = isBoolean;
-module.exports.parseBooleanIfBoolean = parseBooleanIfBoolean;
+module.exports.parseBoolean = parseBoolean;
 module.exports.isNumber = isNumber;
 module.exports.parseNumberIfNumber = parseNumberIfNumber;
 module.exports.isValidEmail = isValidEmail;

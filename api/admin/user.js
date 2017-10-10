@@ -31,7 +31,7 @@ function newUser(req, res) {
         
     })
     .catch(err => {
-        
+        res.json({success: false, message: "Virhe haettaessa olemassa olevia käyttäjiä"})
     })
     
 }
@@ -114,7 +114,7 @@ function authenticate(req, res, next) {
             res.json({ success: false, message: 'Error in getting user.' });
         })
         .then(function (user) {
-            console.log(user)
+            console.log(user.fname + " " + user.sname + " just signed in")
             if (!user) {
                 res.json({ message: 'Käyttäjää ei löytynyt' });
             } else if (user.password != sha1(req.body.password)) {

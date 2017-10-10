@@ -21,7 +21,7 @@ class Text extends Component {
 
 class Dropdown extends Component {
     render() {
-        if(!this.props.options) {
+        if (!this.props.options) {
             this.props.otions = []
         }
         let options = this.props.options.map((opt, i) => {
@@ -38,7 +38,7 @@ class Dropdown extends Component {
                     value={this.props.selected}
                     className="form-control"
                     id={this.props.id}
-                    >
+                >
                     {options}
                 </select>
             </div>
@@ -46,11 +46,27 @@ class Dropdown extends Component {
     }
 }
 
+/**
+ * @param options: label, value
+ * @param value
+ * @param name
+ * @param onChange
+ */
 class Radio extends Component {
     render() {
+        let options = this.props.options.map((option, i) => {
+            return (
+                <div className="form-check" key={i}>
+                    <label className="form-check-label">
+                        <input className="form-check-radio" type="radio" onChange={this.props.onChange} value={option.value} checked={option.value === this.props.value} name={this.props.name} />
+                        {option.label}
+                    </label>
+                </div>
+            )
+        })
         return (
             <div>
-
+                {options}
             </div>
         )
     }

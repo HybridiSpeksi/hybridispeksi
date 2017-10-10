@@ -13,7 +13,6 @@ function isUserLoggedIn() {
  * Redirects to login if invalid and removes token from localstorage
  */
 function checkToken() {
-    console.log("checktoken")
     if (!isUserLoggedIn) {
         signOut();
     } else {

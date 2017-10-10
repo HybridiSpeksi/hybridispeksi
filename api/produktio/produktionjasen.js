@@ -1,4 +1,5 @@
 const Jasen = require('../../schema/produktiojasen-model');
+const Yhdistyksenjasen = require('../../schema/jasen-model');
 
 function getAll (req, res) {
     console.log('getall')
@@ -55,3 +56,14 @@ module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.newJasen = newJasen;
 module.exports.muokkaaJasen = muokkaaJasen;
+
+var yhdistaJasenetJaProduktio = function(henkilot, jasenet) {
+    for(var i=0; i<henkilot.length; i++) {
+        for(var j=0; j<jasenet.length; j++) {
+            if(henkilot[i].email.toLowerCase()==jasenet[j].email.toLowerCase()) {
+                henkilot[i].member = true;
+            }
+        }
+    }
+    return henkilot;
+}
