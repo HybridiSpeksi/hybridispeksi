@@ -170,6 +170,7 @@ class Produktio extends Component {
     ajaKutsut() {
         ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
+                console.log(jasenet)
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
                 this.setState({ ajaxReady: true });

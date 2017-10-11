@@ -18,7 +18,7 @@ class ProduktionjasenLista extends Component {
                     <td>{jasen.email}</td>
                     <td>{jasen.pnumber}</td>
                     <td>{tehtavat}</td>
-                    <td>{jasen.member}</td>
+                    <td>{jasen.member ? <i className="fa fa-check" aria-hidden="true"></i>: ""}</td>
                 </tr>
             )
         })
