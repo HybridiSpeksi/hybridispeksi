@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment';
 
+import styles from './Jasenrekisteri.css'
+
 class List extends Component {
 
     render() {
@@ -16,8 +18,8 @@ class List extends Component {
             )
         })
         return (
-            <div>
-                <table className="table table-inverse table-striped">
+            <div className={styles.table}>
+                <table className={"table table-inverse table-striped"}>
                     <thead>
                         <tr>
                             <th>#</th>

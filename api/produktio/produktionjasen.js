@@ -39,7 +39,8 @@ function getAll(req, res) {
  * Return by req.body._id.
  */
 function getById(req, res) {
-    res.status(200).send("ok");
+    // TODO
+    res.status(200).send("TODO");
 }
 
 function newJasen(req, res) {
@@ -85,12 +86,8 @@ var yhdistaJasenetJaProduktio = function (henkilot, jasenet) {
         for (var j = 0; j < jasenet.length; j++) {
             if (henkilot[i].email.toLowerCase() === jasenet[j].email.toLowerCase()) {
                 henkilot[i].member = true;
-                console.log(henkilot[i])
-            } else {
-                // henkilot[i].member = false;
-            }
+            } 
         }
     }
-    console.log(henkilot)
     return henkilot;
 }

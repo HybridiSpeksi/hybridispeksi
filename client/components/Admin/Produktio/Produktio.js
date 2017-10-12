@@ -9,6 +9,7 @@ import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
 import Haku from './Haku';
 import Sahkopostit from './Sahkopostit';
+import Uusijasen from '../Jasenrekisteri/Uusijasen';
 
 import css from './Produktionjasenet.css';
 
@@ -54,6 +55,7 @@ class Produktio extends Component {
         this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
         this.lisaaTehtava = this.lisaaTehtava.bind(this);
         this.ajaKutsut = this.ajaKutsut.bind(this);
+        this.yhdistyksenJasenLisatty = this.yhdistyksenJasenLisatty.bind(this);
     }
 
     componentDidMount() {
@@ -167,10 +169,18 @@ class Produktio extends Component {
         this.setState({ valittuJasen: _jasen })
     }
 
+    yhdistyksenJasenLisatty() {
+        let _messages = this.state.messages;
+        _messages.push({ header: "Jäsen lisätty!", text: "" });
+        this.setState({ messages: _messages })
+        setTimeout(() => {
+            this.setState({ messages: [] })
+        }, 2000)
+    }
+
     ajaKutsut() {
         ajax.sendGet('/admin/produktionjasen/2018')
             .then(jasenet => {
-                console.log(jasenet)
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
                 this.setState({ ajaxReady: true });
@@ -251,7 +261,7 @@ class Produktio extends Component {
 
                 <div className="row">
                     <div className="col">
-
+                        <Uusijasen jasen={this.state.valittuJasen} jasenLisatty={this.yhdistyksenJasenLisatty} />
                     </div>
                 </div>
             </div>

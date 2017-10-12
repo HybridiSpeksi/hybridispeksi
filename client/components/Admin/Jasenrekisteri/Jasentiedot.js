@@ -30,7 +30,16 @@ class Jasentiedot extends Component {
                             label="Sähköposti" />
 
                     </div>
-
+                    <div className="col">
+                        <Text
+                            id="hometown-input"
+                            name="hometown"
+                            type="text"
+                            onChange={this.props.handleChange}
+                            value={this.props.jasen.hometown}
+                            placeholder="Kotikunta"
+                            label="Kotikunta" />
+                    </div>
                 </div>
                 <div className="row">
                     <div className="col">

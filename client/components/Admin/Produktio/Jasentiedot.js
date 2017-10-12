@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Text, Dropdown } from '../../Utils/Form';
 import styles from './Produktionjasenet.css';
 
+import auth from '../../Utils/Auth'
+
 class Jasentiedot extends Component {
 
     render() {
@@ -82,6 +84,12 @@ class Jasentiedot extends Component {
                         </div>
                     </div>
                     {this.props.henkilotiedotMuuttuneet ? <button className="btn btn-primary" onClick={() => this.props.tallennaMuutokset()}>Tallenna muutokset</button> : ""}
+                    {this.props.jasen.hakeeJaseneksi && !this.props.jasen.member ? <p>Hakee yhdistyksen jäseneksi</p> : ""}
+                    {this.props.jasen.hakeeJaseneksi && !this.props.jasen.member && auth.getUserRole() > 3 ? (
+                        <button className="btn btn-primary" data-toggle="modal" data-target="#uusijasen-modal">
+                            Hae {this.props.jasen.fname}lle yhdistyksen jäsenyyttä
+                        </button>
+                    ) : ""}
                 </div>
             </div>
         )

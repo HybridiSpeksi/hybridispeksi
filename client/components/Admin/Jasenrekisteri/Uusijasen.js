@@ -41,17 +41,16 @@ class Uusijasen extends Component {
             || this.state.jasen.sname === ""
             || this.state.jasen.email === ""
             || this.state.jasen.hometown === "") {
-                this.setState({
-                    warnings: [{
-                        header: "Kaikki kentät täytettävä!",
-                        text: ""
-                    }]
-                })
-                setTimeout(() => {
-                    this.setState({warnings: []})
-                }, 2000)
+            this.setState({
+                warnings: [{
+                    header: "Kaikki kentät täytettävä!",
+                    text: ""
+                }]
+            })
+            setTimeout(() => {
+                this.setState({ warnings: [] })
+            }, 2000)
         } else {
-
 
             ajax.sendPut('/admin/h/jasenrekisteri', this.state.jasen)
                 .then(data => {
@@ -62,6 +61,15 @@ class Uusijasen extends Component {
                 .catch(err => {
                     console.log(err);
                 })
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (!this.state.jasen._id && this.state.jasen._id !== nextProps.jasen._id) {
+            let _jasen = nextProps.jasen;
+            _jasen.hometown = "";
+            _jasen.memberOfTyy = true;
+            this.setState({jasen: _jasen})
         }
     }
 

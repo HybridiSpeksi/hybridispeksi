@@ -124,7 +124,7 @@ class Jasenrekisteri extends Component {
                             errors={this.state.errors} />
                     </div>
                 </div>
-                <Uusijasen jasenLisatty={this.jasenLisatty} />
+                <Uusijasen jasen={{}} jasenLisatty={this.jasenLisatty} />
             </div>
         )
     }
