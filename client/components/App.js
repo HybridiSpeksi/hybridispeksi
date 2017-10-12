@@ -5,15 +5,16 @@ import globalStyles from './App.css';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import auth from './Utils/Auth';
 
+// Public
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 import Home from './Home/Home';
-
 import Rekry from './Rekry/Rekry';
 import Speksit from './Speksit/Speksit';
 import Esitykset from './Esitykset/Esitykset';
 
+// Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
@@ -21,6 +22,7 @@ import Produktio from './Admin/Produktio/Produktio';
 import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import Kayttajat from './Admin/Kayttajat/Kayttajat';
+import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 
 import Login from './Admin/Auth/Login';
 
@@ -91,6 +93,7 @@ export default class App extends React.Component {
               <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
               <AdminLayout path="/kayttajat" component={Kayttajat} />
               <AdminLayout path="/uusijasen" component={Uusijasen} />
+              <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
               </Switch>
             </div>
           </div>

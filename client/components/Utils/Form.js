@@ -19,6 +19,24 @@ class Text extends Component {
     }
 }
 
+class Textarea extends Component {
+    render() {
+        return (
+            <div className="form-group">
+                <label htmlFor={this.props.id}>{this.props.label}</label>
+                <textarea
+                    className="form-control"
+                    name={this.props.name}
+                    id={this.props.id}
+                    rows={this.props.rowd}
+                    value={this.props.value}
+                    onChange={this.props.onChange}>
+                </textarea>
+            </div>
+        )
+    }
+}
+
 class Dropdown extends Component {
     render() {
         if (!this.props.options) {
@@ -84,6 +102,7 @@ class Checkbox extends Component {
 
 module.exports = {
     Text: Text,
+    Textarea: Textarea,
     Dropdown: Dropdown,
     Radio: Radio,
     Checkbox: Checkbox

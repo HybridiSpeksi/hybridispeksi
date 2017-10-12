@@ -37,6 +37,14 @@ function getUserRole() {
     return user.role;
 }
 
+function getFullUserName() {
+    let user = JSON.parse(localStorage.getItem("user"))
+    if(!user) {
+        return "";
+    }
+    return user.fname + " " + user.sname;
+}
+
 function signIn(jwt, user) {
     localStorage.setItem("jwt", jwt);
     localStorage.setItem("user", JSON.stringify(user));
@@ -55,3 +63,4 @@ module.exports.getUserRole = getUserRole;
 module.exports.signIn = signIn;
 module.exports.signOut = signOut;
 module.exports.checkToken = checkToken;
+module.exports.getFullUserName = getFullUserName;

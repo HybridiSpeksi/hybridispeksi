@@ -28,5 +28,50 @@ module.exports = {
             .catch(err => {
                 res.json({ success: false, data: err })
             })
+    },
+
+    haeOhjaustiedot: (req, res) => {
+        Ohjaustieto.find()
+            .then(_data => {
+                res.json({ success: true, data: _data })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
+    },
+
+    poistaOhjaustieto: (req, res) => {
+        Ohjaustieto.remove({ _id: req.params._id })
+            .then(_data => {
+                res.json({ success: true, data: _data })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
+    },
+
+    muokkaaOhjaustieto: (req, res) => {
+        Ohjaustieto.findByIdAndUpdate(req.body._id, req.body)
+            .then(_data => {
+                res.json({ success: true, data: _data })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
+    },
+
+    lisaaOhjaustieto: (req, res) => {
+        let ohjaustieto = new Ohjaustieto({
+            key: req.body.key,
+            value: req.body.value,
+            name: req.body.name
+        })
+        ohjaustieto.save()
+            .then(_data => {
+                res.json({ success: true, data: _data })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
     }
 }

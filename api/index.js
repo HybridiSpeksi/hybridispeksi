@@ -16,6 +16,10 @@ router.all('/admin/w/*', user.isWebmaster)
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);
 router.get('/jarjestot', ohjaustiedot.haeJarjestot);
 router.get('/rekryAuki', ohjaustiedot.haeRekryAuki);
+router.get('/admin/w/ohjaustieto', ohjaustiedot.haeOhjaustiedot);
+router.delete('/admin/w/ohjaustieto/:_id', ohjaustiedot.poistaOhjaustieto);
+router.post('/admin/w/ohjaustieto', ohjaustiedot.muokkaaOhjaustieto);
+router.put('/admin/w/ohjaustieto', ohjaustiedot.lisaaOhjaustieto);
 
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
