@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var jasenSchema = new mongoose.Schema({
-    fname: String,
+	fname: String,
 	sname: String,
 	email: String,
 	approved: Boolean,
@@ -9,8 +9,10 @@ var jasenSchema = new mongoose.Schema({
 	hometown: String,
 	joinDate: Date,
 	approveDate: Date
-}, 
-{ collection: 'members' },
-{ timestamps: true })
+},
+	{
+		collection: 'members',
+		timestamps: true
+	})
 
 module.exports = mongoose.model('Jasen', jasenSchema);

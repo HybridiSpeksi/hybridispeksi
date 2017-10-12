@@ -11,10 +11,9 @@ var Schema = mongoose.Schema;
     lisatiedot: String,
     hakeeJaseneksi: Boolean,
     tuotannonMuistiinpanot: String,
-    vuosi: Number
+    vuosi: Number,
+    member: Boolean
 }, {
-    collection: 'produktionjasenet'
-},
-{
+    collection: 'produktionjasenet',
     timestamps: true
 }))

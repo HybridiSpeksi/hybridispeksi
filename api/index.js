@@ -2,14 +2,15 @@ const router = require('express').Router();
 const auth = require('./auth')
 const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
+const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 
 const index = require('./index/index');
 
 
 router.all('/admin*', user.checkToken);
-
-router.get('/', index.test);
+router.all('/admin/h/*', user.isHallitus);
+router.all('/admin/w/*', user.isWebmaster)
 
 // Ohjaustiedot
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);
@@ -19,16 +20,23 @@ router.get('/rekryAuki', ohjaustiedot.haeRekryAuki);
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
 router.get('/produktionjasen/:_id', produktionjasen.getById);
-router.post('/produktionjasen', produktionjasen.newJasen);
+router.put('/produktionjasen', produktionjasen.newJasen);
+router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 
 // Jäsenrekisteri
+router.get('/admin/h/jasenrekisteri', jasenrekisteri.getAll);
+router.post('/admin/h/jasenrekisteri', jasenrekisteri.muokkaaJasen);
+router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasjen);
+router.put('/admin/h/jasenrekisteri', jasenrekisteri.newJasen);
 
 // Käyttäjät
 
 router.post('/authenticate', user.authenticate);
 router.post('/signup', user.newUser);
 router.get('/isValidToken', user.isValidToken);
-router.get('/admin/kayttajat', user.getUsers);
+router.get('/admin/w/kayttajat', user.getUsers);
+router.post('/admin/w/kayttaja', user.updateUser)
+router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // router.post('/uusiKayttaja', user.newUser);
 
 

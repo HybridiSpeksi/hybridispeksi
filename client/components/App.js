@@ -20,6 +20,9 @@ import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
 import Produktio from './Admin/Produktio/Produktio';
+import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri';
+import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
+import Kayttajat from './Admin/Kayttajat/Kayttajat';
 
 import Login from './Admin/Auth/Login';
 
@@ -55,6 +58,7 @@ export default class App extends React.Component {
     };
 
     const AdminLayout = ({ component: Component, ...rest }) => {
+      auth.checkToken();
       return (
         <Route {...rest} render={props => (
           <div>
@@ -79,6 +83,7 @@ export default class App extends React.Component {
               <PublicLayout exact path="/esitykset" component={Esitykset} />
               <PublicLayout exact path="/galleria" component={Galleria} />
               <PublicLayout exact path="/yhdistys" component={Yhdistys} />
+              <PublicLayout exact path="/esitykset" component={Esitykset} />
               </Switch>
             </div>
 
@@ -87,6 +92,9 @@ export default class App extends React.Component {
               <LoginLayout path="/login" component={Login} />
               <AdminLayout path="/admin" component={Admin} />
               <AdminLayout path="/produktionhallinta" component={Produktio} /> 
+              <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
+              <AdminLayout path="/kayttajat" component={Kayttajat} />
+              <AdminLayout path="/uusijasen" component={Uusijasen} />
               </Switch>
             </div>
           </div>

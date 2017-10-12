@@ -9,6 +9,9 @@ class Jasentiedot extends Component {
             this.props.jasen.tehtavat = []
         }
         let tehtavaValinnat = this.props.jasen.tehtavat.map((t, i) => {
+            if (t === "") {
+                t = "tyhja"
+            }
             return (
                 <div className="col" key={i}>
                     <Dropdown
@@ -19,13 +22,23 @@ class Jasentiedot extends Component {
                         name={"tehtavat"}
                         onChange={this.props.handleChange}
                     />
+                    <button onClick={() => this.props.poistaTehtava(i)}><i className="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
             )
         })
         return (
             <div className="row">
                 <div className={"col " + styles.jasentiedotlaatikko}>
-                    <h3>{this.props.jasen.fname} {this.props.jasen.sname}</h3>
+                    <div className="row">
+                        <div className="col">
+                            <h3>{this.props.jasen.fname} {this.props.jasen.sname}</h3>
+                        </div>
+                        <div className="col text-right">
+                            <button onClick={() => this.props.valitseJasen(false)} className="btn btn-default">
+                                <i className="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-sm-6">
                             <Text
@@ -53,13 +66,22 @@ class Jasentiedot extends Component {
                     </div>
                     <div className="row">
                         {tehtavaValinnat}
+
+                    </div>
+                    <div className="row">
+                        <div className="col"><button className="btn" onClick={this.props.lisaaTehtava}>Lisää tehtävä</button></div>
                     </div>
                     <div className="row">
                         <div className="col">
                             <p><i>"{this.props.jasen.lisatiedot}"</i></p>
                         </div>
                     </div>
-                    {this.props.jasen.email ? <button className="btn btn-warning" onClick={() => this.props.valitseJasen(false)}>Tyhjennä valinta</button> : ""}
+                    <div className="row">
+                        <div className="col">
+                            <p>{this.props.jasen.jarjesto}</p>
+                        </div>
+                    </div>
+                    {this.props.henkilotiedotMuuttuneet ? <button className="btn btn-primary" onClick={() => this.props.tallennaMuutokset()}>Tallenna muutokset</button> : ""}
                 </div>
             </div>
         )

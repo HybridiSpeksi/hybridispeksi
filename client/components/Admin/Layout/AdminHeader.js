@@ -8,6 +8,9 @@ class AdminHeader extends Component {
 
     }
 
+    componentDidMount() {
+    }
+
     render() {
         return (
             <div>
@@ -20,19 +23,27 @@ class AdminHeader extends Component {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item active">
-                                <Link className="nav-link" to="/admin">Home <span className="sr-only">(current)</span></Link>
-                            </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/produktionhallinta">Produktio</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/jasenrekisteri">Jäsenrekisteri</Link>
+                                {auth.getUserRole() > 3 ? (
+                                    <Link className="nav-link" to="/jasenrekisteri">Jäsenrekisteri</Link>
+                                ) : (
+                                        <a className="nav-link disabled" to="#">Jäsenrekisteri <i className="fa fa-lock" aria-hidden="true"></i></a>
+                                    )}
+                            </li>
+                            <li className="nav-item">
+                                {auth.getUserRole() > 4 ? (
+                                    <Link className="nav-link" to="/kayttajat">Käyttäjät</Link>
+                                ) : (
+                                        <a className="nav-link disabled" to="#">Käyttäjät <i className="fa fa-lock" aria-hidden="true"></i></a>
+                                    )}
                             </li>
                         </ul>
                         <span className="navbar-text">
                             <div onClick={auth.signOut}>Kirjaudu ulos</div>
-                      </span>
+                        </span>
                     </div>
                 </nav>
             </div>
