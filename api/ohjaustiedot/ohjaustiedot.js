@@ -73,5 +73,19 @@ module.exports = {
             .catch(err => {
                 res.json({ success: false, data: err })
             })
+    },
+
+    haeAvaimet: (req, res) => {
+        Ohjaustieto.aggregate([{$group: {_id: "$key"}}])
+        .then(_data => {
+            _data.map(i => {
+                i.value = i._id;
+                i.name = i._id;
+            })
+            res.json({ success: true, data: _data })
+        })
+        .catch(err => {
+            res.json({ success: false, data: err })
+        })
     }
 }

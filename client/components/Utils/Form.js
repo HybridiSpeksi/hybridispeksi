@@ -30,6 +30,7 @@ class Textarea extends Component {
                     id={this.props.id}
                     rows={this.props.rowd}
                     value={this.props.value}
+                    placeholder={this.props.placeholder}
                     onChange={this.props.onChange}>
                 </textarea>
             </div>

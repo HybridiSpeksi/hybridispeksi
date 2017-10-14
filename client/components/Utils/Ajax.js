@@ -67,7 +67,24 @@ module.exports = {
                 resolve(data.json());
             })
         })
-    }
+    },
 
-
+    sendDelete: function(url) {
+        return new Promise((resolve, reject) => {
+            fetch(URL_PREFIX + url, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json, text/plain',
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwt')
+                }
+            })
+            .catch(err => {
+                reject(Error(err));
+            })
+            .then(data => {
+                resolve(data.json());
+            })
+        })
+    },
 }
