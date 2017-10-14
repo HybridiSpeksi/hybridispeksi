@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import ajax from '../../Utils/Ajax';
+import utils from '../../Utils/Utils'
 
 import List from './List';
 import Ohjaustieto from './Ohjaustieto'
@@ -45,8 +46,12 @@ class Ohjaustiedot extends Component {
     }
 
     handleChange(e) {
-        let _o = this.state.valittuOhjaustieto;
-        _o[e.target.name] = e.target.value;
+        let _value = e.target.value;
+        if(e.target.name==="truefalse") {
+            _value = utils.parseBoolean(_value);
+        }
+        const _o = this.state.valittuOhjaustieto;
+        _o[e.target.name] = _value;
         this.setState({ valittuOhjaustieto: _o });
     }
 

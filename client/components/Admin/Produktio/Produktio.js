@@ -56,6 +56,7 @@ class Produktio extends Component {
         this.lisaaTehtava = this.lisaaTehtava.bind(this);
         this.ajaKutsut = this.ajaKutsut.bind(this);
         this.yhdistyksenJasenLisatty = this.yhdistyksenJasenLisatty.bind(this);
+        this.filterProduktio = this.filterProduktio.bind(this);
     }
 
     componentDidMount() {
@@ -101,7 +102,11 @@ class Produktio extends Component {
         let _haku = this.state.haku;
         _haku[e.target.name] = e.target.value;
         this.setState({ haku: _haku })
+        this.filterProduktio();
+    }
 
+    filterProduktio() {
+        const _haku = this.state.haku;
         let filtered = Object.assign([], this.state.produktionjasenet)
         if (_haku.pikahaku !== "" || _haku.fname !== "" || _haku.email !== "" || _haku.tehtava !== "" || _haku.jarjesto) {
 
@@ -184,6 +189,7 @@ class Produktio extends Component {
                 this.setState({ produktionjasenet: jasenet });
                 this.setState({ produktionjasenetFiltered: jasenet })
                 this.setState({ ajaxReady: true });
+                this.filterProduktio();
             })
             .catch(err => {
                 console.log(err);

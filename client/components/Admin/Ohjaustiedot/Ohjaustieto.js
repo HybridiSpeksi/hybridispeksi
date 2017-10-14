@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import { Text, Textarea, Dropdown } from '../../Utils/Form';
+import { Text, Textarea, Radio } from '../../Utils/Form';
 
 class Ohjaustieto extends Component {
     render() {
         return (
-            <div>
+            <form>
                 <div className="row">
                     <div className="col">
                         <p><i>_id: {this.props.ohjaustieto._id}</i></p>
@@ -44,7 +44,21 @@ class Ohjaustieto extends Component {
                             onChange={this.props.handleChange} />
                     </div>
                 </div>
-            </div>
+                <div className="row">
+                    <div className="col">
+                        {/* <legend>Boolean-arvo</legend> */}
+                        <Radio 
+                            options={[
+                                {label: "true", value: true}, 
+                                {label: "false", value: false}]}
+                            value={this.props.ohjaustieto.truefalse}
+                            name="truefalse"
+                            onChange={this.props.handleChange}
+                            legend="Boolean -arvo"
+                            />
+                    </div>
+                </div>
+            </form>
         )
     }
 }

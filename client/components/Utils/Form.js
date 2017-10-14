@@ -77,16 +77,17 @@ class Radio extends Component {
             return (
                 <div className="form-check" key={i}>
                     <label className="form-check-label">
-                        <input className="form-check-radio" type="radio" onChange={this.props.onChange} value={option.value} checked={option.value === this.props.value} name={this.props.name} />
+                        <input className="form-check-input" type="radio" onChange={this.props.onChange} value={option.value} checked={option.value === this.props.value} name={this.props.name} />
                         {option.label}
                     </label>
                 </div>
             )
         })
         return (
-            <div>
+            <fieldset className="form-group">
+                <legend>{this.props.legend}</legend>
                 {options}
-            </div>
+            </fieldset>
         )
     }
 }
