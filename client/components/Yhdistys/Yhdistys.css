@@ -1,0 +1,15 @@
+.container {
+	background:lightgray;
+}
+.content {
+
+}
+.yhdistys_desc {
+	padding:40px;
+	opacity:1!important;
+	background-color:#444444;
+	color:white;
+}
+.persontitle {
+	font-style:italic;
+}

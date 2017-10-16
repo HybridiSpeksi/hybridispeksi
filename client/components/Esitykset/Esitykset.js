@@ -12,11 +12,12 @@ class Esitykset extends Component {
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-center " + styles.content}>
           <div className={"row justify-content-center " + styles.content_row}>
-            <div className={"col-6 " + styles.esitykset_desc}>
+            <div className={"col-sm-6 col-11 text-center " + styles.esitykset_desc}>
               <h1>Esitykset</h1>
-              <p>Esitykset pidetään keväällä.</p>
-              <p>Tästä lisää infoa myöhemmin.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus ipsum nec imperdiet cursus. Nulla vel dui nulla. Etiam urna libero, rhoncus id finibus eget, pulvinar nec ante. In sollicitudin sem et velit posuere, et malesuada ligula venenatis. Mauris vel augue ac nisi pretium consectetur. Sed a massa ligula. Sed dapibus non ex at eleifend. Donec vel lacinia neque. Sed commodo varius massa vel lacinia.</p>
+              <br/>
+              <p>Esitykset pidetään keväällä. Tästä lisää infoa myöhemmin. </p>
+              <p>Kannattaa kuitenkin seurata HybridiSpeksiä Facebookissa ja Instagramissa!</p>
+              <h3>Stay tuned!</h3>
             </div>
           </div>
         </div>

@@ -13,6 +13,9 @@ import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
 import Speksit from './Speksit/Speksit';
 import Esitykset from './Esitykset/Esitykset';
+import Galleria from './Galleria/Galleria';
+import Yhdistys from './Yhdistys/Yhdistys';
+import Sitsit from './Sitsit/Sitsit';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -79,9 +82,12 @@ export default class App extends React.Component {
               <Switch >
               <PublicLayout exact path="/" component={Home} />
               <PublicLayout exact path="/rekry" component={Rekry} />
-              {/*
               <PublicLayout exact path="/speksit" component={Speksit} />
-              <PublicLayout exact path="/esitykset" component={Esitykset} /> */}
+              {/*<PublicLayout exact path="/esitykset" component={Esitykset} /> */}
+              {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
+              <PublicLayout exact path="/yhdistys" component={Yhdistys} />
+              <PublicLayout exact path="/esitykset" component={Esitykset} />
+              <PublicLayout exact path="/sitsit" component={Sitsit} />
               </Switch>
             </div>
 
