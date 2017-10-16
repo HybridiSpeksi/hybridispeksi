@@ -10,6 +10,71 @@ class Speksit extends Component {
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
+
+        {/* KRUUNUN KOHTALO */}
+        <div className={"row align-items-center " + styles.content_kruunu}>
+          <div className={"col-sm-6 " + styles.polaroid_kruunu_container}>
+            <div className={styles.polaroid_kruunu}>
+              <img src="assets/images/hs17.jpg"/>
+              <div className={styles.polaroid_kruunu_desc}>
+                <p>Väinämöinen antaa kitaran laulaa</p>
+              </div>
+            </div>
+          </div>
+          <div className={"col-sm-6 " + styles.kruunu_desc}>
+            <h1 className={styles.font_kruunu_header}>Kruunun kohtalo <br/>&nbsp;&ndash; Kalevalan perintö</h1>
+            <p className={styles.font_kruunu}>Kalevalan lopussa Louhi on kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta 
+            ja jatkanut matkaansa muihin seikkailuihin jättäen velhoneuvoston huolehtimaan kruunusta. 
+            Kylän neito Marjatta syö puolukan ja tulee raskaaksi. Ennustuksen mukaan Marjatan lapsesta, 
+            Puolukasta, on tuleva Karjalan hallitsija. Velhoneuvosto auttaa Marjattaa kasvattamaan Puolukan 
+            opettaen häntä hallitsijan rooliin.</p>
+            <p className={styles.font_kruunu}>Puolukan saavutettua täysi-ikäisyyden, koko kansa valmistautuu hänen kruunajaisiinsa. 
+            Kaikki on valmiina. Kruunajaiset voivat alkaa!</p>
+            
+            <p className={styles.font_kruunu}><strong>SEIS!</strong></p> 
+            <p className={styles.font_kruunu}>“Entä kruununperillisen tulikoe?”</p>
+            <br/>
+            <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash; Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun, 
+            kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista. 
+            Saunan täydeltä tervaisia sankareita, suomalaista sisua ja astetta enemmän kansalliserotiikkaa!</p>
+          </div>
+        </div>
+
+        {/* BRATVAKONTRA */}
+        <div className={"row align-items-center " + styles.content_bratva}>
+          <div className={"col-sm-6 " + styles.bratva_desc}>
+            <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
+            <p className={styles.font_bratva}>Kolme nuorta on kateissa. Tilanne on toki ikävä, enkä saisi elätellä
+            liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
+            tutkinnassani. BratvaKontra toimii yleensä harkitusti, eikä ole
+            aikaisemmin jättänyt mitään pitäviä todisteita lainvastaisesta
+            toiminnastaan.</p>
+            <p className={styles.font_bratva}>Vaikken voi suoraan osoittaa yhteyttä kadonneiden nuorten ja
+            BratvaKontran välillä, viimeaikaiset tapahtumat viittaavat heidän
+            käyttävän näitä nuoria tavotteidensa saavuttamiseksi. Miksi BratvaKontra
+            poikkeaa kaavastaan? Mihin kylmän laskelmoivasti toimiva rikollisliiga
+            heitä tarvitsee?</p>
+            <p className={styles.font_bratva}>En tiedä. Vielä.</p>
+            <p className={styles.font_bratva}>Etsivä Saarnion muistiinpanot.<br/>
+            28.01. vuosi 21 jsk.</p>
+            <br/>
+            <p>Historian toinen HybridiSpeksi sai ensi-iltansa 1.4.2016 tanssiteatteri
+            ERI:ssä. HybridiSpeksi 2016 toi näyttämölle verellä, salajuonilla ja
+            huumorilla terästetyn toiminnallisen jännitysnäytelmän
+            opiskelijakolmikosta alamaailman rikoshelvetissä.</p>
+          </div>
+          <div className={"col-sm-6 d-flex justify-content-end " + styles.polaroid_bratva_container}>
+            <div className={"justify-content-end " + styles.polaroid_bratva}>
+              <img src="assets/images/hs16.jpg"/>
+              <div className={styles.polaroid_bratva_desc}>
+                <p>"I will break you"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {/* H.A.L.I */}
         <div className={"row align-items-center " + styles.content_hali}>
           <div className={"col-sm-6 " + styles.polaroid_hali_container}>
             <div className={styles.polaroid_hali}>
@@ -39,66 +104,7 @@ class Speksit extends Component {
             <p>Ensimmäinen HybridiSpeksi saapui näyttämölle rennosti kantaaottavan ja opiskelijaromantiikallakin höystetyn 
             toimintakomedian kanssa keväällä 2015.</p>
             </div>
-        </div>
-        <div className={"row align-items-center " + styles.content_bratva}>
-          <div className={"col-sm-6 " + styles.bratva_desc}>
-            <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
-            <p className={styles.font_bratva}>Kolme nuorta on kateissa. Tilanne on toki ikävä, enkä saisi elätellä
-            liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
-            tutkinnassani. BratvaKontra toimii yleensä harkitusti, eikä ole
-            aikaisemmin jättänyt mitään pitäviä todisteita lainvastaisesta
-            toiminnastaan.</p>
-            <p className={styles.font_bratva}>Vaikken voi suoraan osoittaa yhteyttä kadonneiden nuorten ja
-            BratvaKontran välillä, viimeaikaiset tapahtumat viittaavat heidän
-            käyttävän näitä nuoria tavotteidensa saavuttamiseksi. Miksi BratvaKontra
-            poikkeaa kaavastaan? Mihin kylmän laskelmoivasti toimiva rikollisliiga
-            heitä tarvitsee?</p>
-            <p className={styles.font_bratva}>En tiedä. Vielä.</p>
-            <p className={styles.font_bratva}>Etsivä Saarnion muistiinpanot.<br/>
-            28.01. vuosi 21 jsk.</p>
-            <br/>
-            <p>Historian toinen HybridiSpeksi sai ensi-iltansa 1.4.2016 tanssiteatteri
-            ERI:ssä. HybridiSpeksi 2016 toi näyttämölle verellä, salajuonilla ja
-            huumorilla terästetyn toiminnallisen jännitysnäytelmän
-            opiskelijakolmikosta alamaailman rikoshelvetissä.</p>
           </div>
-          
-          <div className={"col-sm-6 d-flex justify-content-end " + styles.polaroid_bratva_container}>
-            <div className={"justify-content-end " + styles.polaroid_bratva}>
-              <img src="assets/images/hs16.jpg"/>
-              <div className={styles.polaroid_bratva_desc}>
-                <p>"I will break you"</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={"row align-items-center " + styles.content_kruunu}>
-          <div className={"col-sm-6 " + styles.polaroid_kruunu_container}>
-            <div className={styles.polaroid_kruunu}>
-              <img src="assets/images/hs17.jpg"/>
-              <div className={styles.polaroid_kruunu_desc}>
-                <p>Väinämöinen antaa kitaran laulaa</p>
-              </div>
-            </div>
-          </div>
-          <div className={"col-sm-6 " + styles.kruunu_desc}>
-            <h1 className={styles.font_kruunu_header}>Kruunun kohtalo <br/>&nbsp;&ndash; Kalevalan perintö</h1>
-            <p className={styles.font_kruunu}>Kalevalan lopussa Louhi on kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta 
-            ja jatkanut matkaansa muihin seikkailuihin jättäen velhoneuvoston huolehtimaan kruunusta. 
-            Kylän neito Marjatta syö puolukan ja tulee raskaaksi. Ennustuksen mukaan Marjatan lapsesta, 
-            Puolukasta, on tuleva Karjalan hallitsija. Velhoneuvosto auttaa Marjattaa kasvattamaan Puolukan 
-            opettaen häntä hallitsijan rooliin.</p>
-            <p className={styles.font_kruunu}>Puolukan saavutettua täysi-ikäisyyden, koko kansa valmistautuu hänen kruunajaisiinsa. 
-            Kaikki on valmiina. Kruunajaiset voivat alkaa!</p>
-            
-            <p className={styles.font_kruunu}><strong>SEIS!</strong></p> 
-            <p className={styles.font_kruunu}>“Entä kruununperillisen tulikoe?”</p>
-            <br/>
-            <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash; Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun, 
-            kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista. 
-            Saunan täydeltä tervaisia sankareita, suomalaista sisua ja astetta enemmän kansalliserotiikkaa!</p>
-          </div>
-        </div>
       </div>
     )
   }

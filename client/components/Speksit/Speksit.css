@@ -3,19 +3,14 @@
 	padding:0px;
 }
 
-/*div {
-	border:1px solid red;
-}*/
-
 /* STYLES FOR H.A.L.I */
 
 .content_hali {
 	background:#e5e3e3;
 	margin:0px;
-	padding:60px;
-	padding-top:40px;
-	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
-	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
+	padding:50px;
+	-webkit-clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+	clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
 }
 .font_hali {
 	font-family:"Arial";
@@ -70,10 +65,9 @@
 .content_kruunu {
 	background:#e5e3e3;
 	margin:0px;
-	padding:60px;
-	padding-bottom:30px;
-	-webkit-clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
-	clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+	padding:50px;
+	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
 }
 .font_kruunu_header {
 	font-family: "Times New Roman";
@@ -106,9 +100,8 @@
 	.content_hali {
 		border:none;
 		margin:0px;
-		margin-bottom:40px;
 		padding:0px;
-		padding-top:20px;
+		padding-bottom:40px;
 		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 	}
@@ -122,10 +115,11 @@
 	.content_kruunu {
 		border:none;
 		margin:0px;
+		margin-bottom:40px;
 		padding:0px;
-		padding-bottom:40px;
+		padding-top:20px;
 		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);	
 	}
 }
 
