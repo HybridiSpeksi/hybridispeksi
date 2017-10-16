@@ -14,8 +14,10 @@ class Esitykset extends Component {
           <div className={"row justify-content-center " + styles.content_row}>
             <div className={"col-sm-6 col-11 text-center " + styles.esitykset_desc}>
               <h1>Esitykset</h1>
-              <p>Esitykset pidetään keväällä.</p>
-              <p>Tästä lisää infoa myöhemmin.</p>
+              <br/>
+              <p>Esitykset pidetään keväällä. Tästä lisää infoa myöhemmin. </p>
+              <p>Kannattaa kuitenkin seurata HybridiSpeksiä Facebookissa ja Instagramissa!</p>
+              <h3>Stay tuned!</h3>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 	background:lightgray;
 }
 .content {
+	background: url("/assets/images/teasertausta.png") no-repeat bottom right;
 	height:calc(100vh - 50px);
 }
 .content_row {
@@ -13,4 +14,11 @@
 .esitykset_desc {
 	padding:20px;
 	opacity:1!important;
+}
+@media (max-width:400px) {
+	.content {
+	height:calc(90vh - 50px);
+	background: url("/assets/images/teasertausta.png") no-repeat bottom right;
+	background-size:100%;
+	}
 }

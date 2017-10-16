@@ -1,23 +1,103 @@
 .container {
-	background:lightgray;
+	background:#d3d3d3;
+	padding:0px;
 }
+
+/*div {
+	border:1px solid red;
+}*/
+
+/* STYLES FOR H.A.L.I */
+
 .content_hali {
-	margin:50px;
-	margin-top:0px;
-	padding:20px;
-	border:4px dashed gray;
-	border-top:none;
+	background:#e5e3e3;
+	margin:0px;
+	padding:60px;
+	padding-top:40px;
+	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
 }
+.font_hali {
+	font-family:"Arial";
+	font-size:18px;
+}
+.polaroid_hali {
+	max-width:80%;
+	background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(1deg, -1deg);
+}
+.polaroid_hali, img {
+	width:100%;
+}
+.polaroid_hali_desc {
+	text-align: center;
+    padding: 10px 20px;
+}
+
+/* STYLES FOR BRATVAKONTRA */
+
 .content_bratva {
-	padding:20px;
+	margin:0px;
+	padding:60px;
+	padding-top:40px;
 }
+.font_bratva_header {
+	font-family:"Courier New";
+}
+.font_bratva {
+	font-family:"Courier New";
+	font-size:18px;
+}
+.polaroid_bratva_container {
+}
+.polaroid_bratva {
+	max-width:80%;
+	background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(-2deg, 2deg);
+}
+.polaroid_bratva, img {
+	width:100%;
+}
+.polaroid_bratva_desc {
+	text-align: center;
+    padding: 10px 20px;
+}
+
+/* STYLES FOR KRUUNUN KOHTALO */
+
 .content_kruunu {
-	margin:50px;
-	margin-bottom:0px;
-	padding:20px;
-	border:4px dashed gray;
-	border-bottom:none;
+	background:#e5e3e3;
+	margin:0px;
+	padding:60px;
+	padding-bottom:30px;
+	-webkit-clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+	clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
 }
+.font_kruunu_header {
+	font-family: "Times New Roman";
+}
+.font_kruunu {
+	font-family: "Times New Roman";
+	font-size:20px;
+}
+.polaroid_kruunu {
+	max-width:80%;
+	background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(3deg, -3deg);
+}
+.polaroid_kruunu, img {
+	width:100%;
+}
+.polaroid_kruunu_desc {
+	text-align: center;
+    padding: 10px 20px;
+}
+
+/* STYLES FOR MOBILE DEVICES */ 
+
 @media (max-width:576px){
 	.container {
 		background:lightgray;
@@ -26,15 +106,64 @@
 	.content_hali {
 		border:none;
 		margin:0px;
+		margin-bottom:40px;
 		padding:0px;
 		padding-top:20px;
+		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 	}
 	.content_bratva {
-		padding:10px;
+		margin:0px;
+		padding:0px;
+		margin-bottom:40px;
+		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 	}
 	.content_kruunu {
 		border:none;
 		margin:0px;
 		padding:0px;
+		padding-bottom:40px;
+		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 	}
+}
+
+@media (max-width:800px) {
+	.polaroid_kruunu {
+		min-width:100%;
+		transform:skew(0deg, 0deg);
+	}
+	.polaroid_kruunu_container {
+		width:100%;
+		padding:0px;
+		margin: 40px 0px 40px 0px;
+	}
+	.polaroid_kruunu_desc {
+		display:none;
+	}
+	.polaroid_bratva {
+		min-width:100%;
+		transform:skew(0deg, 0deg);
+	}
+	.polaroid_bratva_container {
+		width:100%;
+		padding:0px;
+		margin: 40px 0px 40px 0px;
+	}
+	.polaroid_bratva_desc {
+		display:none;
+	}
+	.polaroid_hali {
+		min-width:100%;
+		transform:skew(0deg, 0deg);
+	}
+	.polaroid_hali_container {
+		width:100%;
+		padding:0px;
+		margin: 40px 0px 40px 0px;
+	}
+	.polaroid_hali_desc {
+		display:none;
+	}	
 }

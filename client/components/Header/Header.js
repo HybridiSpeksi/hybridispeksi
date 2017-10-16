@@ -5,9 +5,9 @@ import styles from './Header.css';
 
 class Header extends Component {
 	componentDidMount() {
-        $('.small-screen-link').on('click', function(){
-            $(".navbar-toggler").click();
-        });
+			$('.small-screen-link').on('click', function(){
+            	$('.navbar-collapse').collapse('hide'); 
+        	})
     }
     render () {
         return (
@@ -16,22 +16,22 @@ class Header extends Component {
 				<button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
-				<Link className="navbar-brand" to="/">HybridiSpeksi</Link>
+				<Link className="d-none d-md-block navbar-brand" to="/">HybridiSpeksi</Link>
+				<Link className="d-block d-md-none navbar-brand small-screen-link" to="/">HybridiSpeksi</Link>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav">
-						<li className="nav-item">
+						{/*<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/esitykset">Esitykset</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/esitykset">Esitykset</Link>
-							
-						</li>
+						</li>*/}
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/speksit">Aiemmat Speksit</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksit">Aiemmat Speksit</Link>
 						</li>
-						<li className="nav-item">
+						{/*<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/galleria">Galleria</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/galleria">Galleria</Link>
-						</li>
+						</li>*/}
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/yhdistys">Yhdistys</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/yhdistys">Yhdistys</Link>

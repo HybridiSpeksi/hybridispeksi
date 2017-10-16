@@ -2,15 +2,14 @@
 	background:lightgray;
 }
 .content {
-	height:calc(100vh - 50px);
+
 }
-.content_row {
-	background-color:   rgba(255, 255, 255, 0.4);
-	padding:0px;
-	margin:0px;
-	width:100%;
-}
-.galleria_desc {
-	padding:20px;
+.yhdistys_desc {
+	padding:40px;
 	opacity:1!important;
+	background-color:#444444;
+	color:white;
+}
+.persontitle {
+	font-style:italic;
 }
