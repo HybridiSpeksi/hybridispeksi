@@ -87,5 +87,15 @@ module.exports = {
         .catch(err => {
             res.json({ success: false, data: err })
         })
+    },
+
+    getByKey: (req, res) => {
+        Ohjaustieto.find({key: req.params.key})
+        .then(_data => {
+            res.json({ success: true, data: _data })
+        })
+        .catch(err => {
+            res.json({ success: false, data: err })
+        })
     }
 }

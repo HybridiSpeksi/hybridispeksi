@@ -21,6 +21,7 @@ router.delete('/admin/w/ohjaustieto/:_id', ohjaustiedot.poistaOhjaustieto);
 router.post('/admin/w/ohjaustieto', ohjaustiedot.muokkaaOhjaustieto);
 router.put('/admin/w/ohjaustieto', ohjaustiedot.lisaaOhjaustieto);
 router.get('/admin/w/avaimet', ohjaustiedot.haeAvaimet);
+router.get('/ohjaustieto/:key', ohjaustiedot.getByKey);
 
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
