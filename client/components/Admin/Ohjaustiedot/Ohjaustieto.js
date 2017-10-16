@@ -46,7 +46,6 @@ class Ohjaustieto extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        {/* <legend>Boolean-arvo</legend> */}
                         <Radio 
                             options={[
                                 {label: "true", value: true}, 
