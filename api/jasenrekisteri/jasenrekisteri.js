@@ -13,7 +13,7 @@ module.exports = {
     newJasen: (req, res) => {
         let jasen = new Jasenrekisteri({
             fname: req.body.fname,
-            sname: req.body.fname,
+            sname: req.body.sname,
             email: req.body.email,
             approved: false,
             memberOfTyy: req.body.memberOfTyy,
