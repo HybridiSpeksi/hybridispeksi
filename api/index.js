@@ -50,7 +50,7 @@ router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // Tapahtumat
 router.get('/admin/tapahtumat', tapahtuma.getAll);
 router.put('/ilmo', ilmo.newIlmo);
-router.get('/ilmo', ilmo.getAll);
+router.get('/admin/ilmo', ilmo.getAll);
 router.get('/ilmo', ilmo.getAllPublic);
 router.post('/ilmo', ilmo.updateIlmo);
 router.delete('/ilmo', ilmo.removeIlmo);
