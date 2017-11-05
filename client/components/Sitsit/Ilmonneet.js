@@ -25,26 +25,26 @@ class Ilmonneet extends Component {
 	render() {
 		let ilmonneet = this.state.ilmonneet.map((ilmonnut, i) => {
 		    return (
-		    	<div key={i} className="row">
-		            <div className="col-sm-2 col-2 text-left">
-		              <p>{ilmonnut.fname}</p>
-		            </div>
-		            <div className="col-sm-3 col-3 text-left">
-		              <p>{ilmonnut.sname}</p>
-		            </div>
-		            <div className="col-sm-4 col-4 text-left">
-		              <p>{ilmonnut.jarjesto}</p>
-		            </div>
-		            <div className="col-sm-4 col-4 text-left">
-		              <p>{ilmonnut.alterego}</p>
-		            </div>
-		        </div>
+		    	<tr key={i}>
+		            <td>{ilmonnut.fname} {ilmonnut.sname}</td>
+		            <td>{ilmonnut.jarjesto}</td>
+		        	<td>{ilmonnut.alterego}</td>
+		        </tr>
 		    )
 		})
 		return (
-			<div>
-				{ilmonneet}
-			</div>
+			<table className="table table-striped">
+				<thead>
+					<tr>
+						<th>Nimi</th>
+						<th>Speksi</th>
+						<th>Alterego</th>
+					</tr>
+				</thead>
+				<tbody>
+					{ilmonneet}
+				</tbody>
+			</table>
 		)
 	}
 

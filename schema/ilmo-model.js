@@ -8,7 +8,8 @@ var ilmoSchema = new mongoose.Schema({
     pnumber: String,
     jarjesto: String,
     ruokavalio: String,
-    juoma: String
+    juoma: String,
+    alterego: String
 }, { 
     collection: 'ilmot',
     strict: false,

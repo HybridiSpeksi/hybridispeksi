@@ -86,20 +86,6 @@ class Sitsit extends Component {
                             </div>
                         </div>
                         <br/>
-                        <div className="row">
-                            <div className="col-sm-2 col-2 text-left">
-                              <p><strong>Etunimi:</strong></p>
-                            </div>
-                            <div className="col-sm-3 col-3 text-left">
-                              <p><strong>Sukunimi:</strong></p>
-                            </div>
-                            <div className="col-sm-3 col-3 text-left">
-                              <p><strong>Järjestö</strong>:</p>
-                            </div>
-                            <div className="col-sm-3 col-3 text-left">
-                              <p><strong>Alter ego</strong>:</p>
-                            </div>
-                        </div>
                         <Ilmonneet/>
 
             		</div>

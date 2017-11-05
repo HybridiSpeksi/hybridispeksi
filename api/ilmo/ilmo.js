@@ -12,7 +12,12 @@ module.exports = {
     },
 
     getAllPublic: (req, res) => {
-        Ilmo.find({tapahtuma: req.params.value}, {fname: 1, sname: 1, _id: 0})
+        Ilmo.find({tapahtuma: req.params.value}, {
+                        fname: 1, 
+                        sname: 1, 
+                        alterego: 1, 
+                        jarjesto: 1, 
+                        _id: 0})
         .then(_data => {
             res.json({success: true, data: _data})
         })
