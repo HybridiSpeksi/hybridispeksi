@@ -14,7 +14,7 @@ let MESSAGE_ERROR = "error";
 
 class Sitsit extends Component {
     constructor(props) {
-        super(props);
+        super(props);   
 
         // Initial state
         this.state = {
