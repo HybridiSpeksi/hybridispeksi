@@ -25,7 +25,7 @@ class Ilmonneet extends Component {
 	render() {
 		let ilmonneet = this.state.ilmonneet.map((ilmonnut, i) => {
 		    return (
-		        <div className="row">
+		    	<div className="row">
 		            <div className="col-sm-4">
 		              <p>{ilmonnut.fname}</p>
 		            </div>
@@ -38,6 +38,11 @@ class Ilmonneet extends Component {
 		        </div>
 		    )
 		})
+		return (
+			<div>
+				{ilmonneet}
+			</div>
+		)
 	}
 
 }
