@@ -51,6 +51,7 @@ class Sitsit extends Component {
         .catch(err => {
             console.log(err)
         })
+        this.setState({sitsitAuki: true});
 
         ajax.sendGet('/ohjaustieto/sitsiKiintio')
         .then(tag => {
