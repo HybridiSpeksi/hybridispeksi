@@ -33,6 +33,7 @@ module.exports = {
             sname: req.body.sname,
             email: req.body.email,
             jarjesto: req.body.jarjesto,
+            holillisuus: req.body.holillisuus,
             allergiat: req.body.allergiat,
             alterego: req.body.alterego,
             ilmoAika: new Date()

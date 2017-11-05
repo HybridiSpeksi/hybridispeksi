@@ -23,11 +23,13 @@ class Sitsit extends Component {
             sname: '',
             email: '',
             jarjesto: '',
+            holillisuus: 'true',
             allergiat: '',
             alterego: '',
             messages: [],
             warnings: [],
             errors: [],
+            ilmonneet: [],
             sitsitAuki: false,
             ilmottu: false     
         };
@@ -41,6 +43,9 @@ class Sitsit extends Component {
         .then(tag => {
             console.log(tag.data[0])
             this.setState({sitsitAuki: tag.data[0].truefalse})
+        })
+        .catch(err => {
+            console.log(err)
         })
     }
 
@@ -70,6 +75,7 @@ class Sitsit extends Component {
                     sname: this.state.sname,
                     email: this.state.email,
                     jarjesto: this.state.jarjesto,
+                    holillisuus: this.state.holillisuus,
                     allergiat: this.state.lisatiedot,
                     alterego: this.state.alterego
 
@@ -86,6 +92,31 @@ class Sitsit extends Component {
 
     //Validates if all necessary info has been given
     validateSitsit() {
+        let hs = 0;
+        let io = 0;
+
+        ajax.sendGet('/ilmo/fantasiasitsit2017')
+        .then(_data => {
+            this.setState({ilmonneet: _data.data});
+            console.log(_data);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        for(var i = 0; i < this.state.ilmonneet.length; i++){
+            if(this.state.ilmonneet[i].jarjesto === "HybridiSpeksi") {
+                hs = hs + 1;
+                console.log({hs});
+                console.log('HALOO?!');
+            }
+            else {
+                io = io + 1;
+                console.log({io})
+            }
+        }
+
+
         let valid = true;
         if (
             this.state.fname === ""
@@ -101,6 +132,10 @@ class Sitsit extends Component {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
+        if (this.state.jarjesto === "HybridiSpeksi" && hs > 59 || this.state.jarjesto === "I/O-speksi" && io > 59){
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Järjestön kiintiö on jo täynnä")
+        }
+
         return valid;
     }
 
@@ -132,6 +167,7 @@ class Sitsit extends Component {
                     sname={this.state.sname}
                     email={this.state.email}
                     jarjesto={this.state.jarjesto}
+                    holillisuus={this.state.holillisuus}
                     allergiat={this.state.allergiat}
                     alterego={this.state.alterego}
                     handleChange={this.handleChange}
