@@ -115,8 +115,24 @@ class Sitsit extends Component {
                             </div>
                         </div>
                         <br/>
-                        <Ilmonneet/>
-
+                        <Ilmonneet
+                            ilmonneet={this.props.ilmonneet}/>
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <strong>HybridiSpeksiläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.hsCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <strong>I/O-speksiläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.ioCount}</strong>
+                            </div>
+                        </div>
             		</div>
 
             	</div>
