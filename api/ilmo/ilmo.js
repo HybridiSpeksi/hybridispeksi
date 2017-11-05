@@ -2,7 +2,7 @@ const Ilmo = require('../../schema/ilmo-model');
 
 module.exports = {
     getAll: (req, res) => {
-        Ilmo.find({})
+        Ilmo.find({tapahtuma: req.params.value})
         .then(_data => {
             res.json({success: true, data: _data})
         })
@@ -12,7 +12,7 @@ module.exports = {
     },
 
     getAllPublic: (req, res) => {
-        Ilmo.find({}, {fname: 1, sname: 1, _id: 0})
+        Ilmo.find({tapahtuma: req.params.value}, {fname: 1, sname: 1, _id: 0})
         .then(_data => {
             res.json({success: true, data: _data})
         })
