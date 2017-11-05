@@ -13,7 +13,7 @@ class Tapahtumavalinta extends Component {
         return (
             <div>
                 <h3>Valitse tapahtuma</h3>
-                <table className="table table-striped">
+                <table className="table table-inverse table-striped">
                     <tbody>
                         {tapahtumat}
                     </tbody>

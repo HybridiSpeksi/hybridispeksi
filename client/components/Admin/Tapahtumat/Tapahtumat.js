@@ -15,13 +15,14 @@ class Tapahtumat extends Component {
         }
 
         this.valitseTapahtuma = this.valitseTapahtuma.bind(this);
+        this.haeIlmot = this.haeIlmot.bind(this);
     }
 
     componentDidMount() {
         ajax.sendGet('/admin/tapahtumat')
         .then(_data => {
             this.setState({tapahtumat: _data.data})
-            this.setState({valittuTapahtuma: _data.data})
+            this.setState({valittuTapahtuma: _data.data[0]})
             this.haeIlmot();
         })
         .catch(err => {
@@ -32,12 +33,15 @@ class Tapahtumat extends Component {
     valitseTapahtuma(t) {
         console.log(t)
         this.setState({valittuTapahtuma: t});
+        this.haeIlmot();
     }
 
     haeIlmot() {
-        ajax.sendGet('/admin/ilmo')
+        console.log(this.state.valittuTapahtuma)
+        ajax.sendGet('/admin/ilmo/' + this.state.valittuTapahtuma.value)
         .then(_data => {
             this.setState({ilmot: _data.data})
+            console.log(_data)
         })
         .catch(err => {
             console.log(err);
