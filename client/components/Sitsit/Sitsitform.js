@@ -2,25 +2,10 @@ import React, { Component } from 'react'
 
 import styles from './Sitsit.css';
 
+import Ilmonneet from './Ilmonneet';
+
 class Sitsit extends Component {
     render() {
-        {/*
-        let ilmonneet = this.props.ilmonneet.map((ilmonnut, i) => {
-            return (
-                <div className="row">
-                    <div className="col-sm-4">
-                      <p>Etunimi:</p>
-                    </div>
-                    <div className="col-sm-4">
-                      <p>Sukunimi:</p>
-                    </div>
-                    <div className="col-sm-4">
-                      <p>Järjestö:</p>
-                    </div>
-                </div>
-            )
-        }) */}
-
         return (
             <div className={"container-fluid " + styles.container}>
 
@@ -112,7 +97,7 @@ class Sitsit extends Component {
                               <p><strong>Järjestö</strong>:</p>
                             </div>
                         </div>
-                        {/* {ilmonneet} */}
+                        <Ilmonneet/>
 
             		</div>
 
