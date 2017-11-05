@@ -7,21 +7,29 @@ class Ilmonneet extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			ilmonneet: []
+			ilmonneet: [],
+			hsCount: 0,
+			ioCount: 0
 		}
+		this.countSpeksit = this.countSpeksit.bind(this);
 	}
 
 	componentDidMount() {
 		ajax.sendGet('/ilmo/fantasiasitsit2017')
         .then(_data => {
-            this.setState({ilmonneet: _data.data});
+			this.setState({ilmonneet: _data.data});
+			this.countSpeksit();
             console.log(_data);
         })
         .catch(err => {
             console.log(err)
         })
 
-        let hs = 0;
+        
+	}
+
+	countSpeksit() {
+		let hs = 0;
         let io = 0;
         for(var i = 0; i < this.state.ilmonneet.length; i++){
             if(this.state.ilmonneet[i].jarjesto === "HybridiSpeksi") {
@@ -32,7 +40,8 @@ class Ilmonneet extends Component {
                 io = io + 1;
                 console.log({io});
             }
-        }
+		}
+		this.setState({hsCount: hs, ioCount: io})
 	}
 
 	render() {
