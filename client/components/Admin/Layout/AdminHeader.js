@@ -27,6 +27,9 @@ class AdminHeader extends Component {
                                 <Link className="nav-link" to="/produktionhallinta">Produktio</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" to="/tapahtumat">Tapahtumat</Link>
+                            </li>
+                            <li className="nav-item">
                                 {auth.getUserRole() > 3 ? (
                                     <Link className="nav-link" to="/jasenrekisteri">Jäsenrekisteri</Link>
                                 ) : (

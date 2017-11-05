@@ -8,7 +8,7 @@ var ilmoSchema = new mongoose.Schema({
     pnumber: String,
     jarjesto: String
 }, { 
-    collection: 'ilmot', 
+    collection: 'ilmot',
     strict: false,
     timestamps: true
  })

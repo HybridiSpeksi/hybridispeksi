@@ -5,6 +5,7 @@ const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 const ilmo = require('./ilmo/ilmo');
+const tapahtuma = require('./ilmo/tapahtuma');
 
 const index = require('./index/index');
 
@@ -46,7 +47,8 @@ router.post('/admin/w/kayttaja', user.updateUser)
 router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // router.post('/uusiKayttaja', user.newUser);
 
-// Ilmo
+// Tapahtumat
+router.get('/admin/tapahtumat', tapahtuma.getAll);
 router.put('/ilmo', ilmo.newIlmo);
 
 
