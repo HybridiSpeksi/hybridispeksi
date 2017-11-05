@@ -4,7 +4,7 @@ class Tapahtumavalinta extends Component {
     render() {
         let tapahtumat = this.props.tapahtumat.map((t, i) => {
             return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.props.valitseTapahtuma(t)}>
                     <td>{t.name}</td>
                     <td></td>
                 </tr>
@@ -12,6 +12,7 @@ class Tapahtumavalinta extends Component {
         })
         return (
             <div>
+                <h3>Valitse tapahtuma</h3>
                 <table className="table table-striped">
                     <tbody>
                         {tapahtumat}
