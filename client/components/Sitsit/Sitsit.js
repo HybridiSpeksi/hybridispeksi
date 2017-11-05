@@ -31,11 +31,14 @@ class Sitsit extends Component {
             errors: [],
             ilmonneet: [],
             sitsitAuki: false,
-            ilmottu: false     
+            ilmottu: false,
+            hsCount: 0,
+            ioCount: 0     
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.countSpeksit = this.countSpeksit.bind(this);
     }
 
     componentDidMount() {
@@ -43,6 +46,16 @@ class Sitsit extends Component {
         .then(tag => {
             console.log(tag.data[0])
             this.setState({sitsitAuki: tag.data[0].truefalse})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        ajax.sendGet('/ilmo/fantasiasitsit2017')
+        .then(_data => {
+            this.setState({ilmonneet: _data.data});
+            this.countSpeksit();
+            console.log(_data);
         })
         .catch(err => {
             console.log(err)
@@ -90,11 +103,8 @@ class Sitsit extends Component {
             }
     }
 
-    //Validates if all necessary info has been given
-    validateSitsit() {
-        let hs = 0;
-        let io = 0;
-
+    //Count enrollments
+    countSpeksit() {
         ajax.sendGet('/ilmo/fantasiasitsit2017')
         .then(_data => {
             this.setState({ilmonneet: _data.data});
@@ -104,18 +114,23 @@ class Sitsit extends Component {
             console.log(err)
         })
 
+
+        let hs = 0;
+        let io = 0;
         for(var i = 0; i < this.state.ilmonneet.length; i++){
             if(this.state.ilmonneet[i].jarjesto === "HybridiSpeksi") {
                 hs = hs + 1;
-                console.log({hs});
-                console.log('HALOO?!');
             }
             else {
                 io = io + 1;
-                console.log({io})
             }
         }
+        this.setState({hsCount: hs, ioCount: io})
+    }
 
+    //Validates if all necessary info has been given
+    validateSitsit() {
+        this.countSpeksit();
 
         let valid = true;
         if (
@@ -132,8 +147,9 @@ class Sitsit extends Component {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
-        if (this.state.jarjesto === "HybridiSpeksi" && hs > 59 || this.state.jarjesto === "I/O-speksi" && io > 59){
+        if (this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 59 || this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 59){
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Järjestön kiintiö on jo täynnä")
+            valid = false;
         }
 
         return valid;
@@ -170,6 +186,9 @@ class Sitsit extends Component {
                     holillisuus={this.state.holillisuus}
                     allergiat={this.state.allergiat}
                     alterego={this.state.alterego}
+                    ilmonneet={this.state.ilmonneet}
+                    hsCount={this.state.hsCount}
+                    ioCount={this.state.ioCount}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
                     messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors}/>} 
