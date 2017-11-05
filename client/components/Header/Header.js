@@ -32,10 +32,10 @@ class Header extends Component {
 							<Link className="nav-link d-none d-md-block" to="/galleria">Galleria</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/galleria">Galleria</Link>
 						</li>*/}
-						{/* <li className="nav-item">
+						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/yhdistys">Yhdistys</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/yhdistys">Yhdistys</Link>
-						</li> */}
+						</li> 
 					</ul>
 				</div>
 

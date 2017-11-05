@@ -46,49 +46,45 @@ class Yhdistys extends Component {
                   <div className="col-11">
                     <p><strong>Laura Forsman</strong><br/>
                     <i>Puheenjohtaja</i><br/>
-                    asdasd@utu.fi</p>
+                    </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
                     <p><strong>Pyry Pajunpää</strong><br/>
-                    <i>Varapuheenjohtaja</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Varapuheenjohtaja</i>
+                    </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
                     <p><strong>Maija Jortikka</strong><br/>
-                    <i>Sihteeri, <br/>Ympäristövastaava</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Sihteeri</i>
+                    </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
                     <p><strong>Jenni Peuhkurinen</strong><br/>
-                    <i>Taloudenhoitaja, <br/>Häirintäyhdyshenkilö</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Taloudenhoitaja</i></p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <p><strong>Sampsa Vuorela</strong><br/>
-                    <i>Taloudellisen tiimin vastaava, <br/>Yhdenvertaisuusvastaava, <br/>Interspeksuaalisuusvastaava</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Taloudellisen tiimin vastaava</i></p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <p><strong>Ilmari Kautiala</strong><br/>
-                    <i>Esiintyjien yhdyshenkilö</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Esiintyjien yhdyshenkilö</i></p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <p><strong>Oliver Boucht</strong><br/>
-                    <i>Visuaalisen tiimin yhdyshenkilö, <br/>Häirintäyhdyshenkilö</i><br/>
-                    asdasd@utu.fi</p>
+                    <i>Visuaalisen tiimin yhdyshenkilö</i></p>
                   </div>
                 </div>                
               </div>
@@ -241,20 +237,20 @@ class Yhdistys extends Component {
                   </div>
                   <div className="row">
                     <div className="col-sm-4 col-5">
-                      <p className={styles.persontitle}>Äänet</p>
+                      <p className={styles.persontitle}>Äänitekniikka</p>
                     </div>
                     <div className="col-7">
                       <p>Pyry Pajunpää</p>
                     </div>
                   </div>
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-sm-4 col-5">
                       <p className={styles.persontitle}>Valot</p>
                     </div>
                     <div className="col-7">
                       <p>-</p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="row">
                     <div className="col-sm-4 col-5">
                       <p className={styles.persontitle}>Nettisivut</p>
