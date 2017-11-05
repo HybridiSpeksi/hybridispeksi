@@ -29,7 +29,7 @@ module.exports = {
             })
     },
 
-    hyvaksyJasjen: (req, res) => {
+    hyvaksyJasen: (req, res) => {
         Jasenrekisteri.findByIdAndUpdate({ _id: req.params._id },
             { 
                 approved: true,

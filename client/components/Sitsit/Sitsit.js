@@ -18,11 +18,13 @@ class Sitsit extends Component {
 
         // Initial state
         this.state = {
+            tapahtuma: 'fantasiasitsit2017',
             fname: '',
             sname: '',
             email: '',
             jarjesto: '',
             allergiat: '',
+            alterego: '',
             messages: [],
             warnings: [],
             errors: [],
@@ -64,12 +66,13 @@ class Sitsit extends Component {
     // Submit form
     handleSubmit(e) {
         e.preventDefault();
-        let url = "/sitsi-ilmo";
+        let url = "/ilmo";
 
         if (this.validateSitsit()) {
             ajax.sendPut(
                 url,
-                {
+                {   
+                    tapahtuma: this.state.tapahtuma,
                     fname: this.state.fname,
                     sname: this.state.sname,
                     email: this.state.email,
@@ -81,6 +84,7 @@ class Sitsit extends Component {
                 }).then(data => {
                     if (data.success === true) {
                         addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
+                        console.log('Ilmo onnistuiiiii')
                     }
                 }).catch(err => {
                     console.log(err);
