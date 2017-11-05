@@ -88,8 +88,8 @@ class Sitsit extends Component {
                     sname: this.state.sname,
                     email: this.state.email,
                     jarjesto: this.state.jarjesto,
-                    holillisuus: this.state.holillisuus,
-                    allergiat: this.state.lisatiedot,
+                    juoma: this.state.holillisuus,
+                    ruokavalio: this.state.lisatiedot,
                     alterego: this.state.alterego
 
 

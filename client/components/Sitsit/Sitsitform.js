@@ -23,7 +23,7 @@ class Sitsit extends Component {
                         maailmat ovat ovat ajautuneet törmäyskurssille, ja menneet iloisesti keskenään sekaisin kuin I/O ja Hybridi
                         konsanaan. Olitpa sitten Westerosin tai Keskimaan asukki, hybridiläinen tai I/O:lainen, niin olet lämpimästi
                         tervetullut larppaamaan tähän tilaisuuteen.</p>
-                        <p>Sitseille ilmoittautuminen aukeaa 6.11 Facebook-tapahtumassa ilmoitetussa osoitteessa, jolloin 60 nopeinta hybridiläistä ja 60 speedointa
+                        <p>Sitseille ilmoittautuminen aukeaa 6.11 klo 14.00, jolloin 60 nopeinta hybridiläistä ja 60 speedointa
                         I/O:laista pääsee näpyttelemään itsensä mukaan. Sitsien hinta on vaivaiset 8 euroa holillisesta lipusta, ja 6
                         euroa holittomasta. Maksuohjeet pamahtavat myös tapahtumaan ennen ilmoittautumispäivämäärää.
                         Sitsilipun hintaan kuuluu alkuruuan ja jälkiruuan lisäksi ruokajuoma, shotti sekä
