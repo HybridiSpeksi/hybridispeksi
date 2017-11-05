@@ -28,7 +28,8 @@ class Sitsit extends Component {
             messages: [],
             warnings: [],
             errors: [],
-            rekryAuki: false 
+            sitsitAuki: false,
+            ilmottu: false     
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,18 +37,10 @@ class Sitsit extends Component {
     }
 
     componentDidMount() {
-
-        ajax.sendGet('/jarjestot')
-        .then(jarjestot => {
-            this.setState({kaikkiJarjestot: jarjestot.data});
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        ajax.sendGet('/rekryAuki')
+        ajax.sendGet('/ohjaustieto/fantasiasitsit2017Auki')
         .then(tag => {
             console.log(tag.data[0])
-            this.setState({rekryAuki: tag.data[0].truefalse})
+            this.setState({sitsitAuki: tag.data[0].truefalse})
         })
     }
 
@@ -82,10 +75,8 @@ class Sitsit extends Component {
 
 
                 }).then(data => {
-                    if (data.success === true) {
-                        addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                        console.log('Ilmo onnistuiiiii')
-                    }
+                    this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
+                    this.setState({ilmottu: true})
                 }).catch(err => {
                     console.log(err);
                     this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
@@ -135,7 +126,8 @@ class Sitsit extends Component {
         return (
             <div>
                 <Sitsitform
-                    rekryAuki={this.state.rekryAuki}
+                    sitsitAuki={this.state.sitsitAuki}
+                    ilmottu={this.state.ilmottu}
                     fname={this.state.fname}
                     sname={this.state.sname}
                     email={this.state.email}

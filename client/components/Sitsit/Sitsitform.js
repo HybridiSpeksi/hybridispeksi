@@ -65,7 +65,7 @@ class Sitsit extends Component {
                         </div>
                         <div className={"row form-group align-items-center " + styles.alterego}>
                             <div className={"col-sm-4"}>
-                                <label htmlFor="alteregoInput" className={styles.label}>Fantasia-alter ego:<span className={styles.tahti}>*</span></label>
+                                <label htmlFor="alteregoInput" className={styles.label}>Fantasia- alter ego:<span className={styles.tahti}>*</span></label>
                             </div>
                             <div className={"col"}>
                                 <input name="alterego" id="alteregoeInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.alterego} placeholder="Alter ego"/>
@@ -73,8 +73,8 @@ class Sitsit extends Component {
                         </div>
 
                         <div className={"row form-group align-items-center justify-content-center " + styles.submit}>
-                            <div className={"col-sm-5 d-flex justify-content-center"}>
-                                {this.props.rekryAuki ? <button className="btn btn-default" type="submit">Lähetä ilmoittautuminen</button> : <p><i>Ilmoittautuminen on suljettu!</i></p>}
+                            <div className={"col-sm-5 d-flex justify-content-center text-center"}>
+                                {this.props.sitsitAuki ? this.props.ilmottu ? <p><i>Olet jo ilmoittautunut tapahtumaan.</i></p> : <button className="btn btn-default" type="submit">Lähetä ilmoittautuminen</button> : <p><i>Ilmoittautuminen on suljettu!</i></p>}
                                 {/* <button className="btn btn-default" type="submit">Lähetä hakemus</button> */}
                             </div>
                         </div>
@@ -87,14 +87,17 @@ class Sitsit extends Component {
                         </div>
                         <br/>
                         <div className="row">
-                            <div className="col-sm-3 col-3">
+                            <div className="col-sm-2 col-2 text-left">
                               <p><strong>Etunimi:</strong></p>
                             </div>
-                            <div className="col-sm-4 col-4">
+                            <div className="col-sm-3 col-3 text-left">
                               <p><strong>Sukunimi:</strong></p>
                             </div>
-                            <div className="col-sm-4 col-4">
+                            <div className="col-sm-3 col-3 text-left">
                               <p><strong>Järjestö</strong>:</p>
+                            </div>
+                            <div className="col-sm-3 col-3 text-left">
+                              <p><strong>Alter ego</strong>:</p>
                             </div>
                         </div>
                         <Ilmonneet/>
