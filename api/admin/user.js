@@ -115,6 +115,7 @@ function authenticate(req, res, next) {
         })
         .then(function (user) {
             console.log(user.fname + " " + user.sname + " tries to sign in")
+            console.log(req.body);
             if (!user) {
                 res.json({ message: 'Käyttäjää ei löytynyt' });
                 console.log("No user found")
