@@ -6,7 +6,9 @@ var ilmoSchema = new mongoose.Schema({
     sname: String,
     email: String,
     pnumber: String,
-    jarjesto: String
+    jarjesto: String,
+    ruokavalio: String,
+    juoma: String
 }, { 
     collection: 'ilmot',
     strict: false,
