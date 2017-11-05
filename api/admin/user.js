@@ -114,14 +114,17 @@ function authenticate(req, res, next) {
             res.json({ success: false, message: 'Error in getting user.' });
         })
         .then(function (user) {
-            console.log(user.fname + " " + user.sname + " just signed in")
+            console.log(user.fname + " " + user.sname + " tries to sign in")
             if (!user) {
                 res.json({ message: 'Käyttäjää ei löytynyt' });
+                console.log("No user found")
             } else if (user.password != sha1(req.body.password)) {
                 res.json({ message: 'Virheellinen salasana' });
+                console.log("Wrong password")
             } else if (user.role === config.EI_HYVAKSYTTY) {
                 res.json({ success: false, message: 'Käyttäjää ei ole vielä hyväksytty' })
             } else {
+                console.log("Sign in success")
                 const token = jwt.sign(user.toObject(), process.env.SECRET, {
                     expiresIn: '1h', // expires in 1 hours
                 });
