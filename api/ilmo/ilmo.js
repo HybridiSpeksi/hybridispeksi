@@ -22,14 +22,44 @@ module.exports = {
     },
 
     newIlmo: (req, res) => {
-        
+        let osallistuja = new Ilmo({
+            tapahtuma: req.body.tapahtuma,
+            fname: req.body.fname,
+            sname: req.body.sname,
+            email: req.body.email,
+            jarjesto: req.body.jarjesto,
+            allergiat: req.body.allergiat,
+            alterego: req.body.alterego,
+            ilmoAika: new Date()
+        })
+        osallistuja.save()
+            .then(osallistuja => {
+                res.jason({ success: true, data: osallistuja });
+            }) 
+            .catch(err => {
+                res.json({ success: false, data: err });
+            })
     },
 
     removeIlmo: (req, res) => {
-
+        let osallistuja = req.body;
+        Ilmo.findByIdAndRemove(osallistuja._id, osallistuja)
+            .then(osallistuja => {
+                res.json({ success: true, data: osallistuja })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
     },
 
     updateIlmo: (req, res) => {
-
+        let osallistuja = req.body;
+        Ilmo.findByIdAndUpdate(osallistuja._id, osallistuja)
+            .then(osallistuja => {
+                res.json({ success: true, data: osallistuja })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
     }
 }

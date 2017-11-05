@@ -34,7 +34,7 @@ router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
 // Jäsenrekisteri
 router.get('/admin/h/jasenrekisteri', jasenrekisteri.getAll);
 router.post('/admin/h/jasenrekisteri', jasenrekisteri.muokkaaJasen);
-router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasjen);
+router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasen);
 router.put('/admin/h/jasenrekisteri', jasenrekisteri.newJasen);
 
 // Käyttäjät
@@ -50,6 +50,10 @@ router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
 // Tapahtumat
 router.get('/admin/tapahtumat', tapahtuma.getAll);
 router.put('/ilmo', ilmo.newIlmo);
+router.get('/ilmo', ilmo.getAll);
+router.get('/ilmo', ilmo.getAllPublic);
+router.post('/ilmo', ilmo.updateIlmo);
+router.delete('/ilmo', ilmo.removeIlmo);
 
 
 module.exports = router;
