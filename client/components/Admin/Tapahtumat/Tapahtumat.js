@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Tapahtumavalinta from './Tapahtumavalinta';
+import IlmoLista from './IlmoLista';
 
 import ajax from '../../Utils/Ajax';
 
@@ -23,7 +24,7 @@ class Tapahtumat extends Component {
         .then(_data => {
             this.setState({tapahtumat: _data.data})
             this.setState({valittuTapahtuma: _data.data[0]})
-            this.haeIlmot();
+            this.haeIlmot(_data.data[0]);
         })
         .catch(err => {
             console.log(err);
@@ -31,17 +32,14 @@ class Tapahtumat extends Component {
     }
 
     valitseTapahtuma(t) {
-        console.log(t)
-        this.setState({valittuTapahtuma: t});
-        this.haeIlmot();
+        this.setState({valittuTapahtuma: t})
+        this.haeIlmot(t);
     }
 
-    haeIlmot() {
-        console.log(this.state.valittuTapahtuma)
-        ajax.sendGet('/admin/ilmo/' + this.state.valittuTapahtuma.value)
+    haeIlmot(t) {
+        ajax.sendGet('/admin/ilmo/' + t.value)
         .then(_data => {
             this.setState({ilmot: _data.data})
-            console.log(_data)
         })
         .catch(err => {
             console.log(err);
@@ -59,9 +57,15 @@ class Tapahtumat extends Component {
                 
                 <div className="row">
                     <div className="col-sm-4">
+                        <h3>Valitse tapahtuma</h3>
                         <Tapahtumavalinta 
                             tapahtumat={this.state.tapahtumat}
                             valitseTapahtuma={this.valitseTapahtuma} />
+                    </div>
+                    <div className="col">
+                        <h3>{this.state.valittuTapahtuma.name}</h3>
+                        <IlmoLista 
+                            ilmot={this.state.ilmot} />
                     </div>
                 </div>
             </div>

@@ -64,7 +64,8 @@ module.exports = {
         let ohjaustieto = new Ohjaustieto({
             key: req.body.key,
             value: req.body.value,
-            name: req.body.name
+            name: req.body.name,
+            trueFalse: req.body.trueFalse
         })
         ohjaustieto.save()
             .then(_data => {
