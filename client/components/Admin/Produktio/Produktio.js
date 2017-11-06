@@ -8,7 +8,7 @@ import utils from '../../Utils/Utils'
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
 import Haku from './Haku';
-import Sahkopostit from './Sahkopostit';
+import Sahkopostit from '../../Shared/Sahkopostit';
 import Uusijasen from '../Jasenrekisteri/Uusijasen';
 
 import css from './Produktionjasenet.css';
