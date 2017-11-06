@@ -31,6 +31,7 @@ class Sitsit extends Component {
             errors: [],
             ilmonneet: [],
             sitsitAuki: false,
+            sitsiKiintio: true,
             ilmottu: false,
             hsCount: 0,
             ioCount: 0     
@@ -46,6 +47,16 @@ class Sitsit extends Component {
         .then(tag => {
             console.log(tag.data[0])
             this.setState({sitsitAuki: tag.data[0].truefalse})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        this.setState({sitsitAuki: true});
+
+        ajax.sendGet('/ohjaustieto/sitsiKiintio')
+        .then(tag => {
+            console.log(tag.data[0])
+            this.setState({sitsiKiintio: tag.data[0].truefalse})
         })
         .catch(err => {
             console.log(err)
@@ -147,7 +158,7 @@ class Sitsit extends Component {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
-        if (this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 59 || this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 59){
+        if (this.state.sitsiKiintio && this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 59 || this.state.sitsiKiintio && this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 59){
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Järjestön kiintiö on jo täynnä")
             valid = false;
         }

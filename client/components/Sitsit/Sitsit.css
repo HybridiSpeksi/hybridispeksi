@@ -14,20 +14,16 @@
 .form_canvas {
 	margin-top:50px;
 	margin-bottom:100px;
-	padding:30px;
-	padding-top:20px;
+	padding:40px;
+	padding-top:30px;
 	background-color:white;
+	text-align:justify;
 	/* min-width:600px; */
 }
 .tahti {
 	color:red;
 	font-weight:bold;
 	font-size:110%;
-}
-.kiitoskuva {
-	border-radius:50% 50% 50% 50%;
-	margin-top:20px;
-	margin-bottom:20px;
 }
 .jasenradio {
 	margin-left:20px;
@@ -37,9 +33,12 @@
 	.banner {
 		background-size:auto 100vh;
 	}
+	.form_canvas {
+		padding:30px;
+		padding-top:20px;
+		text-align:left;
+	}
 }
-/*div {
-	border:1px solid red;
-}*/
+
 
 

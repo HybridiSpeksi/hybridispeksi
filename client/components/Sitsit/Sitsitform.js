@@ -15,26 +15,25 @@ class Sitsit extends Component {
             		<div className={"col-sm-6 " + styles.form_canvas}>
                         <h2>Fantasiasitsi-ilmoittautuminen</h2>
                         <br/>
-                        <p>Täytä tietosi allaoleviin kenttiin. Tähdellä merkityt kentät ovat pakollisia.</p>
+                        <p><i>Täytä tietosi allaoleviin kenttiin. Tähdellä merkityt kentät ovat pakollisia.</i></p>
                         <br/>
-                        <p>NO KYLLÄ! Kesästä asti Hybridin ja I/O:n virkkareiden mielten perukoilla vaalittu ja varjeltu aate on vihdoin
+                        <p>NO KYLLÄ! Kesästä asti Hybridi- ja I/O-Speksin virkkareiden mielten perukoilla vaalittu ja varjeltu aate on vihdoin
                         saanut ruumiillistumansa. Nyt sitsataan!</p>
-                        <p>Fantasiasitseillä Sormusten herran, Game of Thronesin, Narnian, Jodelin fantasiat- kanavan ja muiden
-                        maailmat ovat ovat ajautuneet törmäyskurssille, ja menneet iloisesti keskenään sekaisin kuin I/O ja Hybridi
+                        <p>Fantasiasitseillä Sormusten herran, Game of Thronesin, Narnian, Jodelin fantasiat-kanavan ja muiden
+                        maailmat ovat ajautuneet törmäyskurssille, ja menneet iloisesti keskenään sekaisin kuin I/O ja Hybridi
                         konsanaan. Olitpa sitten Westerosin tai Keskimaan asukki, hybridiläinen tai I/O:lainen, niin olet lämpimästi
                         tervetullut larppaamaan tähän tilaisuuteen.</p>
-                        <p>Sitseille ilmoittautuminen aukeaa 6.11 klo 14.00, jolloin 60 nopeinta hybridiläistä ja 60 speedointa
-                        I/O:laista pääsee näpyttelemään itsensä mukaan. Sitsien hinta on vaivaiset 8 euroa holillisesta lipusta, ja 6
-                        euroa holittomasta. Maksuohjeet pamahtavat myös tapahtumaan ennen ilmoittautumispäivämäärää.
-                        Sitsilipun hintaan kuuluu alkuruuan ja jälkiruuan lisäksi ruokajuoma, shotti sekä
-                        tietenkin punssi, mutta kustannusten minimoimiseksi ja speksin vegaanipitoisuuden takia toivomme teidän
-                        tuovan oman pääruokanne mukananne sitseille.</p>
+                        <p>Sitseille ilmoittautuminen aukeaa 6.11. klo 14.00, jolloin 60 nopeinta HybridiSpeksiläistä ja 60 speedointa 
+                        I/O-Speksiläistä pääsee näpyttelemään itsensä mukaan. Sitsien hinta on vaivaiset 8 euroa holillisesta lipusta ja 6
+                        euroa holittomasta. Maksuohjeet pamahtavat Facebook-tapahtumaan myöhemmin. Sitsilipun hintaan kuuluu alku- ja 
+                        jälkiruuan lisäksi ruokajuoma, shotti sekä tietenkin punssi. Kustannusten minimoimiseksi ja speksin 
+                        vegaanipitoisuuden takia toivomme teidän tuovan oman pääruokanne sitseille.</p>
                         <p>
-                        MITÄ: I/O-Speksin ja HybridiSpeksin Fantasiasitsit<br/>
-                        MISSÄ: Q-talo all night long<br/>
-                        MILLOIN: 5.12. klo 18 leipä eipä<br/>
-                        MITÄ MAKSAA: 8 e/holi ja 6 e/epäholi<br/>
-                        MIKSI: Koska larppaus, Hybridi ja I/O Ja Jodelin fantasiat-kanava
+                        <strong>MITÄ:</strong> I/O-Speksin ja HybridiSpeksin Fantasiasitsit<br/>
+                        <strong>MISSÄ:</strong> Q-talo all night long<br/>
+                        <strong>MILLOIN:</strong> 5.12. klo 18 leipä eipä<br/>
+                        <strong>MITÄ MAKSAA:</strong> 8 €/holi ja 6 €/epäholi<br/>
+                        <strong>MIKSI:</strong> Koska larppaus, Hybridi ja I/O Ja Jodelin fantasiat-kanava
                         </p>
                         <br/>
                         <form onSubmit={this.props.handleSubmit}>
@@ -118,7 +117,7 @@ class Sitsit extends Component {
                         <Ilmonneet
                             ilmonneet={this.props.ilmonneet}/>
                         <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-sm-4 col-7">
                                 <strong>HybridiSpeksiläisiä:</strong>
                             </div>
                             <div className="col">
@@ -126,7 +125,7 @@ class Sitsit extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-sm-4 col-7">
                                 <strong>I/O-speksiläisiä:</strong>
                             </div>
                             <div className="col">
