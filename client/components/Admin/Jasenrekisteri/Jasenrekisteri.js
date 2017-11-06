@@ -5,6 +5,7 @@ import Messages from '../../Utils/Messages'
 import List from './List'
 import Jasentiedot from './Jasentiedot'
 import Uusijasen from './Uusijasen'
+import Sahkopostit from '../../Shared/Sahkopostit'
 
 class Jasenrekisteri extends Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class Jasenrekisteri extends Component {
             valittuJasen: {},
             messages: [],
             warnings: [],
-            errors: []
+            errors: [],
+            naytaSahkopostit: false
         }
 
         this.teeHaut = this.teeHaut.bind(this);
@@ -24,6 +26,7 @@ class Jasenrekisteri extends Component {
         this.tallennaTiedot = this.tallennaTiedot.bind(this);
         this.hyvaksyJasen = this.hyvaksyJasen.bind(this);
         this.jasenLisatty = this.jasenLisatty.bind(this);
+        this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
     }
 
     handleChange(e) {
@@ -35,6 +38,10 @@ class Jasenrekisteri extends Component {
     componentDidMount() {
         this.teeHaut();
     }
+    toggleSahkopostit() {
+        this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit })
+    }
+
 
     valitseJasen(jasen) {
         this.setState({ valittuJasen: JSON.parse(JSON.stringify(jasen)) })
@@ -122,6 +129,16 @@ class Jasenrekisteri extends Component {
                             messages={this.state.messages}
                             warnings={this.state.warnings}
                             errors={this.state.errors} />
+                         {this.state.naytaSahkopostit ? (
+                            <Sahkopostit
+                                jasenet={this.state.jasenet}
+                                toggleSahkopostit={this.toggleSahkopostit} />
+
+                        ) : (
+                                <button
+                                    className="btn btn-default"
+                                    onClick={this.toggleSahkopostit}>Näytä sähköpostit</button>
+                            )}
                     </div>
                 </div>
                 <Uusijasen jasen={{}} jasenLisatty={this.jasenLisatty} />
