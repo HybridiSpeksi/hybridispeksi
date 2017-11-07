@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Tapahtumavalinta from './Tapahtumavalinta';
 import IlmoLista from './IlmoLista';
+import Sahkopostit from '../../Shared/Sahkopostit';
 
 import ajax from '../../Utils/Ajax';
 
@@ -12,11 +13,13 @@ class Tapahtumat extends Component {
         this.state = {
             tapahtumat: [],
             ilmot: [],
-            valittuTapahtuma: {}
+            valittuTapahtuma: {},
+            naytaSahkopostit: false
         }
 
         this.valitseTapahtuma = this.valitseTapahtuma.bind(this);
         this.haeIlmot = this.haeIlmot.bind(this);
+        this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
     }
 
     componentDidMount() {
@@ -29,6 +32,10 @@ class Tapahtumat extends Component {
         .catch(err => {
             console.log(err);
         })
+    }
+
+    toggleSahkopostit() {
+        this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit })
     }
 
     valitseTapahtuma(t) {
@@ -61,6 +68,17 @@ class Tapahtumat extends Component {
                         <Tapahtumavalinta 
                             tapahtumat={this.state.tapahtumat}
                             valitseTapahtuma={this.valitseTapahtuma} />
+
+                        {this.state.naytaSahkopostit ? (
+                            <Sahkopostit
+                                jasenet={this.state.ilmot}
+                                toggleSahkopostit={this.toggleSahkopostit} />
+
+                        ) : (
+                                <button
+                                    className="btn btn-default"
+                                    onClick={this.toggleSahkopostit}>Näytä sähköpostit</button>
+                            )}
                     </div>
                     <div className="col">
                         <h3>{this.state.valittuTapahtuma.name}</h3>
