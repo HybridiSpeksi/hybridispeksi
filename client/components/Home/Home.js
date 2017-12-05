@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 import styles from './Home.css';
 
@@ -10,16 +11,41 @@ class Home extends Component {
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
-        <div className={"row align-items-end " + styles.content_home}>
-          <div className={"col-sm-6 " + styles.slogan}>
-            <h2 className={"d-none d-md-block " + styles.slogan}>HybridiSpeksin rekrytilaisuus oli<br /><span className={styles.date}>26.9.</span><br />Stay tuned!</h2>
-            <h2 className="d-md-none">HybridiSpeksin rekrytilaisuus oli<br />26.9.<br />Stay tuned!</h2>
+        <div className={"row justify-content-center " + styles.content_home}>
+          <div className={"col-sm-8 " + styles.slogan}>
+            <div className={"d-md-block " + styles.slogan}>
+              <h2>HYBRIDISPEKSI</h2>
+              <h2 className={styles.year}>2018</h2>
+              <h2 className={styles.date}>ENSI-ILTA 27.3.</h2>
+            </div>
           </div>
         </div>
-        <div className={"row align-items-end " + styles.content_speksi}>
-          <div className={"col-sm-6"}>
+        <div className={"row align-items-center justify-content-center text-center " + styles.content_contents}>
+          <div className={"col-sm-3 align-items-center " + styles.linkki}>
+          <Link className={styles.linkki} to="/speksit">
+            <p className={"material-icons " + styles.linkicon}>history</p>
+            <h3>Aiemmat speksit</h3>
+            <p className="">HybridiSpeksi on järjestetty jo kolme kertaa. Näistä aiemmista speksistä voit lukea lisää täältä!</p>
+          </Link>
           </div>
+          {/*<div className="col-sm-3 align-items-center">
+          <Link to="/galleria">
+            <p className={"material-icons " + styles.linkicon}>insert_photo</p>
+            <h3>Kuvagalleria</h3>
+            <p className="">Speksiä tehdessä on aina hyvä fiilis! Kuvat kertovat enemmän kuin tuhat sanaa ja täällä niitä kuvia voi katsella!</p>
+          </Link>
+          </div>*/}
+          <div className={"col-sm-3 align-items-center " + styles.linkki}>
+          <Link className={styles.linkki} to="/yhdistys">
+            <p className={"material-icons " + styles.linkicon}>face</p>
+            <h3>Yhdistys</h3>
+            <p className="">Haluatko tietää, ketä tekee speksissä mitäkin? Yhdistys-sivulta löytyy yhteystiedot ja hallituksen sekä tuotannon henkilöt!</p>
+          </Link>
+          </div>
+        </div>
+        <div className={"row justify-content-center " + styles.content_speksi}>
           <div className={"col-sm-6 " + styles.speksi_desc}>
+            <p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>
             <h1>HybridiSpeksi</h1>
             <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
                           Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
@@ -36,13 +62,6 @@ class Home extends Component {
                         </p>
           </div>
         </div>
-        {/*
-                <div className={"row align-items-center justify-content-center " + styles.content_contact}>
-                    <div className={"col-sm-8 " + styles.contact_box}>
-                        <h1>Yhteystiedot</h1>
-                    </div>
-                </div>
-                */}
       </div>
 
       /*

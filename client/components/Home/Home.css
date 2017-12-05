@@ -1,40 +1,76 @@
 .container {
-    background-color: #121212;
+    background-color:lightgray;
 }
 .content_home {
-	height:calc(100vh - 40px);
-	background:url("/assets/images/carousel/3_ilmari2.jpg") no-repeat fixed right bottom black;
+	height:600px;
+	background:url("/assets/images/homebg.png") no-repeat center top lightgray;
 }
 .content_speksi {
-	background:url("/assets/images/mikaspeksi.jpg") no-repeat fixed left bottom #d8d8d8;
-	box-shadow: 5px 5px 5px;
+	background:lightgray;
 	padding:50px;
 }
 .content_contact {
 	height:50vh;
 	background:#d8d8d8;
 }
+@font-face {
+	font-family:'hybridispeksi';
+	src:url("/assets/fonts/cowboys.ttf");
+}
+h2 {
+	font-size:55px;
+}
 .slogan {
 	padding:20px;
-	font-size:200%;
+	font-family:'hybridispeksi';
+	text-align:center;
 	color:white;
 }
-.date {
-	font-size:200%;
+.year{
+	color:#1A0202;
 }
-
+.date {
+	margin-top:330px;
+}
+.content_contents{
+	background:lightgray;
+	padding-top:50px;
+}
+.linkicon{
+	margin-top:20px;
+	font-size:72px;
+}
+.infoicon{
+	font-size:150px;
+	margin:20px;
+	margin-top:50px;
+}
 .speksi_desc {
+	padding:20px;
 	text-align:justify;
 }
-.contact_box {
-	padding:20px;
-	height:80%;
-	border:4px dashed darkgray;
+.linkki {
+	margin-top:40px;
+	color:black;
+	transition:0.1s ease-in transform;
 }
+.linkki:hover {
+	text-decoration: none;
+	color:#580D0D;
+	transform:scale(1.05);
+}
+
 
 @media (max-width:500px){
 	.content_home {
-		background:url("/assets/images/frontbg_mobile.jpg") no-repeat fixed center top black;
+		background:url("/assets/images/homebgmobile.jpg") no-repeat center top black;
+		height:450px;
+	}
+	h2 {
+		font-size:24px;
+	}
+	.date{
+		margin-top:280px;
 	}
 	.content_speksi {
 		background-image:none;
