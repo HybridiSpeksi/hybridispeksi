@@ -1,9 +1,8 @@
 .container {
     background-color:lightgray;
-    padding-top:40px;
 }
 .content_home {
-	height:600px;
+	height:610px;
 	background:url("/assets/images/homebg.png") no-repeat center top lightgray;
 }
 
@@ -20,7 +19,7 @@ h2 {
 }
 .slogan {
 	padding:20px;
-	padding-top:35px;
+	padding-top:50px;
 	font-family:'hybridispeksi';
 	text-align:center;
 	color:white;
@@ -40,7 +39,7 @@ h2 {
 	margin-top:30px;
 }
 .date {
-	margin-top:270px;
+	margin-top:250px;
 }
 
 /* CONTENTS */
