@@ -1,5 +1,9 @@
 .container {
 	background-color:#444444;
+	position:fixed;
+	z-index:2;
+	width:100%;
+	margin-bottom:60px;
 }
 .logo {
 	font-size:2rem;

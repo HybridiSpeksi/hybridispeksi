@@ -1,14 +1,12 @@
 .container {
     background-color:lightgray;
+    padding-top:40px;
 }
 .content_home {
 	height:600px;
 	background:url("/assets/images/homebg.png") no-repeat center top lightgray;
 }
-.content_speksi {
-	background:lightgray;
-	padding:50px;
-}
+
 .content_contact {
 	height:50vh;
 	background:#d8d8d8;
@@ -22,43 +20,65 @@ h2 {
 }
 .slogan {
 	padding:20px;
+	padding-top:35px;
 	font-family:'hybridispeksi';
 	text-align:center;
 	color:white;
+	animation:fadein 4s;
+}
+@keyframes fadein {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
 }
 .year{
 	color:#1A0202;
+	font-size:68px;
+	margin-top:30px;
 }
 .date {
-	margin-top:330px;
+	margin-top:270px;
 }
+
+/* CONTENTS */
 .content_contents{
 	background:lightgray;
-	padding-top:50px;
+	padding-top:30px;
+	margin-bottom:60px;
 }
 .linkicon{
 	margin-top:20px;
 	font-size:72px;
 }
+.linkki {
+	margin-top:40px;
+	color:black;
+	transition:0.1s ease-in transform;
+	animation:fadein 2s;
+}
+.linkki:hover {
+	text-decoration: none;
+	color:#7a1111;
+	transform:scale(1.05);
+}
+
+/* SPEKSI */
+.content_speksi {
+	background-color:#c9c9c9;
+	padding:50px;
+}
 .infoicon{
 	font-size:150px;
 	margin:20px;
-	margin-top:50px;
 }
 .speksi_desc {
 	padding:20px;
 	text-align:justify;
 }
-.linkki {
-	margin-top:40px;
-	color:black;
-	transition:0.1s ease-in transform;
-}
-.linkki:hover {
-	text-decoration: none;
-	color:#580D0D;
-	transform:scale(1.05);
-}
+
 
 
 @media (max-width:500px){
@@ -68,6 +88,13 @@ h2 {
 	}
 	h2 {
 		font-size:24px;
+	}
+	.year{
+		font-size:32px;
+		margin-top:10px;
+	}
+	.slogan {
+		padding:20px;	
 	}
 	.date{
 		margin-top:280px;

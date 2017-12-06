@@ -1,73 +1,22 @@
 .container {
-	background:#d3d3d3;
+	background:lightgray;
 	padding:0px;
-}
-
-/* STYLES FOR H.A.L.I */
-
-.content_hali {
-	background:#e5e3e3;
-	margin:0px;
-	padding:50px;
-	-webkit-clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
-	clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
-}
-.font_hali {
-	font-family:"Arial";
-	font-size:18px;
-}
-.polaroid_hali {
-	max-width:80%;
-	background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(1deg, -1deg);
-}
-.polaroid_hali, img {
-	width:100%;
-}
-.polaroid_hali_desc {
-	text-align: center;
-    padding: 10px 20px;
-}
-
-/* STYLES FOR BRATVAKONTRA */
-
-.content_bratva {
-	margin:0px;
-	padding:60px;
 	padding-top:40px;
 }
-.font_bratva_header {
-	font-family:"Courier New";
-}
-.font_bratva {
-	font-family:"Courier New";
-	font-size:18px;
-}
-.polaroid_bratva_container {
-}
-.polaroid_bratva {
-	max-width:80%;
-	background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(-2deg, 2deg);
-}
-.polaroid_bratva, img {
-	width:100%;
-}
-.polaroid_bratva_desc {
-	text-align: center;
-    padding: 10px 20px;
+.header {
+	margin:0px;
+	padding-top:30px;
+	padding-bottom:30px;
+	background:#292B2C;
+	color:white;
 }
 
 /* STYLES FOR KRUUNUN KOHTALO */
 
 .content_kruunu {
-	background:#e5e3e3;
+	background:lightgray;
 	margin:0px;
 	padding:50px;
-	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
-	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 95%);
 }
 .font_kruunu_header {
 	font-family: "Times New Roman";
@@ -90,36 +39,91 @@
     padding: 10px 20px;
 }
 
+/* STYLES FOR BRATVAKONTRA */
+
+.content_bratva {
+	margin:0px;
+	padding:60px;
+	padding-top:40px;
+	background-color:#565656;
+	color:white;
+}
+.font_bratva_header {
+	font-family:"Courier New";
+}
+.font_bratva {
+	font-family:"Courier New";
+	font-size:18px;
+}
+.polaroid_bratva_container {
+}
+.polaroid_bratva {
+	max-width:80%;
+	background-color: white;
+	color:black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(-2deg, 2deg);
+}
+.polaroid_bratva, img {
+	width:100%;
+}
+.polaroid_bratva_desc {
+	text-align: center;
+    padding: 10px 20px;
+}
+
+/* STYLES FOR H.A.L.I */
+
+.content_hali {
+	background:lightgray;
+	margin:0px;
+	padding:50px;
+}
+.font_hali {
+	font-family:"Arial";
+	font-size:18px;
+}
+.polaroid_hali {
+	max-width:80%;
+	background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(1deg, -1deg);
+}
+.polaroid_hali, img {
+	width:100%;
+}
+.polaroid_hali_desc {
+	text-align: center;
+    padding: 10px 20px;
+}
+
 /* STYLES FOR MOBILE DEVICES */ 
 
 @media (max-width:576px){
 	.container {
 		background:lightgray;
 		padding:0px;
+		padding-top:40px;
 	}	
 	.content_hali {
 		border:none;
 		margin:0px;
 		padding:0px;
 		padding-bottom:40px;
-		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 	}
 	.content_bratva {
 		margin:0px;
 		padding:0px;
-		margin-bottom:40px;
-		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+		padding-top:50px;
+		padding-bottom:20px;
+		margin-bottom:20px;
 	}
 	.content_kruunu {
 		border:none;
 		margin:0px;
 		margin-bottom:40px;
 		padding:0px;
-		padding-top:20px;
-		-webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);	
+		padding-top:20px;	
 	}
 }
 

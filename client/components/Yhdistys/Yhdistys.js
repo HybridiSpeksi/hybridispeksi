@@ -10,38 +10,41 @@ class Yhdistys extends Component {
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
-        <div className={"row justify-content-center " + styles.content}>
-          <div className={"col-sm-8 col-11 " + styles.yhdistys_desc}>
-            <h1>Yhdistys</h1>
-            <br/>
+        <div className={"row align-items-center justify-content-center " + styles.header}>
+          <div className="col-sm-9 col-11">
+            <h2 className="">HybridiSpeksi ry</h2><br/>
             <div className="row">
-              <div className="col-sm-2 col-3">
-                <p>Sähköposti</p>
+              <div className="col-sm-2 col-4">
+                <p><i>Sähköposti</i></p>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-4 col-8">
                 <p>hallitus@hybridispeksi.fi</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-2 col-3">
-                <p>Tilinumero</p>
+              <div className="col-sm-2 col-4">
+                <p><i>Tilinumero</i></p>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-4 col-8">
                 <p>FI64 5711 1320 1361 76</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-2 col-3">
-                <p>Y-tunnus</p>
+              <div className="col-sm-2 col-4">
+                <p><i>Y-tunnus</i></p>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-4 col-8">
                 <p>2732017-8</p>
               </div>
             </div>
             <br/>
+            </div>
+        </div>
+        <div className={"row justify-content-center " + styles.content}>
+          <div className={"col-sm-8 col-11 " + styles.yhdistys_desc}>
             <div className="row">
               <div className={"col-lg-6 col-md-11"}>
-                <h2>Hallitus</h2>
+                <h3 className={styles.otsikko}>Hallitus</h3>
                 <div className="row">
                   <div className="col-11">
                     <p><strong>Laura Forsman</strong><br/>
@@ -89,7 +92,7 @@ class Yhdistys extends Component {
                 </div>                
               </div>
               <div className={"col-lg-6 col-md-11"}>
-                <h2>Tuotantotiimi</h2>
+                <h3 className={styles.otsikko}>Tuotantotiimi</h3>
                   <div className="row">
                     <div className="col-sm-4 col-5">
                       <p className={styles.persontitle}>Tuottaja</p>

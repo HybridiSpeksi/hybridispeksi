@@ -10,10 +10,20 @@ class Speksit extends Component {
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
+        <div className={"row align-items-center justify-content-center " + styles.header}>
+          <div className="col-9">
+            <h2 className="">Aiemmat speksit</h2>
+            <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen 
+            tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio. 
+            Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong></p>
+            <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu. 
+            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen <strong>Kruunun Kohtalo - Kalevalan perintö.</strong></p>
+          </div>
+        </div>
 
         {/* KRUUNUN KOHTALO */}
-        <div className={"row align-items-center " + styles.content_kruunu}>
-          <div className={"col-sm-6 " + styles.polaroid_kruunu_container}>
+        <div className={"row align-items-center justify-content-center " + styles.content_kruunu}>
+          <div className={"col-sm-5 " + styles.polaroid_kruunu_container}>
             <div className={styles.polaroid_kruunu}>
               <img src="assets/images/hs17.jpg"/>
               <div className={styles.polaroid_kruunu_desc}>
@@ -21,7 +31,7 @@ class Speksit extends Component {
               </div>
             </div>
           </div>
-          <div className={"col-sm-6 " + styles.kruunu_desc}>
+          <div className={"col-sm-5 " + styles.kruunu_desc}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo <br/>&nbsp;&ndash; Kalevalan perintö</h1>
             <p className={styles.font_kruunu}>Kalevalan lopussa Louhi on kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta 
             ja jatkanut matkaansa muihin seikkailuihin jättäen velhoneuvoston huolehtimaan kruunusta. 
@@ -41,8 +51,8 @@ class Speksit extends Component {
         </div>
 
         {/* BRATVAKONTRA */}
-        <div className={"row align-items-center " + styles.content_bratva}>
-          <div className={"col-sm-6 " + styles.bratva_desc}>
+        <div className={"row align-items-center justify-content-center " + styles.content_bratva}>
+          <div className={"col-sm-5 " + styles.bratva_desc}>
             <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
             <p className={styles.font_bratva}>Kolme nuorta on kateissa. Tilanne on toki ikävä, enkä saisi elätellä
             liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
@@ -63,7 +73,7 @@ class Speksit extends Component {
             huumorilla terästetyn toiminnallisen jännitysnäytelmän
             opiskelijakolmikosta alamaailman rikoshelvetissä.</p>
           </div>
-          <div className={"col-sm-6 d-flex justify-content-end " + styles.polaroid_bratva_container}>
+          <div className={"col-sm-5 d-flex justify-content-end " + styles.polaroid_bratva_container}>
             <div className={"justify-content-end " + styles.polaroid_bratva}>
               <img src="assets/images/hs16.jpg"/>
               <div className={styles.polaroid_bratva_desc}>
@@ -75,8 +85,8 @@ class Speksit extends Component {
 
 
         {/* H.A.L.I */}
-        <div className={"row align-items-center " + styles.content_hali}>
-          <div className={"col-sm-6 " + styles.polaroid_hali_container}>
+        <div className={"row align-items-center justify-content-center " + styles.content_hali}>
+          <div className={"col-sm-5 " + styles.polaroid_hali_container}>
             <div className={styles.polaroid_hali}>
               <img src="assets/images/hs15.jpg"/>
               <div className={styles.polaroid_hali_desc}>
@@ -84,7 +94,7 @@ class Speksit extends Component {
               </div>
             </div>
           </div>
-          <div className={"col-sm-6 " + styles.hali_desc}>
+          <div className={"col-sm-5 " + styles.hali_desc}>
             <h1>H.A.L.I.</h1>
             <p className={styles.font_hali}>Turun yliopiston huippututkija Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin

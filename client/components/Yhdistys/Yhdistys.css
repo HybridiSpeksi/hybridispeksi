@@ -1,14 +1,29 @@
 .container {
 	background:lightgray;
+	padding:0px;
+	margin:0px;
+	padding-top:40px;
+}
+.header {
+	margin:0px;
+	padding:0px;
+	padding-top:30px;
+	padding-bottom:20px;
+	background:#292B2C;
+	color:white;
 }
 .content {
-
+	padding:0px;
+	margin:0px;
 }
 .yhdistys_desc {
 	padding:40px;
 	opacity:1!important;
-	background-color:#444444;
-	color:white;
+	background-color:#cecece;
+	color:black;
+}
+.otsikko {
+	margin-top:20px;
 }
 .persontitle {
 	font-style:italic;
