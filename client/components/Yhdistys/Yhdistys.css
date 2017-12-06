@@ -11,6 +11,11 @@
 	background:#292B2C;
 	color:white;
 }
+.logo {
+	background: url("/assets/images/hslogo_dark.png") no-repeat center top;
+	height:255px;
+	width:255px;
+}
 .content {
 	padding:0px;
 	margin:0px;
@@ -23,7 +28,9 @@
 }
 .otsikko {
 	margin-top:20px;
+	margin-bottom:30px;
 }
 .persontitle {
 	font-style:italic;
 }
+

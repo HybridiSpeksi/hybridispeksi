@@ -11,34 +11,37 @@ class Yhdistys extends Component {
     return (
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-center justify-content-center " + styles.header}>
-          <div className="col-sm-9 col-11">
+          <div className="col-sm-4 col-11">
             <h2 className="">HybridiSpeksi ry</h2><br/>
             <div className="row">
-              <div className="col-sm-2 col-4">
+              <div className="col-sm-4 col-4">
                 <p><i>Sähköposti</i></p>
               </div>
-              <div className="col-sm-4 col-8">
+              <div className="col-sm-6 col-8">
                 <p>hallitus@hybridispeksi.fi</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-2 col-4">
+              <div className="col-sm-4 col-4">
                 <p><i>Tilinumero</i></p>
               </div>
-              <div className="col-sm-4 col-8">
+              <div className="col-sm-6 col-8">
                 <p>FI64 5711 1320 1361 76</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-2 col-4">
+              <div className="col-sm-4 col-4">
                 <p><i>Y-tunnus</i></p>
               </div>
-              <div className="col-sm-4 col-8">
+              <div className="col-sm-6 col-8">
                 <p>2732017-8</p>
               </div>
             </div>
             <br/>
-            </div>
+          </div>
+          <div className={"col-sm-3 col-11 " + styles.logo}>
+          </div>
+
         </div>
         <div className={"row justify-content-center " + styles.content}>
           <div className={"col-sm-8 col-11 " + styles.yhdistys_desc}>

@@ -98,12 +98,15 @@
 
 /* STYLES FOR MOBILE DEVICES */ 
 
-@media (max-width:576px){
+@media (max-width:767px){
 	.container {
 		background:lightgray;
 		padding:0px;
 		padding-top:40px;
-	}	
+	}
+	.header {
+		padding-top:40px;
+	}
 	.content_hali {
 		border:none;
 		margin:0px;
@@ -126,7 +129,7 @@
 	}
 }
 
-@media (max-width:800px) {
+@media (max-width:767px) {
 	.polaroid_kruunu {
 		min-width:100%;
 		transform:skew(0deg, 0deg);
