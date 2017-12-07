@@ -46,19 +46,20 @@ h2 {
 .content_contents{
 	background:lightgray;
 	padding-top:30px;
-	margin-bottom:60px;
+	padding-bottom:60px;
 }
 .linkicon{
 	margin-top:20px;
 	font-size:72px;
 }
-.linkki {
+.internallink {
 	margin-top:40px;
 	color:black;
 	transition:0.1s ease-in transform;
 	animation:fadein 2s;
+	display:block;
 }
-.linkki:hover {
+.internallink:hover {
 	text-decoration: none;
 	color:#7a1111;
 	transform:scale(1.05);
@@ -78,6 +79,10 @@ h2 {
 	text-align:justify;
 }
 
+/* MUUT SPEKSIT */
+.muutspeksit {
+	padding:50px;
+}
 
 
 @media (max-width:500px){

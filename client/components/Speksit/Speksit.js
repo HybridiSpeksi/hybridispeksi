@@ -5,7 +5,9 @@ import styles from './Speksit.css';
 class Speksit extends Component {
 
   componentDidMount() {
-
+    $(window).scrollTop(0);
+  }
+  componentDidUpdate(){
   }
   render() {
     return (

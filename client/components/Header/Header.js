@@ -9,7 +9,7 @@ class Header extends Component {
             	$('.navbar-collapse').collapse('hide'); 
         	})
         	$(window).scroll(function(){
-      			$(".top").css("opacity", 1 - $(window).scrollTop() / 250);
+      			$(".top").css("opacity", 1 - $(window).scrollTop() / 200);
     		});
     }
     render () {
@@ -38,6 +38,10 @@ class Header extends Component {
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/yhdistys">Yhdistys</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/yhdistys">Yhdistys</Link>
+						</li> 
+						<li className="nav-item">
+							<Link className="nav-link d-none d-md-block" to="/muutspeksit">Muut speksit</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/muutspeksit">Muut speksit</Link>
 						</li> 
 					</ul>
 				</div>

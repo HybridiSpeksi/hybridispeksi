@@ -7,6 +7,9 @@ class Home extends Component {
 
   componentDidMount() {
   }
+  componentDidUpdate(){
+    $(window).scrollTop();
+  }
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
@@ -19,9 +22,9 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <div className={"row align-items-center justify-content-center text-center " + styles.content_contents}>
-          <div className={"col-sm-3 align-items-center " + styles.linkki}>
-          <Link className={styles.linkki} to="/speksit">
+        <div className={"row align-items-top justify-content-center text-center " + styles.content_contents}>
+          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <Link className={styles.internallink} to="/speksit">
             <p className={"material-icons " + styles.linkicon}>history</p>
             <h3>Aiemmat speksit</h3>
             <p className="">HybridiSpeksi on järjestetty jo kolme kertaa. Näistä aiemmista speksistä voit lukea lisää täältä!</p>
@@ -34,11 +37,18 @@ class Home extends Component {
             <p className="">Speksiä tehdessä on aina hyvä fiilis! Kuvat kertovat enemmän kuin tuhat sanaa ja täällä niitä kuvia voi katsella!</p>
           </Link>
           </div>*/}
-          <div className={"col-sm-3 align-items-center " + styles.linkki}>
-          <Link className={styles.linkki} to="/yhdistys">
+          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <Link className={styles.internallink} to="/yhdistys">
             <p className={"material-icons " + styles.linkicon}>face</p>
             <h3>Yhdistys</h3>
-            <p className="">Haluatko tietää, ketä tekee speksissä mitäkin? Yhdistys-sivulta löytyy yhteystiedot ja hallituksen sekä tuotannon henkilöt!</p>
+            <p className="">Haluatko tietää, ketä tekee speksissä mitäkin? Yhdistys-sivulta löytyvät yhteystiedot ja hallituksen sekä tuotannon henkilöt!</p>
+          </Link>
+          </div>
+          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <Link className={styles.internallink} to="/muutspeksit">
+            <p className={"material-icons " + styles.linkicon}>record_voice_over</p>
+            <h3>Muut speksit</h3>
+            <p className="">Jos opiskelijateatteri kiinnostaa, kannattaa tutustua myös Turun muihin spekseihin!</p>
           </Link>
           </div>
         </div>

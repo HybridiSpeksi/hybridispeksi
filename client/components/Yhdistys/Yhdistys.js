@@ -5,7 +5,7 @@ import styles from './Yhdistys.css';
 class Yhdistys extends Component {
 
   componentDidMount() {
-
+    $(window).scrollTop(0);
   }
   render() {
     return (
