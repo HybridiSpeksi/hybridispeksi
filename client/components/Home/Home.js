@@ -27,7 +27,7 @@ class Home extends Component {
           <Link className={styles.internallink} to="/speksit">
             <p className={"material-icons " + styles.linkicon}>history</p>
             <h3>Aiemmat speksit</h3>
-            <p className="">HybridiSpeksi on järjestetty jo kolme kertaa. Näistä aiemmista speksistä voit lukea lisää täältä!</p>
+            <p className="">HybridiSpeksi on järjestetty jo kolme kertaa. Näistä aiemmista spekseistä voit lukea lisää täältä!</p>
           </Link>
           </div>
           {/*<div className="col-sm-3 align-items-center">

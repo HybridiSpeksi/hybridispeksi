@@ -130,7 +130,7 @@ class Yhdistys extends Component {
                   </div>
                   <div className="row">
                     <div className="col-sm-4 col-5">
-                      <p className={styles.persontitle}>Pääkoreagrafi</p>
+                      <p className={styles.persontitle}>Pääkoreografi</p>
                     </div>
                     <div className="col-7">
                       <p>Maria Nieminen</p>
@@ -138,7 +138,7 @@ class Yhdistys extends Component {
                   </div>
                   <div className="row">
                     <div className="col-sm-4 col-5">
-                      <p className={styles.persontitle}>Koreagrafi</p>
+                      <p className={styles.persontitle}>Koreografi</p>
                     </div>
                     <div className="col-7">
                       <p>Saara Koskela</p>
