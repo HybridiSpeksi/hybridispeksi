@@ -13,28 +13,30 @@ class Sitsit extends Component {
 
             	<div className={"row justify-content-sm-center " + styles.content}>
             		<div className={"col-sm-6 " + styles.form_canvas}>
-                        <h2>Fantasiasitsi-ilmoittautuminen</h2>
+                        <h2>Interspeksuaaliset sitsit</h2>
                         <br/>
-                        <p><i>Täytä tietosi allaoleviin kenttiin. Tähdellä merkityt kentät ovat pakollisia.</i></p>
+                        <p><i>Täytä tietosi alla oleviin kenttiin. Tähdellä merkityt kentät ovat pakollisia.</i></p>
                         <br/>
-                        <p>NO KYLLÄ! Kesästä asti Hybridi- ja I/O-Speksin virkkareiden mielten perukoilla vaalittu ja varjeltu aate on vihdoin
-                        saanut ruumiillistumansa. Nyt sitsataan!</p>
-                        <p>Fantasiasitseillä Sormusten herran, Game of Thronesin, Narnian, Jodelin fantasiat-kanavan ja muiden
-                        maailmat ovat ajautuneet törmäyskurssille, ja menneet iloisesti keskenään sekaisin kuin I/O ja Hybridi
-                        konsanaan. Olitpa sitten Westerosin tai Keskimaan asukki, hybridiläinen tai I/O:lainen, niin olet lämpimästi
-                        tervetullut larppaamaan tähän tilaisuuteen.</p>
-                        <p>Sitseille ilmoittautuminen aukeaa 6.11. klo 14.00, jolloin 60 nopeinta HybridiSpeksiläistä ja 60 speedointa 
-                        I/O-Speksiläistä pääsee näpyttelemään itsensä mukaan. Sitsien hinta on vaivaiset 8 euroa holillisesta lipusta ja 6
-                        euroa holittomasta. Maksuohjeet pamahtavat Facebook-tapahtumaan myöhemmin. Sitsilipun hintaan kuuluu alku- ja 
-                        jälkiruuan lisäksi ruokajuoma, shotti sekä tietenkin punssi. Kustannusten minimoimiseksi ja speksin 
-                        vegaanipitoisuuden takia toivomme teidän tuovan oman pääruokanne sitseille.</p>
+                        <p>Ketkä ovat tämän vuoden speksien takana? Se selviää, kun kokoonnumme yhteen sitsaamaan! 
+                        Uusi vuosi lähtee hyvin käyntiin, kun tammikuussa pääse tutustumaan muihin speksaajiin!</p>
+                        <p>Sitsit ovat torstaina 18.1. klo 18:00 Saaristobaarissa ja niiden jälkeen jatketaan 
+                        kaikille avoimilla bileillä, joissa TuKY-Speksin bändi esiintyy.</p>
+                        <p>Sitsien hinta on 15 € ja se sisältää kolme ruokalajia, kaksi terävää ja yhden miedon. 
+                        Halutessaan lisäjuomia saa sitsien aikana tiskiltä tai poleteilla, 
+                        joita voi ennen sitsejä ostaa 3 € hintaan.</p>
+                        <p>Ilmoittautuminen on maanantaina 8.1. klo 12:00. 
+                        Kaikille spekseille on kiintiöity paikkamäärä. 
+                        Kiintiöt avataan tiistaina 9.1. klo 12:00.</p>
                         <p>
-                        <strong>MITÄ:</strong> I/O-Speksin ja HybridiSpeksin Fantasiasitsit<br/>
-                        <strong>MISSÄ:</strong> Q-talo all night long<br/>
-                        <strong>MILLOIN:</strong> 5.12. klo 18 leipä eipä<br/>
-                        <strong>MITÄ MAKSAA:</strong> 8 €/holi ja 6 €/epäholi<br/>
-                        <strong>MIKSI:</strong> Koska larppaus, Hybridi ja I/O Ja Jodelin fantasiat-kanava
+                        <strong>MITÄ:</strong> Turun speksien yhteiset sitsit<br/>
+                        <strong>MISSÄ:</strong> Saaristobaari (Aurakatu 14)<br/>
+                        <strong>MILLOIN:</strong> Torstaina 18.1. 18:00<br/>
+                        <strong>MIKSI:</strong> Sposka speksaajat spon sparhaita!<br/>
+                        <strong>MITÄ MAKSAA:</strong> 15€ (alkoholiton 13 €) sisältää kolme ruokalajia, kaksi terävää ja yhden miedon<br/>
+                        <strong>MITEN:</strong> Ilmoittautuminen 8.1. 12:00 <br/>
+                        <strong>KENELLE:</strong> Kaikille Turun speksien tekijöille
                         </p>
+
                         <br/>
                         <form onSubmit={this.props.handleSubmit}>
 
@@ -71,6 +73,11 @@ class Sitsit extends Component {
                                     <option value=""></option>
                                     <option value="HybridiSpeksi">HybridiSpeksi</option>
                                     <option value="I/O-speksi">I/O-speksi</option>
+                                    <option value="LEX SPEX">LEX SPEX</option>
+                                    <option value="TLKS SPEKSI">TLKS SPEKSI</option>
+                                    <option value="TuKY-Speksi">TuKY-Speksi</option>
+                                    <option value="Akademiska Spexet vid Åbo Akademi R.F.">Akademiska Spexet vid Åbo Akademi R.F.</option>
+                                    <option value="Turkulainen Humanistispeksi">Turkulainen Humanistispeksi</option>
                                 </select>
                             </div>
                         </div>
@@ -89,14 +96,6 @@ class Sitsit extends Component {
                             </div>
                             <div className={"col"}>
                                 <textarea rows="2" name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={this.props.handleChange} value={this.props.lisatiedot}></textarea>  
-                            </div>
-                        </div>
-                        <div className={"row form-group align-items-center " + styles.alterego}>
-                            <div className={"col-sm-4"}>
-                                <label htmlFor="alteregoInput" className={styles.label}>Fantasia- alter ego:<span className={styles.tahti}>*</span></label>
-                            </div>
-                            <div className={"col"}>
-                                <input name="alterego" id="alteregoeInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.alterego} placeholder="Alter ego"/>
                             </div>
                         </div>
 
@@ -130,6 +129,55 @@ class Sitsit extends Component {
                             </div>
                             <div className="col">
                                 <strong>{this.props.ioCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>LEX SPEXiläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.lexCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>TLKS SPEKSIläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.tlksCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>TuKY-Speksiläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.tukyCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>Akademiska Spexet:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.spexetCount}</strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>Humanistispeksiläisiä:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.humanistiCount}</strong>
+                            </div>
+                        </div>
+                        <br/>
+                        <div className="row">
+                            <div className="col-sm-4 col-7">
+                                <strong>YHTEENSÄ:</strong>
+                            </div>
+                            <div className="col">
+                                <strong>{this.props.hsCount + this.props.ioCount + this.props.lexCount + this.props.tlksCount + this.props.tukyCount + this.props.spexetCount + this.props.humanistiCount}</strong>
                             </div>
                         </div>
             		</div>

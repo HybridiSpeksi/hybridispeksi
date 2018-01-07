@@ -15,7 +15,6 @@ class Ilmonneet extends Component {
 		    		<td>{i + 1}</td>
 		            <td>{ilmonnut.fname} {ilmonnut.sname}</td>
 		            <td>{ilmonnut.jarjesto}</td>
-		        	<td>{ilmonnut.alterego}</td>
 		        </tr>
 		    )
 		})
@@ -26,7 +25,6 @@ class Ilmonneet extends Component {
 						<th>#</th>
 						<th>Nimi</th>
 						<th>Speksi</th>
-						<th>Alterego</th>
 					</tr>
 				</thead>
 				<tbody>

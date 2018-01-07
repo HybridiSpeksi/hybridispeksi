@@ -15,7 +15,6 @@ module.exports = {
         Ilmo.find({tapahtuma: req.params.value}, {
                         fname: 1, 
                         sname: 1, 
-                        alterego: 1, 
                         jarjesto: 1, 
                         _id: 0})
         .then(_data => {
@@ -35,7 +34,6 @@ module.exports = {
             jarjesto: req.body.jarjesto,
             juoma: req.body.juoma,
             ruokavalio: req.body.ruokavalio,
-            alterego: req.body.alterego,
             ilmoAika: new Date()
         })
         osallistuja.save()

@@ -18,14 +18,13 @@ class Sitsit extends Component {
 
         // Initial state
         this.state = {
-            tapahtuma: 'fantasiasitsit2017',
+            tapahtuma: 'interspeksuaaliset2018',
             fname: '',
             sname: '',
             email: '',
             jarjesto: '',
             holillisuus: 'true',
             allergiat: '',
-            alterego: '',
             messages: [],
             warnings: [],
             errors: [],
@@ -34,7 +33,12 @@ class Sitsit extends Component {
             sitsiKiintio: true,
             ilmottu: false,
             hsCount: 0,
-            ioCount: 0     
+            ioCount: 0,
+            lexCount: 0,
+            tlksCount: 0,
+            tukyCount: 0,
+            spexetCount: 0,
+            humanistiCount: 0    
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -43,7 +47,7 @@ class Sitsit extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/ohjaustieto/fantasiasitsit2017Auki')
+        ajax.sendGet('/ohjaustieto/sitsitAuki')
         .then(tag => {
             console.log(tag.data[0])
             this.setState({sitsitAuki: tag.data[0].truefalse})
@@ -62,7 +66,7 @@ class Sitsit extends Component {
             console.log(err)
         })
 
-        ajax.sendGet('/ilmo/fantasiasitsit2017')
+        ajax.sendGet('/ilmo/interspeksuaaliset2018')
         .then(_data => {
             this.setState({ilmonneet: _data.data});
             this.countSpeksit();
@@ -101,7 +105,6 @@ class Sitsit extends Component {
                     jarjesto: this.state.jarjesto,
                     juoma: this.state.holillisuus,
                     ruokavalio: this.state.lisatiedot,
-                    alterego: this.state.alterego
 
 
                 }).then(data => {
@@ -116,7 +119,7 @@ class Sitsit extends Component {
 
     //Count enrollments
     countSpeksit() {
-        ajax.sendGet('/ilmo/fantasiasitsit2017')
+        ajax.sendGet('/ilmo/interspeksuaaliset2018')
         .then(_data => {
             this.setState({ilmonneet: _data.data});
             console.log(_data);
@@ -128,15 +131,43 @@ class Sitsit extends Component {
 
         let hs = 0;
         let io = 0;
+        let lex = 0;
+        let tlks = 0;
+        let tuky = 0;
+        let spexet = 0;
+        let humanisti = 0;
         for(var i = 0; i < this.state.ilmonneet.length; i++){
             if(this.state.ilmonneet[i].jarjesto === "HybridiSpeksi") {
                 hs = hs + 1;
             }
-            else {
+            else if (this.state.ilmonneet[i].jarjesto === "I/O-speksi")  {
                 io = io + 1;
             }
+            else if (this.state.ilmonneet[i].jarjesto === "LEX SPEX")  {
+                lex = lex + 1;
+            }
+            else if (this.state.ilmonneet[i].jarjesto === "TLKS SPEKSI")  {
+                tlks = tlks + 1;
+            }
+            else if (this.state.ilmonneet[i].jarjesto === "TuKY-Speksi")  {
+                tuky = tuky + 1;
+            }
+            else if (this.state.ilmonneet[i].jarjesto === "Akademiska Spexet vid Åbo Akademi R.F.")  {
+                spexet = spexet + 1;
+            }
+            else if (this.state.ilmonneet[i].jarjesto === "Turkulainen Humanistispeksi")  {
+                humanisti = humanisti + 1;
+            }
         }
-        this.setState({hsCount: hs, ioCount: io})
+        this.setState({           
+            hsCount: hs,
+            ioCount: io,
+            lexCount: lex,
+            tlksCount: tlks,
+            tukyCount: tuky,
+            spexetCount: spexet,
+            humanistiCount: humanisti 
+        })
     }
 
     //Validates if all necessary info has been given
@@ -149,7 +180,6 @@ class Sitsit extends Component {
             || this.state.sname === ""
             || this.state.email === ""
             || this.state.jarjesto === ""
-            || this.state.alterego === ""
        ) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
             valid = false;
@@ -158,7 +188,13 @@ class Sitsit extends Component {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
-        if (this.state.sitsiKiintio && this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 59 || this.state.sitsiKiintio && this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 59){
+        if (this.state.sitsiKiintio && this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 16 || 
+            this.state.sitsiKiintio && this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 16 || 
+            this.state.sitsiKiintio && this.state.jarjesto === "LEX SPEX" && this.state.lexCount > 16  || 
+            this.state.sitsiKiintio && this.state.jarjesto === "TLKS SPEKSI" && this.state.tlksCount > 16 || 
+            this.state.sitsiKiintio && this.state.jarjesto === "TuKY-Speksi" && this.state.tukyCount > 16 || 
+            this.state.sitsiKiintio && this.state.jarjesto === "Akademiska Spexet vid Åbo Akademi R.F." && this.state.spexetCount > 16 || 
+            this.state.sitsiKiintio && this.state.jarjesto === "Turkulainen Humanistispeksi" && this.state.humanistiCount > 16 ){
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Järjestön kiintiö on jo täynnä")
             valid = false;
         }
@@ -196,10 +232,14 @@ class Sitsit extends Component {
                     jarjesto={this.state.jarjesto}
                     holillisuus={this.state.holillisuus}
                     allergiat={this.state.allergiat}
-                    alterego={this.state.alterego}
                     ilmonneet={this.state.ilmonneet}
                     hsCount={this.state.hsCount}
                     ioCount={this.state.ioCount}
+                    lexCount={this.state.lexCount}
+                    tlksCount={this.state.tlksCount}
+                    tukyCount={this.state.tukyCount}
+                    spexetCount={this.state.spexetCount}
+                    humanistiCount={this.state.humanistiCount}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
                     messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors}/>} 
