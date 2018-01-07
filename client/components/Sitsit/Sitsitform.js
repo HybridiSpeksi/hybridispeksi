@@ -113,8 +113,6 @@ class Sitsit extends Component {
                             </div>
                         </div>
                         <br/>
-                        <Ilmonneet
-                            ilmonneet={this.props.ilmonneet}/>
                         <div className="row">
                             <div className="col-sm-4 col-7">
                                 <strong>HybridiSpeksiläisiä:</strong>
@@ -180,6 +178,9 @@ class Sitsit extends Component {
                                 <strong>{this.props.hsCount + this.props.ioCount + this.props.lexCount + this.props.tlksCount + this.props.tukyCount + this.props.spexetCount + this.props.humanistiCount}</strong>
                             </div>
                         </div>
+                        <br/>
+                        <Ilmonneet
+                            ilmonneet={this.props.ilmonneet}/>
             		</div>
 
             	</div>
