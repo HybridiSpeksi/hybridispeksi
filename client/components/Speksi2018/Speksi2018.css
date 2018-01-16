@@ -1,0 +1,54 @@
+.container {
+	background:lightgray;
+	padding:0px;
+}
+.header {
+	margin:0px;
+	padding-top:70px;
+	padding-bottom:30px;
+	background:#292B2C;
+	color:white;
+}
+
+.youtubeplayer {
+	background:#ffecaf;
+	margin:0px;
+	padding:50px;
+}
+@font-face {
+	font-family:'hybridispeksi';
+	src:url("/assets/fonts/westernbangbang.otf");
+}
+.esitykset {
+	font-family:hybridispeksi;
+	font-size:32px;
+	margin:20px;
+	margin-left:40px;
+}
+/*div {
+	border:1px solid red;
+}*/
+
+/* STYLES FOR MOBILE DEVICES */ 
+
+@media (max-width:767px){
+	.container {
+		background:lightgray;
+		padding:0px;
+		padding-top:40px;
+	}
+	.header {
+		padding-top:40px;
+	}
+}
+
+@media (max-width:500px) {
+	.esitykset{
+		font-size:28px;
+	}
+}
+@media (max-width:400px) {
+	.esitykset{
+		font-size:24px;
+	}
+}

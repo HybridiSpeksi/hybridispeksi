@@ -2,8 +2,9 @@
     background-color:lightgray;
 }
 .content_home {
-	height:610px;
-	background:url("/assets/images/homebg.png") no-repeat center top lightgray;
+	height:810px;
+	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top lightgray;
+	/*background-size: contain;*/
 }
 
 .content_contact {
@@ -12,17 +13,13 @@
 }
 @font-face {
 	font-family:'hybridispeksi';
-	src:url("/assets/fonts/cowboys.ttf");
+	src:url("/assets/fonts/westernbangbang.otf");
 }
-h2 {
-	font-size:55px;
-}
+
 .slogan {
 	padding:20px;
-	padding-top:50px;
-	font-family:'hybridispeksi';
-	text-align:center;
-	color:white;
+	padding-top:33px;
+	font-family:'hybridispeksi';	
 	animation:fadein 4s;
 }
 @keyframes fadein {
@@ -33,13 +30,22 @@ h2 {
 		opacity:1;
 	}
 }
-.year{
-	color:#1A0202;
-	font-size:68px;
-	margin-top:30px;
+.name{
+	text-align:center;
+	color:#580d0d;
+	font-size:32px;
+}
+.logo{
+	margin-top:-16px;
+	width:550px;
+	height:330px;
+	background:url("/assets/images/logo_lapinak.png") no-repeat center;
+	background-size: 580px 580px;
 }
 .date {
-	margin-top:250px;
+	text-align:right;
+	color:white;
+	font-size:44px;
 }
 
 /* CONTENTS */
@@ -66,6 +72,12 @@ h2 {
 }
 
 /* SPEKSI */
+.hslogo{
+	width:270px;
+	height:270px;
+	background:url("/assets/images/normi.png") no-repeat center;
+	background-size:300px 300px;
+}
 .content_speksi {
 	background-color:#c9c9c9;
 	padding:50px;
@@ -78,30 +90,57 @@ h2 {
 	padding:20px;
 	text-align:justify;
 }
-
-/* MUUT SPEKSIT */
-.muutspeksit {
-	padding:50px;
+.otsikko {
+	text-align: center;
 }
 
+
+@media (max-width:992px){
+	.content_home {
+		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background-size: 992px 992px;
+		height:992px;
+	}
+}
+@media (max-width:768px){
+	.content_home {
+		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background-size: 768px 768px;
+		height:768px;
+	}
+	.logo {
+		margin-top:50px;
+		height:300px;
+		width:500px;
+		background-size:500px 500px;
+	}
+}
 @media (max-width:500px){
 	.content_home {
-		background:url("/assets/images/homebgmobile.jpg") no-repeat center top black;
-		height:450px;
+		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background-size: 500px 500px;
+		height:500px;
 	}
-	h2 {
-		font-size:24px;
-	}
-	.year{
-		font-size:32px;
-		margin-top:20px;
+	.rivi {
+		margin:0px;
+		padding:0px;
 	}
 	.slogan {
 		padding:20px;
-		padding-top:50px;	
+		padding-top:35px;	
+	}
+	.name{
+		font-size:32px;
+		margin-top:0px;
 	}
 	.date{
-		margin-top:220px;
+		
+	}
+	.logo {
+		margin-top:0px;
+		height:200px;
+		width:300px;
+		background-size:300px 300px;
 	}
 	.content_speksi {
 		background-image:none;
@@ -113,6 +152,8 @@ h2 {
 	}
 
 }
+
+
 
 /*
 .mainimage {

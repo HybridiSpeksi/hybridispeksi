@@ -14,11 +14,15 @@ class Home extends Component {
     return (
       <div className={"container-fluid " + styles.container}>
         <div className={"row justify-content-center " + styles.content_home}>
-          <div className={"col-sm-8 " + styles.slogan}>
+          <div className={"col-sm-12 " + styles.slogan}>
             <div className={"d-md-block " + styles.slogan}>
-              <h2>HYBRIDISPEKSI</h2>
-              <h2 className={styles.year}>2018</h2>
-              <h2 className={styles.date}>ENSI-ILTA 27.3.</h2>
+              <div className="row justify-content-md-end justify-content-center">
+                <div className={"col-12 col-md-4 " + styles.name}><h2 className={styles.name}>HYBRIDISPEKSI 2018</h2></div>
+                <div className={"col-12 col-md-4 d-none d-md-block " + styles.date}><h2 className={styles.date}>ENSI-ILTA 27.3. KLO 19<br/> MANILLA-TEATTERILLA </h2></div>
+              </div>
+              <div className="row justify-content-center">
+                <div className={" " + styles.logo}></div>
+              </div>
             </div>
           </div>
         </div>
@@ -53,9 +57,10 @@ class Home extends Component {
           </div>
         </div>
         <div className={"row justify-content-center " + styles.content_speksi}>
+          <div className={"col-sm-12 " + styles.hslogo}></div>
           <div className={"col-sm-6 " + styles.speksi_desc}>
-            <p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>
-            <h1>HybridiSpeksi</h1>
+            {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>*/}
+            <h1 className={styles.otsikko}>HybridiSpeksi</h1>
             <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
                           Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
             </p>

@@ -17,6 +17,7 @@ import Galleria from './Galleria/Galleria';
 import Yhdistys from './Yhdistys/Yhdistys';
 import Sitsit from './Sitsit/Sitsit';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
+import Speksi2018 from './Speksi2018/Speksi2018';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -84,6 +85,7 @@ export default class App extends React.Component {
               <Switch >
               <PublicLayout exact path="/" component={Home} />
               <PublicLayout exact path="/rekry" component={Rekry} />
+              <PublicLayout exact path="/speksi2018" component={Speksi2018} />
               <PublicLayout exact path="/speksit" component={Speksit} />
               {/*<PublicLayout exact path="/esitykset" component={Esitykset} /> */}
               {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
