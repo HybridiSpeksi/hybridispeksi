@@ -6,6 +6,7 @@ const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 const ilmo = require('./ilmo/ilmo');
 const tapahtuma = require('./ilmo/tapahtuma');
+const esitys = require('./esitykset/esitykset');
 
 const index = require('./index/index');
 
@@ -54,6 +55,9 @@ router.get('/admin/ilmo/:value', ilmo.getAll);
 router.get('/ilmo/:value', ilmo.getAllPublic);
 router.post('/ilmo', ilmo.updateIlmo);
 router.delete('/ilmo', ilmo.removeIlmo);
+
+// Esitykset
+router.get('/esitykset', esitys.getAll);
 
 
 module.exports = router;

@@ -14,6 +14,6 @@ var ilmoSchema = new mongoose.Schema({
     collection: 'ilmot',
     strict: false,
     timestamps: true
- })
+})
 
 module.exports = mongoose.model('Ilmo', ilmoSchema);
