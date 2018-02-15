@@ -7,6 +7,7 @@ const user = require('./admin/user');
 const ilmo = require('./ilmo/ilmo');
 const tapahtuma = require('./ilmo/tapahtuma');
 const esitys = require('./esitykset/esitykset');
+const varaus = require('./esitykset/varaukset');
 
 const index = require('./index/index');
 
@@ -58,6 +59,11 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Esitykset
 router.get('/esitykset', esitys.getAll);
+router.get('/esitykset/:value', varaus.getAll);
+router.post('/esitykset', varaus.createNew);
+router.put('/esitykset', varaus.update);
+router.delete('esitykset', varaus.remove);
+
 
 
 module.exports = router;

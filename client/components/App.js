@@ -29,6 +29,7 @@ import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import Kayttajat from './Admin/Kayttajat/Kayttajat';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
+import Varaustenhallinta from './Admin/Varaustenhallinta/Varaustenhallinta';
 
 import Login from './Admin/Auth/Login';
 
@@ -100,6 +101,7 @@ export default class App extends React.Component {
               <Switch>
               <LoginLayout path="/login" component={Login} />
               <AdminLayout path="/admin" component={Admin} />
+              <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
               <AdminLayout path="/produktionhallinta" component={Produktio} /> 
               <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
               <AdminLayout path="/kayttajat" component={Kayttajat} />

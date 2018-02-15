@@ -50,7 +50,7 @@ class Speksi2018 extends Component {
           
             <iframe id="youtubeplayer"
                     width="640" height="360"
-                    src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1"
+                    src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
                     frameBorder="0"
                     allowFullScreen="allowFullScreen"
             ></iframe>
