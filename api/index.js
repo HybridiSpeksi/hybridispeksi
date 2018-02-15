@@ -58,6 +58,6 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Esitykset
 router.get('/esitykset', esitys.getAll);
-
+router.get('/bookingcounts', esitys.getAllWithBookingCounts);
 
 module.exports = router;
