@@ -2,7 +2,7 @@ const Varaus = require('../../schema/varaus-model');
 
 module.exports = {
     getAll: (req, res) => {
-        Varaus.find({})
+        Varaus.find({esitysId: req.params._id})
         .then(_data => {
             res.json({success: true, data: _data})
         })

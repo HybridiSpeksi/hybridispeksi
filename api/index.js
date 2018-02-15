@@ -59,7 +59,7 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Esitykset
 router.get('/esitykset', esitys.getAll);
-router.get('/esitykset/:value', varaus.getAll);
+router.get('/admin/esitykset/:_id', varaus.getAll);
 router.post('/esitykset', varaus.createNew);
 router.put('/esitykset', varaus.update);
 router.delete('esitykset', varaus.remove);
