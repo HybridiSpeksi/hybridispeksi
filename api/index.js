@@ -59,11 +59,18 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Esitykset
 router.get('/esitykset', esitys.getAll);
+<<<<<<< HEAD
 router.get('/bookingcounts', esitys.getAllWithBookingCounts);
 router.get('/esitykset/:value', varaus.getAll);
 router.post('/esitykset', varaus.createNew);
 router.put('/esitykset', varaus.update);
 router.delete('esitykset', varaus.remove);
+=======
+router.get('/admin/varaukset/:_id', varaus.getAll);
+router.post('/varaukset', varaus.createNew);
+router.put('/varaukset', varaus.update);
+router.delete('/varaukset', varaus.remove);
+>>>>>>> 42b6677ed3a339b86a5aa418e00ba5a38bbac38f
 
 
 
