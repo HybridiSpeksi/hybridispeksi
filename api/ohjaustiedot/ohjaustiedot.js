@@ -98,5 +98,14 @@ module.exports = {
         .catch(err => {
             res.json({ success: false, data: err })
         })
+    },
+    haeHinnat: (req,res) => {
+        Ohjaustieto.find({key: "hinta"})
+            .then(hinnat => {
+                res.json({ success: true, data: hinnat })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
     }
 }
