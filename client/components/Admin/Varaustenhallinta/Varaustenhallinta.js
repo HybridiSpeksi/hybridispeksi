@@ -23,7 +23,12 @@ class Varaustenhallinta extends Component {
             sname: '',
             email: '',
             phone: '',
-            tickets: '',
+            ticketsN: '',
+            ticketsS: '',
+            ticketsO: '',
+            priceN: '',
+            priceS: '',
+            price: '',
             lisatiedot: ''
         }
 
@@ -44,6 +49,14 @@ class Varaustenhallinta extends Component {
         .catch(err => {
             console.log(err);
         })
+        ajax.sendGet('/price')
+        .then(_data =>{
+        	this.setState({priceS: _data.data[0].value})
+        	this.setState({priceN: _data.data[1].value});
+        })
+        .catch(err => {
+        	console.log(err);
+        })
     }
 
     toggleSahkopostit() {
@@ -53,8 +66,14 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        this.setState({ [e.target.name]: value });	
+        if([e.target.name] == "ticketsN" || [e.target.name] == "ticketsS") {
+        	let sum = this.state.ticketsN * this.state.priceN + this.state.ticketsS * this.state.priceS
+        	this.setState({ price: sum  + " €"})
+        }
+
+        this.setState({ [e.target.name]: value });
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -108,7 +127,9 @@ class Varaustenhallinta extends Component {
     		sname: '',
     		email: '',
     		phone: '',
-    		tickets: '',
+    		ticketsN: '',
+    		ticketsS: '',
+    		price: '',
     		lisatiedot: ''})
     }
 
@@ -148,7 +169,10 @@ class Varaustenhallinta extends Component {
 		            sname={this.state.sname}
 		            email={this.state.email}
 		            phone={this.state.phone} 
-		            tickets={this.state.tickets}
+		            ticketsN={this.state.ticketsN}
+		            ticketsS={this.state.ticketsS}
+		            ticketsO={this.state.ticketsO}
+		            price={this.state.price}
 		            lisatiedot={this.state.lisatiedot}
 		            valittuEsitys={this.state.valittuEsitys} />
                 

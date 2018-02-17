@@ -26,7 +26,10 @@ class UusiVaraus extends Component {
                             sname={this.props.sname}
                             email={this.props.email}
                             phone={this.props.phone} 
-                            tickets={this.props.tickets}
+                            ticketsN={this.props.ticketsN}
+                            ticketsS={this.props.ticketsS}
+                            ticketsO={this.props.ticketsO}
+                            price={this.props.price}
                             lisatiedot={this.props.lisatiedot}
                             valittuEsitys={this.props.valittuEsitys} />
 
