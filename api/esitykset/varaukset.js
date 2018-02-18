@@ -1,4 +1,5 @@
 const Varaus = require('../../schema/varaus-model');
+const mailer = require('../../utils/mailer');
 
 module.exports = {
     getAll: (req, res) => {
@@ -11,6 +12,8 @@ module.exports = {
         })
     },
 
+
+
     createNew: (req, res) => {
 
     },
@@ -21,5 +24,11 @@ module.exports = {
 
     remove: (req, res) => {
 
+    },
+
+    sendTestMail: (req, res) => {
+        let booking = {email: 'pymapa@utu.fi'}
+        mailer.sendTicket(booking);
+        res.status(200).send();
     }
 }

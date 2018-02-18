@@ -70,6 +70,8 @@ router.post('/varaukset', varaus.createNew);
 router.put('/varaukset', varaus.update);
 router.delete('/varaukset', varaus.remove);
 
+router.get('/sendTestMail', varaus.sendTestMail);
+
 
 
 module.exports = router;
