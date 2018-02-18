@@ -25,7 +25,7 @@ module.exports = {
             from: 'lipunmyynti@hybridispeksi.fi',
             to: booking.email,
             subject: 'Varausvahvistus',
-            html: cashTicket()
+            html: cashTicket(booking)
         })
         console.log('sendTicket');
         console.log(cashTicket());
