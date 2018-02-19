@@ -10,6 +10,10 @@ import utils from '../../Utils/Utils';
 import Messages from '../../Utils/Messages';
 /* import PropTypes from "" */
 
+let MESSAGE_SUCCESS = "success";
+let MESSAGE_WARNING = "warning";
+let MESSAGE_ERROR = "error";
+
 class Varaustenhallinta extends Component {
     constructor(props) {
         super(props);
@@ -30,13 +34,19 @@ class Varaustenhallinta extends Component {
             sprice: '14',
             oprice: '10',
             price: '',
-            lisatiedot: ''
+            lisatiedot: '',
+            ilmottu: false,
+            messages: [],
+            warnings: [],
+            errors: []
         }
 
         this.valitseEsitys = this.valitseEsitys.bind(this);
         this.haeVaraukset = this.haeVaraukset.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.addMessage = this.addMessage.bind(this);
         this.emptyFields = this.emptyFields.bind(this);
         this.countPrice = this.countPrice.bind(this);
     }
@@ -68,7 +78,7 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        if([e.target.name] === "ncount" || [e.target.name] === "scount" || [e.target.name] === "ocount") {
+        if(e.target.name === "ncount" || e.target.name === "scount" || e.target.name === "ocount") {
             this.setState({ [e.target.name]: value }, () => {
                 this.countPrice();
             })
@@ -95,9 +105,9 @@ class Varaustenhallinta extends Component {
     handleSubmit(e) {
         e.preventDefault();
         let url = "/varaukset";
-		ajax.sendPut(
+		/*ajax.sendPut(
             url,
-            {   
+            {
                 fname: this.state.fname,
 			    sname: this.state.sname,
 			    email: this.state.email,
@@ -109,15 +119,26 @@ class Varaustenhallinta extends Component {
 			    paymentMethod: 0,
 			    paid: true,
 			    esitysId: this.state.valittuEsitys._id,
-			    additional: this.state.lisatiedot,
+			    additional: this.state.lisatiedot
             }).then(data => {
                 this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
                 this.setState({ilmottu: true})
             }).catch(err => {
                 console.log(err);
                 this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
-            })
-       
+            })*/
+            console.log(this.state.fname,
+			   this.state.sname,
+			   this.state.email,
+			   this.state.pnumber,
+			   this.state.scount,
+			   this.state.ncount,
+			   this.state.ocount,
+			   this.state.oprice,
+			   this.state.valittuEsitys._id,
+			   this.state.lisatiedot);
+            this.addMessage(MESSAGE_SUCCESS,"JEEJEE", "Ilmoittautuminen onnistui!")
+            this.setState({ilmottu: true})
     }
 
     emptyFields(){
@@ -130,7 +151,12 @@ class Varaustenhallinta extends Component {
     		scount: '',
     		ocount: '',
     		price: '',
-    		lisatiedot: ''})
+    		lisatiedot: '',
+    		messages: [],
+            warnings: [],
+            errors: [],
+            ilmottu: false
+        })
     }
 
     valitseEsitys(t) {
@@ -147,6 +173,24 @@ class Varaustenhallinta extends Component {
             console.log(err);
         })
     }
+
+    //Add different kinds of error or warning messages
+    addMessage(type, newHeader, newText) {
+        if (type === MESSAGE_WARNING) {
+            let newWarnings = this.state.warnings;
+            newWarnings.push({ header: newHeader, text: newText });
+            this.setState({ warnings: newWarnings })
+        } else if (type === MESSAGE_ERROR) {
+            let newErrors = this.state.errors;
+            newErrors.push({ header: newHeader, text: newText });
+            this.setState({ erros: newErrors })
+        } else if (type === MESSAGE_SUCCESS) {
+            let newMessages = this.state.messages;
+            newMessages.push({ header: newHeader, text: newText });
+            this.setState({ messages: newMessages });
+        }
+    }
+
 
     render () {
         return (
@@ -174,8 +218,10 @@ class Varaustenhallinta extends Component {
 		            ocount={this.state.ocount}
 		            price={this.state.price}
 		            lisatiedot={this.state.lisatiedot}
+		            ilmottu={this.state.ilmottu}
 		            valittuEsitys={this.state.valittuEsitys}
-		            esitykset={this.state.esitykset} />
+		            esitykset={this.state.esitykset}
+		            messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                 
                 <div className="row">
                     <div className="col-sm-4">
