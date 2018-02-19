@@ -16,13 +16,20 @@ module.exports = {
 
 
     createNew: (req, res) => {
-        Varaus.find({esitysId: req.body.esitysId})
-        .then(bookings => {
-            let count = 0;
-            bookings.map(b => {
-                count =+ b.scount + ncount + ocount;
-            })
+        let booking = req.body;
+        validate(booking)
+        .then(() => {
+            tryIfSpace(booking)
         })
+        .then(() => {
+            booking.bookingId = generateId();
+
+        })
+        .then()
+        .catch(err => {
+            res.status(err.code).send(err.message);
+        })
+       
     },
 
     update: (req, res) => {
@@ -40,8 +47,20 @@ module.exports = {
     }
 }
 
-function validate(req, res, julkinen) {
-    let validointiViesti = "";
+function validate(booking) {
+    let promise = new Promise((resolve, reject) => {
+        if(isEmptyField(booking.fname) || isEmptyField(booking.sname) || isEmptyField(booking.email)) {
+            reject({code: 400, message: 'Täytä kaikki puuttuvat kentät'})
+        } else if (!validateEmail(booking.email)) {
+            reject({code: 400, message: 'Virheellinen sähköposti'})
+        } else if (isEmptyField(booking.esitysId)) {
+            reject({code: 400, message: 'Valitse esitys'})
+        }
+        
+    })
+
+    return promise;
+    // let validointiViesti = "";
     let valid = false;
     if (!req.body.fname || req.body.fname == "") {
         validointiViesti = "Täytä puuttuvat kentät"
@@ -69,6 +88,10 @@ function validateEmail(email) {
     return regex.test(email);
 }
 
+function isEmptyField(field) {
+    return !field || field === "";
+}
+
 function generateId() {
     let id = '';
     const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
@@ -76,4 +99,23 @@ function generateId() {
         id += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return id;
+}
+
+function tryIfSpace(booking) {
+    return new Promise((resolve, reject) => {
+        let totalCountInShow = 0;
+        Varaus.find({bookingId: booking.bookingId})
+        .then(data => {
+            data.map(b => { totalCountInShow =+ getTotalCount(b) })
+            if(totalCountInShow + getTotalCount(booking) > 130) {
+                reject({code: 400, message: 'Esityksessä ei ole tarpeeksi paikkoja jäljellä'});
+            } else {
+                resolve(booking);
+            }
+        }) 
+    })
+}
+
+function getTotalCount(booking) {
+    return booking.ncount + booking.scount + booking.ocount;
 }

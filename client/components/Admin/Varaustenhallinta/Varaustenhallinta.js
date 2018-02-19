@@ -37,6 +37,7 @@ class Varaustenhallinta extends Component {
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.emptyFields = this.emptyFields.bind(this);
+        this.countPrice = this.countPrice.bind(this);
     }
 
     componentDidMount() {
@@ -65,13 +66,18 @@ class Varaustenhallinta extends Component {
 
     handleChange(e) {
         let value = e.target.value;
-
         if([e.target.name] == "ticketsN" || [e.target.name] == "ticketsS") {
-        	let sum = this.state.ticketsN * this.state.priceN + this.state.ticketsS * this.state.priceS
-        	this.setState({ price: sum  + " €"})
+            this.setState({ [e.target.name]: value }, () => {
+                this.countPrice();
+            })
+        } else {
+            this.setState({[e.target.name]: value});
         }
+    }
 
-        this.setState({ [e.target.name]: value });
+    countPrice() {
+        let sum = this.state.ticketsN * this.state.priceN + this.state.ticketsS * this.state.priceS
+        this.setState({ price: sum })
     }
 
 
