@@ -44,8 +44,14 @@ class Dropdown extends Component {
             this.props.otions = []
         }
         let options = this.props.options.map((opt, i) => {
+            let value = "";
+            if(!opt.value) {
+                value = opt._id
+            } else {
+                value = opt.value
+            }
             return (
-                <option key={i} value={opt.value}>{opt.name}</option>
+                <option key={i} value={opt.value}>{value}</option>
             )
         })
         return (
