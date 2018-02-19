@@ -9,11 +9,18 @@
 	background:#292B2C;
 	color:white;
 }
-
+.youtubeplayerheader {
+	background:#ffecaf;
+	margin:0px;
+	padding:20px;
+	padding-bottom:0px;
+	font-family:hybridispeksi;
+	font-size:68px;
+}
 .youtubeplayer {
 	background:#ffecaf;
 	margin:0px;
-	padding:50px;
+	padding:40px;
 }
 @font-face {
 	font-family:'hybridispeksi';
@@ -50,5 +57,8 @@
 @media (max-width:400px) {
 	.esitykset{
 		font-size:24px;
+	}
+	.youtubeplayerheader {
+		font-size:52px;
 	}
 }

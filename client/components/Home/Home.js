@@ -51,7 +51,7 @@ class Home extends Component {
           </div>
           <div className={"col-sm-3 align-items-center " + styles.internallink}>
           <Link className={styles.internallink} to="/muutspeksit">
-            <p className={"material-icons " + styles.linkicon}>record_voice_over</p>
+            <p className={"material-icons " + styles.linkicon}>local_play</p>
             <h3>Turun muut speksit</h3>
             <p className="">Speksi on opiskelijateatteria parhaimmillaan! Tutustu Turun muihin spekseihin täältä.</p>
           </Link>
