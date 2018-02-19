@@ -73,10 +73,11 @@ class Varaustenhallinta extends Component {
                 this.countPrice();
             })
         } 
-        else if([e.target.name] === "esitys") {
+        else if(e.target.name === "esitys") {
         	this.state.esitykset.map((esitys) => {
-        		if ([e.target.value] === esitys._id){
-        			this.setState({valitseEsitys: esitys});
+        		if (e.target.value === esitys._id){
+        			this.valitseEsitys(esitys);
+
         		}
         	})
         }
@@ -97,15 +98,18 @@ class Varaustenhallinta extends Component {
 		ajax.sendPut(
             url,
             {   
-                tapahtuma: this.state.tapahtuma,
                 fname: this.state.fname,
-                sname: this.state.sname,
-                email: this.state.email,
-                jarjesto: this.state.jarjesto,
-                juoma: this.state.holillisuus,
-                ruokavalio: this.state.lisatiedot,
-
-
+			    sname: this.state.sname,
+			    email: this.state.email,
+			    pnumber: this.state.pnumber,
+			    scount: this.state.scount,
+			    ncount: this.state.ncount,
+			    ocount: this.state.ocount,
+			    oprice: this.state.oprice,
+			    paymentMethod: 0,
+			    paid: true,
+			    esitysId: this.state.valittuEsitys._id,
+			    additional: this.state.lisatiedot,
             }).then(data => {
                 this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
                 this.setState({ilmottu: true})
