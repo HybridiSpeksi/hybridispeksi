@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Dropdown } from '../../Utils/Form';
+
 class VarausForm extends Component {
     constructor(props) {
         super(props);
@@ -8,16 +10,40 @@ class VarausForm extends Component {
         let sum = document.getElementsByName("ticketsN").value * this.props.priceN + document.getElementsByName("ticketsS").value * this.props.priceS;
         document.getElementsByName('price').value = sum;
     }
+
+    
+
     render () {
+
+        let esityslista = this.props.esitykset.map((esitys, i) => {
+            if (esitys._id == this.props.valittuEsitys._id){
+                return (
+                    <option selected key={esitys._id}>
+                        {esitys.name}
+                    </option>
+                )
+            }
+            else {
+                return (
+                    <option key={esitys._id}>
+                        {esitys.name}
+                    </option>
+                )
+            }
+        })
+
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <div className={"row form-group align-items-center"}>
                         <div className={"col-sm-3"}>
-                            <label htmlFor="fnameInput" className="">Esitys:</label>
+                            <label htmlFor="esitysInput" className="">Esitys:</label>
                         </div>
                         <div className={"col"}>
-                            <input readOnly name="fname" id="fnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.valittuEsitys.name} placeholder="Etunimi"/>
+                            <select name="esitys" id="esitysInput" className="form-control" onChange={this.props.handleChange} default={this.props.valittuEsitys.name}>
+                                {esityslista}
+                            </select>
+                            {/* <input name="fname" id="fnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.valittuEsitys.name} placeholder="Etunimi"/> */}
                         </div>
                     </div>
                     <div className={"row form-group align-items-center"}>
@@ -46,10 +72,10 @@ class VarausForm extends Component {
                     </div>
                     <div className={"row form-group align-items-center"}>
                         <div className={"col-sm-3"}>
-                            <label htmlFor="phoneInput" className="">Puhelinnumero:</label>
+                            <label htmlFor="pnumberInput" className="">Puhelinnumero:</label>
                         </div>
                         <div className={"col"}>
-                            <input name="phone" id="phoneInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.phone} placeholder="Puhelinnumero"/>
+                            <input name="pnumber" id="pnumberInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.pnumber} placeholder="Puhelinnumero"/>
                         </div>
                     </div>
                     <div className={"row form-group align-items-center"}>
@@ -57,13 +83,13 @@ class VarausForm extends Component {
                             <label htmlFor="ticketsInput" className="">Liput:</label>
                         </div>
                         <div className={"col-3 justify-contents-center"}>
-                            Normaali<input name="ticketsN" id="ticketsInput" className="form-control" type="number" onChange={this.props.handleChange} value={this.props.ticketsN} placeholder="N"/>16 €/kpl
+                            Normaali<input name="ncount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ncount} placeholder="N"/>16 €/kpl
                         </div>
                         <div className={"col-3 justify-contents-center"}>
-                            Opiskelija<input name="ticketsS" id="ticketsInput" className="form-control" type="number" onChange={this.props.handleChange} value={this.props.ticketsS} placeholder="S"/> 14 €/kpl
+                            Opiskelija<input name="scount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.scount} placeholder="S"/> 14 €/kpl
                         </div>
                         <div className={"col-3 justify-contents-center"}>
-                            Special<input name="ticketsO" id="ticketsInput" className="form-control" type="number" onChange={this.props.handleChange} value={this.props.ticketsO} placeholder="O"/> xx €/kpl
+                            Special<input name="ocount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ocount} placeholder="O"/> 10 €/kpl
                         </div>
                     </div>
                      <div className={"row form-group align-items-center"}>

@@ -22,12 +22,13 @@ class Varaustenhallinta extends Component {
             fname: '',
             sname: '',
             email: '',
-            phone: '',
-            ticketsN: '',
-            ticketsS: '',
-            ticketsO: '',
-            priceN: '16',
-            priceS: '14',
+            pnumber: '',
+            ncount: '',
+            scount: '',
+            ocount: '',
+            nprice: '16',
+            sprice: '14',
+            oprice: '10',
             price: '',
             lisatiedot: ''
         }
@@ -67,17 +68,21 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        if([e.target.name] == "ticketsN" || [e.target.name] == "ticketsS") {
+        if([e.target.name] == "ncount" || [e.target.name] == "scount" || [e.target.name] == "ocount") {
             this.setState({ [e.target.name]: value }, () => {
                 this.countPrice();
             })
-        } else {
+        } 
+        else if([e.target.name] == "esitys") {
+        	
+        }
+        else {
             this.setState({[e.target.name]: value});
         }
     }
 
     countPrice() {
-        let sum = this.state.ticketsN * this.state.priceN + this.state.ticketsS * this.state.priceS
+        let sum = this.state.ncount * this.state.nprice + this.state.scount * this.state.sprice + this.state.ocount * this.state.oprice
         this.setState({ price: sum })
     }
 
@@ -85,47 +90,26 @@ class Varaustenhallinta extends Component {
     handleSubmit(e) {
         e.preventDefault();
         let url = "/varaukset";
-
-        if (this.validateVaraus()) {
-            ajax.sendPut(
-                url,
-                {   
-                    tapahtuma: this.state.tapahtuma,
-                    fname: this.state.fname,
-                    sname: this.state.sname,
-                    email: this.state.email,
-                    jarjesto: this.state.jarjesto,
-                    juoma: this.state.holillisuus,
-                    ruokavalio: this.state.lisatiedot,
+		ajax.sendPut(
+            url,
+            {   
+                tapahtuma: this.state.tapahtuma,
+                fname: this.state.fname,
+                sname: this.state.sname,
+                email: this.state.email,
+                jarjesto: this.state.jarjesto,
+                juoma: this.state.holillisuus,
+                ruokavalio: this.state.lisatiedot,
 
 
-                }).then(data => {
-                    this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                    this.setState({ilmottu: true})
-                }).catch(err => {
-                    console.log(err);
-                    this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
-                })
-            }
-    }
-    validateSitsit() {
-        this.countSpeksit();
-
-        let valid = true;
-        if (
-            this.state.fname === ""
-            || this.state.sname === ""
-            || this.state.email === ""
-            || this.state.jarjesto === ""
-       ) {
-            this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
-            valid = false;
-        }
-        if (!utils.isValidEmail(this.state.email)) {
-            this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
-            valid = false;
-        }
-        return valid;
+            }).then(data => {
+                this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
+                this.setState({ilmottu: true})
+            }).catch(err => {
+                console.log(err);
+                this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
+            })
+       
     }
 
     emptyFields(){
@@ -133,9 +117,10 @@ class Varaustenhallinta extends Component {
     		fname: '',
     		sname: '',
     		email: '',
-    		phone: '',
-    		ticketsN: '',
-    		ticketsS: '',
+    		pnumber: '',
+    		ncount: '',
+    		scount: '',
+    		ocount: '',
     		price: '',
     		lisatiedot: ''})
     }
@@ -175,13 +160,14 @@ class Varaustenhallinta extends Component {
                     fname={this.state.fname}
 		            sname={this.state.sname}
 		            email={this.state.email}
-		            phone={this.state.phone} 
-		            ticketsN={this.state.ticketsN}
-		            ticketsS={this.state.ticketsS}
-		            ticketsO={this.state.ticketsO}
+		            pnumber={this.state.pnumber} 
+		            scount={this.state.scount}
+		            ncount={this.state.ncount}
+		            ocount={this.state.ocount}
 		            price={this.state.price}
 		            lisatiedot={this.state.lisatiedot}
-		            valittuEsitys={this.state.valittuEsitys} />
+		            valittuEsitys={this.state.valittuEsitys}
+		            esitykset={this.state.esitykset} />
                 
                 <div className="row">
                     <div className="col-sm-4">

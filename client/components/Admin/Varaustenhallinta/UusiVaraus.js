@@ -25,13 +25,14 @@ class UusiVaraus extends Component {
                             fname={this.props.fname}
                             sname={this.props.sname}
                             email={this.props.email}
-                            phone={this.props.phone} 
-                            ticketsN={this.props.ticketsN}
-                            ticketsS={this.props.ticketsS}
-                            ticketsO={this.props.ticketsO}
+                            pnumber={this.props.pnumber} 
+                            ncount={this.props.ncount}
+                            scount={this.props.scount}
+                            ocount={this.props.ocount}
                             price={this.props.price}
                             lisatiedot={this.props.lisatiedot}
-                            valittuEsitys={this.props.valittuEsitys} />
+                            valittuEsitys={this.props.valittuEsitys}
+                            esitykset={this.props.esitykset} />
 
                       </div>
                       <div className="modal-footer">
