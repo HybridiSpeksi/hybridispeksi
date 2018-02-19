@@ -15,7 +15,7 @@ class VarausForm extends Component {
 
     render () {
 
-        let esityslista = this.props.esitykset.map((esitys, i) => {
+       /* let esityslista = this.props.esitykset.map((esitys, i) => {
             if (esitys._id == this.props.valittuEsitys._id){
                 return (
                     <option selected key={esitys._id}>
@@ -30,7 +30,7 @@ class VarausForm extends Component {
                     </option>
                 )
             }
-        })
+        }) */
 
         return (
             <div>
@@ -40,10 +40,19 @@ class VarausForm extends Component {
                             <label htmlFor="esitysInput" className="">Esitys:</label>
                         </div>
                         <div className={"col"}>
+                        <Dropdown
+                            options={this.props.esitykset}
+                            selected={this.props.valittuEsitys._id}
+                            id={"esitysInput"}
+                            label=""
+                            name={"esitys"}
+                            onChange={this.props.handleChange}
+                            />
+                            {/* 
                             <select name="esitys" id="esitysInput" className="form-control" onChange={this.props.handleChange} default={this.props.valittuEsitys.name}>
                                 {esityslista}
                             </select>
-                            {/* <input name="fname" id="fnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.valittuEsitys.name} placeholder="Etunimi"/> */}
+                            <input name="fname" id="fnameInput" className="form-control" type="text" onChange={this.props.handleChange} value={this.props.valittuEsitys.name} placeholder="Etunimi"/> */}
                         </div>
                     </div>
                     <div className={"row form-group align-items-center"}>

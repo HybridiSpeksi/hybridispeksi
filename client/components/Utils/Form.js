@@ -51,7 +51,7 @@ class Dropdown extends Component {
                 value = opt.value
             }
             return (
-                <option key={i} value={opt.value}>{value}</option>
+                <option key={i} value={value}>{opt.name}</option>
             )
         })
         return (

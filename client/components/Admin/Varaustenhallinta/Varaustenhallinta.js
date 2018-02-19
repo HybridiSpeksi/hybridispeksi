@@ -68,13 +68,17 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        if([e.target.name] == "ncount" || [e.target.name] == "scount" || [e.target.name] == "ocount") {
+        if([e.target.name] === "ncount" || [e.target.name] === "scount" || [e.target.name] === "ocount") {
             this.setState({ [e.target.name]: value }, () => {
                 this.countPrice();
             })
         } 
-        else if([e.target.name] == "esitys") {
-        	
+        else if([e.target.name] === "esitys") {
+        	this.state.esitykset.map((esitys) => {
+        		if ([e.target.value] === esitys._id){
+        			this.setState({valitseEsitys: esitys});
+        		}
+        	})
         }
         else {
             this.setState({[e.target.name]: value});
