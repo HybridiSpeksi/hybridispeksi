@@ -14,8 +14,9 @@ class Muutspeksit extends Component {
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-center justify-content-center " + styles.header}>
           <div className="col-8">
-            <h2 className="">Muut speksit</h2>
-            <p>Turussa toimii monia muitakin opiskelijateatteriproduktioita HybridiSpeksin lisäksi.</p>
+            <h2 className="">Turun muut speksit</h2>
+            <p>Turussa toimii monia muitakin speksejä HybridiSpeksin lisäksi. Speksien välinen yhteistyö on tärkeässä roolissa esimerkiksi yhteisten tapahtumien muodossa. 
+            Pidä huoli, ettet jää paitsi muista huikeista produktioista ja Turun ainutlaatuisesta speksikentästä!</p>
             </div>
         </div>
 

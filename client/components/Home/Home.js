@@ -31,7 +31,7 @@ class Home extends Component {
           <Link className={styles.internallink} to="/speksit">
             <p className={"material-icons " + styles.linkicon}>history</p>
             <h3>Aiemmat speksit</h3>
-            <p className="">HybridiSpeksi on järjestetty jo kolme kertaa. Näistä aiemmista spekseistä voit lukea lisää täältä!</p>
+            <p className="">HybridiSpeksi on järjestetty jo vuodesta 2015! Lue lisää täältä.</p>
           </Link>
           </div>
           {/*<div className="col-sm-3 align-items-center">
@@ -45,14 +45,15 @@ class Home extends Component {
           <Link className={styles.internallink} to="/yhdistys">
             <p className={"material-icons " + styles.linkicon}>face</p>
             <h3>Yhdistys</h3>
-            <p className="">Haluatko tietää, ketä tekee speksissä mitäkin? Yhdistys-sivulta löytyvät yhteystiedot ja hallituksen sekä tuotannon henkilöt!</p>
+            <p className="">Kuka tekee speksissä mitäkin? Lavan tapahtumien lisäksi projektissa on suuri joukko muita  tiimejä ja tiimiläisiä. 
+                            Yhdistys-sivulta löydät yhteystietojen lisäksi hallituksen ja tuotantotiimin kokoonpanot.</p>
           </Link>
           </div>
           <div className={"col-sm-3 align-items-center " + styles.internallink}>
           <Link className={styles.internallink} to="/muutspeksit">
             <p className={"material-icons " + styles.linkicon}>record_voice_over</p>
-            <h3>Muut speksit</h3>
-            <p className="">Jos opiskelijateatteri kiinnostaa, kannattaa tutustua myös Turun muihin spekseihin!</p>
+            <h3>Turun muut speksit</h3>
+            <p className="">Speksi on opiskelijateatteria parhaimmillaan! Tutustu Turun muihin spekseihin täältä.</p>
           </Link>
           </div>
         </div>
@@ -61,19 +62,21 @@ class Home extends Component {
           <div className={"col-sm-6 " + styles.speksi_desc}>
             {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>*/}
             <h1 className={styles.otsikko}>HybridiSpeksi</h1>
-            <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
-                          Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla. Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
+            <p>HybridiSpeksi on Turun yliopiston luonnontieteiden ja tekniikan tiedekunnan opiskelijoiden vuosittain toteuttama teatteriproduktio. 
+                Ensimmäinen HybridiSpeksi <strong>H.A.L.I.</strong> nähtiin vuonna 2015 Barker-teatterilla.
             </p>
-            <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu. 2017 HybridiSpeksi siirtyi
-                          Manilla-teatteriin jossa nähtiin kansallisromanttinen <strong>Kruunun Kohtalo - Kalevalan perintö</strong>
+            <p>Vuonna 2016 Tanssiteatteri ERIn valtasi BratvaKontra, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.  
+            Keväällä 2017 HybridiSpeksi siirtyi Manilla-teatterille, 
+            jossa vuorossa oli kansallisromanttinen <strong>Kruunun Kohtalo &ndash; Kalevalan perintö</strong>.
             </p>
             <h3>2018</h3>
-            <p>HybridiSpeksin tuotantotiimi vuoden 2018 speksiin valittiin ennen kesää, ja töitä on tehty jo kovalla tahdilla. 26.9. järjestetään <strong>rekrytilaisuus </strong>
-              Arc 1 -salissa, jossa hybridiläiset voivat hakea mukaan toteuttamaan tämän vuoden speksiä.</p>
+            <p>Tulevan produktion tuotanto- ja käsikirjoitustiimi  valittiin jo ennen kesää. Rekrytilaisuus pidettiin 26.9. ja runsaan satapäisen produktion 
+                voimin katseemme on suunnattu kohti 27.3. koittavaa ensi-iltaa Manilla-teatterilla.
+            </p>
             <h3>Speksi</h3>
-            <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali. Yleisö voi milloin tahansa osallistua
-                          esitykseen huutamalla <strong>Omstart!</strong> Huudon kuultuaan esiintyjät toteuttavat edellisen kohtauksen/ohjelmanumeron uudelleen improvisoiden.
-                        </p>
+            <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali. 
+            Esityksissä yleisö voi vaikuttaa muutoin käsikirjoitetun esityksen kulkuun huutamalla <strong>“Omstart”</strong>, jolloin edellinen toiminta, repliikki tai musiikkinumero tehdään uudelleen erilaisella tavalla improvisoiden. 
+            Lisää spekseistä ja niiden historiasta voi lukea esimerkiksi  <a className={styles.externallink} href="https://fi.wikipedia.org/wiki/Speksi">Wikipediasta</a>. </p>
           </div>
         </div>
       </div>

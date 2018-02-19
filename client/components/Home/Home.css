@@ -70,6 +70,12 @@
 	color:#7a1111;
 	transform:scale(1.05);
 }
+.externallink {
+	color:#7A1111;
+}
+.externallink:hover {
+	color:#580D0D;
+}
 
 /* SPEKSI */
 .hslogo{

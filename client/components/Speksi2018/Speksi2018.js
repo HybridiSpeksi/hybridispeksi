@@ -54,37 +54,37 @@ class Speksi2018 extends Component {
                     frameBorder="0"
                     allowFullScreen="allowFullScreen"
             ></iframe>
-          <div className={"col-12 col-md-6 col-lg-4 col-xl-4 justify-items-center " + styles.esitykset}>
+          <div className={"col-12 col-md-6 col-lg-5 col-xl-4 justify-items-center " + styles.esitykset}>
             <h1>Esitykset Manilla-teatterilla:</h1>
             <div className="row">
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>ti 27.3. klo 19</p>
               </div>
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>la 31.3. klo 19</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>ke 28.3. klo 19</p>
               </div>
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>ti 3.4. klo 19</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>to 29.3. klo 19</p>
               </div>
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>ma 9.4. klo 19</p>
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>la 31.3. klo 14</p>
               </div>
-              <div className="col-6 col-lg-5">
+              <div className="col-6 col-xl-5">
               <p>ti 10.4. klo 19</p>
               </div>
             </div>

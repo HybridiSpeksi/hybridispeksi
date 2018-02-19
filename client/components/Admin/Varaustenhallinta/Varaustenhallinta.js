@@ -26,8 +26,8 @@ class Varaustenhallinta extends Component {
             ticketsN: '',
             ticketsS: '',
             ticketsO: '',
-            priceN: '',
-            priceS: '',
+            priceN: '16',
+            priceS: '14',
             price: '',
             lisatiedot: ''
         }
@@ -49,14 +49,14 @@ class Varaustenhallinta extends Component {
         .catch(err => {
             console.log(err);
         })
-        ajax.sendGet('/price')
+        /*ajax.sendGet('/price')
         .then(_data =>{
         	this.setState({priceS: _data.data[0].value})
         	this.setState({priceN: _data.data[1].value});
         })
         .catch(err => {
         	console.log(err);
-        })
+        })*/
     }
 
     toggleSahkopostit() {
@@ -65,13 +65,13 @@ class Varaustenhallinta extends Component {
 
     handleChange(e) {
         let value = e.target.value;
+        this.setState({ [e.target.name]: value });
 
-        if([e.target.name] == "ticketsN" || [e.target.name] == "ticketsS") {
+        // if(e.target.name == "ticketsN" || e.target.name == "ticketsS") {
         	let sum = this.state.ticketsN * this.state.priceN + this.state.ticketsS * this.state.priceS
         	this.setState({ price: sum  + " €"})
-        }
+        // }
 
-        this.setState({ [e.target.name]: value });
     }
 
 

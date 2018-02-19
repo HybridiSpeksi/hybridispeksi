@@ -106,7 +106,7 @@ class Yhdistys extends Component {
                   </div>
                   <div className="row">
                     <div className="col-sm-4 col-5">
-                      <p className={styles.persontitle}>Apulaisuottaja</p>
+                      <p className={styles.persontitle}>Apulaistuottaja</p>
                     </div>
                     <div className="col-7">
                       <p>Maija Jortikka</p>

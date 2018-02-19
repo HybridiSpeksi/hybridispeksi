@@ -35,7 +35,7 @@ class Speksit extends Component {
           </div>
           <div className={"col-md-5 col-sm-11 " + styles.kruunu_desc}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo <br/>&nbsp;&ndash; Kalevalan perintö</h1>
-            <p className={styles.font_kruunu}>Kalevalan lopussa Louhi on kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta 
+            <p className={styles.font_kruunu} lang="fi">Kalevalan lopussa Louhi on kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta 
             ja jatkanut matkaansa muihin seikkailuihin jättäen velhoneuvoston huolehtimaan kruunusta. 
             Kylän neito Marjatta syö puolukan ja tulee raskaaksi. Ennustuksen mukaan Marjatan lapsesta, 
             Puolukasta, on tuleva Karjalan hallitsija. Velhoneuvosto auttaa Marjattaa kasvattamaan Puolukan 
@@ -48,7 +48,7 @@ class Speksit extends Component {
             <br/>
             <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash; Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun, 
             kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista. 
-            Saunan täydeltä tervaisia sankareita, suomalaista sisua ja astetta enemmän kansalliserotiikkaa!</p>
+            Saunan täydeltä tervaisia sankareita ja suomalaista sisua!</p>
           </div>
         </div>
 
@@ -113,8 +113,8 @@ class Speksit extends Component {
             ihmisten kohdatessa vaikuttaa tasa-arvoistamiseen? Minkälaista
             uudelleenkoulutusta Muumimaailmassa annetaankaan?</p>
             <br/>
-            <p>Ensimmäinen HybridiSpeksi saapui näyttämölle rennosti kantaaottavan ja opiskelijaromantiikallakin höystetyn 
-            toimintakomedian kanssa keväällä 2015.</p>
+            <p>Ensimmäinen HybridiSpeksi saapui näyttämölle rennosti kantaaottavalla ja 
+            opiskelijaromantiikallakin höystetyllä toimintakomedialla keväällä 2015.</p>
             </div>
           </div>
       </div>

@@ -15,7 +15,8 @@
 .content_kruunu {
 	background:lightgray;
 	margin:0px;
-	padding:50px;
+	padding:50px;	
+	text-align: justify;
 }
 .font_kruunu_header {
 	font-family: "Times New Roman";
@@ -46,6 +47,7 @@
 	padding-top:40px;
 	background-color:#565656;
 	color:white;
+	text-align: justify;
 }
 .font_bratva_header {
 	font-family:"Courier New";
@@ -77,6 +79,7 @@
 	background:lightgray;
 	margin:0px;
 	padding:50px;
+	text-align: justify;
 }
 .font_hali {
 	font-family:"Arial";
