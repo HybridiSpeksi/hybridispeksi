@@ -62,15 +62,13 @@ router.delete('/ilmo', ilmo.removeIlmo);
 router.get('/esitykset', esitys.getAll);
 router.get('/bookingcounts', esitys.getAllWithBookingCounts);
 router.get('/esitykset/:value', varaus.getAll);
-router.post('/esitykset', varaus.createNew);
-router.put('/esitykset', varaus.update);
 router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
-router.post('/varaukset', varaus.createNew);
+router.post('/admin/varaukset', varaus.createNewAdmin);
 router.put('/varaukset', varaus.update);
 router.delete('/varaukset', varaus.remove);
 
-router.get('/sendTestMail', varaus.sendTestMail);
+router.get('/sendTestMail', varaus.sendTestMail)
 
 
 

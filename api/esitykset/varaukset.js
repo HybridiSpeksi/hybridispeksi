@@ -15,17 +15,32 @@ module.exports = {
 
 
 
-    createNew: (req, res) => {
+    createNewAdmin: (req, res) => {
         let booking = req.body;
         validate(booking)
         .then(() => {
             tryIfSpace(booking)
         })
         .then(() => {
-            booking.bookingId = generateId();
-
+            const bookingObj = new Varaus({
+                fname: booking.fname,
+                sname: booking.sname,
+                email: booking.email,
+                pnumber: booking.pnumber,
+                scount: booking.scount,
+                ncount: booking.ncount,
+                ocount: booking.ocount,
+                oprice: booking.oprice,
+                paymentMethod: booking.paymentMethod,
+                paid: true,
+                esitysId: booking.esitysId,
+                additional: booking.additional
+            })
+            bookingObj.save()
         })
-        .then()
+        .then(_booking => {
+            res.json({success: true, data: _booking});
+        })
         .catch(err => {
             res.status(err.code).send(err.message);
         })
@@ -47,6 +62,10 @@ module.exports = {
     }
 }
 
+function validateAdmin(booking) {
+
+}
+
 function validate(booking) {
     let promise = new Promise((resolve, reject) => {
         if(isEmptyField(booking.fname) || isEmptyField(booking.sname) || isEmptyField(booking.email)) {
@@ -55,32 +74,13 @@ function validate(booking) {
             reject({code: 400, message: 'Virheellinen sähköposti'})
         } else if (isEmptyField(booking.esitysId)) {
             reject({code: 400, message: 'Valitse esitys'})
+        } else if (booking.scount + booking.ncount + booking.ocount == 0) {
+            reject({code: 400, message: 'Varauksessa oltava vähintään yksi lippu'})
+        } else {
+            resolve();
         }
-        
     })
-
     return promise;
-    // let validointiViesti = "";
-    let valid = false;
-    if (!req.body.fname || req.body.fname == "") {
-        validointiViesti = "Täytä puuttuvat kentät"
-    } else if (!req.body.sname || req.body.sname == "") {
-        validointiViesti = "Täytä puuttuvat kentät"
-    } else if (!validoiEmail(req.body.email)) {
-        validointiViesti = "Täytä puuttuvat kentät tai korjaa virheelliset tiedot"
-    } else if (!req.body.esitysId || req.body.esitysId == "") {
-        validointiViesti = "Valitse esitys"
-    } else if (parseInt(req.body.ocount) > 0 && parseInt(req.body.oprice) < 12 && req.body.additional == "") {
-        validointiViesti = "Mikäli lipun hinta on alle 12€, on lisätietoihin annettava perustelu"
-    } else if (julkinen && req.body.scount + req.body.ncount + req.body.ocount == 0) {
-        validointiViesti = "Varauksessa oltava vähintään yksi lippu";
-    }
-    else valid = true;
-
-    if (!valid) {
-        res.status(400).send(validointiViesti);
-    }
-    return valid;
 }
 
 function validateEmail(email) {

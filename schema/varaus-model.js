@@ -10,7 +10,7 @@ var varausSchema = new mongoose.Schema({
     ocount: {type: Number, default: 0},
     oprice: {type: Number, default: 0},
     checked: {type: Boolean, default: false},
-    paymentMethod: {type: String},
+    paymentMethod: {type: Number, default: 0},
     paid: {type: Boolean, default: false},
     esitysId: {type: String, required: true},
     additional: {type: String, default: ""},
