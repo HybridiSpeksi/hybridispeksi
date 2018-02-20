@@ -3,7 +3,7 @@ const Varaus = require('../../schema/varaus-model');
 
 module.exports = {
     getAll: (req, res) => {
-        Esitys.find({})
+        Esitys.find({}).sort('date').exec()
         .then(_data => {
             res.json({success: true, data: _data})
         })
@@ -14,7 +14,7 @@ module.exports = {
 
     getAllWithBookingCounts: (req, res) => {
         let shows = [];
-        Esitys.find()
+        Esitys.find({}).sort('date').exec()
         .then(_shows => {
             shows = _shows;
             return Varaus.find()
