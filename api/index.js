@@ -60,7 +60,7 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Esitykset
 router.get('/esitykset', esitys.getAll);
-router.get('/getBookingsWithCounts', esitys.getAllWithBookingCounts);
+router.get('/getShowsWithCounts', esitys.getAllWithBookingCounts);
 router.get('/esitykset/:value', varaus.getAll);
 router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
