@@ -14,7 +14,7 @@ module.exports = {
     },
 
     createNewPublic: (req, res) => {
-        
+        res.json({success: true, data: 'TODO'});
     },
 
     createNewAdmin: (req, res) => {
@@ -63,7 +63,7 @@ module.exports = {
     },
 
     update: (req, res) => {
-
+        res.json({success: true, data: 'TODO'});
     },
 
     remove: (req, res) => {
@@ -75,12 +75,6 @@ module.exports = {
             res.json({success: false, data: 'Varausta ei voitu poistaa'});
         })
     },
-
-    sendTestMail: (req, res) => {
-        let booking = {email: 'pymapa@utu.fi'}
-        mailer.sendTicket(booking);
-        res.status(200).send();
-    }
 }
 
 function validateAdmin(booking) {
