@@ -19,8 +19,7 @@ module.exports = {
 
     createNewAdmin: (req, res) => {
         let booking = req.body;
-        console.log('New booking from  ');
-        console.log(booking.fname + " " + booking.sname);
+        console.log(booking);
         validateAdmin(booking)
         .then(() => {
             return tryIfSpace(booking)
@@ -53,8 +52,7 @@ module.exports = {
             mailer.sendTicket(booking);
         })
         .then(_booking => {
-            const message = 'Varaus on luotu. Varaustunnus ' + booking.bookingId
-            res.json({success: true, data: message});
+            res.json({success: true, data: _booking});
         })
         .catch(err => {
             if(err.code) {
