@@ -121,14 +121,17 @@ class Varaustenhallinta extends Component {
 			    esitysId: this.state.valittuEsitys._id,
 			    additional: this.state.lisatiedot
             }).then(data => {
-                this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                this.setState({ilmottu: true})
+                if(data.success) {
+                    this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
+                    this.setState({ilmottu: true})
+                } else {
+                    this.addMessage(MESSAGE_WARNING, data.data);
+                    console.log(data);
+                }
             }).catch(err => {
                 console.log(err);
                 this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
             })
-            this.addMessage(MESSAGE_SUCCESS,"JEEJEE", "Ilmoittautuminen onnistui!")
-            this.setState({ilmottu: true})
     }
 
     emptyFields(){

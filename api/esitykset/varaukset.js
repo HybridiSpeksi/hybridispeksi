@@ -46,7 +46,7 @@ module.exports = {
         })
         .catch(err => {
             if(err.code) {
-                res.status(err.code).send(err.message);
+                res.json({success: false, data: err.message}, err.code);
             } else 
                 console.log(err);
         })
@@ -71,6 +71,7 @@ module.exports = {
 function validateAdmin(booking) {
     let promise = new Promise((resolve, reject) => {
         console.log('validation')
+        // reject({code: 400, message: 'Validointivirhe'});
         resolve();
     })
     return promise;
