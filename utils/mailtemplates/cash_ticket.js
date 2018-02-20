@@ -21,7 +21,7 @@ function cashTicket(booking) {
 }
 
 function getTotalCount(booking) {
-    return booking.ncount + booking.scount + booking.ocount;
+    return Number(booking.ncount) + Number(booking.scount) + Number(booking.ocount);
 }
 
 module.exports.cashTicket = cashTicket;
