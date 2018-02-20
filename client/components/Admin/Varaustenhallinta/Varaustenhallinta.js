@@ -126,7 +126,6 @@ class Varaustenhallinta extends Component {
                     this.setState({ilmottu: true})
                 } else {
                     this.addMessage(MESSAGE_WARNING, data.data);
-                    console.log(data);
                 }
             }).catch(err => {
                 console.log(err);

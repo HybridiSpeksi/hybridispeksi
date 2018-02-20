@@ -70,9 +70,15 @@ module.exports = {
 
 function validateAdmin(booking) {
     let promise = new Promise((resolve, reject) => {
-        console.log('validation')
-        // reject({code: 400, message: 'Validointivirhe'});
-        resolve();
+        if(isEmptyField(booking.email)) {
+            reject({code: 400, message: 'Sähköposti on pakollinen tieto'})
+        } else if (!isValidEmail(booking.email)) {
+            reject({code: 400, message: 'Virheellinen sähköpostiosoite'});
+        } else if(booking.ocount > 0 && booking.oprice < 10 && isEmptyField(booking.additional)) {
+            reject({code: 400, message: 'Mikäli erikoislippujen hinta on alle 10€, on syy selvitettävä lisätietoihin'})
+        } else {
+            resolve();
+        }
     })
     return promise;
 }
@@ -81,7 +87,7 @@ function validate(booking) {
     let promise = new Promise((resolve, reject) => {
         if(isEmptyField(booking.fname) || isEmptyField(booking.sname) || isEmptyField(booking.email)) {
             reject({code: 400, message: 'Täytä kaikki puuttuvat kentät'})
-        } else if (!validateEmail(booking.email)) {
+        } else if (!isValidEmail(booking.email)) {
             reject({code: 400, message: 'Virheellinen sähköposti'})
         } else if (isEmptyField(booking.esitysId)) {
             reject({code: 400, message: 'Valitse esitys'})
@@ -94,7 +100,7 @@ function validate(booking) {
     return promise;
 }
 
-function validateEmail(email) {
+function isValidEmail(email) {
     let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
 }
