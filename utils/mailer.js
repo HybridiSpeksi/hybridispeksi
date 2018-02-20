@@ -32,7 +32,7 @@ module.exports = {
                 resolve();
             })
             .catch(err => {
-                console.log(err);
+                console.log('Unable to send email: ' + err);
                 reject({code: 500, message: 'Sähköpostin lähetys epäonnistui.'});
             })
         })

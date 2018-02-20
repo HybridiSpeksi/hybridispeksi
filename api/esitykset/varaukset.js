@@ -53,7 +53,8 @@ module.exports = {
             mailer.sendTicket(booking);
         })
         .then(_booking => {
-            res.json({success: true, data: _booking});
+            const message = 'Varaus on luotu. Varaustunnus ' + booking.bookingId
+            res.json({success: true, data: message});
         })
         .catch(err => {
             if(err.code) {
