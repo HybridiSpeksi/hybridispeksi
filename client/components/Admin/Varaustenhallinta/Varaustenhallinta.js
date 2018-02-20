@@ -46,6 +46,7 @@ class Varaustenhallinta extends Component {
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.removeBooking = this.removeBooking.bind(this);
         this.addMessage = this.addMessage.bind(this);
         this.emptyFields = this.emptyFields.bind(this);
         this.countPrice = this.countPrice.bind(this);
@@ -124,6 +125,7 @@ class Varaustenhallinta extends Component {
                 if(data.success) {
                     this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
                     // this.setState({ilmottu: true})
+                    this.haeVaraukset(this.state.valittuEsitys);
                 } else {
                     this.addMessage(MESSAGE_WARNING, data.data);
                 }
@@ -151,13 +153,29 @@ class Varaustenhallinta extends Component {
         })
     }
 
+    removeBooking(varausId) {
+    	ajax.sendDelete('/admin/varaus/' + varausId)
+        .then(data => {
+        	if (data.success){
+           		alert(data.data);
+           		this.haeVaraukset(this.state.valittuEsitys);
+        	}
+        	else {
+            	alert(data.data);
+        	}
+        })
+        .catch(err => {
+        	console.log(err);
+        })
+    }
+
     valitseEsitys(t) {
         this.setState({valittuEsitys: t})
         this.haeVaraukset(t);
     }
 
-    haeVaraukset(t) {
-        ajax.sendGet('/admin/varaukset/' + t._id)
+    haeVaraukset(esitys) {
+        ajax.sendGet('/admin/varaukset/' + esitys._id)
         .then(_data => {
             this.setState({varaukset: _data.data})
         })
@@ -236,7 +254,8 @@ class Varaustenhallinta extends Component {
                     <div className="col">
                         <h3>{this.state.valittuEsitys.name}</h3>
                         <VarausLista 
-                            varaukset={this.state.varaukset} />
+                            varaukset={this.state.varaukset}
+                    		removeBooking={this.removeBooking} />
                     </div>
                 </div>
             </div>

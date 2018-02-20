@@ -7,15 +7,14 @@ class VarausLista extends Component {
 
     render () {
         let varaukset = this.props.varaukset.map((varaus, i) => {
+            let ticketCount = varaus.ocount + varaus.ncount + varaus.scount;
             return (
                 <tr key={i}>
                     <td>{varaus.fname} {varaus.sname}</td>
                     <td>{varaus.email}</td>
                     <td>{varaus.pnumber}</td>
-                    <td>{varaus.ocount}</td>
-                    <td>{varaus.ncount}</td>
-                    <td>{varaus.scount}</td>
-                    <td>{varaus.oprice}</td>
+                    <td>{ticketCount}</td>
+                    <td><button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.removeBooking(varaus._id)}>X</button></td>
                 </tr>
             )
         })
@@ -27,10 +26,8 @@ class VarausLista extends Component {
                             <th>Nimi</th>
                             <th>@</th>
                             <th>Puh</th>
-                            <th>O</th>
-                            <th>N</th>
-                            <th>S</th>
-                            <th>€</th>
+                            <th>Liput</th>
+                            <th>Poista</th>
                         </tr>
                     </thead>
                     <tbody>
