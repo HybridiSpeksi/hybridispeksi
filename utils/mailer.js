@@ -21,13 +21,20 @@ module.exports = {
      * @return promise()
      */
     sendTicket: (booking) => {
-        nodemailerMailgun.sendMail({
-            from: 'lipunmyynti@hybridispeksi.fi',
-            to: booking.email,
-            subject: 'Varausvahvistus',
-            html: cashTicket(booking)
+        return new Promise((resolve, reject) => {
+            nodemailerMailgun.sendMail({
+                from: 'lipunmyynti@hybridispeksi.fi',
+                to: booking.email,
+                subject: 'Varausvahvistus',
+                html: cashTicket(booking)
+            })
+            .then(() => {
+                resolve();
+            })
+            .catch(err => {
+                console.log(err);
+                reject({code: 500, message: 'Sähköpostin lähetys epäonnistui.'});
+            })
         })
-        console.log('sendTicket');
-        console.log(cashTicket());
     },
 }

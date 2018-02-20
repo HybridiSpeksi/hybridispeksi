@@ -42,6 +42,9 @@ module.exports = {
             bookingObj.save()
         })
         .then(_booking => {
+            mailer.sendTicket(booking);
+        })
+        .then(_booking => {
             res.json({success: true, data: _booking});
         })
         .catch(err => {
