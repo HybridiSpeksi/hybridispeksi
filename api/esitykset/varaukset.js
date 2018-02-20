@@ -23,7 +23,7 @@ module.exports = {
         console.log(booking.fname + " " + booking.sname);
         validateAdmin(booking)
         .then(() => {
-            tryIfSpace(booking)
+            return tryIfSpace(booking)
         })
         .then(() => {
             booking.bookingId = generateId();
@@ -133,10 +133,11 @@ function generateId() {
 function tryIfSpace(booking) {
     return new Promise((resolve, reject) => {
         let totalCountInShow = 0;
-        Varaus.find({bookingId: booking.bookingId})
+        Varaus.find({esitysId: booking.esitysId})
         .then(data => {
-            data.map(b => { totalCountInShow =+ getTotalCount(b) })
+            data.map(b => { totalCountInShow += getTotalCount(b) })
             if(totalCountInShow + getTotalCount(booking) > 130) {
+                console.log('reject');
                 reject({code: 400, message: 'Esityksessä ei ole tarpeeksi paikkoja jäljellä'});
             } else {
                 resolve(booking);
@@ -146,5 +147,5 @@ function tryIfSpace(booking) {
 }
 
 function getTotalCount(booking) {
-    return booking.ncount + booking.scount + booking.ocount;
+    return Number(booking.ncount) + Number(booking.scount) + Number(booking.ocount);
 }
