@@ -19,8 +19,7 @@ module.exports = {
 
     createNewAdmin: (req, res) => {
         let booking = req.body;
-        console.log('New booking from  ');
-        console.log(booking.fname + " " + booking.sname);
+        console.log(booking);
         validateAdmin(booking)
         .then(() => {
             tryIfSpace(booking)
