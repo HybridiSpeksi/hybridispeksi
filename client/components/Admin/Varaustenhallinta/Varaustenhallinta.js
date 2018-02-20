@@ -53,7 +53,7 @@ class Varaustenhallinta extends Component {
     }
 
     componentDidMount() {
-        ajax.sendGet('/esitykset')
+        ajax.sendGet('/getShowsWithCounts')
         .then(_data => {
             this.setState({esitykset: _data.data})
             this.setState({valittuEsitys: _data.data[0]})
@@ -188,6 +188,11 @@ class Varaustenhallinta extends Component {
 
     //Add different kinds of error or warning messages
     addMessage(type, newHeader, newText) {
+    	this.setState({ 
+    		messages: [],
+            warnings: [],
+            errors: []
+        })
         if (type === MESSAGE_WARNING) {
             let newWarnings = this.state.warnings;
             newWarnings.push({ header: newHeader, text: newText });
