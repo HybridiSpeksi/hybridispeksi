@@ -154,19 +154,21 @@ class Varaustenhallinta extends Component {
     }
 
     removeBooking(varausId) {
-    	ajax.sendDelete('/admin/varaus/' + varausId)
-        .then(data => {
-        	if (data.success){
-           		alert(data.data);
-           		this.haeVaraukset(this.state.valittuEsitys);
-        	}
-        	else {
-            	alert(data.data);
-        	}
-        })
-        .catch(err => {
-        	console.log(err);
-        })
+        if(confirm('Haluatko varmasti poistaa varauksen?')) {
+            ajax.sendDelete('/admin/varaus/' + varausId)
+            .then(data => {
+                if (data.success){
+                    alert(data.data);
+                    this.haeVaraukset(this.state.valittuEsitys);
+                }
+                else {
+                    alert(data.data);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
     }
 
     valitseEsitys(t) {
