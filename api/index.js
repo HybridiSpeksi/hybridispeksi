@@ -64,9 +64,9 @@ router.get('/bookingcounts', esitys.getAllWithBookingCounts);
 router.get('/esitykset/:value', varaus.getAll);
 router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
-router.post('/admin/varaukset', varaus.createNewAdmin);
-router.put('/varaukset', varaus.update);
-router.delete('/varaukset', varaus.remove);
+router.post('/admin/varaus', varaus.createNewAdmin);
+router.put('/varaus', varaus.update);
+router.delete('/varaus', varaus.remove);
 
 router.get('/sendTestMail', varaus.sendTestMail)
 

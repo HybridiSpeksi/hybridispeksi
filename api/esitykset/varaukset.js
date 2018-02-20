@@ -13,11 +13,13 @@ module.exports = {
         })
     },
 
-
+    createNewPublic: (req, res) => {
+        
+    },
 
     createNewAdmin: (req, res) => {
         let booking = req.body;
-        validate(booking)
+        validateAdmin(booking)
         .then(() => {
             tryIfSpace(booking)
         })
@@ -27,14 +29,15 @@ module.exports = {
                 sname: booking.sname,
                 email: booking.email,
                 pnumber: booking.pnumber,
-                scount: booking.scount,
-                ncount: booking.ncount,
-                ocount: booking.ocount,
-                oprice: booking.oprice,
+                scount: booking.scount || 0,
+                ncount: booking.ncount || 0,
+                ocount: booking.ocount || 0,
+                oprice: booking.oprice || 0,
                 paymentMethod: booking.paymentMethod,
-                paid: true,
+                paid: booking.paid,
                 esitysId: booking.esitysId,
-                additional: booking.additional
+                additional: booking.additional,
+                bookingId: generateId()
             })
             bookingObj.save()
         })
@@ -42,7 +45,10 @@ module.exports = {
             res.json({success: true, data: _booking});
         })
         .catch(err => {
-            res.status(err.code).send(err.message);
+            if(err.code) {
+                res.status(err.code).send(err.message);
+            } else 
+                console.log(err);
         })
        
     },
@@ -63,7 +69,11 @@ module.exports = {
 }
 
 function validateAdmin(booking) {
-
+    let promise = new Promise((resolve, reject) => {
+        console.log('validation')
+        resolve();
+    })
+    return promise;
 }
 
 function validate(booking) {
