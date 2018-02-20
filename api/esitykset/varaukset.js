@@ -39,9 +39,13 @@ module.exports = {
                 additional: booking.additional,
                 bookingId: generateId()
             })
-            bookingObj.save()
+            return bookingObj.save()
         })
         .then(_booking => {
+            return Esitys.findOne({_id: booking.esitysId})
+        })
+        .then(_esitys => {
+            booking.esitys = _esitys;
             mailer.sendTicket(booking);
         })
         .then(_booking => {
@@ -61,7 +65,13 @@ module.exports = {
     },
 
     remove: (req, res) => {
-
+        Varaus.remove({_id: req.params._id})
+        .then(() => {
+            res.json({success: true, data: 'Varaus poistettu'});
+        })
+        .catch(err => {
+            res.json({success: false, data: 'Varausta ei voitu poistaa'});
+        })
     },
 
     sendTestMail: (req, res) => {

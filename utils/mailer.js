@@ -21,6 +21,7 @@ module.exports = {
      * @return promise()
      */
     sendTicket: (booking) => {
+        console.log(booking)
         return new Promise((resolve, reject) => {
             nodemailerMailgun.sendMail({
                 from: 'lipunmyynti@hybridispeksi.fi',

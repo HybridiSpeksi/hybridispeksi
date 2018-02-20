@@ -10,6 +10,7 @@ function cashTicket(booking) {
 
     <p>Varauksen tiedot:</p>
     <p>`+ booking.fname + " " + booking.sname + `</p>
+    <p>Esitys: ` + booking.esitys.name + `</p>
 
     `;
     return html;

@@ -123,7 +123,7 @@ class Varaustenhallinta extends Component {
             }).then(data => {
                 if(data.success) {
                     this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                    this.setState({ilmottu: true})
+                    // this.setState({ilmottu: true})
                 } else {
                     this.addMessage(MESSAGE_WARNING, data.data);
                 }

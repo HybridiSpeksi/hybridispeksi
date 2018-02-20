@@ -66,7 +66,7 @@ router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
 router.post('/admin/varaus', varaus.createNewAdmin);
 router.put('/varaus', varaus.update);
-router.delete('/varaus', varaus.remove);
+router.delete('/admin/varaus/:_id', varaus.remove);
 
 router.get('/sendTestMail', varaus.sendTestMail)
 
