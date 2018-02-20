@@ -15,6 +15,7 @@ var varausSchema = new mongoose.Schema({
     esitysId: {type: String, required: true},
     additional: {type: String, default: ""},
     bookingId: {type: String},
+    year: {type: Number}
 }, {
     collection: 'varaukset',
     timestamps: true

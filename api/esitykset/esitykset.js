@@ -17,7 +17,7 @@ module.exports = {
         Esitys.find({}).sort('date').exec()
         .then(_shows => {
             shows = _shows;
-            return Varaus.find()
+            return Varaus.find({year: 2018})
         })
         .then(_bookings => {
             const result = calculateBookingsForShows(_bookings, shows);

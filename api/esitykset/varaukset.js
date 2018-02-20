@@ -4,7 +4,7 @@ const mailer = require('../../utils/mailer');
 
 module.exports = {
     getAll: (req, res) => {
-        Varaus.find({esitysId: req.params._id})
+        Varaus.find({esitysId: req.params._id, year: 2018})
         .then(_data => {
             res.json({success: true, data: _data})
         })
@@ -24,6 +24,7 @@ module.exports = {
             tryIfSpace(booking)
         })
         .then(() => {
+            booking.bookingId = generateId();
             const bookingObj = new Varaus({
                 fname: booking.fname,
                 sname: booking.sname,
@@ -37,7 +38,8 @@ module.exports = {
                 paid: booking.paid,
                 esitysId: booking.esitysId,
                 additional: booking.additional,
-                bookingId: generateId()
+                bookingId: booking.bookingId,
+                year: 2018
             })
             return bookingObj.save()
         })
