@@ -133,7 +133,7 @@ function generateId() {
 function tryIfSpace(booking) {
     return new Promise((resolve, reject) => {
         let totalCountInShow = 0;
-        Varaus.find({esitysId: booking.esitysId})
+        Varaus.find({esitysId: booking.esitysId, year: 2018})
         .then(data => {
             data.map(b => { totalCountInShow += getTotalCount(b) })
             if(totalCountInShow + getTotalCount(booking) > 130) {
