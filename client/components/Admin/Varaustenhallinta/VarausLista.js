@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import MuokkaaVarausta from './MuokkaaVarausta';
+import Messages from '../../Utils/Messages';
 
 class VarausLista extends Component {
     constructor(props) {
         super(props);
     }
-
     render () {
         let varaukset = this.props.varaukset.map((varaus, i) => {
             let ticketCount = varaus.ocount + varaus.ncount + varaus.scount;
             return (
-                <tr key={i}>
+                <tr key={i} id="nappi" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
                     <td>{varaus.fname} {varaus.sname}</td>
                     <td>{varaus.email}</td>
                     <td>{varaus.pnumber}</td>
@@ -34,6 +35,24 @@ class VarausLista extends Component {
                         {varaukset}
                     </tbody>
                 </table>
+                <MuokkaaVarausta
+                    emptyFields={this.props.emptyFields}
+                    handleChange={this.props.handleChange} 
+                    handleUpdate={this.props.handleUpdate}
+                    fname={this.props.fname}
+                    sname={this.props.sname}
+                    email={this.props.email}
+                    pnumber={this.props.pnumber} 
+                    scount={this.props.scount}
+                    ncount={this.props.ncount}
+                    ocount={this.props.ocount}
+                    price={this.props.price}
+                    lisatiedot={this.props.lisatiedot}
+                    ilmottu={this.props.ilmottu}
+                    valittuEsitys={this.props.valittuEsitys}
+                    esitykset={this.props.esitykset}
+                    messages={this.props.messages} 
+                    valittuVaraus={this.props.valittuVaraus}/>
             </div>
         )
     }

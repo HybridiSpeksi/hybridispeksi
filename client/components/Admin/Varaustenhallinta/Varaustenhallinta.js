@@ -23,6 +23,7 @@ class Varaustenhallinta extends Component {
             varaukset: [],
             filteredVaraukset: [],
             valittuEsitys: {},
+            valittuVaraus: '',
             naytaSahkopostit: false,
             fname: '',
             sname: '',
@@ -48,8 +49,11 @@ class Varaustenhallinta extends Component {
         this.filterVaraukset = this.filterVaraukset.bind(this);
         this.haeEsitykset = this.haeEsitykset.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
+        this.toggleMuokkaaVaraustaModal = this.toggleMuokkaaVaraustaModal.bind(this);
+        this.toggleUusiVarausModal = this.toggleUusiVarausModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
         this.removeBooking = this.removeBooking.bind(this);
         this.addMessage = this.addMessage.bind(this);
         this.emptyFields = this.emptyFields.bind(this);
@@ -79,6 +83,29 @@ class Varaustenhallinta extends Component {
 
     toggleSahkopostit() {
         this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit })
+    }
+
+    toggleMuokkaaVaraustaModal(varaus){
+        $('#muokkaaVaraustaModal').modal('show')
+        this.setState({ 
+            valittuVaraus: varaus._id,
+            fname: varaus.fname,
+            sname: varaus.sname,
+            email: varaus.email,
+            pnumber: varaus.pnumber,
+            ncount: varaus.ncount,
+            scount: varaus.scount,
+            ocount: varaus.ocount,
+            lisatiedot: varaus.lisatiedot,
+            ilmottu: false
+        }, () => {
+            this.countPrice();
+        })
+    }
+
+    toggleUusiVarausModal(){
+        $('#uusiVarausModal').modal('show')
+        this.emptyFields();
     }
 
     handleChange(e) {
@@ -156,6 +183,10 @@ class Varaustenhallinta extends Component {
                 this.setState({ilmottu: false})
                 this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
             })
+    }
+
+    handleUpdate(e){
+
     }
 
     emptyFields(){
@@ -254,7 +285,7 @@ class Varaustenhallinta extends Component {
                     <div className="col d-flex justify-content-end">
                     	<button 
                     		className="btn btn-default"
-                    		data-toggle="modal" data-target="#exampleModal">Lisää uusi varaus</button>
+                    		onClick={() => this.toggleUusiVarausModal()}>Lisää uusi varaus</button>
                     </div>
                 </div>
                 <UusiVaraus
@@ -305,8 +336,27 @@ class Varaustenhallinta extends Component {
                         	</div>
                         </div>
                         <VarausLista 
+                            removeBooking={this.removeBooking}
                             varaukset={this.state.filteredVaraukset}
-                    		removeBooking={this.removeBooking} />
+                            emptyFields={this.emptyFields}
+                            handleChange={this.handleChange} 
+                            handleSubmit={this.handleSubmit}
+                            toggleMuokkaaVaraustaModal={this.toggleMuokkaaVaraustaModal}
+                            fname={this.state.fname}
+                            sname={this.state.sname}
+                            email={this.state.email}
+                            pnumber={this.state.pnumber} 
+                            scount={this.state.scount}
+                            ncount={this.state.ncount}
+                            ocount={this.state.ocount}
+                            price={this.state.price}
+                            lisatiedot={this.state.lisatiedot}
+                            ilmottu={this.state.ilmottu}
+                            valittuEsitys={this.state.valittuEsitys}
+                            valittuVaraus={this.state.valittuVaraus}
+                            esitykset={this.state.esitykset}
+                            messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
+                    		
                     </div>
                 </div>
             </div>

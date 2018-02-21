@@ -6,32 +6,7 @@ class VarausForm extends Component {
     constructor(props) {
         super(props);
     }
-    updatePrice() {
-        let sum = document.getElementsByName("ticketsN").value * this.props.priceN + document.getElementsByName("ticketsS").value * this.props.priceS;
-        document.getElementsByName('price').value = sum;
-    }
-
-    
-
     render () {
-
-       /* let esityslista = this.props.esitykset.map((esitys, i) => {
-            if (esitys._id == this.props.valittuEsitys._id){
-                return (
-                    <option selected key={esitys._id}>
-                        {esitys.name}
-                    </option>
-                )
-            }
-            else {
-                return (
-                    <option key={esitys._id}>
-                        {esitys.name}
-                    </option>
-                )
-            }
-        }) */
-
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
