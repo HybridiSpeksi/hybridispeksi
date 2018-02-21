@@ -43,6 +43,7 @@ class Varaustenhallinta extends Component {
 
         this.valitseEsitys = this.valitseEsitys.bind(this);
         this.haeVaraukset = this.haeVaraukset.bind(this);
+        this.haeEsitykset = this.haeEsitykset.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,12 +57,13 @@ class Varaustenhallinta extends Component {
         ajax.sendGet('/getShowsWithCounts')
         .then(_data => {
             this.setState({esitykset: _data.data})
-            this.setState({valittuEsitys: _data.data[0]})
-            this.haeVaraukset(_data.data[0]);
+            this.setState({valittuEsitys: _data.data[0]});
+        	this.haeVaraukset(_data.data[0]);
         })
         .catch(err => {
             console.log(err);
         })
+        
         /*ajax.sendGet('/price')
         .then(_data =>{
         	this.setState({priceS: _data.data[0].value})
@@ -126,6 +128,8 @@ class Varaustenhallinta extends Component {
                     this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
                     // this.setState({ilmottu: true})
                     this.haeVaraukset(this.state.valittuEsitys);
+                    this.haeEsitykset;
+
                 } else {
                     this.addMessage(MESSAGE_WARNING, data.data);
                 }
@@ -174,6 +178,16 @@ class Varaustenhallinta extends Component {
     valitseEsitys(t) {
         this.setState({valittuEsitys: t})
         this.haeVaraukset(t);
+    }
+
+    haeEsitykset(){
+    	ajax.sendGet('/getShowsWithCounts')
+        .then(_data => {
+            this.setState({esitykset: _data.data})
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     haeVaraukset(esitys) {
@@ -242,7 +256,9 @@ class Varaustenhallinta extends Component {
                 
                 <div className="row">
                     <div className="col-sm-4">
-                        <h3>Valitse esitys</h3>
+
+	                    <h3>Valitse esitys</h3>
+
                         <Esitysvalinta 
                             esitykset={this.state.esitykset}
                             valitseEsitys={this.valitseEsitys} />

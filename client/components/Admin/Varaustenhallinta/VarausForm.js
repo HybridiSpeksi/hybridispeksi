@@ -117,6 +117,37 @@ class VarausForm extends Component {
                                 <textarea rows="2" name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={this.props.handleChange} value={this.props.lisatiedot}></textarea>  
                             </div>
                     </div>
+                    {/*}
+                    <hr/>
+                    <div className={"row form-group align-items-center "}>
+                        <div className={"col-sm-3"}>
+                            <label htmlFor="maksutapaInput" className="">Maksutapa:</label>
+                        </div>
+                        <div className={"col form-check form-check-inline"}>
+                            <input checked={this.props.maksutapa === "0"} className="" type="radio" name="maksutapa" value="0" onChange={this.props.handleChange}/> Käteinen 
+                            <input checked={this.props.maksutapa === "1"} className="" type="radio" name="maksutapa" value="1" onChange={this.props.handleChange}/> Lasku 
+                            <input checked={this.props.maksutapa === "2"} className="" type="radio" name="maksutapa" value="2" onChange={this.props.handleChange}/> Paytrail 
+                        </div>
+                    </div>
+                    <div className={"row form-group align-items-center"}>
+                        <div className={"col-sm-3"}>
+                            <label htmlFor="maksettuInput" className="">Maksettu:</label>
+                        </div>
+                        <div className={"col form-check form-check-inline justify-contents-start"}>
+                            <input checked={this.props.maksettu === "0"} className="" type="radio" name="maksettu" value="0" onChange={this.props.handleChange}/> Kyllä 
+                            <input checked={this.props.maksettu === "1"} className="" type="radio" name="maksettu" value="1" onChange={this.props.handleChange}/> Ei 
+                        </div>
+                    </div>
+                                        <div className={"row form-group align-items-center"}>
+                        <div className={"col-sm-3"}>
+                            <label htmlFor="sendmailInput" className="">Lähetetäänkö maili:</label>
+                        </div>
+                        <div className={"col form-check form-check-inline justify-contents-start"}>
+                            <input checked={this.props.sendmail === "0"} className="" type="radio" name="sendmail" value="0" onChange={this.props.handleChange}/> Kyllä
+                            <input checked={this.props.sendmail === "1"} className="" type="radio" name="sendmail" value="1" onChange={this.props.handleChange}/> Ei
+                        </div>
+                    </div>
+                    */}
                 </form>
             </div>
         )
