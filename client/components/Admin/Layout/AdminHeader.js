@@ -24,14 +24,21 @@ class AdminHeader extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                {/* TODO: Authentication to Esitykset */}
                                 <Link className="nav-link" to="/varaustenhallinta">Varaustenhallinta</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/produktionhallinta">Produktio</Link>
+                                {auth.getUserRole() > 2 ? (
+                                    <Link className="nav-link" to="/produktionhallinta">Produktio</Link>
+                                ) : (
+                                    <a className="nav-link disabled" to="#">Produktio <i className="fa fa-lock" aria-hidden="true"></i></a>
+                                )}
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/tapahtumat">Tapahtumat</Link>
+                                {auth.getUserRole() > 2 ? (
+                                    <Link className="nav-link" to="/tapahtumat">Tapahtumat</Link>
+                                ) : (
+                                    <a className="nav-link disabled" to="#">Tapahtumat <i className="fa fa-lock" aria-hidden="true"></i></a>
+                                )}
                             </li>
                             <li className="nav-item">
                                 {auth.getUserRole() > 3 ? (

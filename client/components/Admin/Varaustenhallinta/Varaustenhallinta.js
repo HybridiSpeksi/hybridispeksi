@@ -27,9 +27,9 @@ class Varaustenhallinta extends Component {
             sname: '',
             email: '',
             pnumber: '',
-            ncount: '',
-            scount: '',
-            ocount: '',
+            ncount: 0,
+            scount: 0,
+            ocount: 0,
             nprice: '16',
             sprice: '14',
             oprice: '10',
@@ -107,6 +107,7 @@ class Varaustenhallinta extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({ilmottu: true})
         let url = "/admin/varaus";
 		ajax.sendPost(
             url,
@@ -126,15 +127,16 @@ class Varaustenhallinta extends Component {
             }).then(data => {
                 if(data.success) {
                     this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                    // this.setState({ilmottu: true})
                     this.haeVaraukset(this.state.valittuEsitys);
                     this.haeEsitykset;
 
                 } else {
+                    this.setState({ilmottu: false})
                     this.addMessage(MESSAGE_WARNING, data.data);
                 }
             }).catch(err => {
                 console.log(err);
+                this.setState({ilmottu: false})
                 this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
             })
     }
