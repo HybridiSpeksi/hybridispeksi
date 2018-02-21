@@ -21,6 +21,7 @@ class Varaustenhallinta extends Component {
         this.state = {
             esitykset: [],
             varaukset: [],
+            filteredVaraukset: [],
             valittuEsitys: {},
             naytaSahkopostit: false,
             fname: '',
@@ -38,11 +39,13 @@ class Varaustenhallinta extends Component {
             ilmottu: false,
             messages: [],
             warnings: [],
-            errors: []
+            errors: [],
+            searchword: ''
         }
 
         this.valitseEsitys = this.valitseEsitys.bind(this);
         this.haeVaraukset = this.haeVaraukset.bind(this);
+        this.filterVaraukset = this.filterVaraukset.bind(this);
         this.haeEsitykset = this.haeEsitykset.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -81,18 +84,22 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        if(e.target.name === "ncount" || e.target.name === "scount" || e.target.name === "ocount") {
+        if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount") {
             this.setState({ [e.target.name]: value }, () => {
                 this.countPrice();
             })
         } 
-        else if(e.target.name === "esitys") {
+        else if(e.target.name == "esitys") {
         	this.state.esitykset.map((esitys) => {
         		if (e.target.value === esitys._id){
         			this.valitseEsitys(esitys);
-
         		}
         	})
+        }
+        else if(e.target.name == "searchword"){
+	    	this.setState({[e.target.name]: value.toLowerCase()}, () => {
+	    		this.filterVaraukset();
+	    	})
         }
         else {
             this.setState({[e.target.name]: value});
@@ -102,6 +109,16 @@ class Varaustenhallinta extends Component {
     countPrice() {
         let sum = this.state.ncount * this.state.nprice + this.state.scount * this.state.sprice + this.state.ocount * this.state.oprice
         this.setState({ price: sum })
+    }
+
+    filterVaraukset(){
+    	let result = this.state.varaukset.filter(varaus => 
+	    		varaus.fname.toLowerCase().includes(this.state.searchword) || 
+	    		varaus.sname.toLowerCase().includes(this.state.searchword) || 
+	    		varaus.email.toLowerCase().includes(this.state.searchword) ||
+	    		varaus.bookingId.toLowerCase().includes(this.state.searchword)
+	    	)
+	    this.setState({filteredVaraukset : result})
     }
 
 
@@ -128,7 +145,7 @@ class Varaustenhallinta extends Component {
                 if(data.success) {
                     this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
                     this.haeVaraukset(this.state.valittuEsitys);
-                    this.haeEsitykset;
+                    this.haeEsitykset();
 
                 } else {
                     this.setState({ilmottu: false})
@@ -166,6 +183,7 @@ class Varaustenhallinta extends Component {
                 if (data.success){
                     alert(data.data);
                     this.haeVaraukset(this.state.valittuEsitys);
+                    this.haeEsitykset();
                 }
                 else {
                     alert(data.data);
@@ -180,6 +198,7 @@ class Varaustenhallinta extends Component {
     valitseEsitys(t) {
         this.setState({valittuEsitys: t})
         this.haeVaraukset(t);
+        this.filterVaraukset(t);
     }
 
     haeEsitykset(){
@@ -195,13 +214,13 @@ class Varaustenhallinta extends Component {
     haeVaraukset(esitys) {
         ajax.sendGet('/admin/varaukset/' + esitys._id)
         .then(_data => {
-            this.setState({varaukset: _data.data})
+            this.setState({varaukset: _data.data});
+            this.filterVaraukset();
         })
         .catch(err => {
             console.log(err);
         })
-    }
-
+    }	
     //Add different kinds of error or warning messages
     addMessage(type, newHeader, newText) {
     	this.setState({ 
@@ -277,9 +296,16 @@ class Varaustenhallinta extends Component {
                             )}
                     </div>
                     <div className="col">
-                        <h3>{this.state.valittuEsitys.name}</h3>
+                    	<div className="row justify-content-between align-items-center">
+                    		<div className="col-8">
+                        		<h3>{this.state.valittuEsitys.name}</h3>
+                        	</div>
+                        	<div className="col-4 d-flex justify-content-end">
+                        		<input name="searchword" id="searchword" className="form-control" type="text" onChange={this.handleChange} value={this.state.searchword} placeholder="Hakusana"/>
+                        	</div>
+                        </div>
                         <VarausLista 
-                            varaukset={this.state.varaukset}
+                            varaukset={this.state.filteredVaraukset}
                     		removeBooking={this.removeBooking} />
                     </div>
                 </div>
