@@ -10,11 +10,11 @@ class VarausLista extends Component {
         let varaukset = this.props.varaukset.map((varaus, i) => {
             let ticketCount = varaus.ocount + varaus.ncount + varaus.scount;
             return (
-                <tr key={i} id="nappi" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
-                    <td>{varaus.fname} {varaus.sname}</td>
-                    <td>{varaus.email}</td>
-                    <td>{varaus.pnumber}</td>
-                    <td>{ticketCount}</td>
+                <tr key={i}>
+                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.fname} {varaus.sname}</td>
+                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.email}</td>
+                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.pnumber}</td>
+                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{ticketCount}</td>
                     <td><button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.removeBooking(varaus._id)}>X</button></td>
                 </tr>
             )

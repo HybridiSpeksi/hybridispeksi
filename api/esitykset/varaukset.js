@@ -64,7 +64,14 @@ module.exports = {
     },
 
     update: (req, res) => {
-        res.json({success: true, data: 'TODO'});
+        let varaus = req.body;
+        Varaus.findByIdAndUpdate(varaus._id, varaus)
+            .then(jasen => {
+                res.json({ success: true, data: jasen })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+            })
     },
 
     remove: (req, res) => {

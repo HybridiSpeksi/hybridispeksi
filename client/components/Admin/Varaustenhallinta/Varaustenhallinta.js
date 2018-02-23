@@ -186,7 +186,7 @@ class Varaustenhallinta extends Component {
     }
 
     handleUpdate(e){
-
+        
     }
 
     emptyFields(){
