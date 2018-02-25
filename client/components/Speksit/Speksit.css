@@ -115,6 +115,7 @@
 		margin:0px;
 		padding:0px;
 		padding-bottom:40px;
+		text-align: left;
 	}
 	.content_bratva {
 		margin:0px;
@@ -122,13 +123,15 @@
 		padding-top:50px;
 		padding-bottom:20px;
 		margin-bottom:20px;
+		text-align: left;
 	}
 	.content_kruunu {
 		border:none;
 		margin:0px;
 		margin-bottom:40px;
 		padding:0px;
-		padding-top:20px;	
+		padding-top:20px;
+		text-align: left;	
 	}
 }
 

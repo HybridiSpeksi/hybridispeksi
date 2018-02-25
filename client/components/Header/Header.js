@@ -27,10 +27,10 @@ class Header extends Component {
 							<Link className="nav-link d-none d-md-block" to="/speksi2018">Speksi 2018</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksi2018">Speksi 2018</Link>
 						</li>
-						{/*<li className="nav-item">
-							<Link className="nav-link d-none d-md-block" to="/esitykset">Esitykset</Link>
-							<Link className="nav-link d-md-none small-screen-link" to="/esitykset">Esitykset</Link>
-						</li>*/}
+						<li className="nav-item">
+							<Link className="nav-link d-none d-md-block" to="/lipunmyynti">Lipunmyynti</Link>
+							<Link className="nav-link d-md-none small-screen-link" to="/lipunmyynti">Lipunmyynti</Link>
+						</li>
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/speksit">Aiemmat Speksit</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksit">Aiemmat Speksit</Link>
@@ -64,7 +64,7 @@ class Header extends Component {
 						<div onClick={auth.signOut}>Kirjaudu ulos</div>
 				  </span>
 				</div> */}
-			</nav>
+				</nav>
             </div>
         )
     }

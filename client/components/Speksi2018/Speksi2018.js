@@ -16,9 +16,11 @@ class Speksi2018 extends Component {
     var player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('youtubeplayer', {
+          width: '390',
+          height:'640',
           events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
           }
       });
     }
@@ -45,19 +47,19 @@ class Speksi2018 extends Component {
             <img src="/assets/images/merkki2.png"/>
           </div>
         </div>
-
-        <div className={"row align-items-top justify-content-center " + styles.youtubeplayerheader}>
-          <h2 className={styles.youtubeplayerheader}>Älä ammu ohi -teaser</h2>
-        </div>
-        <div className={"row align-items-top justify-content-center " + styles.youtubeplayer}>   
-            <iframe id="youtubeplayer"
-                    width="640" height="360"
-                    src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
-                    frameBorder="0"
-                    allowFullScreen="allowFullScreen"
-                    title="asdasd"
-            ></iframe>
-          <div className={"col-12 col-md-6 col-lg-5 col-xl-4 justify-items-center " + styles.esitykset}>
+        <div className={"row align-items-top justify-content-center " + styles.youtubeplayer}> 
+          <div className="col-12 col-md-10 col-lg-10 col-xl-6">
+            <h2 className={styles.youtubeplayerheader}>Älä ammu ohi -teaser</h2> 
+            <div className="videoWrapper">
+              <iframe id="youtubeplayer"
+                  src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
+                  width="100%" height="360"
+                  frameBorder="0"
+                  allowFullScreen="allowFullScreen"
+              ></iframe>
+            </div>
+          </div>
+          <div className={"col-12 col-md-10 col-lg-6 col-xl-5 justify-items-center " + styles.esitykset}>
             <h1>Esitykset Manilla-teatterilla:</h1>
             <div className="row">
               <div className="col-6 col-xl-5">

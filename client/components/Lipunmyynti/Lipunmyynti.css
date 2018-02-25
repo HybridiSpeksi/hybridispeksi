@@ -9,16 +9,7 @@
 	background:#292B2C;
 	color:white;
 }
-.youtubeplayerheader {
-	background:#ffecaf;
-	margin:0px;
-	padding:20px;
-	padding-bottom:0px;
-	padding-top:0px;
-	font-family:hybridispeksi;
-	font-size:68px;
-}
-.youtubeplayer {
+.content {
 	background:#ffecaf;
 	margin:0px;
 	padding:40px;
@@ -32,15 +23,23 @@
 	font-size:32px;
 	margin:20px;
 	margin-left:40px;
+	margin-top:0px;
 	padding:40px;
+	padding-top:0px;
 }
 /*div {
 	border:1px solid red;
-}
-*/
+}*/
+
 
 /* STYLES FOR MOBILE DEVICES */ 
 
+@media (max-width:1200px){
+	.esitykset{
+		margin-left:20px;
+	}
+
+}
 @media (max-width:767px){
 	.container {
 		background:lightgray;
@@ -49,9 +48,6 @@
 	}
 	.header {
 		padding-top:40px;
-	}
-	.youtubeplayerheader{
-		font-size:58px;
 	}
 }
 @media (max-width:500px) {
@@ -62,8 +58,5 @@
 @media (max-width:400px) {
 	.esitykset{
 		font-size:24px;
-	}
-	.youtubeplayerheader{
-		font-size:40px;
 	}
 }

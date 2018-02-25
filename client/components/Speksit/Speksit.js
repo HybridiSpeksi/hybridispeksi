@@ -13,7 +13,7 @@ class Speksit extends Component {
     return (
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-center justify-content-center " + styles.header}>
-          <div className="col-9">
+          <div className="col-10">
             <h2 className="">Aiemmat speksit</h2>
             <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen 
             tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio. 
