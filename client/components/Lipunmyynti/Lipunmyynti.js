@@ -54,33 +54,33 @@ class Lipunmyynti extends Component {
         })
     }
 
-    toggleUusiVarausModal(){
-      $('#uusiVarausModal').modal('show')
-    }
+  toggleUusiVarausModal(){
+    $('#uusiVarausModal').modal('show')
+  }
 
-    handleChange(e) {
-      let value = e.target.value;
+  handleChange(e) {
+    let value = e.target.value;
 
-      if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount") {
-          this.setState({ [e.target.name]: value }, () => {
-              this.countPrice();
-          })
-      } 
-      else if(e.target.name == "esitys") {
-        this.state.esitykset.map((esitys) => {
-          if (e.target.value === esitys._id){
-            this.valitseEsitys(esitys);
-          }
+    if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount") {
+        this.setState({ [e.target.name]: value }, () => {
+            this.countPrice();
         })
-      }
-      else if(e.target.name == "searchword"){
-      this.setState({[e.target.name]: value.toLowerCase()}, () => {
-        this.filterVaraukset();
+    } 
+    else if(e.target.name == "esitys") {
+      this.state.esitykset.map((esitys) => {
+        if (e.target.value === esitys._id){
+          this.valitseEsitys(esitys);
+        }
       })
-      }
-      else {
-          this.setState({[e.target.name]: value});
-      }
+    }
+    else if(e.target.name == "searchword"){
+    this.setState({[e.target.name]: value.toLowerCase()}, () => {
+      this.filterVaraukset();
+    })
+    }
+    else {
+        this.setState({[e.target.name]: value});
+    }
   }
 
   countPrice() {

@@ -27,10 +27,10 @@ class Header extends Component {
 							<Link className="nav-link d-none d-md-block" to="/speksi2018">Speksi 2018</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksi2018">Speksi 2018</Link>
 						</li>
-						<li className="nav-item">
+						{/*<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/lipunmyynti">Lipunmyynti</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/lipunmyynti">Lipunmyynti</Link>
-						</li>
+						</li>*/}
 						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/speksit">Aiemmat Speksit</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksit">Aiemmat Speksit</Link>

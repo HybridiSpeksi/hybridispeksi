@@ -9,19 +9,28 @@
 	background:#292B2C;
 	color:white;
 }
-.youtubeplayerheader {
+.content {
 	background:#ffecaf;
 	margin:0px;
 	padding:20px;
-	padding-bottom:0px;
-	padding-top:0px;
-	font-family:hybridispeksi;
-	font-size:68px;
+	padding-bottom:100px;
 }
-.youtubeplayer {
+.videowrapper {
 	background:#ffecaf;
-	margin:0px;
 	padding:40px;
+	margin:0px;
+}
+.textheader {
+	font-size:48px;
+	font-family:hybridispeksi;
+	color:#7a1111;
+}
+.content ol {
+	font-family:Calibri;
+	font-size:20px;
+}	
+.content p {
+	margin-bottom:40px;
 }
 @font-face {
 	font-family:'hybridispeksi';
@@ -32,15 +41,26 @@
 	font-size:32px;
 	margin:20px;
 	margin-left:40px;
+	margin-top:0px;
 	padding:40px;
+	padding-top:0px;
+}
+
+.esitykset i {
+	font-family:Calibri;
+	font-size:20px;
 }
 /*div {
 	border:1px solid red;
-}
-*/
+}*/
+
 
 /* STYLES FOR MOBILE DEVICES */ 
-
+@media (max-width:1200px){
+	.esitykset{
+		margin-left:20px;
+	}
+}
 @media (max-width:767px){
 	.container {
 		background:lightgray;
@@ -49,9 +69,6 @@
 	}
 	.header {
 		padding-top:40px;
-	}
-	.youtubeplayerheader{
-		font-size:58px;
 	}
 }
 @media (max-width:500px) {
@@ -62,8 +79,5 @@
 @media (max-width:400px) {
 	.esitykset{
 		font-size:24px;
-	}
-	.youtubeplayerheader{
-		font-size:40px;
 	}
 }

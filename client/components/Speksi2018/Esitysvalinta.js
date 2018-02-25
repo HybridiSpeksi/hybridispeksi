@@ -19,13 +19,12 @@ class Esitysvalinta extends Component {
             return (
                 <tr key={i}>
                         { tilaa === "Täynnä" ? 
-                            <td disabled>{esitys.name}</td> :
-                            <td onClick={this.props.toggleUusiVarausModal}>{esitys.name}</td>}
+                            <td style={{cursor:'not-allowed'}} onMouseOver={this.value == "Osta liput"}>{esitys.name}</td> :
+                            <td style={{cursor:'pointer'}} onClick={() => this.props.toggleUusiVarausModal(esitys)} onMouseOver={this.innerHTML == "Osta liput"}>{esitys.name}</td>}
                     <td><i>{tilaa}</i></td>
                 </tr>
             )
         })
-        console.log(this.props.esitykset)
         return (
             <div>
                 <table className="table table-hover table-sm">

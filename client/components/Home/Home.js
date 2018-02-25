@@ -27,7 +27,7 @@ class Home extends Component {
           </div>
         </div>
         <div className={"row align-items-top justify-content-center text-center " + styles.content_contents}>
-          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <div className={"col-lg-3 col-md-10 col-sm-10 align-items-center " + styles.internallink}>
           <Link className={styles.internallink} to="/speksit">
             <p className={"material-icons " + styles.linkicon}>history</p>
             <h3>Aiemmat speksit</h3>
@@ -41,7 +41,7 @@ class Home extends Component {
             <p className="">Speksiä tehdessä on aina hyvä fiilis! Kuvat kertovat enemmän kuin tuhat sanaa ja täällä niitä kuvia voi katsella!</p>
           </Link>
           </div>*/}
-          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <div className={"col-lg-3 col-md-10 col-sm-10 align-items-center " + styles.internallink}>
           <Link className={styles.internallink} to="/yhdistys">
             <p className={"material-icons " + styles.linkicon}>face</p>
             <h3>Yhdistys</h3>
@@ -49,7 +49,7 @@ class Home extends Component {
                             Yhdistys-sivulta löydät yhteystietojen lisäksi hallituksen ja tuotantotiimin kokoonpanot.</p>
           </Link>
           </div>
-          <div className={"col-sm-3 align-items-center " + styles.internallink}>
+          <div className={"col-lg-3 col-md-10 col-sm-10 align-items-center " + styles.internallink}>
           <Link className={styles.internallink} to="/muutspeksit">
             <p className={"material-icons " + styles.linkicon}>local_play</p>
             <h3>Turun muut speksit</h3>
@@ -57,6 +57,13 @@ class Home extends Component {
           </Link>
           </div>
         </div>
+
+        <div className="row justify-content-center">
+          <div className="col-8">
+            <hr/>
+          </div>
+        </div>
+
         <div className={"row justify-content-center " + styles.content_speksi}>
           <div className={"col-sm-12 " + styles.hslogo}></div>
           <div className={"col-sm-6 " + styles.speksi_desc}>

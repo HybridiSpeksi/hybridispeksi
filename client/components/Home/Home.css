@@ -1,5 +1,8 @@
 .container {
-    background-color:lightgray;
+   background:#ffecaf;
+}
+hr {
+	background-color:#7a1111;
 }
 .content_home {
 	height:810px;
@@ -50,9 +53,9 @@
 
 /* CONTENTS */
 .content_contents{
-	background:lightgray;
+	background:#ffecaf;
 	padding-top:20px;
-	padding-bottom:60px;
+	padding-bottom:50px;
 }
 .linkicon{
 	margin-top:20px;
@@ -78,15 +81,16 @@
 }
 
 /* SPEKSI */
+.content_speksi {
+	background-color:#ffecaf;
+	padding:50px;
+	padding-top:60px;
+}
 .hslogo{
 	width:270px;
 	height:270px;
 	background:url("/assets/images/normi.png") no-repeat center;
 	background-size:300px 300px;
-}
-.content_speksi {
-	background-color:#c9c9c9;
-	padding:50px;
 }
 .infoicon{
 	font-size:150px;
