@@ -21,7 +21,10 @@ class Home extends Component {
                 <div className={"col-12 col-md-4 d-none d-md-block " + styles.date}><h2 className={styles.date}>ENSI-ILTA 27.3. KLO 19<br/> MANILLA-TEATTERILLA </h2></div>
               </div>
               <div className="row justify-content-center">
-                <div className={" " + styles.logo}></div>
+                <div className={"col " + styles.logo}></div>
+              </div>
+              <div className="row justify-content-center">
+                <div className={"col " + styles.lipunmyynti}>LIPUNMYYNTI ALKAA 28.2.2018 KLO 15</div>
               </div>
             </div>
           </div>
