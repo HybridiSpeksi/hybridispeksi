@@ -106,7 +106,7 @@ module.exports = {
             return bookingObj.save()
         })
         .then(_booking => {
-            res.status(200).send();
+            res.json({success: true, data: 'Varaus luotu. Kohta pääset maksaa'});
         })
         .catch(err => {
             if(err.code) {
