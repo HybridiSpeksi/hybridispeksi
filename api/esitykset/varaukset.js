@@ -108,6 +108,12 @@ module.exports = {
         .then(_booking => {
             res.status(200).send();
         })
+        .catch(err => {
+            if(err.code) {
+                res.json({success: false, data: err.message}, err.code);
+            } else 
+                console.log(err);
+        })
     }
 }
 
