@@ -49,8 +49,8 @@ module.exports = {
                     "X-Verkkomaksut-Api-Version": 1
                 }
             })
-            .then(data => {
-                resolve(data);
+            .then(res => {
+                resolve(res.data);
             })
             .catch(err => {
                 // console.log(err);

@@ -108,7 +108,7 @@ class Speksi2018 extends Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      this.setState({ilmottu: true})
+      // this.setState({ilmottu: true})
       let url = "/varaus/createPayment";
       ajax.sendPost(
           url,
@@ -123,10 +123,9 @@ class Speksi2018 extends Component {
               esitysId: this.state.valittuEsitys._id,
               additional: this.state.lisatiedot
           }).then(data => {
+            console.log(data.data);
               if(data.success) {
                   this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                  this.haeEsitykset();
-
               } else {
                   this.setState({ilmottu: false})
                   this.addMessage(MESSAGE_WARNING, data.data);

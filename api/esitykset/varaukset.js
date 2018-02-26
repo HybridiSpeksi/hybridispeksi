@@ -107,8 +107,7 @@ module.exports = {
             return bookingObj.save()
         })
         .then(_booking => {
-            payment.createPayment(_booking)
-            // res.json({success: true, data: 'Varaus luotu. Kohta pääset maksaa'});
+            return payment.createPayment(_booking)
         })
         .then(payment => {
             console.log(payment);
