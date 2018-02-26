@@ -134,7 +134,7 @@ class Speksi2018 extends Component {
           }).catch(err => {
               console.log(err);
               this.setState({ilmottu: false})
-              this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
+              this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen.");
           })
   }
 

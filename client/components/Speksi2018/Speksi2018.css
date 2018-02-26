@@ -47,7 +47,8 @@
 }
 .esitykset i {
 	font-family:Calibri;
-	font-size:20px;
+	font-size:16px;
+	text-align:right;
 }
 .showTd {
 	cursor:'pointer';
@@ -58,6 +59,8 @@
 /*div {
 	border:1px solid red;
 }*/
+
+/* LIPUNMYYNTIMODAL STYLES */ 
 
 
 /* STYLES FOR MOBILE DEVICES */ 
