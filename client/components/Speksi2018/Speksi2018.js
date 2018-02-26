@@ -125,6 +125,7 @@ class Speksi2018 extends Component {
           }).then(data => {
             console.log(data.data);
               if(data.success) {
+                  location.replace(data.data.url);
                   this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
               } else {
                   this.setState({ilmottu: false})
