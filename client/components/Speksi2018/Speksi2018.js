@@ -125,7 +125,6 @@ class Speksi2018 extends Component {
           }).then(data => {
               if(data.success) {
                   this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
-                  this.haeVaraukset(this.state.valittuEsitys);
                   this.haeEsitykset();
 
               } else {

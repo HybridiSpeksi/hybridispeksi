@@ -32,7 +32,7 @@ class MuokkaaVarausta extends Component {
                             lisatiedot={this.props.lisatiedot}
                             valittuEsitys={this.props.valittuEsitys}
                             esitykset={this.props.esitykset} 
-                            valittuVaraus={this.props.valittuVaraus}/>
+                            valittuVarausId={this.props.valittuVarausId}/>
 
                         <div className="row justify-content-center">
                             {this.props.messages}
@@ -40,7 +40,7 @@ class MuokkaaVarausta extends Component {
                       </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={this.props.emptyFields}>Nollaa kentät</button>
-                        { this.props.ilmottu || this.props.valittuVaraus != '' ? <button disabled type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button> : <button type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button>}
+                        { this.props.ilmottu ? <button disabled type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button> : <button type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button>}
                       </div>
                     </div>
                   </div>

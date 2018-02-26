@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Moment from 'react-moment';
+
 import styles from './Speksi2018.css';
 
 class Esitysvalinta extends Component {
@@ -23,7 +25,7 @@ class Esitysvalinta extends Component {
                 <tr key={i}>
                     <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)}
                             onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                            {esitys.name}
+                            {esitys.name} klo <Moment format="hh.mm">{esitys.date}</Moment>
                     </td>
                     <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)} 
                             onClick={() => this.props.toggleUusiVarausModal(esitys)}>

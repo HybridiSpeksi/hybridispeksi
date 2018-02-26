@@ -23,7 +23,7 @@ class Varaustenhallinta extends Component {
             varaukset: [],
             filteredVaraukset: [],
             valittuEsitys: {},
-            valittuVaraus: '',
+            valittuVarausId: '',
             naytaSahkopostit: false,
             fname: '',
             sname: '',
@@ -88,7 +88,7 @@ class Varaustenhallinta extends Component {
     toggleMuokkaaVaraustaModal(varaus){
         $('#muokkaaVaraustaModal').modal('show')
         this.setState({ 
-            valittuVaraus: varaus._id,
+            valittuVarausId: varaus._id,
             fname: varaus.fname,
             sname: varaus.sname,
             email: varaus.email,
@@ -97,7 +97,10 @@ class Varaustenhallinta extends Component {
             scount: varaus.scount,
             ocount: varaus.ocount,
             lisatiedot: varaus.lisatiedot,
-            ilmottu: false
+            ilmottu: false,
+            messages: [],
+            warnings: [],
+            errors: []
         }, () => {
             this.countPrice();
         })
@@ -186,7 +189,39 @@ class Varaustenhallinta extends Component {
     }
 
     handleUpdate(e){
-        
+        e.preventDefault();
+        this.setState({ilmottu: true})
+        let url = "/admin/varaus/" + this.state.valittuVarausId;
+        ajax.sendPut(
+            url,
+            {
+                fname: this.state.fname,
+                sname: this.state.sname,
+                email: this.state.email,
+                pnumber: this.state.pnumber,
+                scount: this.state.scount,
+                ncount: this.state.ncount,
+                ocount: this.state.ocount,
+                oprice: this.state.oprice,
+                paymentMethod: 0,
+                paid: true,
+                esitysId: this.state.valittuEsitys._id,
+                additional: this.state.lisatiedot
+            }).then(data => {
+                if(data.success) {
+                    this.addMessage(MESSAGE_SUCCESS, "Tietojen päivitys onnistui!")
+                    this.haeVaraukset(this.state.valittuEsitys);
+                    this.haeEsitykset();
+
+                } else {
+                    this.setState({ilmottu: false})
+                    this.addMessage(MESSAGE_WARNING, data.data);
+                }
+            }).catch(err => {
+                console.log(err);
+                this.setState({ilmottu: false})
+                this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
+            })
     }
 
     emptyFields(){
@@ -341,6 +376,7 @@ class Varaustenhallinta extends Component {
                             emptyFields={this.emptyFields}
                             handleChange={this.handleChange} 
                             handleSubmit={this.handleSubmit}
+                            handleUpdate={this.handleUpdate}
                             toggleMuokkaaVaraustaModal={this.toggleMuokkaaVaraustaModal}
                             fname={this.state.fname}
                             sname={this.state.sname}
@@ -353,7 +389,7 @@ class Varaustenhallinta extends Component {
                             lisatiedot={this.state.lisatiedot}
                             ilmottu={this.state.ilmottu}
                             valittuEsitys={this.state.valittuEsitys}
-                            valittuVaraus={this.state.valittuVaraus}
+                            valittuVarausId={this.state.valittuVarausId}
                             esitykset={this.state.esitykset}
                             messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                     		
