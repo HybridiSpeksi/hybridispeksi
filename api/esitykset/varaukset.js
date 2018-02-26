@@ -83,7 +83,30 @@ module.exports = {
         let booking = req.body;
         validate(booking)
         .then(() => {
-            
+            return tryIfSpace(booking)
+        })
+        .then(() => {
+            booking.bookingId = generateId();
+            const bookingObj = new Varaus({
+                fname: booking.fname,
+                sname: booking.sname,
+                email: booking.email,
+                pnumber: booking.pnumber,
+                scount: booking.scount || 0,
+                ncount: booking.ncount || 0,
+                ocount: booking.ocount || 0,
+                oprice: 25,
+                paymentMethod: 2,
+                paid: false,
+                esitysId: booking.esitysId,
+                additional: booking.additional,
+                bookingId: booking.bookingId,
+                year: 2018
+            })
+            return bookingObj.save()
+        })
+        .then(_booking => {
+            res.status(200).send();
         })
     }
 }
