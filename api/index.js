@@ -65,7 +65,8 @@ router.get('/esitykset/:value', varaus.getAll);
 router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
 router.post('/admin/varaus', varaus.createNewAdmin);
-router.put('/varaus', varaus.update);
+// router.put('/varaus', varaus.update);
 router.delete('/admin/varaus/:_id', varaus.remove);
+router.post('/varaus/createPayment', varaus.createPayment);
 
 module.exports = router;

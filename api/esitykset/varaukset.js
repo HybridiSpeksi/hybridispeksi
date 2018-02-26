@@ -13,13 +13,8 @@ module.exports = {
         })
     },
 
-    createNewPublic: (req, res) => {
-        res.json({success: true, data: 'TODO'});
-    },
-
     createNewAdmin: (req, res) => {
         let booking = req.body;
-        console.log(booking);
         validateAdmin(booking)
         .then(() => {
             return tryIfSpace(booking)
@@ -83,6 +78,14 @@ module.exports = {
             res.json({success: false, data: 'Varausta ei voitu poistaa'});
         })
     },
+
+    createPayment: (req, res) => {
+        let booking = req.body;
+        validate(booking)
+        .then(() => {
+            
+        })
+    }
 }
 
 function validateAdmin(booking) {
