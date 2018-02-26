@@ -1,6 +1,7 @@
 const Varaus = require('../../schema/varaus-model');
 const Esitys = require('../../schema/esitys-model');
 const mailer = require('../../utils/mailer');
+const payment = require('../../utils/payments');
 
 module.exports = {
     getAll: (req, res) => {
@@ -106,7 +107,12 @@ module.exports = {
             return bookingObj.save()
         })
         .then(_booking => {
-            res.json({success: true, data: 'Varaus luotu. Kohta pääset maksaa'});
+            payment.createPayment(_booking)
+            // res.json({success: true, data: 'Varaus luotu. Kohta pääset maksaa'});
+        })
+        .then(payment => {
+            console.log(payment);
+            res.json({success: true, data: payment})
         })
         .catch(err => {
             if(err.code) {

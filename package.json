@@ -10,6 +10,7 @@
     "start": "node server"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
