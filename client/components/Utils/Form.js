@@ -41,7 +41,7 @@ class Textarea extends Component {
 class Dropdown extends Component {
     render() {
         if (!this.props.options) {
-            this.props.otions = []
+            this.props.options = []
         }
         let options = this.props.options.map((opt, i) => {
             let value = "";

@@ -76,10 +76,15 @@ class Speksi2018 extends Component {
       });
     }
   }
-  toggleUusiVarausModal(esitys){
-    this.setState({ valittuEsitys: esitys}, () => {
-      $('#uusiVarausModal').modal('show')
-    })
+  toggleUusiVarausModal(esitys, tilaa){
+    if (tilaa === "Täynnä") {
+      $('#varausTaynnaModal').modal('show')
+    }
+    else {
+      this.setState({ valittuEsitys: esitys}, () => {
+        $('#uusiVarausModal').modal('show')
+      })
+    }
   }
   handleChange(e) {
     let value = e.target.value;
@@ -175,7 +180,7 @@ class Speksi2018 extends Component {
             Ensi-ilta 27.3.<br/>
             @Manilla</p>
           </div>
-          <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
+          <div className="col-12 col-sm-6 col-lg-6 col-xl-4">
             <img src="/assets/images/logo_lapinak_valk.png"/>
           </div>
         </div>
@@ -202,7 +207,7 @@ class Speksi2018 extends Component {
                 ></iframe>
             </div>
           </div>
-          <div className={"col-12 col-md-10 col-lg-5 col-xl-5 justify-items-center " + styles.esitykset}>
+          <div className={"col-12 col-md-10 col-lg-6 col-xl-5 justify-items-center " + styles.esitykset}>
             <h2 className={styles.textheader}>Esitykset Manilla-teatterilla:</h2>
             <Esitysvalinta 
                 esitykset={this.state.esitykset} 
@@ -228,6 +233,21 @@ class Speksi2018 extends Component {
             esitykset={this.state.esitykset}
             messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
 
+            <div className="modal fade" id="varausTaynnaModal" tabIndex="-1" role="dialog" aria-labelledby="varausTaynnaModalLabel" aria-hidden="true">
+              <div className="modal-dialog modal-sm" role="document">
+                <div className={"modal-content " + styles.formContent }> {/* TÄHÄN MUOTOILUT KOKO MODALIIN */}
+                  <div className={"modal-header " + styles.formBorder }>
+                    <h5 className={"modal-title"} id="varausTaynnaModalLabel">Esitys on täynnä</h5>
+                    <button type="button" className={"close btn btn-inverse " + styles.formClose} data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className={"modal-footer justify-content-center " + styles.formBorder }>
+                    <button type="button" className={"btn btn-dark " + styles.formButton + ' ' + styles.formButtonClose} data-dismiss="modal" aria-label="Close">Sulje ikkuna</button>
+                  </div>
+                </div>
+              </div>
+            </div>
       </div>
     )
   }

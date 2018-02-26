@@ -21,15 +21,17 @@ class Esitysvalinta extends Component {
             else {
                 tilaa = "Täynnä";
             }
+
+
             return (
                 <tr key={i}>
-                    <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)}
-                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                            {esitys.name} klo <Moment format="HH.mm">{esitys.date}</Moment>
+                    <td className={tilaa === "Täynnä" ? styles.showTdFull : styles.showTd}
+                        onClick={() => this.props.toggleUusiVarausModal(esitys, tilaa)}>
+                        {esitys.name} klo <Moment format="HH.mm">{esitys.date}</Moment>
                     </td>
-                    <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)} 
-                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                            <i>{tilaa}</i>
+                    <td className={tilaa === "Täynnä" ? styles.showTdFull : styles.showTd}
+                        onClick={() => this.props.toggleUusiVarausModal(esitys, tilaa)}>
+                        <i>{tilaa}</i>
                     </td> 
                 </tr>
             )

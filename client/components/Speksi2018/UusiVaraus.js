@@ -11,15 +11,17 @@ class UusiVaraus extends Component {
         return (
             <div>
                 <div className="modal fade" id="uusiVarausModal" tabIndex="-1" role="dialog" aria-labelledby="uusiVarausModalLabel" aria-hidden="true">
-                  <div className="modal-dialog modal-lg modal-inverse" role="document">
-                    <div className="modal-content"> {/* TÄHÄN MUOTOILUT KOKO MODALIIN */}
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="uusiVarausModalLabel">Lisää uusi varaus</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                  <div className="modal-dialog modal-lg" role="document">
+                    <div className={"modal-content " + styles.formContent }> {/* TÄHÄN MUOTOILUT KOKO MODALIIN */}
+                      <div className={"modal-header align-items-start justify-content-center " + styles.formHeader }>
+                          <div className={"col-sm-9 d-flex justify-content-center align-items-center " + styles.formTitleWrap }>
+                            <h5 className={"modal-title " + styles.formTitle} id="uusiVarausModalLabel">HybridiSpeksi 2018 lipunmyynti</h5>
+                          </div>
+                            <button type="button" className={"close btn btn-inverse " + styles.formClose} data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
                       </div>
-                      <div className="modal-body">
+                      <div className={"modal-body " + styles.formBody}>
                         
                         <VarausForm
                             handleChange={this.props.handleChange} 
@@ -39,8 +41,11 @@ class UusiVaraus extends Component {
                             {this.props.messages}
                         </div>
                       </div>
-                      <div className="modal-footer">
-                        { this.props.ilmottu ? <button disabled type="button" className="btn btn-dark" onClick={this.props.handleSubmit}>Siirry maksamaan</button> : <button type="button" className="btn btn-dark" onClick={this.props.handleSubmit}>Siirry maksamaan</button>}
+                      <div className={"modal-footer justify-content-center " + styles.formBorder }>
+                        <div className="col-sm-11 d-flex justify-content-end">
+                          <button type="button" className={"btn btn-dark " + styles.formButton + ' ' + styles.formButtonClose} data-dismiss="modal" aria-label="Close">Sulje ikkuna</button>
+                            { this.props.ilmottu ? <button disabled type="button" className={"btn btn-dark " + styles.formButton} onClick={this.props.handleSubmit}>Siirry maksamaan</button> : <button type="button" className={"btn btn-dark " + styles.formButton} onClick={this.props.handleSubmit}>Siirry maksamaan</button>}
+                        </div>
                       </div>
                     </div>
                   </div>

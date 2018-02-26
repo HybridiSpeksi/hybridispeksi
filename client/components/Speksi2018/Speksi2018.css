@@ -50,17 +50,83 @@
 	font-size:16px;
 	text-align:right;
 }
+.formContent {
+	background:white;
+	border-radius: 0px;
+	border:none;
+}
+.formHeader {
+	border:none;
+	height:350px;
+	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top;
+	background-size:cover;
+}
+.formTitleWrap {
+	height:100px;
+	margin-top:280px;
+	background:#7a1111;
+}
+.formTitle {
+	color:white;
+	font-family: Calibri;
+	font-size:36px;
+	font-weight: bold;
+	text-align:center;
+}
+.formClose {
+	color:white;
+	position:absolute;
+	top:20px;
+	right:20px;
+}
+.formClose:hover {
+	color:#7a1111;
+  	text-shadow: 0 1px 0 #5b0d0d;
+}
+.formBody {
+	padding-top:50px;
+}
+.formLabel {
+	font-family:Calibri;
+	font-weight: bold;
+	font-size:20px;
+}
+.formButton {
+	cursor:pointer;
+	font-family:Calibri;
+	font-weight:bold;
+    color: white;
+    font-size: 16px;
+	background-color:#7a1111; 
+    border: none;
+    padding: 15px 32px;
+    margin:5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0px;
+}
+.formButton:hover {
+	background:#5b0d0d;
+}
+.formButtonClose {
+    color: black;
+	background:#D3D3D3; 
+}
+.formButtonClose:hover {
+	background:#adadad;
+}
+
 .showTd {
-	cursor:'pointer';
+	cursor:pointer;
 }
 .showTdFull{
-	cursor:'not-allowed';
+	cursor:not-allowed;
 }
 /*div {
 	border:1px solid red;
 }*/
 
-/* LIPUNMYYNTIMODAL STYLES */ 
 
 
 /* STYLES FOR MOBILE DEVICES */ 
