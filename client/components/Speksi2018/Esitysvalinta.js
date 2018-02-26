@@ -7,40 +7,53 @@ class Esitysvalinta extends Component {
     render() {
         let esitykset = this.props.esitykset.map((esitys, i) => {
             let tilaa = '';
+            let esitystd;
             if (esitys.bookingCount < 100){
                 tilaa = "Tilaa";
+                esitystd = (
+                    <tr key={i}>
+                        <td style={{cursor:'pointer'}} 
+                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                                {esitys.name}
+                        </td>
+                        <td style={{cursor:'pointer'}} 
+                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                                <i>{tilaa}</i>
+                        </td> 
+                    </tr>
+                )
             }
             else if(esitys.bookingCount < 130) {
                 tilaa = "Lähes täynnä";
+                esitystd = (
+                    <tr key={i}>
+                        <td style={{cursor:'pointer'}} 
+                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                                {esitys.name}
+                        </td>
+                        <td style={{cursor:'pointer'}} 
+                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                                <i>{tilaa}</i>
+                        </td> 
+                    </tr>
+                )
             }
             else {
                 tilaa = "Täynnä";
+                esitystd = (
+                    <tr key={i}>
+                        <td style={{cursor:'not-allowed'}}>
+                            {esitys.name}
+                        </td>
+                        <td style={{cursor:'not-allowed'}}>
+                                <i>{tilaa}</i>
+                        </td>
+                    </tr>
+                )
             }
 
             return (
-                <tr key={i}>
-                    { tilaa === "Täynnä" ? (
-                        <td style={{cursor:'not-allowed'}} 
-                            onMouseOver={this.value == "Osta liput"}>
-                            {esitys.name}
-                            </td>
-                        ) : (
-                        <td style={{cursor:'pointer'}} 
-                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                            {esitys.name}
-                            </td>
-                    )}
-                    { tilaa === "Täynnä" ? (
-                        <td style={{cursor:'not-allowed'}}>
-                            <i>{tilaa}</i>
-                        </td> 
-                    ) : (
-                        <td style={{cursor:'pointer'}} 
-                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                            <i>{tilaa}</i>
-                        </td> 
-                    )}      
-                </tr>
+                    {esitystd}  
             )
         })
         return (
