@@ -16,12 +16,30 @@ class Esitysvalinta extends Component {
             else {
                 tilaa = "Täynnä";
             }
+
             return (
                 <tr key={i}>
-                        { tilaa === "Täynnä" ? 
-                            <td style={{cursor:'not-allowed'}} onMouseOver={this.value == "Osta liput"}>{esitys.name}</td> :
-                            <td style={{cursor:'pointer'}} onClick={() => this.props.toggleUusiVarausModal(esitys)} onMouseOver={this.innerHTML == "Osta liput"}>{esitys.name}</td>}
-                    <td><i>{tilaa}</i></td>
+                    { tilaa === "Täynnä" ? (
+                        <td style={{cursor:'not-allowed'}} 
+                            onMouseOver={this.value == "Osta liput"}>
+                            {esitys.name}
+                            </td>
+                        ) : (
+                        <td style={{cursor:'pointer'}} 
+                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                            {esitys.name}
+                            </td>
+                    )}
+                    { tilaa === "Täynnä" ? (
+                        <td style={{cursor:'not-allowed'}}>
+                            <i>{tilaa}</i>
+                        </td> 
+                    ) : (
+                        <td style={{cursor:'pointer'}} 
+                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                            <i>{tilaa}</i>
+                        </td> 
+                    )}      
                 </tr>
             )
         })

@@ -37,7 +37,6 @@ class Speksi2018 extends Component {
 
     // this.valitseEsitys = this.valitseEsitys.bind(this);
     this.toggleUusiVarausModal = this.toggleUusiVarausModal.bind(this);
-    this.hoverEsitys = this.hoverEsitys.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addMessage = this.addMessage.bind(this);
@@ -78,12 +77,6 @@ class Speksi2018 extends Component {
       $('#uusiVarausModal').modal('show')
     })
   }
-
-  hoverEsitys(c, e){
-    // e.target.value = "Osta liput";
-    //document.body.style.cursor = c;
-  }
-
   handleChange(e) {
     let value = e.target.value;
 
@@ -172,7 +165,7 @@ class Speksi2018 extends Component {
       <div className={"container-fluid " + styles.container}>
         <div className={"row align-items-top justify-content-center " + styles.header}>
           <div className="col-md-6">
-            <h2 className="" onMouseOver={this.hoverEsitys}>Speksi 2018</h2>
+            <h2 className="">Speksi 2018</h2>
             <p>Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. 
             Tuomari Martin pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, 
             samalla ryysyistä rikkauksiin kohonnut Alexandra hallitsee kyläläisten kukkaroita ja himoja. 
@@ -214,8 +207,7 @@ class Speksi2018 extends Component {
             <h2 className={styles.textheader}>Esitykset Manilla-teatterilla:</h2>
             <Esitysvalinta 
                 esitykset={this.state.esitykset} 
-                toggleUusiVarausModal={this.toggleUusiVarausModal} 
-                hoverEsitys={this.hoverEsitys} />
+                toggleUusiVarausModal={this.toggleUusiVarausModal} />
           </div>
         </div>
 
