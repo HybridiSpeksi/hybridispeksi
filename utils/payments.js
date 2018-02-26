@@ -3,12 +3,6 @@ const axios = require('axios');
 
 
 const PAYMENT_URL = 'https://payment.paytrail.com/api-payment/create';
-const CONFIG = {
-    headers: {
-        "Content-Type": "application/json",
-        "X-Verkkomaksut-Api-Version": 1
-    }
-};
 
 module.exports = {
     createPayment: (booking) => {
@@ -38,22 +32,33 @@ module.exports = {
         }
         payment.price = countPrice(booking);
         payment.orderNumber = booking._id;
-        const data = {
-            username: config.kauppiastunnus,
-            password: config.kauppiasvarmenne,
-            data: JSON.stringify(payment)
-        }
         const p = new Promise((resolve, reject) => {
             console.log('send ajax to paytrail')
-            axios.post(PAYMENT_URL, data, CONFIG)
+            console.log(config.kauppiastunnus + " " + config.kauppiasvarmenne);
+            // axios.post(PAYMENT_URL, data, CONFIG)
+            axios({
+                method: 'post',
+                url: PAYMENT_URL,
+                auth: {
+                    username: config.kauppiastunnus,
+                    password: config.kauppiasvarmenne,
+                },
+                data: JSON.stringify(payment),
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Verkkomaksut-Api-Version": 1
+                }
+            })
             .then(data => {
                 resolve(data);
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
+                console.log('epäonnistunut maksutapahtuman luonti');
                 reject({code: 500, message: 'Maksutapahtuman luonti epäonnistui.'})
             })
         })
+        return p;
     }
 }
 
