@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import styles from './Speksi2018.css';
+
 class Esitysvalinta extends Component {
     constructor(props) {
         super(props);
@@ -10,52 +12,27 @@ class Esitysvalinta extends Component {
             let esitystd;
             if (esitys.bookingCount < 100){
                 tilaa = "Tilaa";
-                esitystd = (
-                    <tr key={i}>
-                        <td style={{cursor:'pointer'}} 
-                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                                {esitys.name}
-                        </td>
-                        <td style={{cursor:'pointer'}} 
-                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                                <i>{tilaa}</i>
-                        </td> 
-                    </tr>
-                )
             }
             else if(esitys.bookingCount < 130) {
                 tilaa = "Lähes täynnä";
-                esitystd = (
-                    <tr key={i}>
-                        <td style={{cursor:'pointer'}} 
-                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                                {esitys.name}
-                        </td>
-                        <td style={{cursor:'pointer'}} 
-                                onClick={() => this.props.toggleUusiVarausModal(esitys)}>
-                                <i>{tilaa}</i>
-                        </td> 
-                    </tr>
-                )
             }
             else {
                 tilaa = "Täynnä";
-                esitystd = (
-                    <tr key={i}>
-                        <td style={{cursor:'not-allowed'}}>
-                            {esitys.name}
-                        </td>
-                        <td style={{cursor:'not-allowed'}}>
-                                <i>{tilaa}</i>
-                        </td>
-                    </tr>
-                )
             }
-
             return (
-                    {esitystd}  
+                <tr key={i}>
+                    <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)}
+                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                            {esitys.name}
+                    </td>
+                    <td className={tilaa === "Täynnä" ? (styles.showTdFull) : (styles.showTd)} 
+                            onClick={() => this.props.toggleUusiVarausModal(esitys)}>
+                            <i>{tilaa}</i>
+                    </td> 
+                </tr>
             )
         })
+        
         return (
             <div>
                 <table className="table table-hover table-sm">

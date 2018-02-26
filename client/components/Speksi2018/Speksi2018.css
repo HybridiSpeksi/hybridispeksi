@@ -45,10 +45,15 @@
 	padding:40px;
 	padding-top:0px;
 }
-
 .esitykset i {
 	font-family:Calibri;
 	font-size:20px;
+}
+.showTd {
+	cursor:'pointer';
+}
+.showTdFull{
+	cursor:'not-allowed';
 }
 /*div {
 	border:1px solid red;

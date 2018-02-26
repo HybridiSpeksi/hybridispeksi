@@ -26,7 +26,7 @@ class Speksi2018 extends Component {
         ocount: 0,
         nprice: '16',
         sprice: '14',
-        oprice: '10',
+        oprice: '25',
         price: '0',
         lisatiedot: '',
         ilmottu: false,

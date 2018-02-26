@@ -72,6 +72,9 @@ class VarausForm extends Component {
                         <div className={"col-3 justify-contents-center"}>
                             Opiskelija<input name="scount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.scount} placeholder="Opiskelija"/> 14 €/kpl
                         </div>
+                        <div className={"col-3 justify-contents-center"}>
+                            Kannatus<input name="ocount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ocount} placeholder="Kannatus"/> 25 €/kpl
+                        </div>
                     </div>
                      <div className={"row form-group align-items-center"}>
                         <div className={"col-sm-3"}>
