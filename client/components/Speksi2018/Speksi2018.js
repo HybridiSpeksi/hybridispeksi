@@ -9,6 +9,10 @@ import Messages from './../Utils/Messages';
 
 import styles from './Speksi2018.css';
 
+let MESSAGE_SUCCESS = "success"
+let MESSAGE_WARNING = "warning"
+let MESSAGE_ERROR = "error"
+
 class Speksi2018 extends Component {
 
   constructor(props) {
@@ -32,7 +36,7 @@ class Speksi2018 extends Component {
         ilmottu: false,
         messages: [],
         warnings: [],
-        errors: [],
+        errors: []
     }
 
     // this.valitseEsitys = this.valitseEsitys.bind(this);
@@ -105,7 +109,7 @@ class Speksi2018 extends Component {
   handleSubmit(e) {
       e.preventDefault();
       this.setState({ilmottu: true})
-      let url = "/admin/varaus";
+      let url = "/varaus/createPayment";
       ajax.sendPost(
           url,
           {
@@ -116,9 +120,6 @@ class Speksi2018 extends Component {
               scount: this.state.scount,
               ncount: this.state.ncount,
               ocount: this.state.ocount,
-              oprice: this.state.oprice,
-              paymentMethod: 0,
-              paid: true,
               esitysId: this.state.valittuEsitys._id,
               additional: this.state.lisatiedot
           }).then(data => {
