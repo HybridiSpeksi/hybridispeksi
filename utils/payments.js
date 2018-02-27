@@ -23,10 +23,10 @@ module.exports = {
                 "currency": "EUR",
                 "locale": "fi_FI",
                 "urlSet": {
-                    "success": "http://www.hybridispeksi.fi/api/payment/success",
-                    "failure": "http://www.hybridispeksi.fi/api/payment/failure",
-                    "pending": "http://www.hybridispeksi.fi/api/payment/success",
-                    "notification": "http://www.hybridispeksi.fi/api/payment/success"
+                    "success": "https://www.hybridispeksi.fi/api/payment/success",
+                    "failure": "https://www.hybridispeksi.fi/api/payment/failure",
+                    "pending": "https://www.hybridispeksi.fi/api/payment/success",
+                    "notification": "https://www.hybridispeksi.fi/api/payment/success"
                 },
             }
         }

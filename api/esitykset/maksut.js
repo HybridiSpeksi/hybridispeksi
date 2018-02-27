@@ -41,7 +41,7 @@ module.exports = {
     },
 
     handleFailure: (req, res) => {
-
+        res.redirect('/speksi2018/virhe');
     }
 }
 
