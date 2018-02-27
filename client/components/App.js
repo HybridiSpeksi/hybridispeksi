@@ -96,8 +96,6 @@ export default class App extends React.Component {
               <PublicLayout path="/esitykset" component={Esitykset} />
               <PublicLayout path="/ilmo" component={Sitsit} />
               <PublicLayout path="/muutspeksit" component={Muutspeksit} />
-              <PublicLayout path="/test" component={Muutspeksit} />
-              <PublicLayout path="/test/:asdf?" component={Muutspeksit} /> 
               </Switch>
             </div>
 
