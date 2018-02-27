@@ -61,6 +61,18 @@
 	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top;
 	background-size:cover;
 }
+.formLogo {
+	position:absolute;
+	top:5px;
+	height:265px;
+	background:url("/assets/images/logo_lapinak.png") no-repeat center top;
+	background-size:cover;
+	text-align:center;
+	color:#580d0d;
+	font-size:32px;
+	font-family:hybridispeksi;
+
+}
 .formTitleWrap {
 	height:100px;
 	margin-top:280px;
