@@ -14,7 +14,22 @@ module.exports = {
         })
     },
     getOneById: (req, res) => {
-        
+        Varaus.findOne({_id: req.params._id})
+        .then(_data => {
+            return bookingObj.save()
+        })
+        .then(_booking => {
+            return Esitys.findOne({_id: booking.esitysId})
+        })
+        .then(_esitys => {
+            booking.esitys = _esitys;
+        })
+        .then(_data => {
+            res.json({success: true, data: _data})
+        })
+        .catch(err => {
+            res.json({success: false, data: err})
+        })
     },
 
     createNewAdmin: (req, res) => {
@@ -64,14 +79,22 @@ module.exports = {
 
     update: (req, res) => {
         let varaus = req.body;
-        console.log(varaus)
-        Varaus.findByIdAndUpdate(varaus._id, varaus)
-            .then(_varaus => {
-                res.json({ success: true, data: "Varaus päivitetty." })
-            })
-            .catch(err => {
-                res.json({ success: false, data: err })
-            })
+        validateAdmin(varaus)
+        .then(() => {
+            return tryIfSpace(varaus)
+        })
+        .then(() => {
+            Varaus.findByIdAndUpdate(varaus._id, varaus)
+                .then(_varaus => {
+                    res.json({ success: true, data: "Varaus päivitetty." })
+                })
+                .catch(err => {
+                    res.json({ success: false, data: err })
+                })
+        })
+        .catch(err =>{
+            res.json({success: false, data: 'Varausta ei voitu muokata'});  
+        })
     },
 
     remove: (req, res) => {
