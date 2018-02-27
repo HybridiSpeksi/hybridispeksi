@@ -181,7 +181,7 @@ class Speksi2018 extends Component {
             Ensi-ilta 27.3.<br/>
             @Manilla</p>
           </div>
-          <div className="col-12 col-sm-6 col-lg-6 col-xl-4">
+          <div className="col-12 col-sm-6 col-lg-6 col-xl-3">
             <img src="/assets/images/logo_lapinak_valk.png"/>
           </div>
         </div>

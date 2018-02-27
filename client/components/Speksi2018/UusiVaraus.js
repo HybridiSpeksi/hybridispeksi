@@ -14,8 +14,8 @@ class UusiVaraus extends Component {
                   <div className="modal-dialog modal-lg" role="document">
                     <div className={"modal-content " + styles.formContent }> {/* TÄHÄN MUOTOILUT KOKO MODALIIN */}
                       <div className={"modal-header align-items-start justify-content-center " + styles.formHeader }>
-                          <div className={"col-4 justify-content-center " + styles.formLogo}>
-                            <h2 className={""}>HybridiSpeksi 2018</h2> 
+                          <div className={"col-5 col-sm-4 justify-content-center " + styles.formLogo}>
+                            <h2 className={styles.formLogoText}>HybridiSpeksi 2018</h2> 
                           </div>
                           <div className={"col-sm-9 d-flex justify-content-center align-items-center " + styles.formTitleWrap }>
                             <h5 className={"modal-title " + styles.formTitle} id="uusiVarausModalLabel">HybridiSpeksi 2018 lipunmyynti</h5>

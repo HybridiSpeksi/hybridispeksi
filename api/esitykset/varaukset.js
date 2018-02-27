@@ -61,6 +61,7 @@ module.exports = {
 
     update: (req, res) => {
         let varaus = req.body;
+        console.log(varaus)
         Varaus.findByIdAndUpdate(varaus._id, varaus)
             .then(_varaus => {
                 res.json({ success: true, data: "Varaus päivitetty." })

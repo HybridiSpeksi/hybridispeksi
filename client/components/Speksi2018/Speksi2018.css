@@ -68,10 +68,11 @@
 	background:url("/assets/images/logo_lapinak.png") no-repeat center top;
 	background-size:cover;
 	text-align:center;
+}
+.formLogoText{
 	color:#580d0d;
-	font-size:32px;
 	font-family:hybridispeksi;
-
+	font-size:32px;
 }
 .formTitleWrap {
 	height:100px;
@@ -84,6 +85,7 @@
 	font-size:36px;
 	font-weight: bold;
 	text-align:center;
+	line-height: 1;
 }
 .formClose {
 	color:white;
@@ -96,7 +98,7 @@
   	text-shadow: 0 1px 0 #5b0d0d;
 }
 .formBody {
-	padding-top:50px;
+	padding-top:80px;
 }
 .formLabel {
 	font-family:Calibri;
@@ -155,6 +157,12 @@
 	}
 	.header {
 		padding-top:40px;
+	}
+	.formLogo {
+		height:200px;
+	}
+	.formLogoText{
+		font-size:26px;
 	}
 }
 @media (max-width:500px) {

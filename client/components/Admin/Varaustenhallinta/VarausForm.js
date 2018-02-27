@@ -14,7 +14,7 @@ class VarausForm extends Component {
                         <div className={"col-sm-3"}>
                             <label htmlFor="esitysInput" className="">Esitys:</label>
                         </div>
-                        <div className={"col"}>
+                        <div className={"col align-items-center"}>
                         <Dropdown
                             options={this.props.esitykset}
                             selected={this.props.valittuEsitys._id}
