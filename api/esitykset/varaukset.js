@@ -14,7 +14,7 @@ module.exports = {
         })
     },
     getOneById: (req, res) => {
-
+        
     },
 
     createNewAdmin: (req, res) => {
