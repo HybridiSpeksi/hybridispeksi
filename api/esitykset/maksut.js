@@ -15,19 +15,24 @@ module.exports = {
         const params = ordernumber + "|" + timestamp + "|" + paid + "|" + method + "|" + config.kauppiasvarmenne;
         let booking;
         if(checkValidity(params, authcode)) {
-            Varaus.update({_id: req.query.ORDER_NUMBER}, {paid: true})
+            Varaus.findOne({_id: req.query.ORDER_NUMBER})
             .then(_booking => {
-                booking = _booking
-                return Esitys.findOne({_id: _booking.esitysId})
+                _booking.paid = true;
+                booking = _booking;
+                return booking.save()
+            })
+            .then(() => {
+                return Esitys.findOne({_id: booking.esitysId})
             })
             .then(_esitys => {
                 booking.esitys = _esitys;
-                return mailer.sendTicket(_booking);
+                return mailer.sendTicket(booking);
             })
             .then(() => {
-                res.redirect('/speksi2018/vahvistus/' + _booking._id)
+                res.redirect('/speksi2018/vahvistus/' + booking._id)
             })
             .catch(err => {
+                console.log(err);
                 res.redirect('/speksi2018/virhe');
             })
         } else {
@@ -43,8 +48,10 @@ module.exports = {
 function checkValidity(params, authcode) {
     var hash = crypto.createHash('md5').update(params).digest('hex');
     var valid = false;
-    if (hash.toUpperCase() === authcode.toUpperCase())
+    if (hash.toUpperCase() === authcode.toUpperCase()) {
+        console.log('valid');
         return true;
+    }
     else
         return false;
 }
