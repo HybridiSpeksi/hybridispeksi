@@ -14,18 +14,7 @@
 .content {
 	padding:50px;
 	margin:0px;
+	min-height:40vh;
 }
-.yhdistys_desc {
-	padding:40px;
-	opacity:1!important;
-	background-color:#cecece;
-	color:black;
-}
-.otsikko {
-	margin-top:20px;
-	margin-bottom:30px;
-}
-.persontitle {
-	font-style:italic;
-}
+
 

@@ -28,6 +28,7 @@ router.put('/admin/w/ohjaustieto', ohjaustiedot.lisaaOhjaustieto);
 router.get('/admin/w/avaimet', ohjaustiedot.haeAvaimet);
 router.get('/ohjaustieto/:key', ohjaustiedot.getByKey);
 router.get('/price', ohjaustiedot.haeHinnat);
+router.get('/lipunmyyntiAuki', ohjaustiedot.haeLipunmyyntiAuki);
 
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
@@ -65,7 +66,7 @@ router.get('/getShowsWithCounts', esitys.getAllWithBookingCounts);
 router.get('/esitykset/:value', varaus.getAll);
 router.delete('esitykset', varaus.remove);
 router.get('/admin/varaukset/:_id', varaus.getAll);
-router.get('/varaukset/:_id', varaus.getOneById);
+router.get('/getOneVarausById/:_id', varaus.getOneById);
 router.post('/admin/varaus', varaus.createNewAdmin);
 router.put('/admin/varaus/:_id', varaus.update);
 router.delete('/admin/varaus/:_id', varaus.remove);

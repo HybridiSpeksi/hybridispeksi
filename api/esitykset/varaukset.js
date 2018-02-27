@@ -14,21 +14,21 @@ module.exports = {
         })
     },
     getOneById: (req, res) => {
+        let booking = []
         Varaus.findOne({_id: req.params._id})
-        .then(_data => {
-            return bookingObj.save()
-        })
         .then(_booking => {
-            return Esitys.findOne({_id: booking.esitysId})
-        })
-        .then(_esitys => {
-            booking.esitys = _esitys;
+            booking = _booking
+            return Esitys.findOne({_id: _booking.esitysId})
+        })  
+        .then(esitys => {
+            booking = {booking, esitys}
         })
         .then(_data => {
-            res.json({success: true, data: _data})
+            res.json({success: true, data: booking})
         })
         .catch(err => {
             res.json({success: false, data: err})
+            console.log(err)
         })
     },
 
@@ -81,9 +81,6 @@ module.exports = {
         let varaus = req.body;
         validateAdmin(varaus)
         .then(() => {
-            return tryIfSpace(varaus)
-        })
-        .then(() => {
             Varaus.findByIdAndUpdate(varaus._id, varaus)
                 .then(_varaus => {
                     res.json({ success: true, data: "Varaus päivitetty." })
@@ -94,6 +91,7 @@ module.exports = {
         })
         .catch(err =>{
             res.json({success: false, data: 'Varausta ei voitu muokata'});  
+            console.log(err)
         })
     },
 

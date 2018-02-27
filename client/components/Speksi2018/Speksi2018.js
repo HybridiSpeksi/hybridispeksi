@@ -34,9 +34,11 @@ class Speksi2018 extends Component {
         price: '0',
         lisatiedot: '',
         ilmottu: false,
+        lipunmyyntiAuki: false,
         messages: [],
         warnings: [],
-        errors: []
+        errors: [],
+        openModalError: ''
     }
 
     // this.valitseEsitys = this.valitseEsitys.bind(this);
@@ -58,6 +60,14 @@ class Speksi2018 extends Component {
             console.log(err);
         })
 
+    ajax.sendGet('/lipunmyyntiAuki')
+        .then(tag => {
+            this.setState({lipunmyyntiAuki: tag.data[0].truefalse})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
     var tag = document.createElement('script');
     tag.id = 'iframe-demo';
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -75,10 +85,19 @@ class Speksi2018 extends Component {
           }
       });
     }
+
+
   }
   toggleUusiVarausModal(esitys, tilaa){
-    if (tilaa === "Täynnä") {
-      $('#varausTaynnaModal').modal('show')
+    if (!this.state.lipunmyyntiAuki) {
+      this.setState({openModalError: "Lipunmyynti ei ole vielä alkanut."}, () => {
+          $('#errorModal').modal('show')
+      })
+    }
+    else if (tilaa === "Täynnä") {
+      this.setState({openModalError: "Valittu esitys on täynnä."}, () => {
+          $('#errorModal').modal('show')
+      })
     }
     else {
       this.setState({ valittuEsitys: esitys}, () => {
@@ -234,11 +253,11 @@ class Speksi2018 extends Component {
             esitykset={this.state.esitykset}
             messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
 
-            <div className="modal fade" id="varausTaynnaModal" tabIndex="-1" role="dialog" aria-labelledby="varausTaynnaModalLabel" aria-hidden="true">
-              <div className="modal-dialog modal-sm" role="document">
+            <div className="modal fade" id="errorModal" tabIndex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
                 <div className={"modal-content " + styles.formContent }> {/* TÄHÄN MUOTOILUT KOKO MODALIIN */}
                   <div className={"modal-header " + styles.formBorder }>
-                    <h5 className={"modal-title"} id="varausTaynnaModalLabel">Esitys on täynnä</h5>
+                    <h5 className={"modal-title"} id="errorModalLabel">{this.state.openModalError}</h5>
                     <button type="button" className={"close btn btn-inverse " + styles.formClose} data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
