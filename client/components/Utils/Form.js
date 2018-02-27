@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Moment from 'react-moment';
 
 class Text extends Component {
     render() {
@@ -45,18 +46,25 @@ class Dropdown extends Component {
         }
         let options = this.props.options.map((opt, i) => {
             let value = "";
+            let time = "";
             if(!opt.value) {
                 value = opt._id
             } else {
                 value = opt.value
             }
+            if (opt.date) {
+                time = <Moment format='HH:mm'>{opt.date}</Moment>
+                // time = time.toString();
+                console.log(time)
+                console.log(typeof time)
+            }
             return (
-                <option key={i} value={value}>{opt.name}</option>
+                <option key={i} value={value}>{opt.name} {time}</option>
             )
         })
         return (
-            <div className="form-group">
-                <label htmlFor={this.props.id}>{this.props.label}</label>
+            <div>
+                {this.props.label !== 'undefined' && typeof this.props.label !== 'undefined' ? <label htmlFor={this.props.id}>{this.props.label}</label> : ""}
                 <select
                     name={this.props.name}
                     onChange={this.props.onChange}

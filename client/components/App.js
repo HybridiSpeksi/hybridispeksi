@@ -18,6 +18,7 @@ import Yhdistys from './Yhdistys/Yhdistys';
 import Sitsit from './Sitsit/Sitsit';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
+import Vahvistus from './Speksi2018/Vahvistus';
 import Lipunmyynti from './Lipunmyynti/Lipunmyynti';
 
 // Admin
@@ -86,10 +87,18 @@ export default class App extends React.Component {
             <div id="public-wrapper">
               <Switch >
               <PublicLayout exact path="/" component={Home} />
+<<<<<<< HEAD
               <PublicLayout path="/rekry" component={Rekry} />
               <PublicLayout path="/speksi2018" component={Speksi2018} />
               <PublicLayout path="/speksit" component={Speksit} />
               <PublicLayout path="/Lipunmyynti" component={Lipunmyynti} />
+=======
+              <PublicLayout exact path="/rekry" component={Rekry} />
+              <PublicLayout exact path="/speksi2018" component={Speksi2018} />
+              <PublicLayout exact path="/vahvistus/:_id" component={Vahvistus} />
+              <PublicLayout exact path="/speksit" component={Speksit} />
+              <PublicLayout exact path="/Lipunmyynti" component={Lipunmyynti} />
+>>>>>>> 7de4a101529f7c3740fdca8c2bd2cdc9fbc91576
               {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
               <PublicLayout path="/yhdistys" component={Yhdistys} />
               <PublicLayout path="/esitykset" component={Esitykset} />

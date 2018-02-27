@@ -195,6 +195,7 @@ class Varaustenhallinta extends Component {
         ajax.sendPut(
             url,
             {
+                _id: this.state.valittuVarausId,
                 fname: this.state.fname,
                 sname: this.state.sname,
                 email: this.state.email,
