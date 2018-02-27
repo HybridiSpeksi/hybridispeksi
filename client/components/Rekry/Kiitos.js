@@ -14,7 +14,7 @@ class Kiitos extends Component {
 
             	<div className={"row justify-content-sm-center " + styles.content}>
             		<div className={"col-sm-6 text-center justify-content-center " + styles.form_canvas}>
-            			<img src="assets/images/rekrykiitos.jpg" className={"img-fluid " + styles.kiitoskuva}/>
+            			<img src="/assets/images/rekrykiitos.jpg" className={"img-fluid " + styles.kiitoskuva}/>
             			<br/>
             			<h1>Kiitos ilmoittautumisesta!</h1><br/> <h3>Otamme yhteyttä HybridiSpeksiin 2018 valittuihin lähitulevaisuudessa!</h3>
             		</div>

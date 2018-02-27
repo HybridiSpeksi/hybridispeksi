@@ -27,7 +27,7 @@ class Speksit extends Component {
         <div className={"row align-items-center justify-content-center " + styles.content_kruunu}>
           <div className={"col-md-5 col-sm-11 " + styles.polaroid_kruunu_container}>
             <div className={styles.polaroid_kruunu}>
-              <img src="assets/images/hs17.jpg"/>
+              <img src="/assets/images/hs17.jpg"/>
               <div className={styles.polaroid_kruunu_desc}>
                 <p>Väinämöinen antaa kitaran laulaa</p>
               </div>
@@ -77,7 +77,7 @@ class Speksit extends Component {
           </div>
           <div className={"col-md-5 col-sm-11 d-flex justify-content-end " + styles.polaroid_bratva_container}>
             <div className={"justify-content-end " + styles.polaroid_bratva}>
-              <img src="assets/images/hs16.jpg"/>
+              <img src="/assets/images/hs16.jpg"/>
               <div className={styles.polaroid_bratva_desc}>
                 <p>"I will break you"</p>
               </div>
@@ -90,7 +90,7 @@ class Speksit extends Component {
         <div className={"row align-items-center justify-content-center " + styles.content_hali}>
           <div className={"col-md-5 col-sm-11 " + styles.polaroid_hali_container}>
             <div className={styles.polaroid_hali}>
-              <img src="assets/images/hs15.jpg"/>
+              <img src="/assets/images/hs15.jpg"/>
               <div className={styles.polaroid_hali_desc}>
                 <p>Hyvinvointia ja Avunantoa Lainkuuliaisille Ihmisille</p>
               </div>

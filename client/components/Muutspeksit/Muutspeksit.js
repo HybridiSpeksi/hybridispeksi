@@ -29,7 +29,7 @@ class Muutspeksit extends Component {
                   <h3>I/O-speksi</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/io.svg" className={styles.linkimage} />
+                  <img src="/assets/images/io.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>
@@ -39,7 +39,7 @@ class Muutspeksit extends Component {
                   <h3>LEX SPEX</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/lex.svg" className={styles.linkimage} />
+                  <img src="/assets/images/lex.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>
@@ -49,7 +49,7 @@ class Muutspeksit extends Component {
                   <h3>TLKS SPEKSI</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/tlks.svg" className={styles.linkimage} />
+                  <img src="/assets/images/tlks.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>
@@ -59,7 +59,7 @@ class Muutspeksit extends Component {
                   <h3>TuKY-Speksi</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/tuky.svg" className={styles.linkimage} />
+                  <img src="/assets/images/tuky.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>
@@ -69,7 +69,7 @@ class Muutspeksit extends Component {
                   <h3>Akademiska Spexet <br/> vid Åbo Akademi R.F.</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/abospex.svg" className={styles.linkimage} />
+                  <img src="/assets/images/abospex.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>
@@ -79,7 +79,7 @@ class Muutspeksit extends Component {
                   <h3>Turkulainen humanistispeksi</h3>
                 </div>
                 <div className="col-sm-3 col-5 text-center">
-                  <img src="assets/images/humanisti.svg" className={styles.linkimage} />
+                  <img src="/assets/images/humanisti.svg" className={styles.linkimage} />
                 </div>
               </div>
             </a>

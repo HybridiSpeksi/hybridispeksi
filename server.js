@@ -37,11 +37,11 @@ app.use('/', express.static(path.join('/dist')));
 app.use('/assets', express.static(path.join(__dirname + '/assets')));
 
 // Serve index.html for every other request. Client router handles the rest
-// if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
     app.get("*", function (req, res) {
         res.sendFile(path.join(__dirname + '/dist/index.html'));
     })
-// }
+}
 app.listen(app.get('port'), 'localhost', function () {
     console.log('Node App Started on port ' + app.get('port'));
     console.log(process.env.MAILGUN_API_KEY);

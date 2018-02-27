@@ -20,13 +20,13 @@ class Footer extends Component {
                 		</nav>
                 	</div>
                 	<div className="col-lg-1 col-md-2 col-2 text-center">
-                		<a href="https://www.facebook.com/HybridiSpeksi/"><img src="assets/images/facebook.svg" className={styles.link}/></a>
+                		<a href="https://www.facebook.com/HybridiSpeksi/"><img src="/assets/images/facebook.svg" className={styles.link}/></a>
                 	</div>
                 	<div className="col-lg-1 col-md-2 col-2 text-center">
-                		<a href="https://www.instagram.com/hybridispeksi/"><img src="assets/images/instagram.svg" className={styles.link}/></a>
+                		<a href="https://www.instagram.com/hybridispeksi/"><img src="/assets/images/instagram.svg" className={styles.link}/></a>
                 	</div>
                 	<div className="col-lg-1 col-md-2 col-2 text-center">
-                		<a href="https://www.youtube.com/channel/UCVkhBQHSqKtwC5X7qXe6HSg"><img src="assets/images/youtube.svg" className={styles.link}/></a>
+                		<a href="https://www.youtube.com/channel/UCVkhBQHSqKtwC5X7qXe6HSg"><img src="/assets/images/youtube.svg" className={styles.link}/></a>
                 	</div>
                 	<div className="col-lg-2 col-md-12 col-12 text-center">
                 		<nav className="navbar navbar-inverse">
