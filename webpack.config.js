@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
-  filename: './dist/index.html',
+  filename: 'index.html',
   inject: 'body'
 })
 
