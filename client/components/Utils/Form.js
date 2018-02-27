@@ -52,14 +52,8 @@ class Dropdown extends Component {
             } else {
                 value = opt.value
             }
-            if (opt.date) {
-                time = <Moment format='HH:mm'>{opt.date}</Moment>
-                // time = time.toString();
-                console.log(time)
-                console.log(typeof time)
-            }
             return (
-                <option key={i} value={value}>{opt.name} {time}</option>
+                <option key={i} value={value}>{opt.name}</option>
             )
         })
         return (

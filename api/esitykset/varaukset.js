@@ -13,6 +13,9 @@ module.exports = {
             res.json({success: false, data: err})
         })
     },
+    getOneById: (req, res) => {
+        
+    }
 
     createNewAdmin: (req, res) => {
         let booking = req.body;

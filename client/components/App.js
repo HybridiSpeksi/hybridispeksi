@@ -88,7 +88,8 @@ export default class App extends React.Component {
               <Switch >
               <PublicLayout exact path="/" component={Home} />
               <PublicLayout path="/rekry" component={Rekry} />
-              <PublicLayout path="/speksi2018" component={Speksi2018} />
+              <PublicLayout exact path="/speksi2018" component={Speksi2018} />
+              <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} />
               <PublicLayout path="/speksit" component={Speksit} />
               <PublicLayout path="/Lipunmyynti" component={Lipunmyynti} />
               {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
