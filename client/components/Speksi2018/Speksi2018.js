@@ -113,7 +113,7 @@ class Speksi2018 extends Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      // this.setState({ilmottu: true})
+      this.setState({ilmottu: true})
       let url = "/varaus/createPayment";
       ajax.sendPost(
           url,

@@ -1,4 +1,5 @@
 const Varaus = require('../../schema/varaus-model');
+const Esitys = require('../../schema/esitys-model');
 const payment = require('../../utils/payments');
 const mailer = require('../../utils/mailer');
 const config = require('../../config');
@@ -12,14 +13,25 @@ module.exports = {
         const method = req.query.METHOD;
         const authcode = req.query.RETURN_AUTHCODE;
         const params = ordernumber + "|" + timestamp + "|" + paid + "|" + method + "|" + config.kauppiasvarmenne;
-
+        let booking;
         if(checkValidity(params, authcode)) {
             Varaus.update({_id: req.query.ORDER_NUMBER}, {paid: true})
             .then(_booking => {
-                mailer.sendTicket(_booking);
+                booking = _booking
+                return Esitys.findOne({_id: _booking.esitysId})
+            })
+            .then(_esitys => {
+                booking.esitys = _esitys;
+                return mailer.sendTicket(_booking);
+            })
+            .then(() => {
                 res.redirect('/speksi2018/vahvistus/' + _booking._id)
             })
-            res.status(200).send();
+            .catch(err => {
+                res.redirect('/speksi2018/virhe');
+            })
+        } else {
+            res.redirect('/speksi2018/virhe');
         }
     },
 
