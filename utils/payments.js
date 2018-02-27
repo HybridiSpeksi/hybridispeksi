@@ -12,10 +12,10 @@ module.exports = {
                 "currency": "EUR",
                 "locale": "fi_FI",
                 "urlSet": {
-                    "success": "http://127.0.0.1:3000/esitykset/success",
-                    "failure": "http://127.0.0.1:3000/esitykset/failure",
-                    "pending": "http://127.0.0.1:3000/esitykset/success",
-                    "notification": "http://127.0.0.1:3000/esitykset/success"
+                    "success": "http://127.0.0.1:3000/api/payment/success",
+                    "failure": "http://127.0.0.1:3000/api/payment/failure",
+                    "pending": "http://127.0.0.1:3000/api/payment/success",
+                    "notification": "http://127.0.0.1:3000/api/payment/success"
                 },
             }
         } else {
@@ -23,10 +23,10 @@ module.exports = {
                 "currency": "EUR",
                 "locale": "fi_FI",
                 "urlSet": {
-                    "success": "http://www.hybridispeksi.fi/esitykset/success",
-                    "failure": "http://www.hybridispeksi.fi/esitykset/failure",
-                    "pending": "http://www.hybridispeksi.fi/esitykset/success",
-                    "notification": "http://www.hybridispeksi.fi/esitykset/success"
+                    "success": "http://www.hybridispeksi.fi/api/payment/success",
+                    "failure": "http://www.hybridispeksi.fi/api/payment/failure",
+                    "pending": "http://www.hybridispeksi.fi/api/payment/success",
+                    "notification": "http://www.hybridispeksi.fi/api/payment/success"
                 },
             }
         }

@@ -119,7 +119,7 @@ module.exports = {
             } else 
                 console.log(err);
         })
-    }
+    },
 }
 
 function validateAdmin(booking) {

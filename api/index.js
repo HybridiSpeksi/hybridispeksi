@@ -8,6 +8,7 @@ const ilmo = require('./ilmo/ilmo');
 const tapahtuma = require('./ilmo/tapahtuma');
 const esitys = require('./esitykset/esitykset');
 const varaus = require('./esitykset/varaukset');
+const maksu = require('./esitykset/maksut');
 
 const index = require('./index/index');
 
@@ -68,5 +69,9 @@ router.post('/admin/varaus', varaus.createNewAdmin);
 router.put('/admin/varaus/:_id', varaus.update);
 router.delete('/admin/varaus/:_id', varaus.remove);
 router.post('/varaus/createPayment', varaus.createPayment);
+
+// Maksut
+router.get('/payment/success', maksu.handleSuccess);
+router.get('/payment/failure', maksu.handleFailure);
 
 module.exports = router;
