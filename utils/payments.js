@@ -15,7 +15,7 @@ module.exports = {
                     "success": "http://127.0.0.1:3000/api/payment/success",
                     "failure": "http://127.0.0.1:3000/api/payment/failure",
                     "pending": "http://127.0.0.1:3000/api/payment/success",
-                    "notification": "http://127.0.0.1:3000/api/payment/success"
+                    "notification": "http://127.0.0.1:3000/api/payment/notify"
                 },
             }
         } else {
@@ -26,7 +26,7 @@ module.exports = {
                     "success": "https://www.hybridispeksi.fi/api/payment/success",
                     "failure": "https://www.hybridispeksi.fi/api/payment/failure",
                     "pending": "https://www.hybridispeksi.fi/api/payment/success",
-                    "notification": "https://www.hybridispeksi.fi/api/payment/success"
+                    "notification": "https://www.hybridispeksi.fi/api/payment/notify"
                 },
             }
         }

@@ -76,5 +76,6 @@ router.post('/varaus/createPayment', varaus.createPayment);
 // Maksut
 router.get('/payment/success', maksu.handleSuccess);
 router.get('/payment/failure', maksu.handleFailure);
+router.get('/payment/notify', maksu.handleNotify);
 
 module.exports = router;

@@ -14,12 +14,12 @@ module.exports = {
         const authcode = req.query.RETURN_AUTHCODE;
         const params = ordernumber + "|" + timestamp + "|" + paid + "|" + method + "|" + config.kauppiasvarmenne;
         let booking;
-        if(checkValidity(params, authcode)) {
-            Varaus.findOne({_id: req.query.ORDER_NUMBER})
+        if(true) {
+            Varaus.findOne({_id: ordernumber})
             .then(_booking => {
                 _booking.paid = true;
                 booking = _booking;
-                return booking.save()
+                return _booking.save()
             })
             .then(() => {
                 return Esitys.findOne({_id: booking.esitysId})
@@ -50,6 +50,45 @@ module.exports = {
             console.log('Payment event failed');
         })
         res.redirect('/speksi2018/virhe/1');
+    },
+
+    handleNotify: (req, res) => {
+        const ordernumber = req.query.ORDER_NUMBER;
+        const timestamp = req.query.TIMESTAMP;
+        const paid = req.query.PAID;
+        const method = req.query.METHOD;
+        const authcode = req.query.RETURN_AUTHCODE;
+        const params = ordernumber + "|" + timestamp + "|" + paid + "|" + method + "|" + config.kauppiasvarmenne;
+        let booking;
+        Varaus.findOne({_id: ordernumber})
+        .then(_booking => {
+            if(_booking.paid) {
+                return new Promise((resolve, reject) => {
+                    reject();
+                })
+            }
+            _booking.paid = true;
+            booking = _booking;
+            return _booking.save()
+        })
+        .then(() => {
+            return Esitys.findOne({_id: booking.esitysId})
+        })
+        .then(_esitys => {
+            booking.esitys = _esitys;
+            return mailer.sendTicket(booking);
+        })
+        .then(() => {
+            res.redirect('/speksi2018/vahvistus/' + booking._id)
+        })
+        .catch(err => {
+            console.log(err);
+            if(err.ohjaustietoValue) {
+                res.redirect('/speksi2018/virhe/' + err.ohjaustietoValue);
+            } else
+                res.redirect('/speksi2018/virhe/0')
+            
+        })
     }
 }
 
