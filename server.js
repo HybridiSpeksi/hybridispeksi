@@ -44,6 +44,4 @@ if (process.env.NODE_ENV === "production") {
 }
 app.listen(app.get('port'), 'localhost', function () {
     console.log('Node App Started on port ' + app.get('port'));
-    console.log(process.env.KAUPPIASTUNNUS);
-    console.log(process.env.KAUPPIASVARMENNE);
 });
