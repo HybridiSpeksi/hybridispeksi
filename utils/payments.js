@@ -49,8 +49,8 @@ module.exports = {
                 method: 'post',
                 url: PAYMENT_URL,
                 auth: {
-                    username: config.kauppiastunnus,
-                    password: config.kauppiasvarmenne,
+                    username: kauppiastunnus,
+                    password: kauppiasvarmenne,
                 },
                 data: JSON.stringify(payment),
                 headers: {
