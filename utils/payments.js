@@ -33,15 +33,24 @@ module.exports = {
         payment.price = countPrice(booking);
         payment.orderNumber = booking._id;
         const p = new Promise((resolve, reject) => {
+            let kauppiastunnus;
+            let kauppiasvarmenne;
+            if(process.env.NODE_ENV === 'develop') {
+                kauppiastunnus = config.kauppiastunnus;
+                kauppiasvarmenne = config.kauppiasvarmenne;
+            } else {
+                kauppiastunnus = process.env.KAUPPIASTUNNUS;
+                kauppiasvarmenne = process.env.KAUPPIASVARMENNE;
+            }
             console.log('send ajax to paytrail')
-            console.log(config.kauppiastunnus + " " + config.kauppiasvarmenne);
+            console.log(kauppiastunnus + " " + kauppiasvarmenne);
             // axios.post(PAYMENT_URL, data, CONFIG)
             axios({
                 method: 'post',
                 url: PAYMENT_URL,
                 auth: {
-                    username: config.kauppiastunnus,
-                    password: config.kauppiasvarmenne,
+                    username: kauppiastunnus,
+                    password: kauppiasvarmenne,
                 },
                 data: JSON.stringify(payment),
                 headers: {
