@@ -67,7 +67,6 @@ function countPrice(varaus) {
     price += varaus.scount * config.sprice;
     price += varaus.ncount * config.nprice;
     price += varaus.ocount * varaus.oprice;
-    price += 0.5;
 
     return price;
 }
