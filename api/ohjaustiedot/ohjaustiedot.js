@@ -38,6 +38,16 @@ module.exports = {
                 res.json({ success: false, data: err })
             })
     },
+    haeLipunmyyntiMessage: (req, res) => {
+        Ohjaustieto.find({ key: "lipunmyyntiMessage" })
+            .then(tag => {
+                res.json({ success: true, data: tag })
+            })
+            .catch(err => {
+                res.json({ success: false, data: err })
+                console.log(err)
+            })
+    },
 
     haeOhjaustiedot: (req, res) => {
         Ohjaustieto.find()
