@@ -23,10 +23,7 @@ class Vahvistus extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
 
-    // console.log(this.props)
-    // console.log(this.props.match.params._id)
-    let id = '5a95f34294fa442de4196130'
-    ajax.sendGet('/getOneVarausById/' + id)
+    ajax.sendGet('/getOneVarausById/' + this.props.params._id)
         .then(_data => {
             this.setState({
               fname: _data.data.booking.fname,
