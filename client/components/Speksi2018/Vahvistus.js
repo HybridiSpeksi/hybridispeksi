@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ajax from './../Utils/Ajax';
 
+import Moment from 'react-moment';
+
 import styles from './Vahvistus.css';
 
 class Vahvistus extends Component {
@@ -15,7 +17,7 @@ class Vahvistus extends Component {
         email: '',
         pnumber: '',
         bookingId:'',
-        esitys: '',
+        esitys: {},
         ticketCount:''
       }
    }
@@ -31,7 +33,7 @@ class Vahvistus extends Component {
               email: _data.data.booking.email,
               pnumber: _data.data.booking.pnumber,
               bookingId: _data.data.booking.bookingId,
-              esitys: _data.data.esitys.name,
+              esitys: _data.data.esitys,
               ticketCount: _data.data.booking.ncount + _data.data.booking.scount + _data.data.booking.ocount
             })
         })
@@ -56,7 +58,7 @@ class Vahvistus extends Component {
                 <p><i>Esitys:</i></p>
               </div>
               <div className="col-sm-6 col-8">
-                <p>{this.state.esitys}</p>
+                <p>{this.state.esitys.name} klo <Moment format="HH.mm">{this.state.esitys.date}</Moment></p>
               </div>
             </div>
             <div className="row">

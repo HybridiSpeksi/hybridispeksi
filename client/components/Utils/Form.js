@@ -65,6 +65,7 @@ class Dropdown extends Component {
                     value={this.props.selected}
                     className="form-control"
                     id={this.props.id}
+                    disabled={this.props.disabled}
                 >
                     {options}
                 </select>
