@@ -4,6 +4,9 @@
 hr {
 	background-color:#7a1111;
 }
+.hr {
+	margin:0px;
+}
 .content_home {
 	height:810px;
 	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top lightgray;
@@ -108,6 +111,13 @@ hr {
 }
 .otsikko {
 	text-align: center;
+}
+.sponsors {
+	padding:50px;
+}
+.sponsor {
+	padding:20px;
+	width:auto;
 }
 
 

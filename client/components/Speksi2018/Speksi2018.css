@@ -1,6 +1,9 @@
 .container {
-	background:lightgray;
+	background:#ffecaf;
 	padding:0px;
+}
+.hr {
+	margin:0px;
 }
 .header {
 	margin:0px;
@@ -10,10 +13,15 @@
 	color:white;
 }
 .content {
-	background:#ffecaf;
 	margin:0px;
 	padding:20px;
 	padding-bottom:100px;
+}
+.paytrail {
+	margin:0px;
+	padding:20px;
+	padding-top:50px;
+	padding-bottom:50px;
 }
 .videowrapper {
 	background:#ffecaf;

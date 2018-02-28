@@ -214,18 +214,7 @@ class Speksi2018 extends Component {
                 <li>Seuraa nettipankin ohjeita maksaaksesi</li>
                 <li>Saat sähköpostiisi varausnumeron, jota näyttämällä pääset katsomaan HybridiSpeksiä 2018!</li>
               </ol>
-              <h4>Maksupalvelutarjoaja</h4>
-                <p>Maksunvälityspalvelun toteuttajana ja maksupalveluntarjoajana toimii Paytrail Oyj (2122839-7) yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Paytrail Oyj näkyy maksun saajana tiliotteella tai korttilaskulla ja välittää maksun kauppiaalle. Paytrail Oyj:llä on maksulaitoksen toimilupa. Reklamaatiotapauksissa pyydämme ottamaan ensisijaisesti yhteyttä tuotteen toimittajaan.</p>
-
-                <p>Paytrail Oyj, y-tunnus: 2122839-7<br />
-                    Innova 2<br />
-                    Lutakonaukio 7<br />
-                    40100 Jyväskylä<br />
-                    Puhelin: 0207 181830<br />
-                    www.paytrail.com</p>
-
-                <h4>Verkkopankit</h4>
-                <p>Verkkopankkimaksamiseen liittyvän maksunvälityspalvelun toteuttaa Paytrail Oyj (2122839-7) yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Käyttäjän kannalta palvelu toimii aivan kuten perinteinen verkkomaksaminenkin.</p>
+            
             <div className="videowrapper">
               <h2 className={styles.textheader}>Älä ammu ohi -teaser</h2> 
                 <iframe id="youtubeplayer"
@@ -241,6 +230,32 @@ class Speksi2018 extends Component {
             <Esitysvalinta 
                 esitykset={this.state.esitykset} 
                 toggleUusiVarausModal={this.toggleUusiVarausModal} />
+          </div>
+        </div>
+        <div className={"row justify-content-center " + styles.hr}>
+          <div className="col-8">
+            <hr/>
+          </div>
+        </div>
+        <div className={"row align-items-top justify-content-center " + styles.paytrail}>
+          <div className="col-8">
+            <h4>Maksupalvelutarjoaja</h4>
+                <p>Maksunvälityspalvelun toteuttajana ja maksupalveluntarjoajana toimii Paytrail Oyj (2122839-7) 
+                yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Paytrail Oyj näkyy maksun saajana 
+                tiliotteella tai korttilaskulla ja välittää maksun kauppiaalle. Paytrail Oyj:llä on maksulaitoksen 
+                toimilupa. Reklamaatiotapauksissa pyydämme ottamaan ensisijaisesti yhteyttä tuotteen toimittajaan.</p>
+
+                <p>Paytrail Oyj, y-tunnus: 2122839-7<br />
+                    Innova 2<br />
+                    Lutakonaukio 7<br />
+                    40100 Jyväskylä<br />
+                    Puhelin: 0207 181830<br />
+                    www.paytrail.com</p>
+
+                <h4>Verkkopankit</h4>
+                <p>Verkkopankkimaksamiseen liittyvän maksunvälityspalvelun toteuttaa Paytrail Oyj (2122839-7) 
+                yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Käyttäjän kannalta palvelu toimii 
+                aivan kuten perinteinen verkkomaksaminenkin.</p>
           </div>
         </div>
 

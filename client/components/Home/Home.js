@@ -61,7 +61,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className="row justify-content-center">
+        <div className={"row justify-content-center " + styles.hr}>
           <div className="col-8">
             <hr/>
           </div>
@@ -87,6 +87,23 @@ class Home extends Component {
             <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali. 
             Esityksissä yleisö voi vaikuttaa muutoin käsikirjoitetun esityksen kulkuun huutamalla <strong>“Omstart”</strong>, jolloin edellinen toiminta, repliikki tai musiikkinumero tehdään uudelleen erilaisella tavalla improvisoiden. 
             Lisää spekseistä ja niiden historiasta voi lukea esimerkiksi  <a className={styles.externallink} href="https://fi.wikipedia.org/wiki/Speksi">Wikipediasta</a>. </p>
+          </div>
+        </div>
+
+        <div className={"row justify-content-center " + styles.hr}>
+          <div className="col-8">
+            <hr/>
+          </div>
+        </div>
+
+        <div className={"row justify-content-center"}>
+          <div className={"col-lg-6 col-md-10 col-sm-10 " + styles.sponsors}>
+            <h2>Menossa mukana</h2>
+            <div  className={"col-12 " + styles.sponsor}>
+              <a href="https://www.tek.fi/fi">
+              <img src="/assets/images/tek.svg"/>
+              </a>
+            </div>
           </div>
         </div>
       </div>
