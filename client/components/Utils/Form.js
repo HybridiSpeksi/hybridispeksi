@@ -84,19 +84,23 @@ class Radio extends Component {
     render() {
         let options = this.props.options.map((option, i) => {
             return (
-                <div className="form-check" key={i}>
-                    <label className="form-check-label">
-                        <input className="form-check-input" type="radio" onChange={this.props.onChange} value={option.value} checked={option.value === this.props.value} name={this.props.name} />
+                <div key={i}>
+                        <input 
+                            type="radio" 
+                            onChange={this.props.onChange} 
+                            value={option.value} 
+                            checked={option.value == this.props.value} 
+                            name={this.props.name} 
+                            disabled={this.props.disabled}/> &nbsp;
                         {option.label}
-                    </label>
                 </div>
             )
         })
         return (
-            <fieldset className="form-group">
-                <legend>{this.props.legend}</legend>
+            <div>
+                {this.props.legend ? <legend>{this.props.legend}</legend> : ""}
                 {options}
-            </fieldset>
+            </div>
         )
     }
 }

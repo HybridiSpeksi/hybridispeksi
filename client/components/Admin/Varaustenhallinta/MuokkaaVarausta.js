@@ -32,13 +32,17 @@ class MuokkaaVarausta extends Component {
                             lisatiedot={this.props.lisatiedot}
                             valittuEsitys={this.props.valittuEsitys}
                             esitykset={this.props.esitykset} 
-                            valittuVarausId={this.props.valittuVarausId}/>
+                            valittuVarausId={this.props.valittuVarausId}
+                            paymentMethod={this.props.paymentMethod}
+                            paid={this.props.paid}
+                            sendemail={this.props.sendemail}/>
 
                         <div className="row justify-content-center">
                             {this.props.messages}
                         </div>
                       </div>
-                      <div className="modal-footer">
+                      <div className="modal-footer d-flex justify-content-end ">
+                        { this.props.valittuVarausId !== 'undefined' && typeof this.props.valittuVarausId !== 'undefined' ? <button type="button" className="btn btn-dark mr-auto" style={{backgroundColor:'#7a1111', color:'white'}} onClick={this.props.sendBookingIdEmail}>Lähetä sähköposti</button> : "" }
                         <button type="button" className="btn btn-secondary" onClick={this.props.emptyFields}>Nollaa kentät</button>
                         { this.props.ilmottu ? <button disabled type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button> : <button type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button>}
                       </div>

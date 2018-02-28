@@ -52,7 +52,10 @@ class VarausLista extends Component {
                     valittuEsitys={this.props.valittuEsitys}
                     esitykset={this.props.esitykset}
                     messages={this.props.messages} 
-                    valittuVaraus={this.props.valittuVaraus}/>
+                    valittuVarausId={this.props.valittuVarausId}
+                    paymentMethod={this.props.paymentMethod}
+                    paid={this.props.paid}
+                    sendemail={this.props.sendemail}/>
             </div>
         )
     }

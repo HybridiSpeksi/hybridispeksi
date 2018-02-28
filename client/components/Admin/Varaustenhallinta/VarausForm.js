@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 
-import { Dropdown } from '../../Utils/Form';
+import { Dropdown, Radio } from '../../Utils/Form';
 
 class VarausForm extends Component {
     constructor(props) {
         super(props);
     }
     render () {
+        let paymentMethodOptions = [{label:'Käteinen', value:'0'}, {label:'Lasku', value:'1'}, {label:'Paytrail', value:'2'}];
+        let paidOptions = [{label:'Kyllä', value:'true'}, {label:'Ei', value:'false'}]
+        let sendemailOptions = [{label:'Kyllä', value:'true'},{label:'Ei', value:'false'}]
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
@@ -93,34 +96,48 @@ class VarausForm extends Component {
                             </div>
                     </div>
                     
-                    <hr/>
-                    
+                    <hr style={{backgroundColor:'lightgray', margin:'30px'}}/>
+
                     <div className={"row form-group align-items-center "}>
                         <div className={"col-sm-3"}>
                             <label htmlFor="maksutapaInput" className="">Maksutapa:</label>
                         </div>
                         <div className={"col form-check form-check-inline"}>
-                            <input checked={this.props.maksutapa === "0"} className="" type="radio" name="maksutapa" value="0" onChange={this.props.handleChange}/> Käteinen 
-                            <input checked={this.props.maksutapa === "1"} className="" type="radio" name="maksutapa" value="1" onChange={this.props.handleChange}/> Lasku 
-                            <input checked={this.props.maksutapa === "2"} className="" type="radio" name="maksutapa" value="2" onChange={this.props.handleChange}/> Paytrail 
+                            <Radio 
+                                options={paymentMethodOptions}
+                                onChange={this.props.handleChange}
+                                value={this.props.paymentMethod}
+                                name='paymentMethod' />
                         </div>
+                        {/*
+                            <input checked={this.props.paymentMethod === 0} className="" type="radio" name="paymentMethod" value={0} onChange={this.props.handleChange}/> Käteinen <br/>
+                            <input checked={this.props.paymentMethod === 1} className="" type="radio" name="paymentMethod" value={1} onChange={this.props.handleChange}/> Lasku <br/>
+                            <input checked={this.props.paymentMethod === 2} className="" type="radio" name="paymentMethod" value={2} onChange={this.props.handleChange}/> Paytrail <br/>
+                        */}
                     </div>
                     <div className={"row form-group align-items-center"}>
                         <div className={"col-sm-3"}>
                             <label htmlFor="maksettuInput" className="">Maksettu:</label>
                         </div>
-                        <div className={"col form-check form-check-inline justify-contents-start"}>
-                            <input checked={this.props.maksettu === "0"} className="" type="radio" name="maksettu" value="0" onChange={this.props.handleChange}/> Kyllä 
-                            <input checked={this.props.maksettu === "1"} className="" type="radio" name="maksettu" value="1" onChange={this.props.handleChange}/> Ei 
+                        <div className={"col form-check form-check-inline"}>
+                            <Radio 
+                                options={paidOptions}
+                                onChange={this.props.handleChange}
+                                value={this.props.paid}
+                                name='paid' />
                         </div>
                     </div>
-                                        <div className={"row form-group align-items-center"}>
+                    <div className={"row form-group align-items-center"}>
                         <div className={"col-sm-3"}>
                             <label htmlFor="sendmailInput" className="">Lähetetäänkö maili:</label>
                         </div>
-                        <div className={"col form-check form-check-inline justify-contents-start"}>
-                            <input checked={this.props.sendmail === "0"} className="" type="radio" name="sendmail" value="0" onChange={this.props.handleChange}/> Kyllä
-                            <input checked={this.props.sendmail === "1"} className="" type="radio" name="sendmail" value="1" onChange={this.props.handleChange}/> Ei
+                        <div className={"col form-check form-check-inline"}>
+                            <Radio 
+                                options={sendemailOptions}
+                                onChange={this.props.handleChange}
+                                value={this.props.sendemail}
+                                name='sendemail'
+                                disabled={this.props.valittuVarausId ? true : false} /> 
                         </div>
                     </div>
                 </form>

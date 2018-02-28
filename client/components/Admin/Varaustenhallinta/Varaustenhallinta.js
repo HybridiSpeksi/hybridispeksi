@@ -37,6 +37,9 @@ class Varaustenhallinta extends Component {
             oprice: '10',
             price: '',
             lisatiedot: '',
+            paid: 'true',
+            paymentMethod: '0',
+            sendemail: 'true',
             ilmottu: false,
             messages: [],
             warnings: [],
@@ -97,6 +100,9 @@ class Varaustenhallinta extends Component {
             scount: varaus.scount,
             ocount: varaus.ocount,
             lisatiedot: varaus.additional,
+            paid: varaus.paid.toString(),
+            paymentMethod: varaus.paymentMethod.toString(),
+            sendemail: 'false',
             ilmottu: false,
             messages: [],
             warnings: [],
@@ -151,6 +157,10 @@ class Varaustenhallinta extends Component {
 	    this.setState({filteredVaraukset : result})
     }
 
+    sendBookingIdEmail() {
+
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -167,8 +177,9 @@ class Varaustenhallinta extends Component {
 			    ncount: this.state.ncount,
 			    ocount: this.state.ocount,
 			    oprice: this.state.oprice,
-			    paymentMethod: 0,
-			    paid: true,
+			    paymentMethod: this.state.paymentMethod,
+			    paid: this.state.paid,
+                sendemail: this.state.sendemail,
 			    esitysId: this.state.valittuEsitys._id,
 			    additional: this.state.lisatiedot
             }).then(data => {
@@ -204,8 +215,8 @@ class Varaustenhallinta extends Component {
                 ncount: this.state.ncount,
                 ocount: this.state.ocount,
                 oprice: this.state.oprice,
-                paymentMethod: 0,
-                paid: true,
+                paymentMethod: this.state.paymentMethod,
+                paid: this.state.paid,
                 esitysId: this.state.valittuEsitys._id,
                 additional: this.state.lisatiedot
             }).then(data => {
@@ -239,7 +250,11 @@ class Varaustenhallinta extends Component {
     		messages: [],
             warnings: [],
             errors: [],
-            ilmottu: false
+            ilmottu: false, 
+            paid:'true',
+            paymentMethod: '0',
+            sendemail:'true'
+
         })
     }
 
@@ -340,6 +355,9 @@ class Varaustenhallinta extends Component {
 		            ilmottu={this.state.ilmottu}
 		            valittuEsitys={this.state.valittuEsitys}
 		            esitykset={this.state.esitykset}
+                    paymentMethod={this.state.paymentMethod}
+                    paid={this.state.paid}
+                    sendemail={this.state.sendemail}
 		            messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                 
                 <div className="row">
@@ -392,6 +410,9 @@ class Varaustenhallinta extends Component {
                             valittuEsitys={this.state.valittuEsitys}
                             valittuVarausId={this.state.valittuVarausId}
                             esitykset={this.state.esitykset}
+                            paymentMethod={this.state.paymentMethod}
+                            paid={this.state.paid}
+                            sendemail={this.state.sendemail}
                             messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />} />
                     		
                     </div>

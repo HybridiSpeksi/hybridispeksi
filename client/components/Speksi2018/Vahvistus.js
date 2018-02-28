@@ -36,6 +36,7 @@ class Vahvistus extends Component {
               esitys: _data.data.esitys,
               ticketCount: _data.data.booking.ncount + _data.data.booking.scount + _data.data.booking.ocount
             })
+            console.log(_data)
         })
         .catch(err => {
             console.log(err);

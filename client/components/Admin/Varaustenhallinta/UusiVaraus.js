@@ -32,7 +32,10 @@ class UusiVaraus extends Component {
                             price={this.props.price}
                             lisatiedot={this.props.lisatiedot}
                             valittuEsitys={this.props.valittuEsitys}
-                            esitykset={this.props.esitykset} />
+                            esitykset={this.props.esitykset} 
+                            paymentMethod={this.props.paymentMethod}
+                            paid={this.props.paid}
+                            sendemail={this.props.sendemail}/>
 
                         <div className="row justify-content-center">
                             {this.props.messages}
