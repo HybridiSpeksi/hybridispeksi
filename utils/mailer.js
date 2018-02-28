@@ -33,7 +33,7 @@ module.exports = {
             })
             .catch(err => {
                 console.log(err);
-                reject({code: 500, message: 'Sähköpostin lähetys epäonnistui.'});
+                reject({code: 500, message: 'Sähköpostin lähetys epäonnistui.', ohjaustietoValue: 3});
             })
         })
     },
