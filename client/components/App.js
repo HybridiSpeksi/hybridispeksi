@@ -20,7 +20,6 @@ import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
 import Vahvistus from './Speksi2018/Vahvistus';
 import Virhe from './Speksi2018/Virhe';
-import Lipunmyynti from './Lipunmyynti/Lipunmyynti';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -93,7 +92,6 @@ export default class App extends React.Component {
               <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} />
               <PublicLayout exact path="/speksi2018/virhe" component={Virhe} />
               <PublicLayout path="/speksit" component={Speksit} />
-              <PublicLayout path="/Lipunmyynti" component={Lipunmyynti} />
               {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
               <PublicLayout path="/yhdistys" component={Yhdistys} />
               <PublicLayout path="/esitykset" component={Esitykset} />
