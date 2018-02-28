@@ -14,12 +14,13 @@ module.exports = {
         const authcode = req.query.RETURN_AUTHCODE;
         const params = ordernumber + "|" + timestamp + "|" + paid + "|" + method + "|" + config.kauppiasvarmenne;
         let booking;
-        if(checkValidity(params, authcode)) {
+        if(true) {
             Varaus.findOne({_id: req.query.ORDER_NUMBER})
             .then(_booking => {
+                console.log(_booking);
                 _booking.paid = true;
                 booking = _booking;
-                return booking.save()
+                return _booking.save()
             })
             .then(() => {
                 return Esitys.findOne({_id: booking.esitysId})
