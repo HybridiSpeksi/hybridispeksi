@@ -41,7 +41,9 @@ class UusiVaraus extends Component {
                             esitykset={this.props.esitykset} />
 
                         <div className="row justify-content-center">
+                          <div className="col-8 justify-content-center align-items-center">
                             {this.props.messages}
+                          </div>
                         </div>
                       </div>
                       <div className={"modal-footer justify-content-center " + styles.formBorder }>

@@ -141,6 +141,12 @@ class Speksi2018 extends Component {
       e.preventDefault();
       this.setState({ilmottu: true})
       let url = "/varaus/createPayment";
+      let ticketSum = parseInt(this.state.scount) + parseInt(this.state.ncount) + parseInt(this.state.ocount)
+      console.log(ticketSum)
+      if (ticketSum > 7) {
+        this.addMessage(MESSAGE_WARNING, "HUOM!", "Vähintään 8 hengen ryhmätilauksella lipun hinta on vain 12 €/hlö ja tulee hoitaa lähettämällä sähköpostia osoitteeseen lipunmyynti@hybridispeksi.fi.")
+      }
+      else {
       ajax.sendPost(
           url,
           {
@@ -167,28 +173,30 @@ class Speksi2018 extends Component {
               this.setState({ilmottu: false})
               this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen.");
           })
+        }
   }
 
     //Add different kinds of error or warning messages
   addMessage(type, newHeader, newText) {
-    this.setState({ 
-      messages: [],
+      this.setState({ 
+          messages: [],
           warnings: [],
           errors: []
+      }, () => {
+        if (type === MESSAGE_WARNING) {
+            let newWarnings = this.state.warnings;
+            newWarnings.push({ header: newHeader, text: newText });
+            this.setState({ warnings: newWarnings })
+        } else if (type === MESSAGE_ERROR) {
+            let newErrors = this.state.errors;
+            newErrors.push({ header: newHeader, text: newText });
+            this.setState({ errors: newErrors })
+        } else if (type === MESSAGE_SUCCESS) {
+            let newMessages = this.state.messages;
+            newMessages.push({ header: newHeader, text: newText });
+            this.setState({ messages: newMessages });
+        }
       })
-      if (type === MESSAGE_WARNING) {
-          let newWarnings = this.state.warnings;
-          newWarnings.push({ header: newHeader, text: newText });
-          this.setState({ warnings: newWarnings })
-      } else if (type === MESSAGE_ERROR) {
-          let newErrors = this.state.errors;
-          newErrors.push({ header: newHeader, text: newText });
-          this.setState({ erros: newErrors })
-      } else if (type === MESSAGE_SUCCESS) {
-          let newMessages = this.state.messages;
-          newMessages.push({ header: newHeader, text: newText });
-          this.setState({ messages: newMessages });
-      }
   }
 
   render() {
@@ -225,8 +233,11 @@ class Speksi2018 extends Component {
                 <li>Siirry maksamaan ja valitse oma nettipankkisi (maksutapahtuman käsittelee Paytrail, lisätietoa alempana)</li>
                 <li>Seuraa nettipankin ohjeita maksaaksesi</li>
                 <li>Saat sähköpostiisi varausnumeron, jota näyttämällä pääset katsomaan HybridiSpeksiä 2018!</li>
-                <li>Ongelmatilanteissa ota yhteyttä osoitteeseen <a href="mailto:lipunmyynti@hybridispeksi.fi">lipunmyynti@hybridispeksi.fi</a></li>
+                <li>Ongelmatilanteissa ota yhteyttä osoitteeseen <a className={styles.externallink} href="mailto:lipunmyynti@hybridispeksi.fi">lipunmyynti@hybridispeksi.fi</a></li>
               </ol>
+              <p>Vähintään 8 hengen ryhmätilaukset voi lähettää sähköpostilla osoitteeseen <a className={styles.externallink} href="mailto:lipunmyynti@hybridispeksi.fi">lipunmyynti@hybridispeksi.fi</a>. 
+              Ryhmätilauksen alennushinta 12 €/hlö.
+              </p>
 
             <h2 className={styles.textheader}>Hinnasto</h2>
               <table className={styles.hinnasto}>

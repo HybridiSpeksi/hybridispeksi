@@ -59,6 +59,18 @@ hr {
 	color:white;
 	font-size:78px;
 }
+.lipunmyyntiLink {
+	margin-top:20px;
+	color:white;
+	transition:0.1s ease-in transform;
+	animation:fadein 2s;
+	display:block;
+}
+.lipunmyyntiLink:hover {
+	text-decoration: none;
+	color:white;
+	transform:scale(1.05);
+}
 
 /* CONTENTS */
 .content_contents{
