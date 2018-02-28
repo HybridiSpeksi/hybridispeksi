@@ -23,6 +23,7 @@ class VarausForm extends Component {
                             id={"esitysInput"}
                             name={"esitys"}
                             onChange={this.props.handleChange}
+                            disabled={true}
                             />
                             {/* 
                             <select name="esitys" id="esitysInput" className="form-control" onChange={this.props.handleChange} default={this.props.valittuEsitys.name}>
