@@ -29,6 +29,7 @@ router.get('/admin/w/avaimet', ohjaustiedot.haeAvaimet);
 router.get('/ohjaustieto/:key', ohjaustiedot.getByKey);
 router.get('/price', ohjaustiedot.haeHinnat);
 router.get('/lipunmyyntiAuki', ohjaustiedot.haeLipunmyyntiAuki);
+router.get('/lipunmyyntiMessage', ohjaustiedot.haeLipunmyyntiMessage);
 
 // Produktion jäsenet
 router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);

@@ -35,6 +35,7 @@ class Speksi2018 extends Component {
         lisatiedot: '',
         ilmottu: false,
         lipunmyyntiAuki: false,
+        lipunmyyntiMessage:'',
         messages: [],
         warnings: [],
         errors: [],
@@ -67,7 +68,13 @@ class Speksi2018 extends Component {
         .catch(err => {
             console.log(err)
         })
-
+    ajax.sendGet('/lipunmyyntiMessage')
+        .then(tag => {
+            this.setState({lipunmyyntiMessage: tag.data[0]})
+        })
+        .catch(err => {
+            console.log(err)
+    })
     var tag = document.createElement('script');
     tag.id = 'iframe-demo';
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -202,6 +209,11 @@ class Speksi2018 extends Component {
           </div>
           <div className="col-12 col-sm-6 col-lg-6 col-xl-3">
             <img src="/assets/images/logo_lapinak_valk.png"/>
+          </div>
+        </div>
+        <div className={"row align-items-top justify-content-center"}>
+          <div className={"col-9 text-center " + styles.lipunmyyntiMessage}>
+            {this.state.lipunmyyntiMessage.truefalse ? <p className={styles.lipunmyyntiMessageText}>{this.state.lipunmyyntiMessage.name}</p> : ""}
           </div>
         </div>
         <div className={"row align-items-top justify-content-center " + styles.content}> 

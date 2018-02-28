@@ -96,7 +96,7 @@ class Varaustenhallinta extends Component {
             ncount: varaus.ncount,
             scount: varaus.scount,
             ocount: varaus.ocount,
-            lisatiedot: varaus.lisatiedot,
+            lisatiedot: varaus.additional,
             ilmottu: false,
             messages: [],
             warnings: [],

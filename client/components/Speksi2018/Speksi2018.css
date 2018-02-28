@@ -12,6 +12,17 @@
 	background:#292B2C;
 	color:white;
 }
+.lipunmyyntiMessage {
+	padding-top:20px;
+	padding-left:40px;
+	padding-right:40px;
+}
+.lipunmyyntiMessageText {
+	font-family: Calibri;
+	font-size:20px;
+	font-weight:bold;
+	font-style:italic;
+}
 .content {
 	margin:0px;
 	padding:20px;
@@ -159,7 +170,6 @@
 }
 @media (max-width:767px){
 	.container {
-		background:lightgray;
 		padding:0px;
 		padding-top:40px;
 	}
