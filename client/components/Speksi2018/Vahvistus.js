@@ -24,9 +24,9 @@ class Vahvistus extends Component {
     $(window).scrollTop(0);
 
     // console.log(this.props)
-    // console.log(this.props.match.params._id)
-    let id = '5a957ec7c89f54161cb02d05'
-    ajax.sendGet('/getOneVarausById/' + id)
+    // console.log(this.props.params._id)
+    // let id = '5a957ec7c89f54161cb02d05'
+    ajax.sendGet('/getOneVarausById/' + this.props.params._id)
         .then(_data => {
             this.setState({
               fname: _data.data.booking.fname,

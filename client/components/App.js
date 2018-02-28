@@ -46,10 +46,12 @@ export default class App extends React.Component {
   render() {
     const PublicLayout = ({ component: Component, ...rest }) => {
       return (
-        <Route {...rest} render={props => (
+        <Route location={this.props.location}
+          {...rest} 
+          render={({ location, match }) => (
           <div>
             <Header />
-            <Component globalStyles={globalStyles} />
+            <Component params={match.params} globalStyles={globalStyles} />
             <Footer />
           </div>
         )} />
