@@ -33,15 +33,23 @@ module.exports = {
             })
             .catch(err => {
                 console.log(err);
-                res.redirect('/speksi2018/virhe');
+                if(err.ohjaustietoValue) {
+                    res.redirect('/speksi2018/virhe/' + err.ohjaustietoValue);
+                } else
+                    res.redirect('/speksi2018/virhe/0')
             })
         } else {
-            res.redirect('/speksi2018/virhe');
+            res.redirect('/speksi2018/virhe/2');
         }
     },
 
     handleFailure: (req, res) => {
-        res.redirect('/speksi2018/virhe');
+        Varaus.remove({_id: req.query.ORDER_NUMBER})
+        .then(() => {
+            console.log('Booking removed with _id ' + req.query.ORDER_NUMBER);
+            console.log('Payment event failed');
+        })
+        res.redirect('/speksi2018/virhe/1');
     }
 }
 
