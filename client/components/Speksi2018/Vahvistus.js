@@ -25,7 +25,7 @@ class Vahvistus extends Component {
 
     // console.log(this.props)
     // console.log(this.props.match.params._id)
-    let id = '5a957ec7c89f54161cb02d05'
+    let id = '5a95f34294fa442de4196130'
     ajax.sendGet('/getOneVarausById/' + id)
         .then(_data => {
             this.setState({
