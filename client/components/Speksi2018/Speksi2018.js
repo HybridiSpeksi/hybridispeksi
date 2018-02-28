@@ -213,6 +213,7 @@ class Speksi2018 extends Component {
                 <li>Siirry maksamaan ja valitse oma nettipankkisi (maksutapahtuman käsittelee Paytrail, lisätietoa alempana)</li>
                 <li>Seuraa nettipankin ohjeita maksaaksesi</li>
                 <li>Saat sähköpostiisi varausnumeron, jota näyttämällä pääset katsomaan HybridiSpeksiä 2018!</li>
+                <li>Ongelmatilanteissa ota yhteyttä osoitteeseen <a href="mailto:lipunmyynti@hybridispeksi.fi">lipunmyynti@hybridispeksi.fi</a></li>
               </ol>
             
             <div className="videowrapper">
