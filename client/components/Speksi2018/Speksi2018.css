@@ -44,6 +44,13 @@
 	font-family:hybridispeksi;
 	color:#7a1111;
 }
+.hinnasto {
+	margin-bottom:40px;
+	width:200px;
+	font-family: Calibri;
+	font-weight:bold;
+	font-size:20px;
+}
 .content ol {
 	font-family:Calibri;
 	font-size:20px;
