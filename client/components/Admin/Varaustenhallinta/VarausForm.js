@@ -92,8 +92,9 @@ class VarausForm extends Component {
                                 <textarea rows="2" name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={this.props.handleChange} value={this.props.lisatiedot}></textarea>  
                             </div>
                     </div>
-                    {/*}
+                    
                     <hr/>
+                    
                     <div className={"row form-group align-items-center "}>
                         <div className={"col-sm-3"}>
                             <label htmlFor="maksutapaInput" className="">Maksutapa:</label>
@@ -122,7 +123,6 @@ class VarausForm extends Component {
                             <input checked={this.props.sendmail === "1"} className="" type="radio" name="sendmail" value="1" onChange={this.props.handleChange}/> Ei
                         </div>
                     </div>
-                    */}
                 </form>
             </div>
         )

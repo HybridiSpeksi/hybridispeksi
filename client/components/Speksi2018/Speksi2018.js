@@ -226,6 +226,34 @@ class Speksi2018 extends Component {
                 <li>Seuraa nettipankin ohjeita maksaaksesi</li>
                 <li>Saat sähköpostiisi varausnumeron, jota näyttämällä pääset katsomaan HybridiSpeksiä 2018!</li>
               </ol>
+
+            <h2 className={styles.textheader}>Hinnasto</h2>
+              <table className={styles.hinnasto}>
+                <tr>
+                  <td>
+                    Normaali
+                  </td>
+                  <td>
+                    16 €
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Opiskelija
+                  </td>
+                  <td>
+                    14 €
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Kannatus
+                  </td>
+                  <td>
+                    25 €
+                  </td>
+                </tr>
+              </table>
             
             <div className="videowrapper">
               <h2 className={styles.textheader}>Älä ammu ohi -teaser</h2> 
