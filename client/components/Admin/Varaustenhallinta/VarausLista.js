@@ -49,6 +49,7 @@ class VarausLista extends Component {
                     scount={this.props.scount}
                     ncount={this.props.ncount}
                     ocount={this.props.ocount}
+                    oprice={this.props.oprice}
                     price={this.props.price}
                     lisatiedot={this.props.lisatiedot}
                     ilmottu={this.props.ilmottu}

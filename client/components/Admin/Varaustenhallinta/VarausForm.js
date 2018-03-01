@@ -69,14 +69,17 @@ class VarausForm extends Component {
                         <div className={"col-sm-3 justify-contents-center"}>
                             <label htmlFor="ticketsInput" className="">Liput:</label>
                         </div>
-                        <div className={"col-3 justify-contents-center"}>
-                            Normaali<input name="ncount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ncount} placeholder="N"/>16 €/kpl
+                        <div className={"col-2 justify-contents-center"}>
+                            Normaali<input name="ncount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ncount} placeholder="0"/>16 €/kpl
                         </div>
-                        <div className={"col-3 justify-contents-center"}>
-                            Opiskelija<input name="scount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.scount} placeholder="S"/> 14 €/kpl
+                        <div className={"col-2 justify-contents-center"}>
+                            Opiskelija<input name="scount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.scount} placeholder="0"/> 14 €/kpl
                         </div>
-                        <div className={"col-3 justify-contents-center"}>
-                            Special<input name="ocount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ocount} placeholder="O"/> 10 €/kpl
+                        <div className={"col-2 justify-contents-center"}>
+                            Special<input name="ocount" id="ticketsInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.ocount} placeholder="0"/> {this.props.oprice} €/kpl
+                        </div>
+                        <div className={"col-3 justify-contents-center align-self-start"}>
+                            Special-hinta<input name="oprice" id="ticketPriceInput" className="form-control" type="number" min="0" onChange={this.props.handleChange} value={this.props.oprice} placeholder="Special hinta"/>
                         </div>
                     </div>
                      <div className={"row form-group align-items-center"}>
