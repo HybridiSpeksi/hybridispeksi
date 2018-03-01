@@ -131,14 +131,14 @@ class VarausForm extends Component {
                         <div className={"col-sm-3"}>
                             <label htmlFor="sendmailInput" className="">Lähetetäänkö maili:</label>
                         </div>
-                        <div className={"col form-check form-check-inline"}>
+                        {/* <div className={"col form-check form-check-inline"}>
                             <Radio 
                                 options={sendemailOptions}
                                 onChange={this.props.handleChange}
                                 value={this.props.sendemail}
                                 name='sendemail'
                                 disabled={this.props.valittuVarausId ? true : false} /> 
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>
