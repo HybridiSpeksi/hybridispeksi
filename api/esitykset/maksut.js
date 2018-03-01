@@ -64,12 +64,13 @@ module.exports = {
         .then(_booking => {
             if(_booking.paid) {
                 return new Promise((resolve, reject) => {
-                    reject();
+                    reject('Payment already handled, rejecting case.');
                 })
+            } else {
+                _booking.paid = true;
+                booking = _booking;
+                return _booking.save()
             }
-            _booking.paid = true;
-            booking = _booking;
-            return _booking.save()
         })
         .then(() => {
             return Esitys.findOne({_id: booking.esitysId})
