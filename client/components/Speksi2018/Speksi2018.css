@@ -13,6 +13,7 @@
 	color:white;
 }
 .lipunmyyntiMessage {
+	margin:0px;
 	padding-top:20px;
 	padding-left:40px;
 	padding-right:40px;
@@ -52,6 +53,7 @@
 	color:#580D0D;
 }
 .hinnasto {
+	margin:0px;
 	margin-bottom:40px;
 	width:200px;
 	font-family: Calibri;
@@ -75,7 +77,7 @@
 	margin:20px;
 	margin-left:40px;
 	margin-top:0px;
-	padding:40px;
+	/*padding:40px;*/
 	padding-top:0px;
 }
 .esitykset i {
@@ -163,7 +165,6 @@
 .formButtonClose:hover {
 	background:#adadad;
 }
-
 .showTd {
 	cursor:pointer;
 }
@@ -195,6 +196,25 @@
 	}
 	.formLogoText{
 		font-size:26px;
+	}
+	.textheader {
+		font-size:36px;
+	}
+	.showTd {
+		font-size:18px;
+	}
+	.showTd i {
+		font-size:14px;
+	}
+	.showTdFull{
+		font-size:18px;
+	}
+	.showTdFull i {
+		font-size:14px;
+	}
+	.formButton {
+	    font-size: 14px;
+	    padding: 10px 20px;
 	}
 }
 @media (max-width:500px) {

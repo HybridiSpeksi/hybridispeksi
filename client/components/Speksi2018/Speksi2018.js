@@ -219,8 +219,8 @@ class Speksi2018 extends Component {
             <img src="/assets/images/logo_lapinak_valk.png"/>
           </div>
         </div>
-        <div className={"row align-items-top justify-content-center"}>
-          <div className={"col-9 text-center " + styles.lipunmyyntiMessage}>
+        <div className={"row align-items-top justify-content-center " + styles.lipunmyyntiMessage}>
+          <div className={"col-9 text-center"}>
             {this.state.lipunmyyntiMessage.truefalse ? <p className={styles.lipunmyyntiMessageText}>{this.state.lipunmyyntiMessage.name}</p> : ""}
           </div>
         </div>
@@ -241,6 +241,7 @@ class Speksi2018 extends Component {
 
             <h2 className={styles.textheader}>Hinnasto</h2>
               <table className={styles.hinnasto}>
+                <tbody>
                 <tr>
                   <td>
                     Normaali
@@ -265,6 +266,7 @@ class Speksi2018 extends Component {
                     25 €
                   </td>
                 </tr>
+                </tbody>
               </table>
             
             <div className="videowrapper">
@@ -290,7 +292,7 @@ class Speksi2018 extends Component {
           </div>
         </div>
         <div className={"row align-items-top justify-content-center " + styles.paytrail}>
-          <div className="col-8">
+          <div className="col-12 col-md-10 col-lg-6">
             <h4>Maksupalvelutarjoaja</h4>
                 <p>Maksunvälityspalvelun toteuttajana ja maksupalveluntarjoajana toimii Paytrail Oyj (2122839-7) 
                 yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Paytrail Oyj näkyy maksun saajana 
