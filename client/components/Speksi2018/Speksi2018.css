@@ -44,6 +44,13 @@
 	font-family:hybridispeksi;
 	color:#7a1111;
 }
+.externallink {
+	color:#b21e1e;
+	font-weight:bold;
+}
+.externallink:hover {
+	color:#580D0D;
+}
 .hinnasto {
 	margin-bottom:40px;
 	width:200px;

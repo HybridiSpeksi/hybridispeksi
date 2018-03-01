@@ -24,7 +24,7 @@ class Home extends Component {
                 <div className={"col " + styles.logo}></div>
               </div>
               <div className="row justify-content-center">
-                <div className={"col " + styles.lipunmyynti}>LIPUNMYYNTI ALKAA 28.2.2018 KLO 15</div>
+                <div className={"col " + styles.lipunmyynti}><Link className={styles.lipunmyyntiLink} to="/speksi2018">OSTA LIPPUSI NYT TÄÄLTÄ!</Link></div>
               </div>
             </div>
           </div>
