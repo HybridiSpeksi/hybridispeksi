@@ -133,6 +133,7 @@ module.exports = {
             return bookingObj.save()
         })
         .then(_booking => {
+            console.log('Created booking for ' + _booking.fname + ' ' + _booking.sname)
             return payment.createPayment(_booking)
         })
         .then(payment => {
