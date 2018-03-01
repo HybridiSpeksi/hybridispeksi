@@ -141,10 +141,36 @@ module.exports = {
         .catch(err => {
             if(err.code) {
                 res.json({success: false, data: err.message}, err.code);
-            } else 
+            } else {
                 console.log(err);
+                res.json({success: false, data: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen'}, 500);
+            }
+                
         })
     },
+
+    sendConfirmationMail: (req, res) => {
+        let booking;
+        Varaus.findOne({_id: req.params._id})
+        .then(_booking => {
+            booking = _booking;
+            return Esitys.findOne({_id: _booking.esitysId})
+        })
+        .then(_esitys => {
+            booking.esitys = _esitys;
+            return mailer.sendTicket(booking);
+        })
+        .then(() => {
+            res.json({success: true, data: 'Vahvistussähköposti lähetetty'})
+        })
+        .catch(err => {
+            if(err.code) {
+                res.json({success: false, data: err.message}, err.code);
+            } else 
+                console.log(err);
+                res.json({success: false, data: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen'}, 500);
+        })
+    }
 }
 
 function validateAdmin(booking) {

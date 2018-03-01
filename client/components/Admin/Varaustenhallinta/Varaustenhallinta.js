@@ -61,6 +61,7 @@ class Varaustenhallinta extends Component {
         this.addMessage = this.addMessage.bind(this);
         this.emptyFields = this.emptyFields.bind(this);
         this.countPrice = this.countPrice.bind(this);
+        this.sendConfirmationEmail = this.sendConfirmationEmail.bind(this);
     }
 
     componentDidMount() {
@@ -157,8 +158,18 @@ class Varaustenhallinta extends Component {
 	    this.setState({filteredVaraukset : result})
     }
 
-    sendBookingIdEmail() {
-
+    sendConfirmationEmail() {
+        ajax.sendGet('/admin/varaus/sendConfirmationMail/' + this.state.valittuVarausId)
+        .then(res => {
+            if(res.success) {
+                this.addMessage(MESSAGE_SUCCESS, res.data);
+            } else {
+                this.addMessage(MESSAGE_ERROR, res.data);
+            }
+        })
+        .catch(err => {
+            this.addMessage(MESSAGE_ERROR, err.data);
+        })
     }
 
 
@@ -343,6 +354,7 @@ class Varaustenhallinta extends Component {
                 	emptyFields={this.emptyFields}
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
+                    sendConfirmationEmail={this.sendConfirmationEmail}
                     fname={this.state.fname}
 		            sname={this.state.sname}
 		            email={this.state.email}
@@ -396,6 +408,7 @@ class Varaustenhallinta extends Component {
                             handleChange={this.handleChange} 
                             handleSubmit={this.handleSubmit}
                             handleUpdate={this.handleUpdate}
+                            sendConfirmationEmail={this.sendConfirmationEmail}
                             toggleMuokkaaVaraustaModal={this.toggleMuokkaaVaraustaModal}
                             fname={this.state.fname}
                             sname={this.state.sname}

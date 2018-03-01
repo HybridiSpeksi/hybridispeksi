@@ -42,7 +42,7 @@ class MuokkaaVarausta extends Component {
                         </div>
                       </div>
                       <div className="modal-footer d-flex justify-content-end ">
-                        { this.props.valittuVarausId !== 'undefined' && typeof this.props.valittuVarausId !== 'undefined' ? <button type="button" className="btn btn-dark mr-auto" style={{backgroundColor:'#7a1111', color:'white'}} onClick={this.props.sendBookingIdEmail}>Lähetä sähköposti</button> : "" }
+                        { this.props.valittuVarausId !== 'undefined' && typeof this.props.valittuVarausId !== 'undefined' ? <button type="button" className="btn btn-dark mr-auto" style={{backgroundColor:'#7a1111', color:'white'}} onClick={this.props.sendConfirmationEmail}>Lähetä sähköposti</button> : "" }
                         <button type="button" className="btn btn-secondary" onClick={this.props.emptyFields}>Nollaa kentät</button>
                         { this.props.ilmottu ? <button disabled type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button> : <button type="button" className="btn btn-dark" onClick={this.props.handleUpdate}>Tallenna muutokset</button>}
                       </div>

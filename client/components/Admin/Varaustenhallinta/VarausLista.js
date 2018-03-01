@@ -39,6 +39,7 @@ class VarausLista extends Component {
                     emptyFields={this.props.emptyFields}
                     handleChange={this.props.handleChange} 
                     handleUpdate={this.props.handleUpdate}
+                    sendConfirmationEmail={this.props.sendConfirmationEmail}
                     fname={this.props.fname}
                     sname={this.props.sname}
                     email={this.props.email}

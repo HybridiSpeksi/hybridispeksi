@@ -64,12 +64,15 @@ router.delete('/ilmo', ilmo.removeIlmo);
 // Esitykset
 router.get('/esitykset', esitys.getAll);
 router.get('/getShowsWithCounts', esitys.getAllWithBookingCounts);
+
+// Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAll);
 router.get('/getOneVarausById/:_id', varaus.getOneById);
 router.post('/admin/varaus', varaus.createNewAdmin);
 router.put('/admin/varaus/:_id', varaus.update);
 router.delete('/admin/varaus/:_id', varaus.remove);
 router.post('/varaus/createPayment', varaus.createPayment);
+router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMail);
 
 // Maksut
 router.get('/payment/success', maksu.handleSuccess);
