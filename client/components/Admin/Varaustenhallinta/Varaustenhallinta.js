@@ -32,9 +32,9 @@ class Varaustenhallinta extends Component {
             ncount: 0,
             scount: 0,
             ocount: 0,
-            nprice: '16',
-            sprice: '14',
-            oprice: '10',
+            nprice: 16,
+            sprice: 14,
+            oprice: 12,
             price: '',
             lisatiedot: '',
             paid: 'true',
@@ -100,6 +100,7 @@ class Varaustenhallinta extends Component {
             ncount: varaus.ncount,
             scount: varaus.scount,
             ocount: varaus.ocount,
+            oprice: varaus.oprice,
             lisatiedot: varaus.additional,
             paid: varaus.paid.toString(),
             paymentMethod: varaus.paymentMethod.toString(),
@@ -121,7 +122,7 @@ class Varaustenhallinta extends Component {
     handleChange(e) {
         let value = e.target.value;
 
-        if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount") {
+        if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount" || e.target.name == "oprice") {
             this.setState({ [e.target.name]: value }, () => {
                 this.countPrice();
             })
@@ -159,17 +160,19 @@ class Varaustenhallinta extends Component {
     }
 
     sendConfirmationEmail() {
-        ajax.sendGet('/admin/varaus/sendConfirmationMail/' + this.state.valittuVarausId)
-        .then(res => {
-            if(res.success) {
-                this.addMessage(MESSAGE_SUCCESS, res.data);
-            } else {
-                this.addMessage(MESSAGE_ERROR, res.data);
-            }
-        })
-        .catch(err => {
-            this.addMessage(MESSAGE_ERROR, err.data);
-        })
+        if(confirm('Haluatko varmasti lähettää varausvahvistussähköpostin?')) {
+            ajax.sendGet('/admin/varaus/sendConfirmationMail/' + this.state.valittuVarausId)
+            .then(res => {
+                if(res.success) {
+                    this.addMessage(MESSAGE_SUCCESS, res.data);
+                } else {
+                    this.addMessage(MESSAGE_ERROR, res.data);
+                }
+            })
+            .catch(err => {
+                this.addMessage(MESSAGE_ERROR, err.data);
+            })
+        }
     }
 
 
@@ -256,6 +259,7 @@ class Varaustenhallinta extends Component {
     		ncount: '',
     		scount: '',
     		ocount: '',
+            oprice: 12,
     		price: '',
     		lisatiedot: '',
     		messages: [],
@@ -362,6 +366,7 @@ class Varaustenhallinta extends Component {
 		            scount={this.state.scount}
 		            ncount={this.state.ncount}
 		            ocount={this.state.ocount}
+                    oprice={this.state.oprice}
 		            price={this.state.price}
 		            lisatiedot={this.state.lisatiedot}
 		            ilmottu={this.state.ilmottu}
@@ -417,6 +422,7 @@ class Varaustenhallinta extends Component {
                             scount={this.state.scount}
                             ncount={this.state.ncount}
                             ocount={this.state.ocount}
+                            oprice={this.state.oprice}
                             price={this.state.price}
                             lisatiedot={this.state.lisatiedot}
                             ilmottu={this.state.ilmottu}

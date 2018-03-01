@@ -63,7 +63,9 @@ module.exports = {
         })
         .then(_esitys => {
             booking.esitys = _esitys;
-            mailer.sendTicket(booking);
+            if(booking.sendemail === "true"){
+                mailer.sendTicket(booking);
+            }
         })
         .then(_booking => {
             res.json({success: true, data: _booking});
@@ -90,8 +92,7 @@ module.exports = {
                 })
         })
         .catch(err =>{
-            res.json({success: false, data: 'Varausta ei voitu muokata'});  
-            console.log(err)
+            res.json({success: false, data: err.message}, err.code);
         })
     },
 

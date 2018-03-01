@@ -29,6 +29,7 @@ class UusiVaraus extends Component {
                             ncount={this.props.ncount}
                             scount={this.props.scount}
                             ocount={this.props.ocount}
+                            oprice={this.props.oprice}
                             price={this.props.price}
                             lisatiedot={this.props.lisatiedot}
                             valittuEsitys={this.props.valittuEsitys}

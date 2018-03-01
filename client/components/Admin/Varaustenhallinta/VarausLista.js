@@ -13,9 +13,10 @@ class VarausLista extends Component {
                 <tr key={i}>
                     <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.fname} {varaus.sname}</td>
                     <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.email}</td>
-                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.pnumber}</td>
-                    <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{ticketCount}</td>
-                    <td><button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.removeBooking(varaus._id)}>X</button></td>
+                    <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.paid ? <i className="fa fa-check" aria-hidden="true"></i>: ""}</td>
+                    <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{varaus.checked ? <i className="fa fa-check" aria-hidden="true"></i>: ""}</td>
+                    <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>{ticketCount}</td>
+                    <td className="text-center"><button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.removeBooking(varaus._id)}>&times;</button></td>
                 </tr>
             )
         })
@@ -26,9 +27,10 @@ class VarausLista extends Component {
                         <tr>
                             <th>Nimi</th>
                             <th>@</th>
-                            <th>Puh</th>
-                            <th>Liput</th>
-                            <th>Poista</th>
+                            <th className="text-center">Maksettu</th>
+                            <th className="text-center">Noudettu</th>
+                            <th className="text-center">Liput</th>
+                            <th className="text-center">Poista</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +49,7 @@ class VarausLista extends Component {
                     scount={this.props.scount}
                     ncount={this.props.ncount}
                     ocount={this.props.ocount}
+                    oprice={this.props.oprice}
                     price={this.props.price}
                     lisatiedot={this.props.lisatiedot}
                     ilmottu={this.props.ilmottu}
