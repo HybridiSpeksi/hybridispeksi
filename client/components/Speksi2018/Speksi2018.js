@@ -114,6 +114,11 @@ class Speksi2018 extends Component {
   }
   handleChange(e) {
     let value = e.target.value;
+    this.setState({
+        messages: [],
+        warnings: [],
+        errors: []
+    })
 
     if(e.target.name == "ncount" || e.target.name == "scount" || e.target.name == "ocount") {
         this.setState({ [e.target.name]: value }, () => {
@@ -139,7 +144,6 @@ class Speksi2018 extends Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      this.setState({ilmottu: true})
       let url = "/varaus/createPayment";
       let ticketSum = parseInt(this.state.scount) + parseInt(this.state.ncount) + parseInt(this.state.ocount)
       console.log(ticketSum)
@@ -162,6 +166,7 @@ class Speksi2018 extends Component {
           }).then(data => {
             console.log(data.data);
               if(data.success) {
+                  this.setState({ilmottu: true})
                   location.replace(data.data.url);
                   this.addMessage(MESSAGE_SUCCESS, "Siirrytään maksupalveluun...")
               } else {
