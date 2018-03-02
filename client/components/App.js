@@ -1,8 +1,9 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import globalStyles from './App.css';
 
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import auth from './Utils/Auth';
 
 // Public
@@ -13,7 +14,6 @@ import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
 import Speksit from './Speksit/Speksit';
 import Esitykset from './Esitykset/Esitykset';
-import Galleria from './Galleria/Galleria';
 import Yhdistys from './Yhdistys/Yhdistys';
 import Sitsit from './Sitsit/Sitsit';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
@@ -36,49 +36,47 @@ import Varaustenhallinta from './Admin/Varaustenhallinta/Varaustenhallinta';
 import Login from './Admin/Auth/Login';
 
 
-
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
-    const PublicLayout = ({ component: Component, ...rest }) => {
-      return (
-        <Route location={this.props.location}
-          {...rest} 
-          render={({ location, match }) => (
+    const PublicLayout = ({ component: Component, ...rest }) => (
+      <Route
+        location={this.props.location}
+        {...rest}
+        render={({ match }) => (
           <div>
             <Header />
             <Component params={match.params} globalStyles={globalStyles} />
             <Footer />
           </div>
-        )} />
-      )
-    };
+        )}
+      />
+    );
 
-    const LoginLayout = ({ component: Component, ...rest }) => {
-      return (
-        <Route {...rest} render={props => (
+    const LoginLayout = ({ component: Component, ...rest }) => (
+      <Route
+        {...rest}
+        render={({ match }) => (
           <div>
-            <Component globalStyles={globalStyles} />
+            <Component params={match.params} globalStyles={globalStyles} />
           </div>
-        )} />
-      )
-    };
+        )}
+      />
+    );
 
     const AdminLayout = ({ component: Component, ...rest }) => {
       auth.checkToken();
       return (
-        <Route {...rest} render={props => (
-          <div>
-            <AdminHeader />
-            <Component globalStyles={globalStyles} />
-            <AdminFooter />
-          </div>
-        )} />
-      )
+        <Route
+          {...rest}
+          render={({ match }) => (
+            <div>
+              <AdminHeader />
+              <Component params={match.params} globalStyles={globalStyles} />
+              <AdminFooter />
+            </div>
+        )}
+        />
+      );
     };
 
     return (
@@ -88,31 +86,31 @@ export default class App extends React.Component {
           <div>
             <div id="public-wrapper">
               <Switch >
-              <PublicLayout exact path="/" component={Home} />
-              <PublicLayout path="/rekry" component={Rekry} />
-              <PublicLayout exact path="/speksi2018" component={Speksi2018} />
-              <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} />
-              <PublicLayout exact path="/speksi2018/virhe/:value" component={Virhe} />
-              <PublicLayout path="/speksit" component={Speksit} />
-              {/*<PublicLayout exact path="/galleria" component={Galleria} />*/}
-              <PublicLayout path="/yhdistys" component={Yhdistys} />
-              <PublicLayout path="/esitykset" component={Esitykset} />
-              <PublicLayout path="/ilmo" component={Sitsit} />
-              <PublicLayout path="/muutspeksit" component={Muutspeksit} />
+                <PublicLayout exact path="/" component={Home} />
+                <PublicLayout path="/rekry" component={Rekry} />
+                <PublicLayout exact path="/speksi2018" component={Speksi2018} />
+                <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} />
+                <PublicLayout exact path="/speksi2018/virhe/:value" component={Virhe} />
+                <PublicLayout path="/speksit" component={Speksit} />
+                {/* <PublicLayout exact path="/galleria" component={Galleria} /> */}
+                <PublicLayout path="/yhdistys" component={Yhdistys} />
+                <PublicLayout path="/esitykset" component={Esitykset} />
+                <PublicLayout path="/ilmo" component={Sitsit} />
+                <PublicLayout path="/muutspeksit" component={Muutspeksit} />
               </Switch>
             </div>
 
             <div id="admin-wrapper">
               <Switch>
-              <LoginLayout path="/login" component={Login} />
-              <AdminLayout path="/admin" component={Admin} />
-              <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
-              <AdminLayout path="/produktionhallinta" component={Produktio} /> 
-              <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
-              <AdminLayout path="/kayttajat" component={Kayttajat} />
-              <AdminLayout path="/uusijasen" component={Uusijasen} />
-              <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
-              <AdminLayout path="/tapahtumat" component={Tapahtumat} />
+                <LoginLayout path="/login" component={Login} />
+                <AdminLayout path="/admin" component={Admin} />
+                <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
+                <AdminLayout path="/produktionhallinta" component={Produktio} />
+                <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
+                <AdminLayout path="/kayttajat" component={Kayttajat} />
+                <AdminLayout path="/uusijasen" component={Uusijasen} />
+                <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
+                <AdminLayout path="/tapahtumat" component={Tapahtumat} />
               </Switch>
             </div>
           </div>
@@ -121,3 +119,7 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  location: PropTypes.any,
+};
