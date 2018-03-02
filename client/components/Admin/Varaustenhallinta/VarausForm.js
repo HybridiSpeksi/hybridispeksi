@@ -22,7 +22,6 @@ class VarausForm extends Component {
                             options={this.props.esitykset}
                             selected={this.props.valittuEsitys._id}
                             id={"esitysInput"}
-                            label=""
                             name={"esitys"}
                             onChange={this.props.handleChange}
                             />
