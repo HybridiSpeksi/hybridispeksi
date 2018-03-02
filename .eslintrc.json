@@ -12,6 +12,7 @@
         "react/forbid-prop-types": "off",
         "react/require-default-props": "off",
         "no-underscore-dangle": "off",
+        "no-use-before-define": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] } ]
     },
     "env": {
