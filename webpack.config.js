@@ -4,6 +4,7 @@
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const ExtractTextPluginConfig = new ExtractTextPlugin('styles.css');
 const combineLoaders = require('webpack-combine-loaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,33 +12,41 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   filename: 'index.html',
-  inject: 'body'
-})
+  inject: 'body',
+});
 
 module.exports = {
   entry: ['./client/index.js', 'whatwg-fetch'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      //   options: {
+      //     // eslint options (if necessary)
+      //   },
+      // },
       {
         test: /\.css$/,
         loader: combineLoaders([
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           }, {
             loader: 'css-loader',
             query: {
               modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-          }
-        ])
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+        ]),
       },
       {
         test: /\.(png|jpg|gif|otf|ttf)$/,
@@ -46,12 +55,12 @@ module.exports = {
             loader: 'file-loader',
             options: {
               // path: path.resolve(__dirname, '.. ', 'assets'),
-              publicPath: 'assets/'
-            }
-          }
-        ]
-      }
-    ]
+              publicPath: 'assets/',
+            },
+          },
+        ],
+      },
+    ],
   },
   devtool: 'source-map',
   devServer: {
@@ -63,11 +72,11 @@ module.exports = {
     proxy: {
       '/api/**': 'http://localhost:3001',
       secure: false,
-      changeOrigin: true
-    }
+      changeOrigin: true,
+    },
   },
   plugins: [
     ExtractTextPluginConfig,
-    HtmlWebpackPluginConfig
-  ]
-}
+    HtmlWebpackPluginConfig,
+  ],
+};
