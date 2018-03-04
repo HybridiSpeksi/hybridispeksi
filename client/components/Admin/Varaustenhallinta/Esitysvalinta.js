@@ -7,18 +7,18 @@ class Esitysvalinta extends Component {
             ticketCount = ticketCount + t.bookingCount;
             return (
                 <tr key={i} onClick={() => this.props.valitseEsitys(t)}>
-                    <td className="table-inverse">{t.name}</td>
-                    <td className="table-inverse">{t.bookingCount}/130</td>
+                    <td>{t.name}</td>
+                    <td>{t.bookingCount}/130</td>
                 </tr>
             )
         })
         return (
             <div>
-                <table className="table">
+                <table className="table table-inverse">
                     <tbody>
                         {esitykset}
-                        <tr>
-                            <td> Lippuja myyty yhteensä:</td>
+                        <tr className="bg-info" style={{color:'black'}} onClick={this.props.haeKaikkiVaraukset}>
+                            <td> Kaikki varaukset</td>
                             <td> {ticketCount}/1040</td>
                         </tr>
                     </tbody>

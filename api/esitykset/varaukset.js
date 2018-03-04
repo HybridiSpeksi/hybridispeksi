@@ -13,6 +13,15 @@ module.exports = {
         res.json({ success: false, data: err });
       });
   },
+  getAllList: (req, res) => {
+    Varaus.find({ year: 2018 })
+      .then((_data) => {
+        res.json({ success: true, data: _data });
+      })
+      .catch((err) => {
+        res.json({ success: false, data: err });
+      });
+  },
   getOneById: (req, res) => {
     let booking = [];
     Varaus.findOne({ _id: req.params._id })

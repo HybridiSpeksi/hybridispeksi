@@ -67,6 +67,7 @@ router.get('/getShowsWithCounts', esitys.getAllWithBookingCounts);
 
 // Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAll);
+router.get('/admin/kaikkivaraukset', varaus.getAllList);
 router.get('/getOneVarausById/:_id', varaus.getOneById);
 router.post('/admin/varaus', varaus.createNewAdmin);
 router.put('/admin/varaus/:_id', varaus.update);

@@ -49,6 +49,7 @@ class Varaustenhallinta extends Component {
 
         this.valitseEsitys = this.valitseEsitys.bind(this);
         this.haeVaraukset = this.haeVaraukset.bind(this);
+        this.haeKaikkiVaraukset = this.haeKaikkiVaraukset.bind(this);
         this.filterVaraukset = this.filterVaraukset.bind(this);
         this.haeEsitykset = this.haeEsitykset.bind(this);
         this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
@@ -311,13 +312,30 @@ class Varaustenhallinta extends Component {
     haeVaraukset(esitys) {
         ajax.sendGet('/admin/varaukset/' + esitys._id)
         .then(_data => {
-            this.setState({varaukset: _data.data});
-            this.filterVaraukset();
+            this.setState({varaukset: _data.data}, () => {
+                this.filterVaraukset();
+            });
         })
         .catch(err => {
             console.log(err);
         })
-    }	
+    }
+
+    haeKaikkiVaraukset() {
+        ajax.sendGet('/admin/kaikkivaraukset/')
+        .then(_data => {
+            this.setState({
+                varaukset: _data.data,
+                valittuEsitys: {name:'Kaikki varaukset'}
+            }, () => {
+                this.filterVaraukset();
+            });
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
     //Add different kinds of error or warning messages
     addMessage(type, newHeader, newText) {
     	this.setState({ 
@@ -384,7 +402,8 @@ class Varaustenhallinta extends Component {
 
                         <Esitysvalinta 
                             esitykset={this.state.esitykset}
-                            valitseEsitys={this.valitseEsitys} />
+                            valitseEsitys={this.valitseEsitys}
+                            haeKaikkiVaraukset={this.haeKaikkiVaraukset} />
 
                         {this.state.naytaSahkopostit ? (
                             <Sahkopostit
