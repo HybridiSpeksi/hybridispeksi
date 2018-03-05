@@ -4,7 +4,7 @@ const mailer = require('../../utils/mailer');
 const payment = require('../../utils/payments');
 
 module.exports = {
-  getAll: (req, res) => {
+  getAllByShowId: (req, res) => {
     Varaus.find({ esitysId: req.params._id, year: 2018 })
       .then((_data) => {
         res.json({ success: true, data: _data });
