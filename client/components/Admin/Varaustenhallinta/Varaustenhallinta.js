@@ -255,17 +255,16 @@ class Varaustenhallinta extends Component {
     		ncount: '',
     		scount: '',
     		ocount: '',
-      oprice: 12,
+            oprice: 12,
     		price: '',
     		lisatiedot: '',
     		messages: [],
-      warnings: [],
-      errors: [],
-      ilmottu: false,
-      paid: 'true',
-      paymentMethod: '0',
-      sendemail: 'true',
-
+            warnings: [],
+            errors: [],
+            ilmottu: false,
+            paid: 'true',
+            paymentMethod: '0',
+            sendemail: 'true',
     });
   }
 
