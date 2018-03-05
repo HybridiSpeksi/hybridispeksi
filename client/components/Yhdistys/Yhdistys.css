@@ -1,5 +1,5 @@
 .container {
-	background:lightgray;
+	background:#FFECAF;
 	padding:0px;
 	margin:0px;
 }
@@ -11,6 +11,13 @@
 	background:#292B2C;
 	color:white;
 }
+.internallink {
+	color:#FFECAF;
+}
+.internallink:hover {
+	text-decoration: none;
+	color:#C0521F;
+}
 .logo {
 	background: url("/assets/images/hslogo_dark.png") no-repeat center top;
 	height:255px;
@@ -20,10 +27,20 @@
 	padding:0px;
 	margin:0px;
 }
+
+.saannotJaSeloste {
+	padding-top:30px;
+	padding-bottom:30px;
+	text-align:justify;
+}
+.saannotJaSeloste h4 {
+	margin-top:30px;
+	text-align:left;
+}
 .yhdistys_desc {
 	padding:40px;
 	opacity:1!important;
-	background-color:#cecece;
+	background-color:#f9e095;
 	color:black;
 }
 .otsikko {
@@ -32,5 +49,10 @@
 }
 .persontitle {
 	font-style:italic;
+}
+@media (max-width:500px) {
+	.saannotJaSeloste {
+		text-align:left;
+	}
 }
 

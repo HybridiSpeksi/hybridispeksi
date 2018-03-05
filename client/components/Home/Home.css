@@ -139,6 +139,9 @@ hr {
 		background-size: 992px 992px;
 		height:992px;
 	}
+	.logo {
+		margin-top:150px;
+	}
 	.lipunmyynti {
 		margin-top:200px;
 		font-size:62px;
@@ -151,7 +154,7 @@ hr {
 		height:768px;
 	}
 	.logo {
-		margin-top:50px;
+		margin-top:65px;
 		height:300px;
 		width:500px;
 		background-size:500px 500px;

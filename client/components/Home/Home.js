@@ -16,9 +16,9 @@ class Home extends Component {
         <div className={"row justify-content-center " + styles.content_home}>
           <div className={"col-sm-12 " + styles.slogan}>
             <div className={"d-md-block " + styles.slogan}>
-              <div className="row justify-content-md-end justify-content-center">
+              <div className="row justify-content-lg-end justify-content-center">
                 <div className={"col-12 col-md-4 " + styles.name}><h2 className={styles.name}>HYBRIDISPEKSI 2018</h2></div>
-                <div className={"col-12 col-md-4 d-none d-md-block " + styles.date}><h2 className={styles.date}>ENSI-ILTA 27.3. KLO 19<br/> MANILLA-TEATTERILLA </h2></div>
+                <div className={"col-12 col-md-4 d-none d-sm-none d-md-none d-lg-block " + styles.date}><h2 className={styles.date}>ENSI-ILTA 27.3. KLO 19<br/> MANILLA-TEATTERILLA </h2></div>
               </div>
               <div className="row justify-content-center">
                 <div className={"col " + styles.logo}></div>
@@ -69,7 +69,7 @@ class Home extends Component {
 
         <div className={"row justify-content-center " + styles.content_speksi}>
           <div className={"col-sm-12 " + styles.hslogo}></div>
-          <div className={"col-sm-6 " + styles.speksi_desc}>
+          <div className={"col-sm-6 col-md-10 " + styles.speksi_desc}>
             {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>*/}
             <h1 className={styles.otsikko}>HybridiSpeksi</h1>
             <p>HybridiSpeksi on Turun yliopiston luonnontieteiden ja tekniikan tiedekunnan opiskelijoiden vuosittain toteuttama teatteriproduktio. 

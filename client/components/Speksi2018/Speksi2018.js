@@ -275,9 +275,9 @@ class Speksi2018 extends Component {
               </table>
             
             <div className="videowrapper">
-              <h2 className={styles.textheader}>Älä ammu ohi -teaser</h2> 
+              <h2 className={styles.textheader}>Älä ammu ohi -trailer</h2> 
                 <iframe id="youtubeplayer"
-                    src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
+                    src="https://www.youtube.com/embed/vhLvRVZabTA?enablejsapi=1&rel=0"
                     width="100%" height="360"
                     frameBorder="0"
                     allowFullScreen="allowFullScreen"
@@ -297,7 +297,7 @@ class Speksi2018 extends Component {
           </div>
         </div>
         <div className={"row align-items-top justify-content-center " + styles.paytrail}>
-          <div className="col-12 col-md-10 col-lg-6">
+          <div className="col-12 col-md-10 col-lg-8">
             <h4>Maksupalvelutarjoaja</h4>
                 <p>Maksunvälityspalvelun toteuttajana ja maksupalveluntarjoajana toimii Paytrail Oyj (2122839-7) 
                 yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Paytrail Oyj näkyy maksun saajana 

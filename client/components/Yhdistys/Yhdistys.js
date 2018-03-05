@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Yhdistys.css';
 
@@ -37,6 +38,14 @@ class Yhdistys extends Component {
               </div>
             </div>
             <br />
+            <div className="row">
+              <div className="col-sm-4 col-4">
+                <Link to="/yhdistys/saannot" className={styles.internallink}>Säännöt</Link>
+              </div>
+              <div className="col-sm-6 col-8">
+                <Link to="/yhdistys/rekisteriseloste" className={styles.internallink}>Rekisteriseloste</Link>
+              </div>
+            </div>
           </div>
           <div className={'col-sm-3 col-11 ' + styles.logo} />
 
