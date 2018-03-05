@@ -15,8 +15,8 @@ import Rekry from './Rekry/Rekry';
 import Speksit from './Speksit/Speksit';
 import Esitykset from './Esitykset/Esitykset';
 import Yhdistys from './Yhdistys/Yhdistys';
-// import Rekisteriseloste from './Yhdistys/Rekisteriseloste';
-// import Saannot from './Yhdistys/Saannot';
+import Rekisteriseloste from './Yhdistys/Rekisteriseloste';
+import Saannot from './Yhdistys/Saannot';
 import Sitsit from './Sitsit/Sitsit';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
@@ -96,8 +96,8 @@ export default class App extends React.Component {
                 <PublicLayout path="/speksit" component={Speksit} />
                 {/* <PublicLayout exact path="/galleria" component={Galleria} /> */}
                 <PublicLayout exact path="/yhdistys" component={Yhdistys} />
-                {/* <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} /> */}
-                {/* <PublicLayout exact path="/yhdistys/saannot" component={Saannot} /> */}
+                <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />
+                <PublicLayout exact path="/yhdistys/saannot" component={Saannot} />
                 <PublicLayout path="/esitykset" component={Esitykset} />
                 <PublicLayout path="/ilmo" component={Sitsit} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
