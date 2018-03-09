@@ -3,3 +3,4 @@ dist/
 .env
 .dev_vars-env
 .vscode/
+.vscode/

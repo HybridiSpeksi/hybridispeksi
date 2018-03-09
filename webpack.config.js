@@ -16,7 +16,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: ['./client/index.js', 'whatwg-fetch'],
+  entry: ['babel-polyfill', './client/index.js', 'whatwg-fetch'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
@@ -39,7 +39,8 @@ module.exports = {
         loader: combineLoaders([
           {
             loader: 'style-loader',
-          }, {
+          },
+          {
             loader: 'css-loader',
             query: {
               modules: true,
@@ -75,8 +76,5 @@ module.exports = {
       changeOrigin: true,
     },
   },
-  plugins: [
-    ExtractTextPluginConfig,
-    HtmlWebpackPluginConfig,
-  ],
+  plugins: [ExtractTextPluginConfig, HtmlWebpackPluginConfig],
 };
