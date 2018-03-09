@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const auth = require('./auth')
+const auth = require('./auth');
 const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
@@ -10,12 +10,9 @@ const esitys = require('./esitykset/esitykset');
 const varaus = require('./esitykset/varaukset');
 const maksu = require('./esitykset/maksut');
 
-const index = require('./index/index');
-
-
 router.all('/admin*', user.checkToken);
 router.all('/admin/h/*', user.isHallitus);
-router.all('/admin/w/*', user.isWebmaster)
+router.all('/admin/w/*', user.isWebmaster);
 
 // Ohjaustiedot
 router.get('/tehtavat', ohjaustiedot.haeTehtavat);
@@ -49,8 +46,8 @@ router.post('/authenticate', user.authenticate);
 router.post('/signup', user.newUser);
 router.get('/isValidToken', user.isValidToken);
 router.get('/admin/w/kayttajat', user.getUsers);
-router.post('/admin/w/kayttaja', user.updateUser)
-router.delete('/admin/w/kayttaja/:_id', user.deleteUser)
+router.post('/admin/w/kayttaja', user.updateUser);
+router.delete('/admin/w/kayttaja/:_id', user.deleteUser);
 // router.post('/uusiKayttaja', user.newUser);
 
 // Tapahtumat
