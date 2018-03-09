@@ -4,41 +4,31 @@ const mailer = require('../../utils/mailer');
 const payment = require('../../utils/payments');
 
 module.exports = {
-  getAllByShowId: (req, res) => {
-    Varaus.find({ esitysId: req.params._id, year: 2018 })
-      .then((_data) => {
-        res.json({ success: true, data: _data });
-      })
-      .catch((err) => {
-        res.json({ success: false, data: err });
-      });
+  getAllByShowId: async (req, res) => {
+    try {
+      const _data = await Varaus.find({ esitysId: req.params._id, year: 2018 });
+      res.json({ success: true, data: _data });
+    } catch (err) {
+      res.json({ success: false, data: err });
+    }
   },
-  getAllList: (req, res) => {
-    Varaus.find({ year: 2018 })
-      .then((_data) => {
-        res.json({ success: true, data: _data });
-      })
-      .catch((err) => {
-        res.json({ success: false, data: err });
-      });
+  getAllList: async (req, res) => {
+    try {
+      const _data = await Varaus.find({ year: 2018 });
+      res.json({ success: true, data: _data });
+    } catch (err) {
+      res.json({ success: false, data: err });
+    }
   },
-  getOneById: (req, res) => {
-    let booking = [];
-    Varaus.findOne({ _id: req.params._id })
-      .then((_booking) => {
-        booking = _booking;
-        return Esitys.findOne({ _id: _booking.esitysId });
-      })
-      .then((esitys) => {
-        booking = { booking, esitys };
-      })
-      .then((_data) => {
-        res.json({ success: true, data: booking });
-      })
-      .catch((err) => {
-        res.json({ success: false, data: err });
-        console.log(err);
-      });
+  getOneById: async (req, res) => {
+    try {
+      let booking = await Varaus.findOne({ _id: req.params._id });
+      const esitys = await Esitys.findOne({ _id: booking.esitysId });
+      booking = { booking, esitys };
+      res.json({ success: true, data: booking });
+    } catch (err) {
+      res.json({ success: false, data: err });
+    }
   },
 
   createNewAdmin: (req, res) => {
@@ -99,14 +89,13 @@ module.exports = {
       });
   },
 
-  remove: (req, res) => {
-    Varaus.remove({ _id: req.params._id })
-      .then(() => {
-        res.json({ success: true, data: 'Varaus poistettu' });
-      })
-      .catch((err) => {
-        res.json({ success: false, data: 'Varausta ei voitu poistaa' });
-      });
+  remove: async (req, res) => {
+    try {
+      await Varaus.remove({ _id: req.params._id })
+      res.json({ success: true, data: 'Varaus poistettu' });
+    } catch (err) {
+      res.json({ success: false, data: 'Varausta ei voitu poistaa' });
+    }
   },
 
   createPayment: (req, res) => {
