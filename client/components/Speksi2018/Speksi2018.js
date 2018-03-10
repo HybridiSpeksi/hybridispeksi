@@ -244,6 +244,9 @@ class Speksi2018 extends Component {
               Ryhmätilauksen alennushinta 12 €/hlö.
               </p>
 
+              <p><strong>Huomioithan, että esitystä ei suositella alle 12-vuotiaille. Esityksessä on kovia
+              ääniä ja vilkkuvia valoja.</strong></p>
+
             <h2 className={styles.textheader}>Hinnasto</h2>
               <table className={styles.hinnasto}>
                 <tbody>
@@ -273,22 +276,36 @@ class Speksi2018 extends Component {
                 </tr>
                 </tbody>
               </table>
-            
-            <div className="videowrapper">
-              <h2 className={styles.textheader}>Älä ammu ohi -trailer</h2> 
-                <iframe id="youtubeplayer"
-                    src="https://www.youtube.com/embed/vhLvRVZabTA?enablejsapi=1&rel=0"
-                    width="100%" height="360"
-                    frameBorder="0"
-                    allowFullScreen="allowFullScreen"
-                ></iframe>
-            </div>
           </div>
           <div className={"col-12 col-md-10 col-lg-6 col-xl-5 justify-items-center " + styles.esitykset}>
             <h2 className={styles.textheader}>Esitykset Manilla-teatterilla:</h2>
             <Esitysvalinta 
                 esitykset={this.state.esitykset} 
                 toggleUusiVarausModal={this.toggleUusiVarausModal} />
+          </div>
+        </div>
+        <div className={"row align-items-top justify-content-center " + styles.videot}>
+          <div className={"col-sm-11 col-md-5"}>
+            <div className="videowrapper">
+                <h2 className={styles.textheader}>Älä ammu ohi -teaser</h2> 
+                  <iframe id="youtubeplayer"
+                      src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
+                      width="100%" height="360"
+                      frameBorder="0"
+                      allowFullScreen="allowFullScreen"
+                  ></iframe>
+            </div>
+          </div>
+          <div className={"col-sm-11 col-md-5"}>
+            <div className="videowrapper">
+                <h2 className={styles.textheader}>Älä ammu ohi -trailer</h2> 
+                  <iframe id="youtubeplayer"
+                      src="https://www.youtube.com/embed/vhLvRVZabTA?enablejsapi=1&rel=0"
+                      width="100%" height="360"
+                      frameBorder="0"
+                      allowFullScreen="allowFullScreen"
+                  ></iframe>
+            </div>
           </div>
         </div>
         <div className={"row justify-content-center " + styles.hr}>
