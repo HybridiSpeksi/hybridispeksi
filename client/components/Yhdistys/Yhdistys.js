@@ -86,21 +86,21 @@ class Yhdistys extends Component {
                 <div className="row">
                   <div className="col">
                     <p><strong>Sampsa Vuorela</strong><br />
-                      <i>Taloudellisen tiimin vastaava</i>
+                      <i>Taloudellisen tiimin yhteyshenkilö</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <p><strong>Ilmari Kautiala</strong><br />
-                      <i>Esiintyjien yhdyshenkilö</i>
+                      <i>Esiintyjien yhteyshenkilö</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <p><strong>Oliver Boucht</strong><br />
-                      <i>Visuaalisen tiimin yhdyshenkilö</i>
+                      <i>Visuaalisen tiimin yhteyshenkilö</i>
                     </p>
                   </div>
                 </div>
