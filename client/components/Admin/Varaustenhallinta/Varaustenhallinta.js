@@ -91,6 +91,11 @@ class Varaustenhallinta extends Component {
 
   toggleMuokkaaVaraustaModal(varaus) {
     $('#muokkaaVaraustaModal').modal('show');
+    this.state.esitykset.map((esitys) => {
+      if (esitys._id == varaus.esitysId){
+        this.setState({valittuEsitys: esitys});
+      }
+    })
     this.setState({
       valittuVarausId: varaus._id,
       fname: varaus.fname,
@@ -255,16 +260,16 @@ class Varaustenhallinta extends Component {
     		ncount: '',
     		scount: '',
     		ocount: '',
-            oprice: 12,
+        oprice: 12,
     		price: '',
     		lisatiedot: '',
     		messages: [],
-            warnings: [],
-            errors: [],
-            ilmottu: false,
-            paid: 'true',
-            paymentMethod: '0',
-            sendemail: 'true',
+        warnings: [],
+        errors: [],
+        ilmottu: false,
+        paid: 'true',
+        paymentMethod: '0',
+        sendemail: 'true',
     });
   }
 
