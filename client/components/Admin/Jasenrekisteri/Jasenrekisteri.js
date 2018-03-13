@@ -47,20 +47,18 @@ class Jasenrekisteri extends Component {
     this.setState({ valittuJasen: JSON.parse(JSON.stringify(jasen)) });
   }
 
-  tallennaTiedot() {
-    ajax
-      .sendPost('/admin/h/jasenrekisteri', this.state.valittuJasen)
-      .then(() => {
-        this.teeHaut();
-        const messages = this.state.messages;
-        messages.push({ header: 'Tiedot tallennettu!', text: '' });
-        setTimeout(() => {
-          this.setState({ messages: [] });
-        }, 2000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async tallennaTiedot() {
+    try {
+      await ajax.sendPost('/admin/h/jasenrekisteri', this.state.valittuJasen);
+      this.teeHaut();
+      const messages = this.state.messages;
+      messages.push({ header: 'Tiedot tallennettu!', text: '' });
+      setTimeout(() => {
+        this.setState({ messages: [] });
+      }, 2000);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   jasenLisatty() {
@@ -72,31 +70,34 @@ class Jasenrekisteri extends Component {
     }, 2000);
   }
 
-  hyvaksyJasen() {
-    ajax
-      .sendGet('/admin/h/hyvaksyJasen/' + this.state.valittuJasen._id)
-      .then(() => {
-        this.teeHaut();
+  async hyvaksyJasen() {
+    try {
+      const res = await ajax.sendGet('/admin/h/hyvaksyJasen/' + this.state.valittuJasen._id);
+      this.teeHaut();
+      if (res.success) {
         const messages = this.state.messages;
         messages.push({ header: 'Jäsenyys hyväksytty!', text: '' });
         setTimeout(() => {
           this.setState({ messages: [] });
         }, 2000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      } else {
+        const errors = this.state.errors;
+        errors.push({ header: 'Virhe!', text: 'Hyväksyminen epäonnistui.' });
+      }
+    } catch (err) {
+      const errors = this.state.errors;
+      errors.push({ header: 'Virhe!', text: 'Hyväksyminen epäonnistui.' });
+      console.log(err);
+    }
   }
 
-  teeHaut() {
-    ajax
-      .sendGet('/admin/h/jasenrekisteri')
-      .then((j) => {
-        this.setState({ jasenet: j.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async teeHaut() {
+    try {
+      const j = await ajax.sendGet('/admin/h/jasenrekisteri');
+      this.setState({ jasenet: j.data });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {

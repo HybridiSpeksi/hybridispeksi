@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, Radio } from '../../Utils/Form';
 import utils from '../../Utils/Utils';
 import Modal from '../../Utils/Modal';
@@ -14,6 +15,7 @@ class Uusijasen extends Component {
       warnings: [],
       errors: [],
       jasen: {
+        _id: '',
         fname: '',
         sname: '',
         email: '',
@@ -27,7 +29,7 @@ class Uusijasen extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.state.jasen._id && this.state.jasen._id !== nextProps.jasen._id) {
+    if (this.state.jasen._id !== nextProps.jasen._id) {
       const _jasen = nextProps.jasen;
       _jasen.hometown = '';
       _jasen.memberOfTyy = true;
@@ -152,5 +154,10 @@ class Uusijasen extends Component {
     );
   }
 }
+
+Uusijasen.propTypes = {
+  jasen: PropTypes.object,
+  jasenLisatty: PropTypes.func,
+};
 
 export default Uusijasen;
