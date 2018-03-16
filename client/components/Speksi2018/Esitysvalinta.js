@@ -5,7 +5,8 @@ import Moment from 'react-moment';
 
 import styles from './Speksi2018.css';
 
-const Esitysvalinta = ({ esitykset, toggleUusiVarausModal }) => {
+const Esitysvalinta = (props) => {
+  const { esitykset, toggleUusiVarausModal } = props;
   const getEsitykset = esitykset.map((esitys, i) => {
     let tilaa = '';
     if (esitys.bookingCount < 100) {

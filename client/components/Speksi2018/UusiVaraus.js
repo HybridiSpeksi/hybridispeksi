@@ -103,6 +103,7 @@ const UusiVaraus = ({
                 </button>
                 ) : (
                   <button
+                    id="siirrymaksamaan"
                     type="button"
                     className={'btn btn-dark ' + styles.formButton}
                     onClick={handleSubmit}
