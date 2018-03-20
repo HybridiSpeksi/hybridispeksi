@@ -9,6 +9,7 @@ const tapahtuma = require('./ilmo/tapahtuma');
 const esitys = require('./esitykset/esitykset');
 const varaus = require('./esitykset/varaukset');
 const maksu = require('./esitykset/maksut');
+const palaute = require('./palautteet/palautteet');
 
 router.all('/admin*', user.checkToken);
 router.all('/admin/h/*', user.isHallitus);
@@ -76,5 +77,9 @@ router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMai
 router.get('/payment/success', maksu.handleSuccess);
 router.get('/payment/failure', maksu.handleFailure);
 router.get('/payment/notify', maksu.handleNotify);
+
+// Palautteet
+router.get('/admin/palautteet', palaute.getAll);
+router.post('/palaute', palaute.createNew);
 
 module.exports = router;

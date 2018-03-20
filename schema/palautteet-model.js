@@ -3,16 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 module.exports = mongoose.model(
-  'Ohjaustieto',
+  'Palaute',
   new Schema(
     {
-      key: String,
-      value: String,
       name: String,
-      truefalse: Boolean,
+      email: String,
+      feedback: String,
     },
     {
-      collection: 'ohjaustietos',
+      collection: 'palautteet',
       timestamps: true,
     },
   ),
