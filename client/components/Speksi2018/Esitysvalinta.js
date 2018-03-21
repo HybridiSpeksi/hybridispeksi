@@ -14,19 +14,19 @@ const Esitysvalinta = (props) => {
     } else if (esitys.bookingCount < 130) {
       tilaa = 'Lähes täynnä';
     } else {
-      tilaa = 'Täynnä';
+      tilaa = 'Loppuunmyyty';
     }
 
     return (
       <tr key={esitys._id}>
         <td
-          className={tilaa === 'Täynnä' ? styles.showTdFull : styles.showTd}
+          className={tilaa === 'Loppuunmyyty' ? styles.showTdFull : styles.showTd}
           onClick={() => toggleUusiVarausModal(esitys, tilaa)}
         >
           {esitys.name} klo <Moment format="HH.mm">{esitys.date}</Moment>
         </td>
         <td
-          className={tilaa === 'Täynnä' ? styles.showTdFull : styles.showTd}
+          className={tilaa === 'Loppuunmyyty' ? styles.showTdFull : styles.showTd}
           onClick={() => toggleUusiVarausModal(esitys, tilaa)}
         >
           <i>{tilaa}</i>
