@@ -65,7 +65,8 @@ class Varaustenhallinta extends Component {
   }
 
   componentDidMount() {
-    ajax.sendGet('/getShowsWithCounts')
+    ajax
+      .sendGet('/getShowsWithCounts')
       .then((_data) => {
         this.setState({ esitykset: _data.data });
         this.setState({ valittuEsitys: _data.data[0] });
@@ -92,31 +93,34 @@ class Varaustenhallinta extends Component {
   toggleMuokkaaVaraustaModal(varaus) {
     $('#muokkaaVaraustaModal').modal('show');
     this.state.esitykset.map((esitys) => {
-      if (esitys._id == varaus.esitysId){
-        this.setState({valittuEsitys: esitys});
+      if (esitys._id == varaus.esitysId) {
+        this.setState({ valittuEsitys: esitys });
       }
-    })
-    this.setState({
-      valittuVarausId: varaus._id,
-      fname: varaus.fname,
-      sname: varaus.sname,
-      email: varaus.email,
-      pnumber: varaus.pnumber,
-      ncount: varaus.ncount,
-      scount: varaus.scount,
-      ocount: varaus.ocount,
-      oprice: varaus.oprice,
-      lisatiedot: varaus.additional,
-      paid: varaus.paid.toString(),
-      paymentMethod: varaus.paymentMethod.toString(),
-      sendemail: 'false',
-      ilmottu: false,
-      messages: [],
-      warnings: [],
-      errors: [],
-    }, () => {
-      this.countPrice();
     });
+    this.setState(
+      {
+        valittuVarausId: varaus._id,
+        fname: varaus.fname,
+        sname: varaus.sname,
+        email: varaus.email,
+        pnumber: varaus.pnumber,
+        ncount: varaus.ncount,
+        scount: varaus.scount,
+        ocount: varaus.ocount,
+        oprice: varaus.oprice,
+        lisatiedot: varaus.additional,
+        paid: varaus.paid.toString(),
+        paymentMethod: varaus.paymentMethod.toString(),
+        sendemail: 'false',
+        ilmottu: false,
+        messages: [],
+        warnings: [],
+        errors: [],
+      },
+      () => {
+        this.countPrice();
+      },
+    );
   }
 
   toggleUusiVarausModal() {
@@ -127,7 +131,12 @@ class Varaustenhallinta extends Component {
   handleChange(e) {
     const value = e.target.value;
 
-    if (e.target.name == 'ncount' || e.target.name == 'scount' || e.target.name == 'ocount' || e.target.name == 'oprice') {
+    if (
+      e.target.name == 'ncount' ||
+      e.target.name == 'scount' ||
+      e.target.name == 'ocount' ||
+      e.target.name == 'oprice'
+    ) {
       this.setState({ [e.target.name]: value }, () => {
         this.countPrice();
       });
@@ -147,22 +156,26 @@ class Varaustenhallinta extends Component {
   }
 
   countPrice() {
-    const sum = this.state.ncount * this.state.nprice + this.state.scount * this.state.sprice + this.state.ocount * this.state.oprice;
+    const sum =
+      this.state.ncount * this.state.nprice +
+      this.state.scount * this.state.sprice +
+      this.state.ocount * this.state.oprice;
     this.setState({ price: sum });
   }
 
   filterVaraukset() {
-    	const result = this.state.varaukset.filter(varaus =>
-	    		varaus.fname.toLowerCase().includes(this.state.searchword) ||
-	    		varaus.sname.toLowerCase().includes(this.state.searchword) ||
-	    		varaus.email.toLowerCase().includes(this.state.searchword) ||
-	    		varaus.bookingId.toLowerCase().includes(this.state.searchword));
-	    this.setState({ filteredVaraukset: result });
+    const result = this.state.varaukset.filter(varaus =>
+      varaus.fname.toLowerCase().includes(this.state.searchword) ||
+        varaus.sname.toLowerCase().includes(this.state.searchword) ||
+        varaus.email.toLowerCase().includes(this.state.searchword) ||
+        varaus.bookingId.toLowerCase().includes(this.state.searchword));
+    this.setState({ filteredVaraukset: result });
   }
 
   sendConfirmationEmail() {
     if (confirm('Haluatko varmasti lähettää varausvahvistussähköpostin?')) {
-      ajax.sendGet('/admin/varaus/sendConfirmationMail/' + this.state.valittuVarausId)
+      ajax
+        .sendGet('/admin/varaus/sendConfirmationMail/' + this.state.valittuVarausId)
         .then((res) => {
           if (res.success) {
             this.addMessage(MESSAGE_SUCCESS, res.data);
@@ -176,14 +189,12 @@ class Varaustenhallinta extends Component {
     }
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ ilmottu: true });
     const url = '/admin/varaus';
-    ajax.sendPost(
-      url,
-      {
+    ajax
+      .sendPost(url, {
         fname: this.state.fname,
         sname: this.state.sname,
         email: this.state.email,
@@ -197,30 +208,34 @@ class Varaustenhallinta extends Component {
         sendemail: this.state.sendemail,
         esitysId: this.state.valittuEsitys._id,
         additional: this.state.lisatiedot,
-      },
-    ).then((data) => {
-      if (data.success) {
-        this.addMessage(MESSAGE_SUCCESS, 'Ilmoittautuminen onnistui!');
-        this.haeVaraukset(this.state.valittuEsitys);
-        this.haeEsitykset();
-      } else {
+      })
+      .then((data) => {
+        if (data.success) {
+          this.addMessage(MESSAGE_SUCCESS, 'Ilmoittautuminen onnistui!');
+          this.haeVaraukset(this.state.valittuEsitys);
+          this.haeEsitykset();
+        } else {
+          this.setState({ ilmottu: false });
+          this.addMessage(MESSAGE_WARNING, data.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
         this.setState({ ilmottu: false });
-        this.addMessage(MESSAGE_WARNING, data.data);
-      }
-    }).catch((err) => {
-      console.log(err);
-      this.setState({ ilmottu: false });
-      this.addMessage(MESSAGE_ERROR, 'Virhe!', 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.');
-    });
+        this.addMessage(
+          MESSAGE_ERROR,
+          'Virhe!',
+          'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
+        );
+      });
   }
 
   handleUpdate(e) {
     e.preventDefault();
     this.setState({ ilmottu: true });
     const url = '/admin/varaus/' + this.state.valittuVarausId;
-    ajax.sendPut(
-      url,
-      {
+    ajax
+      .sendPut(url, {
         _id: this.state.valittuVarausId,
         fname: this.state.fname,
         sname: this.state.sname,
@@ -234,48 +249,55 @@ class Varaustenhallinta extends Component {
         paid: this.state.paid,
         esitysId: this.state.valittuEsitys._id,
         additional: this.state.lisatiedot,
-      },
-    ).then((data) => {
-      if (data.success) {
-        this.addMessage(MESSAGE_SUCCESS, 'Tietojen päivitys onnistui!');
-        this.haeVaraukset(this.state.valittuEsitys);
-        this.haeEsitykset();
-      } else {
+      })
+      .then((data) => {
+        if (data.success) {
+          this.addMessage(MESSAGE_SUCCESS, 'Tietojen päivitys onnistui!');
+          this.haeVaraukset(this.state.valittuEsitys);
+          this.haeEsitykset();
+        } else {
+          this.setState({ ilmottu: false });
+          this.addMessage(MESSAGE_WARNING, data.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
         this.setState({ ilmottu: false });
-        this.addMessage(MESSAGE_WARNING, data.data);
-      }
-    }).catch((err) => {
-      console.log(err);
-      this.setState({ ilmottu: false });
-      this.addMessage(MESSAGE_ERROR, 'Virhe!', 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.');
-    });
+        this.addMessage(
+          MESSAGE_ERROR,
+          'Virhe!',
+          'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
+        );
+      });
   }
 
   emptyFields() {
-    	this.setState({
-    		fname: '',
-    		sname: '',
-    		email: '',
-    		pnumber: '',
-    		ncount: '',
-    		scount: '',
-    		ocount: '',
-        oprice: 12,
-    		price: '',
-    		lisatiedot: '',
-    		messages: [],
-        warnings: [],
-        errors: [],
-        ilmottu: false,
-        paid: 'true',
-        paymentMethod: '0',
-        sendemail: 'true',
+    this.setState({
+      bookingId: '',
+      fname: '',
+      sname: '',
+      email: '',
+      pnumber: '',
+      ncount: '',
+      scount: '',
+      ocount: '',
+      oprice: 12,
+      price: '',
+      lisatiedot: '',
+      messages: [],
+      warnings: [],
+      errors: [],
+      ilmottu: false,
+      paid: 'true',
+      paymentMethod: '0',
+      sendemail: 'true',
     });
   }
 
   removeBooking(varausId) {
     if (confirm('Haluatko varmasti poistaa varauksen?')) {
-      ajax.sendDelete('/admin/varaus/' + varausId)
+      ajax
+        .sendDelete('/admin/varaus/' + varausId)
         .then((data) => {
           if (data.success) {
             alert(data.data);
@@ -298,7 +320,8 @@ class Varaustenhallinta extends Component {
   }
 
   haeEsitykset() {
-    	ajax.sendGet('/getShowsWithCounts')
+    ajax
+      .sendGet('/getShowsWithCounts')
       .then((_data) => {
         this.setState({ esitykset: _data.data });
       })
@@ -308,7 +331,8 @@ class Varaustenhallinta extends Component {
   }
 
   haeVaraukset(esitys) {
-    ajax.sendGet('/admin/varaukset/' + esitys._id)
+    ajax
+      .sendGet('/admin/varaukset/' + esitys._id)
       .then((_data) => {
         this.setState({ varaukset: _data.data }, () => {
           this.filterVaraukset();
@@ -320,14 +344,18 @@ class Varaustenhallinta extends Component {
   }
 
   haeKaikkiVaraukset() {
-    ajax.sendGet('/admin/kaikkivaraukset/')
+    ajax
+      .sendGet('/admin/kaikkivaraukset/')
       .then((_data) => {
-        this.setState({
-          varaukset: _data.data,
-          valittuEsitys: { name: 'Kaikki varaukset' },
-        }, () => {
-          this.filterVaraukset();
-        });
+        this.setState(
+          {
+            varaukset: _data.data,
+            valittuEsitys: { name: 'Kaikki varaukset' },
+          },
+          () => {
+            this.filterVaraukset();
+          },
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -336,8 +364,8 @@ class Varaustenhallinta extends Component {
 
   // Add different kinds of error or warning messages
   addMessage(type, newHeader, newText) {
-    	this.setState({
-    		messages: [],
+    this.setState({
+      messages: [],
       warnings: [],
       errors: [],
     });
@@ -348,7 +376,7 @@ class Varaustenhallinta extends Component {
     } else if (type === MESSAGE_ERROR) {
       const newErrors = this.state.errors;
       newErrors.push({ header: newHeader, text: newText });
-      this.setState({ erros: newErrors });
+      this.setState({ errors: newErrors });
     } else if (type === MESSAGE_SUCCESS) {
       const newMessages = this.state.messages;
       newMessages.push({ header: newHeader, text: newText });
@@ -356,27 +384,96 @@ class Varaustenhallinta extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="container-fluid">
         <div className="row justify-content-between align-items-center">
-              <div className="col">
-                  <h1>Varaustenhallinta</h1>
-                </div>
-              <div className="col d-flex justify-content-end">
-                  <button
-                      className="btn btn-default"
-                      onClick={() => this.toggleUusiVarausModal()}
-                    >Lisää uusi varaus
-                    </button>
-                </div>
-            </div>
+          <div className="col">
+            <h1>Varaustenhallinta</h1>
+          </div>
+          <div className="col d-flex justify-content-end">
+            <button className="btn btn-default" onClick={() => this.toggleUusiVarausModal()}>
+              Lisää uusi varaus
+            </button>
+          </div>
+        </div>
         <UusiVaraus
+          emptyFields={this.emptyFields}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          sendConfirmationEmail={this.sendConfirmationEmail}
+          fname={this.state.fname}
+          sname={this.state.sname}
+          email={this.state.email}
+          pnumber={this.state.pnumber}
+          scount={this.state.scount}
+          ncount={this.state.ncount}
+          ocount={this.state.ocount}
+          oprice={this.state.oprice}
+          price={this.state.price}
+          lisatiedot={this.state.lisatiedot}
+          ilmottu={this.state.ilmottu}
+          valittuEsitys={this.state.valittuEsitys}
+          esitykset={this.state.esitykset}
+          paymentMethod={this.state.paymentMethod}
+          paid={this.state.paid}
+          sendemail={this.state.sendemail}
+          messages={
+            <Messages
+              messages={this.state.messages}
+              warnings={this.state.warnings}
+              errors={this.state.errors}
+            />
+          }
+        />
+
+        <div className="row">
+          <div className="col-sm-4">
+            <h3>Valitse esitys</h3>
+
+            <Esitysvalinta
+              esitykset={this.state.esitykset}
+              valitseEsitys={this.valitseEsitys}
+              haeKaikkiVaraukset={this.haeKaikkiVaraukset}
+            />
+
+            {this.state.naytaSahkopostit ? (
+              <Sahkopostit
+                jasenet={this.state.varaukset}
+                toggleSahkopostit={this.toggleSahkopostit}
+              />
+            ) : (
+              <button className="btn btn-default" onClick={this.toggleSahkopostit}>
+                Näytä sähköpostit
+              </button>
+            )}
+          </div>
+          <div className="col">
+            <div className="row justify-content-between align-items-center">
+              <div className="col-8">
+                <h3>{this.state.valittuEsitys.name}</h3>
+              </div>
+              <div className="col-4 d-flex justify-content-end">
+                <input
+                  name="searchword"
+                  id="searchword"
+                  className="form-control"
+                  type="text"
+                  onChange={this.handleChange}
+                  value={this.state.searchword}
+                  placeholder="Hakusana"
+                />
+              </div>
+            </div>
+            <VarausLista
+              removeBooking={this.removeBooking}
+              varaukset={this.state.filteredVaraukset}
               emptyFields={this.emptyFields}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
+              handleUpdate={this.handleUpdate}
               sendConfirmationEmail={this.sendConfirmationEmail}
+              toggleMuokkaaVaraustaModal={this.toggleMuokkaaVaraustaModal}
               fname={this.state.fname}
               sname={this.state.sname}
               email={this.state.email}
@@ -389,78 +486,21 @@ class Varaustenhallinta extends Component {
               lisatiedot={this.state.lisatiedot}
               ilmottu={this.state.ilmottu}
               valittuEsitys={this.state.valittuEsitys}
+              valittuVarausId={this.state.valittuVarausId}
               esitykset={this.state.esitykset}
               paymentMethod={this.state.paymentMethod}
               paid={this.state.paid}
               sendemail={this.state.sendemail}
-              messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />}
+              messages={
+                <Messages
+                  messages={this.state.messages}
+                  warnings={this.state.warnings}
+                  errors={this.state.errors}
+                />
+              }
             />
-
-        <div className="row">
-              <div className="col-sm-4">
-
-                  <h3>Valitse esitys</h3>
-
-                  <Esitysvalinta
-                      esitykset={this.state.esitykset}
-                      valitseEsitys={this.valitseEsitys}
-                      haeKaikkiVaraukset={this.haeKaikkiVaraukset}
-                    />
-
-                  {this.state.naytaSahkopostit ? (
-                      <Sahkopostit
-                          jasenet={this.state.varaukset}
-                          toggleSahkopostit={this.toggleSahkopostit}
-                        />
-
-                        ) : (
-                          <button
-                            className="btn btn-default"
-                            onClick={this.toggleSahkopostit}
-                          >Näytä sähköpostit
-                          </button>
-                            )}
-                </div>
-              <div className="col">
-                  <div className="row justify-content-between align-items-center">
-                      <div className="col-8">
-                          <h3>{this.state.valittuEsitys.name}</h3>
-                        </div>
-                      <div className="col-4 d-flex justify-content-end">
-                          <input name="searchword" id="searchword" className="form-control" type="text" onChange={this.handleChange} value={this.state.searchword} placeholder="Hakusana" />
-                        </div>
-                    </div>
-                  <VarausLista
-                      removeBooking={this.removeBooking}
-                      varaukset={this.state.filteredVaraukset}
-                      emptyFields={this.emptyFields}
-                      handleChange={this.handleChange}
-                      handleSubmit={this.handleSubmit}
-                      handleUpdate={this.handleUpdate}
-                      sendConfirmationEmail={this.sendConfirmationEmail}
-                      toggleMuokkaaVaraustaModal={this.toggleMuokkaaVaraustaModal}
-                      fname={this.state.fname}
-                      sname={this.state.sname}
-                      email={this.state.email}
-                      pnumber={this.state.pnumber}
-                      scount={this.state.scount}
-                      ncount={this.state.ncount}
-                      ocount={this.state.ocount}
-                      oprice={this.state.oprice}
-                      price={this.state.price}
-                      lisatiedot={this.state.lisatiedot}
-                      ilmottu={this.state.ilmottu}
-                      valittuEsitys={this.state.valittuEsitys}
-                      valittuVarausId={this.state.valittuVarausId}
-                      esitykset={this.state.esitykset}
-                      paymentMethod={this.state.paymentMethod}
-                      paid={this.state.paid}
-                      sendemail={this.state.sendemail}
-                      messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />}
-                    />
-
-                </div>
-            </div>
+          </div>
+        </div>
       </div>
     );
   }
