@@ -98,6 +98,18 @@ module.exports = {
     }
   },
 
+  redeem: (req, res) => {
+    const varaus = req.body;
+    Varaus.findByIdAndUpdate(varaus._id, varaus)
+      .then((_varaus) => {
+        res.json({ success: true, data: 'Varaus merkitty noudetuksi.' });
+        console.log(varaus)
+      })
+      .catch((err) => {
+        res.json({ success: false, data: err})
+      })
+  },
+
   createPayment: (req, res) => {
     const booking = req.body;
     validate(booking)

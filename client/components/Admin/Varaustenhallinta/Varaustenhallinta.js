@@ -37,6 +37,7 @@ class Varaustenhallinta extends Component {
       price: '',
       lisatiedot: '',
       paid: 'true',
+      checked: 'false',
       paymentMethod: '0',
       sendemail: 'true',
       ilmottu: false,
@@ -58,6 +59,7 @@ class Varaustenhallinta extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.removeBooking = this.removeBooking.bind(this);
+    this.redeemBooking = this.redeemBooking.bind(this);
     this.addMessage = this.addMessage.bind(this);
     this.emptyFields = this.emptyFields.bind(this);
     this.countPrice = this.countPrice.bind(this);
@@ -93,7 +95,7 @@ class Varaustenhallinta extends Component {
   toggleMuokkaaVaraustaModal(varaus) {
     $('#muokkaaVaraustaModal').modal('show');
     this.state.esitykset.map((esitys) => {
-      if (esitys._id == varaus.esitysId) {
+      if (esitys._id === varaus.esitysId) {
         this.setState({ valittuEsitys: esitys });
       }
     });
@@ -110,6 +112,7 @@ class Varaustenhallinta extends Component {
         oprice: varaus.oprice,
         lisatiedot: varaus.additional,
         paid: varaus.paid.toString(),
+        checked: varaus.checked.toString(),
         paymentMethod: varaus.paymentMethod.toString(),
         sendemail: 'false',
         ilmottu: false,
@@ -132,21 +135,21 @@ class Varaustenhallinta extends Component {
     const value = e.target.value;
 
     if (
-      e.target.name == 'ncount' ||
-      e.target.name == 'scount' ||
-      e.target.name == 'ocount' ||
-      e.target.name == 'oprice'
+      e.target.name === 'ncount' ||
+      e.target.name === 'scount' ||
+      e.target.name === 'ocount' ||
+      e.target.name === 'oprice'
     ) {
       this.setState({ [e.target.name]: value }, () => {
         this.countPrice();
       });
-    } else if (e.target.name == 'esitys') {
+    } else if (e.target.name === 'esitys') {
       this.state.esitykset.map((esitys) => {
         if (e.target.value === esitys._id) {
           this.valitseEsitys(esitys);
         }
       });
-    } else if (e.target.name == 'searchword') {
+    } else if (e.target.name === 'searchword') {
       this.setState({ [e.target.name]: value.toLowerCase() }, () => {
         this.filterVaraukset();
       });
@@ -205,6 +208,7 @@ class Varaustenhallinta extends Component {
         oprice: this.state.oprice,
         paymentMethod: this.state.paymentMethod,
         paid: this.state.paid,
+        checked: this.state.checked,
         sendemail: this.state.sendemail,
         esitysId: this.state.valittuEsitys._id,
         additional: this.state.lisatiedot,
@@ -247,6 +251,7 @@ class Varaustenhallinta extends Component {
         oprice: this.state.oprice,
         paymentMethod: this.state.paymentMethod,
         paid: this.state.paid,
+        checked: this.state.checked,
         esitysId: this.state.valittuEsitys._id,
         additional: this.state.lisatiedot,
       })
@@ -289,6 +294,7 @@ class Varaustenhallinta extends Component {
       errors: [],
       ilmottu: false,
       paid: 'true',
+      checked: 'false',
       paymentMethod: '0',
       sendemail: 'true',
     });
@@ -309,6 +315,28 @@ class Varaustenhallinta extends Component {
         })
         .catch((err) => {
           console.log(err);
+        });
+    }
+  }
+
+  redeemBooking(varausId) {
+    if (confirm('Haluatko varmasti merkitä varauksen noudetuksi?')) {
+      const url = '/admin/redeem/' + varausId;
+      ajax
+        .sendPut(url, {
+          _id: varausId,
+          checked: true
+        })
+        .then((data) => {
+          if (data.success) {
+            this.haeVaraukset(this.state.valittuEsitys);
+          } else {
+            alert('Varausta ei voitu merkitä noudetuksi.');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert('Palvelimella tapahtui virhe, jonka vuoksi varausta ei voitu merkitä noudetuksi.');
         });
     }
   }
@@ -417,6 +445,7 @@ class Varaustenhallinta extends Component {
           esitykset={this.state.esitykset}
           paymentMethod={this.state.paymentMethod}
           paid={this.state.paid}
+          checked={this.state.checked}
           sendemail={this.state.sendemail}
           messages={
             <Messages
@@ -467,6 +496,7 @@ class Varaustenhallinta extends Component {
             </div>
             <VarausLista
               removeBooking={this.removeBooking}
+              redeemBooking={this.redeemBooking}
               varaukset={this.state.filteredVaraukset}
               emptyFields={this.emptyFields}
               handleChange={this.handleChange}
@@ -490,6 +520,7 @@ class Varaustenhallinta extends Component {
               esitykset={this.state.esitykset}
               paymentMethod={this.state.paymentMethod}
               paid={this.state.paid}
+              checked={this.state.checked}
               sendemail={this.state.sendemail}
               messages={
                 <Messages

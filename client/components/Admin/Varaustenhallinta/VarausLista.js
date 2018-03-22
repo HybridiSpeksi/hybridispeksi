@@ -15,8 +15,8 @@ class VarausLista extends Component {
           <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
             {varaus.paid ? <i className="fa fa-check" aria-hidden="true" /> : ''}
           </td>
-          <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
-            {varaus.checked ? <i className="fa fa-check" aria-hidden="true" /> : ''}
+          <td className="text-center">
+            {varaus.checked === true ? <i className="fa fa-check" aria-hidden="true" /> : <button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.redeemBooking(varaus._id)}>Check</button>}
           </td>
           <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
             {ticketCount}
