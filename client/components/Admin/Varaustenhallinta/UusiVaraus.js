@@ -33,6 +33,7 @@ class UusiVaraus extends Component {
                   esitykset={this.props.esitykset}
                   paymentMethod={this.props.paymentMethod}
                   paid={this.props.paid}
+                  checked={this.props.checked}
                   sendemail={this.props.sendemail}
                 />
 

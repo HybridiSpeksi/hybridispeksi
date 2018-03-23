@@ -10,8 +10,7 @@ class VarausForm extends Component {
       { label: 'Lasku', value: '1' },
       { label: 'Paytrail', value: '2' },
     ];
-    const paidOptions = [{ label: 'Kyllä', value: 'true' }, { label: 'Ei', value: 'false' }];
-    const sendemailOptions = [{ label: 'Kyllä', value: 'true' }, { label: 'Ei', value: 'false' }];
+    const yesNoOptions = [{ label: 'Kyllä', value: 'true' }, { label: 'Ei', value: 'false' }];
     return (
       <div>
         <form onSubmit={this.props.handleSubmit}>
@@ -225,19 +224,6 @@ class VarausForm extends Component {
                 name="paymentMethod"
               />
             </div>
-            {/*
-                            <input checked={this.props.paymentMethod === 0}
-                             className="" type="radio" name="paymentMethod"
-                              value={0} onChange={this.props.handleChange}/>
-                               Käteinen <br/>
-                            <input checked={this.props.paymentMethod === 1}
-                             className="" type="radio" name="paymentMethod"
-                              value={1} onChange={this.props.handleChange}/>
-                               Lasku <br/>
-                            <input checked={this.props.paymentMethod === 2}
-                             className="" type="radio" name="paymentMethod"
-                              value={2} onChange={this.props.handleChange}/> Paytrail <br/>
-                        */}
           </div>
           <div className="row form-group align-items-center">
             <div className="col-sm-3">
@@ -247,7 +233,7 @@ class VarausForm extends Component {
             </div>
             <div className="col form-check form-check-inline">
               <Radio
-                options={paidOptions}
+                options={yesNoOptions}
                 onChange={this.props.handleChange}
                 value={this.props.paid}
                 name="paid"
@@ -262,11 +248,26 @@ class VarausForm extends Component {
             </div>
             <div className="col form-check form-check-inline">
               <Radio
-                options={sendemailOptions}
+                options={yesNoOptions}
                 onChange={this.props.handleChange}
                 value={this.props.sendemail}
                 name="sendemail"
                 disabled={!!this.props.valittuVarausId}
+              />
+            </div>
+          </div>
+          <div className="row form-group align-items-center">
+            <div className="col-sm-3">
+              <label htmlFor="sendmailInput" className="">
+                Lippu noudettu:
+              </label>
+            </div>
+            <div className="col form-check form-check-inline">
+              <Radio
+                options={yesNoOptions}
+                onChange={this.props.handleChange}
+                value={this.props.checked}
+                name="checked"
               />
             </div>
           </div>

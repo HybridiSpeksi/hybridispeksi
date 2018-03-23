@@ -42,6 +42,7 @@ class MuokkaaVarausta extends Component {
                   valittuVarausId={this.props.valittuVarausId}
                   paymentMethod={this.props.paymentMethod}
                   paid={this.props.paid}
+                  checked={this.props.checked}
                   sendemail={this.props.sendemail}
                 />
 
