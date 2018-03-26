@@ -1,0 +1,50 @@
+.container {
+	/*height:800px;*/
+	background-color: #dbdbdb;
+}
+.banner {
+	background:url(/assets/images/interspeksuaali.jpg) no-repeat black top center;
+	height:1080px;
+	box-shadow: -1px 5px 5px
+}
+.content {
+    /* min-width:600px; */
+    margin-top:-900px;
+}
+.form_canvas {
+	margin-top:50px;
+	margin-bottom:100px;
+	padding:40px;
+	padding-top:30px;
+	background-color:white;
+	text-align:justify;
+	/* min-width:600px; */
+}
+.tahti {
+	color:red;
+	font-weight:bold;
+	font-size:110%;
+}
+.jasenradio {
+	margin-left:20px;
+}
+
+@media (max-width:576px){
+	.banner {
+		padding-top:10vh;
+		background-size:110vw;
+	}
+	.form_canvas {
+		padding:30px;
+		padding-top:20px;
+		text-align:left;
+	}
+}
+@media (max-width:1000px){
+	h2{
+		font-size: 32px;
+	}
+}
+
+
+

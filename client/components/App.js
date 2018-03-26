@@ -18,6 +18,7 @@ import Yhdistys from './Yhdistys/Yhdistys';
 import Rekisteriseloste from './Yhdistys/Rekisteriseloste';
 import Saannot from './Yhdistys/Saannot';
 import Sitsit from './Sitsit/Sitsit';
+import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
 import Vahvistus from './Speksi2018/Vahvistus';
@@ -100,6 +101,7 @@ export default class App extends React.Component {
                 <PublicLayout exact path="/yhdistys/saannot" component={Saannot} />
                 <PublicLayout path="/esitykset" component={Esitykset} />
                 <PublicLayout path="/ilmo" component={Sitsit} />
+                <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
               </Switch>
             </div>
