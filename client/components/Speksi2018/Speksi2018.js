@@ -81,26 +81,18 @@ class Speksi2018 extends Component {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    /* let player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('youtubeplayer', {
-        width: '390',
-        height: '640',
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
-    } */
   }
   toggleUusiVarausModal(esitys, tilaa) {
     if (!this.state.lipunmyyntiAuki) {
       this.setState({ openModalError: 'Lipunmyynti ei ole vielä alkanut.' }, () => {
         $('#errorModal').modal('show');
       });
-    } else if (tilaa === 'Täynnä') {
+    } else if (tilaa === 'Loppuunmyyty') {
       this.setState({ openModalError: 'Valittu esitys on täynnä.' }, () => {
+        $('#errorModal').modal('show');
+      });
+    } else if (new Date() > new Date(esitys.date)) {
+      this.setState({ openModalError: 'Esitykseen ei voi varata enää lippuja.' }, () => {
         $('#errorModal').modal('show');
       });
     } else {
