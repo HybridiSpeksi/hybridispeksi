@@ -88,7 +88,7 @@ class Speksi2018 extends Component {
       this.setState({ openModalError: 'Lipunmyynti ei ole vielä alkanut.' }, () => {
         $('#errorModal').modal('show');
       });
-    } else if (tilaa === 'Täynnä') {
+    } else if (tilaa === 'Loppuunmyyty') {
       this.setState({ openModalError: 'Valittu esitys on täynnä.' }, () => {
         $('#errorModal').modal('show');
       });
