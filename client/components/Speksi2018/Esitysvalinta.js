@@ -20,13 +20,13 @@ const Esitysvalinta = (props) => {
     return (
       <tr key={esitys._id}>
         <td
-          className={tilaa === 'Loppuunmyyty' ? styles.showTdFull : styles.showTd}
+          className={tilaa === 'Loppuunmyyty' || new Date() > new Date(esitys.date) ? styles.showTdFull : styles.showTd}
           onClick={() => toggleUusiVarausModal(esitys, tilaa)}
         >
           {esitys.name} klo <Moment format="HH.mm">{esitys.date}</Moment>
         </td>
         <td
-          className={tilaa === 'Loppuunmyyty' ? styles.showTdFull : styles.showTd}
+          className={tilaa === 'Loppuunmyyty' || new Date() > new Date(esitys.date) ? styles.showTdFull : styles.showTd}
           onClick={() => toggleUusiVarausModal(esitys, tilaa)}
         >
           <i>{tilaa}</i>
