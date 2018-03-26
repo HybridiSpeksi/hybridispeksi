@@ -84,11 +84,6 @@ class Speksi2018 extends Component {
 
   }
   toggleUusiVarausModal(esitys, tilaa) {
-    let pvm = new Date('2018-03-26T11:15:00')    
-    console.log("Date now: " + new Date());
-    console.log("Esitys date: " + new Date(esitys.date))
-    console.log(new Date() > new Date(esitys.date))
-
     if (!this.state.lipunmyyntiAuki) {
       this.setState({ openModalError: 'Lipunmyynti ei ole vielä alkanut.' }, () => {
         $('#errorModal').modal('show');
