@@ -81,7 +81,6 @@ class Speksi2018 extends Component {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
   }
   toggleUusiVarausModal(esitys, tilaa) {
     if (!this.state.lipunmyyntiAuki) {
@@ -92,7 +91,7 @@ class Speksi2018 extends Component {
       this.setState({ openModalError: 'Valittu esitys on täynnä.' }, () => {
         $('#errorModal').modal('show');
       });
-    } else if (new Date() > new Date(esitys.date)){
+    } else if (new Date() > new Date(esitys.date)) {
       this.setState({ openModalError: 'Esitykseen ei voi varata enää lippuja.' }, () => {
         $('#errorModal').modal('show');
       });
