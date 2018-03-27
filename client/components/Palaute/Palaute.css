@@ -7,13 +7,8 @@
 	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top black;
 	box-shadow: -1px 5px 5px
 }
-.content {
-    margin:0px;
-    margin-top:100px;
-    padding:0px;
-}
 .form_canvas {
-	margin-top:50px;
+	margin-top:150px;
 	margin-bottom:100px;
 	padding:40px;
 	padding-top:30px;
