@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const auth = require('./auth');
 const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
@@ -10,6 +9,7 @@ const esitys = require('./esitykset/esitykset');
 const varaus = require('./esitykset/varaukset');
 const maksu = require('./esitykset/maksut');
 const palaute = require('./palautteet/palautteet');
+
 
 router.all('/admin*', user.checkToken);
 router.all('/admin/h/*', user.isHallitus);
