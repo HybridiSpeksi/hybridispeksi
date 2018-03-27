@@ -6,6 +6,10 @@ class VarausLista extends Component {
   render() {
     const varaukset = this.props.varaukset.map((varaus, i) => {
       const ticketCount = varaus.ocount + varaus.ncount + varaus.scount;
+      let opiskelijoita = false;
+      if (varaus.scount > 0) {
+        opiskelijoita = true;
+      }
       return (
         <tr key={i}>
           <td onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
@@ -20,6 +24,9 @@ class VarausLista extends Component {
           </td>
           <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
             {varaus.additional === '' || varaus.additional === null || typeof varaus.additional === null ? '' : <i className="fa fa-exclamation" style={{color:'red'}} aria-hidden="true" />}
+          </td>
+          <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
+            {opiskelijoita ? 'O' : ''}
           </td>
           <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
             {ticketCount}
@@ -46,6 +53,7 @@ class VarausLista extends Component {
               <th className="text-center">Maksettu</th>
               <th className="text-center">Noudettu</th>
               <th className="text-center">Lisätietoja</th>
+              <th className="text-center">Opiskelijoita</th>
               <th className="text-center">Liput</th>
               <th className="text-center">Poista</th>
             </tr>
