@@ -9,7 +9,7 @@ hr {
 }
 .content_home {
 	height:810px;
-	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top lightgray;
+	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top;
 	/*background-size: contain;*/
 }
 

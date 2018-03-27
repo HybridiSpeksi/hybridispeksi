@@ -3,13 +3,14 @@
 	background-color: #dbdbdb;
 }
 .banner {
-	background:url(/assets/images/interspeksuaali.jpg) no-repeat black top center;
-	height:1080px;
+
+	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top black;
 	box-shadow: -1px 5px 5px
 }
 .content {
-    /* min-width:600px; */
-    margin-top:-900px;
+    margin:0px;
+    margin-top:100px;
+    padding:0px;
 }
 .form_canvas {
 	margin-top:50px;
@@ -18,7 +19,6 @@
 	padding-top:30px;
 	background-color:white;
 	text-align:justify;
-	/* min-width:600px; */
 }
 .tahti {
 	color:red;
@@ -33,6 +33,7 @@
 	.banner {
 		padding-top:10vh;
 		background-size:110vw;
+		background-color:white;
 	}
 	.form_canvas {
 		padding:30px;

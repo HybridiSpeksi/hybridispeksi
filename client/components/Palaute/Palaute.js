@@ -18,66 +18,23 @@ class Palaute extends Component {
 
         // Initial state
         this.state = {
-            tapahtuma: 'interspeksuaaliset2018',
-            fname: '',
-            sname: '',
+            name: '',
             email: '',
-            jarjesto: '',
-            holillisuus: 'true',
-            allergiat: '',
+            feedback: '',
             messages: [],
             warnings: [],
             errors: [],
             ilmonneet: [],
-            sitsitAuki: false,
-            sitsiKiintio: true,
-            ilmottu: false,
-            hsCount: 0,
-            ioCount: 0,
-            lexCount: 0,
-            tlksCount: 0,
-            tukyCount: 0,
-            spexetCount: 0,
-            humanistiCount: 0    
+            lahetetty: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.countSpeksit = this.countSpeksit.bind(this);
     }
 
     componentDidMount() {
-        ajax.sendGet('/ohjaustieto/sitsitAuki')
-        .then(tag => {
-            console.log(tag.data[0])
-            this.setState({sitsitAuki: tag.data[0].truefalse})
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        this.setState({sitsitAuki: true});
-
-        ajax.sendGet('/ohjaustieto/sitsiKiintio')
-        .then(tag => {
-            console.log(tag.data[0])
-            this.setState({sitsiKiintio: tag.data[0].truefalse})
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-        ajax.sendGet('/ilmo/interspeksuaaliset2018')
-        .then(_data => {
-            this.setState({ilmonneet: _data.data});
-            this.countSpeksit();
-            console.log(_data);
-        })
-        .catch(err => {
-            console.log(err)
-        })
     }
 
-    // Handle all input events
     handleChange(e) {
         let value = e.target.value;
 
@@ -89,116 +46,43 @@ class Palaute extends Component {
         });
     }
 
-    // Submit form
     handleSubmit(e) {
         e.preventDefault();
-        let url = "/ilmo";
-
-        if (this.validateSitsit()) {
-            ajax.sendPut(
+        let url = "/palaute";
+        this.setState({ 
+            messages: [],
+            warnings: [],
+            errors: []
+        },() => {
+        if (this.validatePalaute()) {
+            ajax.sendPost(
                 url,
                 {   
-                    tapahtuma: this.state.tapahtuma,
-                    fname: this.state.fname,
-                    sname: this.state.sname,
+                    name: this.state.name,
                     email: this.state.email,
-                    jarjesto: this.state.jarjesto,
-                    juoma: this.state.holillisuus,
-                    ruokavalio: this.state.lisatiedot,
-
-
+                    feedback: this.state.feedback
                 }).then(data => {
-                    this.addMessage(MESSAGE_SUCCESS, "Ilmoittautuminen onnistui!")
+                    this.addMessage(MESSAGE_SUCCESS, "Palautteen lähetys onnistui!")
                     this.setState({ilmottu: true})
                 }).catch(err => {
                     console.log(err);
-                    this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.");
+                    this.addMessage(MESSAGE_ERROR, "Virhe!", "Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen.");
                 })
             }
-    }
-
-    //Count enrollments
-    countSpeksit() {
-        ajax.sendGet('/ilmo/interspeksuaaliset2018')
-        .then(_data => {
-            this.setState({ilmonneet: _data.data});
-            console.log(_data);
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-
-        let hs = 0;
-        let io = 0;
-        let lex = 0;
-        let tlks = 0;
-        let tuky = 0;
-        let spexet = 0;
-        let humanisti = 0;
-        for(var i = 0; i < this.state.ilmonneet.length; i++){
-            if(this.state.ilmonneet[i].jarjesto === "HybridiSpeksi") {
-                hs = hs + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "I/O-speksi")  {
-                io = io + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "LEX SPEX")  {
-                lex = lex + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "TLKS SPEKSI")  {
-                tlks = tlks + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "TuKY-Speksi")  {
-                tuky = tuky + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "Akademiska Spexet vid Åbo Akademi R.F.")  {
-                spexet = spexet + 1;
-            }
-            else if (this.state.ilmonneet[i].jarjesto === "Turkulainen Humanistispeksi")  {
-                humanisti = humanisti + 1;
-            }
-        }
-        this.setState({           
-            hsCount: hs,
-            ioCount: io,
-            lexCount: lex,
-            tlksCount: tlks,
-            tukyCount: tuky,
-            spexetCount: spexet,
-            humanistiCount: humanisti 
-        })
+        });
     }
 
     //Validates if all necessary info has been given
-    validateSitsit() {
-        this.countSpeksit();
-
+    validatePalaute() {
         let valid = true;
-        if (
-            this.state.fname === ""
-            || this.state.sname === ""
-            || this.state.email === ""
-            || this.state.jarjesto === ""
-       ) {
-            this.addMessage(MESSAGE_WARNING, "Virhe!", "Kaikki kentät on täytettävä");
+        if (this.state.feedback === "") {
+            this.addMessage(MESSAGE_WARNING, "Virhe!", "Palaute-kenttä on pakollinen!");
             valid = false;
         }
-        if (!utils.isValidEmail(this.state.email)) {
+        if (this.state.email != "" && !utils.isValidEmail(this.state.email)) {
             this.addMessage(MESSAGE_WARNING, "Virhe!", "Sähköposti on virheellinen");
             valid = false;
         }
-        if (this.state.sitsiKiintio && this.state.jarjesto === "HybridiSpeksi" && this.state.hsCount > 16 || 
-            this.state.sitsiKiintio && this.state.jarjesto === "I/O-speksi" && this.state.ioCount > 16 || 
-            this.state.sitsiKiintio && this.state.jarjesto === "LEX SPEX" && this.state.lexCount > 16  || 
-            this.state.sitsiKiintio && this.state.jarjesto === "TLKS SPEKSI" && this.state.tlksCount > 16 || 
-            this.state.sitsiKiintio && this.state.jarjesto === "TuKY-Speksi" && this.state.tukyCount > 16 || 
-            this.state.sitsiKiintio && this.state.jarjesto === "Akademiska Spexet vid Åbo Akademi R.F." && this.state.spexetCount > 16 || 
-            this.state.sitsiKiintio && this.state.jarjesto === "Turkulainen Humanistispeksi" && this.state.humanistiCount > 16 ){
-            this.addMessage(MESSAGE_WARNING, "Virhe!", "Järjestön kiintiö on jo täynnä")
-            valid = false;
-        }
-
         return valid;
     }
 
@@ -224,22 +108,10 @@ class Palaute extends Component {
         return (
             <div>
                 <Palauteform
-                    sitsitAuki={this.state.sitsitAuki}
-                    ilmottu={this.state.ilmottu}
-                    fname={this.state.fname}
-                    sname={this.state.sname}
+                    lahetetty={this.state.lahetetty}
+                    name={this.state.name}
                     email={this.state.email}
-                    jarjesto={this.state.jarjesto}
-                    holillisuus={this.state.holillisuus}
-                    allergiat={this.state.allergiat}
-                    ilmonneet={this.state.ilmonneet}
-                    hsCount={this.state.hsCount}
-                    ioCount={this.state.ioCount}
-                    lexCount={this.state.lexCount}
-                    tlksCount={this.state.tlksCount}
-                    tukyCount={this.state.tukyCount}
-                    spexetCount={this.state.spexetCount}
-                    humanistiCount={this.state.humanistiCount}
+                    feedback={this.state.feedback}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} 
                     messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors}/>} 

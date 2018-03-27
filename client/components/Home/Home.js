@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className={"container-fluid " + styles.container}>
         <div className={"row justify-content-center " + styles.content_home}>
-          <div className={"col-sm-12 " + styles.slogan}>
+          <div className={"col-sm-12 col-xl-11 " + styles.slogan}>
             <div className={"d-md-block " + styles.slogan}>
               <div className="row justify-content-lg-end justify-content-center">
                 <div className={"col-12 col-md-4 " + styles.name}><h2 className={styles.name}>HYBRIDISPEKSI 2018</h2></div>
