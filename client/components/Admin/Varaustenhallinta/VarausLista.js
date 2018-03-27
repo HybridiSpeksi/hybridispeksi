@@ -19,6 +19,9 @@ class VarausLista extends Component {
             {varaus.checked === true ? <i className="fa fa-check" aria-hidden="true" /> : <button type="button" className="btn btn-dark btn-sm" onClick={() => this.props.redeemBooking(varaus._id)}>Check</button>}
           </td>
           <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
+            {varaus.additional === '' || varaus.additional === null || typeof varaus.additional === null ? '' : <i className="fa fa-exclamation" style={{color:'red'}} aria-hidden="true" />}
+          </td>
+          <td className="text-center" onClick={() => this.props.toggleMuokkaaVaraustaModal(varaus)}>
             {ticketCount}
           </td>
           <td className="text-center">
@@ -42,6 +45,7 @@ class VarausLista extends Component {
               <th>@</th>
               <th className="text-center">Maksettu</th>
               <th className="text-center">Noudettu</th>
+              <th className="text-center">Lisätietoja</th>
               <th className="text-center">Liput</th>
               <th className="text-center">Poista</th>
             </tr>
