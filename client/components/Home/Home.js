@@ -69,7 +69,7 @@ class Home extends Component {
 
         <div className={"row justify-content-center " + styles.content_speksi}>
           <div className={"col-sm-12 " + styles.hslogo}></div>
-          <div className={"col-sm-6 col-md-10 " + styles.speksi_desc}>
+          <div className={"col-md-10 col-lg-8 col-xl-6  " + styles.speksi_desc}>
             {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>*/}
             <h1 className={styles.otsikko}>HybridiSpeksi</h1>
             <p>HybridiSpeksi on Turun yliopiston luonnontieteiden ja tekniikan tiedekunnan opiskelijoiden vuosittain toteuttama teatteriproduktio. 
