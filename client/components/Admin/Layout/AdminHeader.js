@@ -61,6 +61,13 @@ class AdminHeader extends Component {
                                         <a className="nav-link disabled" to="#">Ohjaustiedot <i className="fa fa-lock" aria-hidden="true"></i></a>
                                     )}
                             </li>
+                            <li className="nav-item">
+                                {auth.getUserRole() > 2 ? (
+                                    <Link className="nav-link" to="/palautteet">Palautteet</Link>
+                                ) : (
+                                        <a className="nav-link disabled" to="#">Palautteet <i className="fa fa-lock" aria-hidden="true"></i></a>
+                                    )}
+                            </li>
                         </ul>
                         <span className="navbar-text">
                             <div onClick={auth.signOut}>Kirjaudu ulos</div>
