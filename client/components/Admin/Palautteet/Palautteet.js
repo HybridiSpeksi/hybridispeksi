@@ -7,24 +7,45 @@ class Palautteet extends Component {
     super(props);
 
     this.state = {
-      palautteet: []
+      palautteet: [],
+      filteredPalautteet: [],
+      searchword: ''
     };
+    this.filterPalautteet = this.filterPalautteet.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     ajax
       .sendGet('/admin/palautteet')
       .then((_data) => {
-        this.setState({ palautteet: _data.data });
+        this.setState({ palautteet: _data.data }, () => {
+          this.filterPalautteet();
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
+  filterPalautteet() {
+    const result = this.state.palautteet.filter(palaute =>
+      palaute.name.toLowerCase().includes(this.state.searchword) ||
+      palaute.email.toLowerCase().includes(this.state.searchword) ||
+      palaute.feedback.toLowerCase().includes(this.state.searchword));
+    this.setState({ filteredPalautteet: result });
+  }
+
+  handleChange(e) {
+    const value = e.target.value;
+    this.setState({ [e.target.name]: value.toLowerCase() }, () => {
+      this.filterPalautteet();
+    });
+  }
+
 
   render() {
-    const palautteet = this.state.palautteet.map((palaute, i) => {
+    const palautteet = this.state.filteredPalautteet.map((palaute, i) => {
       return (
         <div className="card" style={{margin:'10px'}}>
           <div className="card-block">
@@ -45,9 +66,20 @@ class Palautteet extends Component {
 
     return (
       <div className="container-fluid">
-        <div className="row justify-content-between align-items-center">
+       <div className="row justify-content-between align-items-center">
           <div className="col">
             <h1>Palautteet</h1>
+          </div>
+          <div className="col-4 d-flex justify-content-end">
+            <input
+              name="searchword"
+              id="searchword"
+              className="form-control"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.searchword}
+              placeholder="Hakusana"
+            />
           </div>
         </div>
         <div className="row">
