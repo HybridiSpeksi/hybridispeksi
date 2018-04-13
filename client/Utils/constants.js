@@ -1,7 +1,7 @@
 const constants = {
   MESSAGE_SUCCESS: 'success',
   MESSAGE_WARNING: 'warning',
-  MESSAGE_FAILURE: 'error',
+  MESSAGE_ERROR: 'error',
 };
 
 export default constants;

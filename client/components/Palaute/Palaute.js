@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { BrowserRouter, Route } from 'react-router-dom';
 
 // import styles from './Palaute.css';
 import Palauteform from './Palauteform';
 
 import utils from '../../Utils/Utils';
-import ajax from '../../Utils/Ajax';
 import Messages from '../../Utils/Messages';
 import constants from '../../Utils/constants';
 
-import { addMessage } from '../../actions/messageActions';
+import { addMessage, clearMessages } from '../../actions/messageActions';
+import { sendFeedback } from '../../actions/feedbackActions';
 
 class Palaute extends Component {
   constructor(props) {
@@ -22,9 +21,6 @@ class Palaute extends Component {
       name: '',
       email: '',
       feedback: '',
-      messages: [],
-      warnings: [],
-      errors: [],
       lahetetty: false,
     };
 
@@ -32,84 +28,68 @@ class Palaute extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {}
-
   handleChange(e) {
     const value = e.target.value;
-
     this.setState({ [e.target.name]: value });
-    this.setState({
-      messages: [],
-      warnings: [],
-      errors: [],
-    });
+    if (this.props.messages.length > 0) {
+      this.props.clearMessages();
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const url = '/palaute';
-    this.setState(
-      {
-        messages: [],
-        warnings: [],
-        errors: [],
-      },
-      () => {
-        if (this.validatePalaute()) {
-          ajax
-            .sendPost(url, {
-              name: this.state.name,
-              email: this.state.email,
-              feedback: this.state.feedback,
-            })
-            .then((data) => {
-              this.props.addMessage({ type: constants.MESSAGE_SUCCESS, text: 'Kiitos palautteesta!' });
-              // this.addMessage(constants.MESSAGE_SUCCESS, 'Palautteen lähetys onnistui!');
-            })
-            .catch((err) => {
-              console.log(err);
-              this.addMessage(
-                constants.MESSAGE_ERROR,
-                'Virhe!',
-                'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen.',
-              );
-            });
-        }
-      },
-    );
+    this.props.clearMessages();
+    if (this.validatePalaute()) {
+      const feedback = {
+        name: this.state.name,
+        email: this.state.email,
+        feedback: this.state.feedback,
+      };
+      this.props.sendFeedback(feedback);
+      /* ajax
+        .sendPost(url, {
+          name: this.state.name,
+          email: this.state.email,
+          feedback: this.state.feedback,
+        })
+        .then(() => {
+          this.props.addMessage({ type: constants.MESSAGE_ERROR, text: 'Kiitos palautteesta!' });
+          // this.addMessage(constants.MESSAGE_SUCCESS, 'Palautteen lähetys onnistui!');
+        })
+        .catch((err) => {
+          console.log(err);
+          this.props.addMessage({
+            type: constants.MESSAGE_ERROR,
+            header: 'Virhe!',
+            text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen.',
+          });
+        }); */
+    }
   }
 
   // Validates if all necessary info has been given
-  validatePalaute() {
+  // Deprecated, validation happens in server
+  /* validatePalaute() {
     let valid = true;
     if (this.state.feedback === '') {
-      this.addMessage(constants.MESSAGE_WARNING, 'Virhe!', 'Palaute-kenttä on pakollinen!');
+      this.props.addMessage({
+        type: constants.MESSAGE_WARNING,
+        header: 'Virhe!',
+        text: 'Palaute-kenttä on pakollinen!',
+      });
       valid = false;
     }
-    if (this.state.email != '' && !utils.isValidEmail(this.state.email)) {
-      this.addMessage(constants.MESSAGE_WARNING, 'Virhe!', 'Sähköposti on virheellinen');
+    if (this.state.email !== '' && !utils.isValidEmail(this.state.email)) {
+      this.props.addMessage({
+        type: constants.MESSAGE_WARNING,
+        header: 'Virhe!',
+        text: 'Sähköposti on virheellinen',
+      });
       valid = false;
     }
     return valid;
   }
-
-  // Add different kinds of error or warning messages
-  addMessage(type, newHeader, newText) {
-    if (type === constants.MESSAGE_WARNING) {
-      const newWarnings = this.state.warnings;
-      newWarnings.push({ header: newHeader, text: newText });
-      this.setState({ warnings: newWarnings });
-    } else if (type === constants.MESSAGE_ERROR) {
-      const newErrors = this.state.errors;
-      newErrors.push({ header: newHeader, text: newText });
-      this.setState({ erros: newErrors });
-    } else if (type === constants.MESSAGE_SUCCESS) {
-      const newMessages = this.state.messages;
-      newMessages.push({ header: newHeader, text: newText });
-      this.setState({ messages: newMessages });
-    }
-  }
-
+ */
   render() {
     return (
       <div>
@@ -121,11 +101,7 @@ class Palaute extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           messages={
-            <Messages
-              messages={this.state.messages}
-              warnings={this.state.warnings}
-              errors={this.state.errors}
-            />
+            <Messages />
           }
         />
       </div>
@@ -134,15 +110,20 @@ class Palaute extends Component {
 }
 
 Palaute.propTypes = {
-  addMessage: PropTypes.func,
+  clearMessages: PropTypes.func,
+  sendFeedback: PropTypes.func,
+  messages: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-
+  messages: state.messages,
+  ajaxState: state.ajax,
 });
 
 const mapDispatchToProps = dispatch => ({
   addMessage: message => dispatch(addMessage(message)),
+  clearMessages: () => dispatch(clearMessages()),
+  sendFeedback: feedback => dispatch(sendFeedback(feedback)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Palaute);

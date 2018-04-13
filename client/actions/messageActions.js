@@ -9,3 +9,9 @@ export function addMessage(message) {
     message,
   };
 }
+
+export function clearMessages() {
+  return {
+    type: actions.CLEAR_MESSAGES,
+  };
+}

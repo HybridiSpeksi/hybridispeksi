@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   ready: true,
   errors: [],
+  warnings: [],
 };
 
 const ajax = (state = initialState, action) => {
