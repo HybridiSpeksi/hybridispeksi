@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ajax from '../../Utils/Ajax';
+import ajax from '../../../Utils/Ajax';
 
 class Palautteet extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Palautteet extends Component {
     this.state = {
       palautteet: [],
       filteredPalautteet: [],
-      searchword: ''
+      searchword: '',
     };
     this.filterPalautteet = this.filterPalautteet.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -45,8 +45,7 @@ class Palautteet extends Component {
 
 
   render() {
-    const palautteet = this.state.filteredPalautteet.map((palaute, i) => {
-      return (
+    const palautteet = this.state.filteredPalautteet.map((palaute, i) => (
         <div className="card" style={{margin:'10px'}}>
           <div className="card-block">
             <h4 className="card-title">Palaute #{i+1}</h4>
@@ -61,16 +60,15 @@ class Palautteet extends Component {
             <p className="card-text">{palaute.feedback}</p>
           </div>
         </div>
-      );
-    });
+      ));
 
     return (
       <div className="container-fluid">
-       <div className="row justify-content-between align-items-center">
-          <div className="col">
+        <div className="row justify-content-between align-items-center">
+         <div className="col">
             <h1>Palautteet</h1>
           </div>
-          <div className="col-4 d-flex justify-content-end">
+         <div className="col-4 d-flex justify-content-end">
             <input
               name="searchword"
               id="searchword"
@@ -81,7 +79,7 @@ class Palautteet extends Component {
               placeholder="Hakusana"
             />
           </div>
-        </div>
+       </div>
         <div className="row">
           {palautteet}
         </div>

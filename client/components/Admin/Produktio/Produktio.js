@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
-import utils from '../../Utils/Utils';
+import ajax from '../../../Utils/Ajax';
+import Messages from '../../../Utils/Messages';
+import utils from '../../../Utils/Utils';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';

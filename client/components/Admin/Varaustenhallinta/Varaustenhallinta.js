@@ -5,8 +5,8 @@ import VarausLista from './VarausLista';
 import UusiVaraus from './UusiVaraus';
 import Sahkopostit from '../../Shared/Sahkopostit';
 
-import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
+import ajax from '../../../Utils/Ajax';
+import Messages from '../../../Utils/Messages';
 /* import PropTypes from "" */
 
 const MESSAGE_SUCCESS = 'success';
@@ -325,7 +325,7 @@ class Varaustenhallinta extends Component {
       ajax
         .sendPut(url, {
           _id: varausId,
-          checked: true
+          checked: true,
         })
         .then((data) => {
           if (data.success) {
