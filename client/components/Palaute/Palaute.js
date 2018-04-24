@@ -33,7 +33,9 @@ class Palaute extends Component {
     }
 
     componentDidMount() {
+        $(window).scrollTop(0);
     }
+
 
     handleChange(e) {
         let value = e.target.value;

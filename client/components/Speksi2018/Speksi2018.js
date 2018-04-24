@@ -84,7 +84,7 @@ class Speksi2018 extends Component {
   }
   toggleUusiVarausModal(esitys, tilaa) {
     if (!this.state.lipunmyyntiAuki) {
-      this.setState({ openModalError: 'Lipunmyynti ei ole vielä alkanut.' }, () => {
+      this.setState({ openModalError: 'Lipunmyynti ei ole enää auki.' }, () => {
         $('#errorModal').modal('show');
       });
     } else if (tilaa === 'Loppuunmyyty') {
