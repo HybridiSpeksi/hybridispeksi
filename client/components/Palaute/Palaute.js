@@ -36,14 +36,12 @@ class Palaute extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearMessages();
-    if (this.validatePalaute()) {
-      const feedback = {
-        name: this.state.name,
-        email: this.state.email,
-        feedback: this.state.feedback,
-      };
-      this.props.sendFeedback(feedback);
-    }
+    const feedback = {
+      name: this.state.name,
+      email: this.state.email,
+      feedback: this.state.feedback,
+    };
+    this.props.sendFeedback(feedback);
   }
 
   // Validates if all necessary info has been given
