@@ -6,10 +6,10 @@ const Form = ({
   onSubmit, handleChange, submission, sent, messages,
 }) => (
   <form onSubmit={onSubmit}>
-    <div className="row form-group align-items-center">
+    {/* <div className="row form-group align-items-center">
       <div className="col-sm-4">
         <label htmlFor="nameInput" className={styles.label}>
-          Oma nimi
+          Oma nimi (ei pakollinen)
         </label>
       </div>
       <div className="col">
@@ -22,7 +22,7 @@ const Form = ({
           value={submission.name}
         />
       </div>
-    </div>
+    </div> */}
 
     <div className="row form-group align-items-center">
       <div className="col-sm-4">

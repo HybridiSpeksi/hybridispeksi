@@ -68,4 +68,14 @@ module.exports = {
       res.json({ success: false, data: err.message });
     }
   },
+
+  getVotes: async (req, res) => {
+    try {
+      const result = await Vuodenspeksaaja.find();
+      res.json({ success: true, data: result });
+    } catch (err) {
+      console.log(err);
+      res.json({ success: false, data: err });
+    }
+  },
 };

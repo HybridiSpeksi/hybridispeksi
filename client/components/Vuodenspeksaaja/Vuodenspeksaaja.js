@@ -42,11 +42,12 @@ class Vuodenspeksaaja extends Component {
       <div className={'container ' + styles.container}>
         <div className={'row justify-content-center ' + styles.banner}>
           <div className={'col-sm-11 col-md-9 col-lg-6 ' + styles.form_canvas}>
-            <h2>Vuoden speksaaja</h2>
+            <h2>Vuoden Speksaaja</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, necessitatibus,
-              animi obcaecati iusto placeat eveniet error blanditiis dolor nihil soluta, excepturi
-              veniam quod? Obcaecati suscipit in perferendis. Beatae, eius nobis?
+             Vuoden 2018 HybridiSpeksi vietiin kunnialla päätökseen. Mukana on ollut tekemässä
+             suuri joukko hienoja ihmisiä joista speksin hallitus haluaa palkita Vuoden Speksaajan.
+             Ilmianna kanssaspeksaajasi ja perustele miksi juuri hän on ansainnut pienen huomionosoituksen.
+             Äänestää voi torstai-iltaan asti, jonka jälkeen Vuoden Speksaaja julkistetaan hautajaisissa.
             </p>
             <Form
               handleChange={this.handleChange}

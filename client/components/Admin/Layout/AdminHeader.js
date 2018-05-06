@@ -24,11 +24,11 @@ class AdminHeader extends Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/varaustenhallinta">
                   Varaustenhallinta
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 {auth.getUserRole() > 2 ? (
                   <Link className="nav-link" to="/produktionhallinta">
@@ -59,6 +59,17 @@ class AdminHeader extends Component {
                 ) : (
                   <a className="nav-link disabled" to="#">
                     Jäsenrekisteri <i className="fa fa-lock" aria-hidden="true" />
+                  </a>
+                )}
+              </li>
+              <li className="nav-item">
+                {auth.getUserRole() > 3 ? (
+                  <Link className="nav-link" to="/vuodenspeksilainen">
+                    Vuoden speksiläinen
+                  </Link>
+                ) : (
+                  <a className="nav-link disabled">
+                    Vuoden speksiläinen <i className="fa fa-lock" aria-hidden="true" />
                   </a>
                 )}
               </li>
