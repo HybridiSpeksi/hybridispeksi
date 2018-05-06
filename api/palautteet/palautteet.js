@@ -1,4 +1,5 @@
 const Palaute = require('../../schema/palautteet-model');
+const Vuodenspeksaaja = require('../../schema/vuodenspeksaaja-model');
 const validator = require('../../utils/validation');
 
 const validate = (req) => {
@@ -10,6 +11,17 @@ const validate = (req) => {
   } else if (!validator.isEmptyOrNull(email) && !validator.isValidEmail(email)) {
     throw new Error('Virheellinen sähköposti');
   } else if (!validator.isEmptyOrNull(name) && validator.isTooLong(name, 40)) {
+    throw new Error('Nimi on liian pitkä');
+  }
+};
+
+const validateVote = (req) => {
+  const { personToVote, comment } = req.body;
+  if (validator.isEmptyOrNull(personToVote)) {
+    throw new Error('Ehdotettavan nimi ei voi olla tyhjä');
+  } else if (validator.isEmptyOrNull(comment)) {
+    throw new Error('Ehdotus on perusteltava');
+  } else if (!validator.isEmptyOrNull(personToVote) && validator.isTooLong(personToVote, 40)) {
     throw new Error('Nimi on liian pitkä');
   }
 };
@@ -43,6 +55,17 @@ module.exports = {
     } catch (err) {
       console.log(err);
       res.json({ success: false });
+    }
+  },
+
+  createVote: async (req, res) => {
+    try {
+      validateVote(req);
+      await new Vuodenspeksaaja({ ...req.body }).save();
+      res.json({ success: true });
+    } catch (err) {
+      console.log(err);
+      res.json({ success: false, data: err.message });
     }
   },
 };

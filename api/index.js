@@ -82,5 +82,6 @@ router.get('/payment/notify', maksu.handleNotify);
 // Palautteet
 router.get('/admin/palautteet', palaute.getAll);
 router.post('/palaute', palaute.createNew);
+router.post('/vuodenspeksaaja', palaute.createVote);
 
 module.exports = router;

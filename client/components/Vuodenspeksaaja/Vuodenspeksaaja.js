@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import styles from './Vuodenspeksaaja.css';
-import Form from './VuodenspeksaajaForm';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import ajax from '../../Utils/Ajax';
+import styles from './Vuodenspeksaaja.css';
+
+import Form from './VuodenspeksaajaForm';
+import Messages from '../../Utils/Messages';
+
+import { addMessage, clearMessages } from '../../actions/messageActions';
+import { sendVote } from '../../actions/feedbackActions';
 
 class Vuodenspeksaaja extends Component {
   constructor() {
@@ -10,9 +16,9 @@ class Vuodenspeksaaja extends Component {
     this.state = {
       sent: false,
       submission: {
-        name: 'nimi',
-        personToVote: 'äänestettävä',
-        comment: 'commentti',
+        name: '',
+        personToVote: '',
+        comment: '',
       },
     };
     this.handleChange = this.handleChange.bind(this);
@@ -27,6 +33,8 @@ class Vuodenspeksaaja extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearMessages();
+    this.props.sendVote(this.state.submission);
   }
 
   render() {
@@ -35,12 +43,17 @@ class Vuodenspeksaaja extends Component {
         <div className={'row justify-content-center ' + styles.banner}>
           <div className={'col-sm-11 col-md-9 col-lg-6 ' + styles.form_canvas}>
             <h2>Vuoden speksaaja</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, necessitatibus, animi obcaecati iusto placeat eveniet error blanditiis dolor nihil soluta, excepturi veniam quod? Obcaecati suscipit in perferendis. Beatae, eius nobis?</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, necessitatibus,
+              animi obcaecati iusto placeat eveniet error blanditiis dolor nihil soluta, excepturi
+              veniam quod? Obcaecati suscipit in perferendis. Beatae, eius nobis?
+            </p>
             <Form
               handleChange={this.handleChange}
               onSubmit={this.handleSubmit}
               submission={this.state.submission}
               sent={this.state.sent}
+              messages={<Messages />}
             />
           </div>
         </div>
@@ -49,4 +62,20 @@ class Vuodenspeksaaja extends Component {
   }
 }
 
-export default Vuodenspeksaaja;
+Vuodenspeksaaja.propTypes = {
+  clearMessages: PropTypes.func,
+  sendVote: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  messages: state.messages,
+  ajaxState: state.ajax,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addMessage: message => dispatch(addMessage(message)),
+  clearMessages: () => dispatch(clearMessages()),
+  sendVote: vote => dispatch(sendVote(vote)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Vuodenspeksaaja);
