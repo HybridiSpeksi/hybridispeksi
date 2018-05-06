@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './Vuodenspeksaaja.css';
 import Form from './VuodenspeksaajaForm';
 
-import ajax from '../Utils/Ajax';
+import ajax from '../../Utils/Ajax';
 
 class Vuodenspeksaaja extends Component {
   constructor() {
