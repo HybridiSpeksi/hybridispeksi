@@ -45,8 +45,9 @@ class Palautteet extends Component {
 
 
   render() {
-    const palautteet = this.state.filteredPalautteet.map((palaute, i) => (
-        <div className="card" style={{margin:'10px'}}>
+    const palautteet = this.state.filteredPalautteet.map((palaute, i) => {
+      return (
+        <div className="card" style={{margin:'10px'}} key={i}>
           <div className="card-block">
             <h4 className="card-title">Palaute #{i+1}</h4>
             <div className="row">

@@ -57,10 +57,13 @@ hr {
 	margin-top:120px;
 	text-align:center;
 	color:white;
-	font-size:78px;
+	font-size:36px;
+	line-height:120%;
 }
 .lipunmyyntiLink {
 	margin-top:20px;
+	margin-bottom:20px;
+	font-size:50px;
 	color:white;
 	transition:0.1s ease-in transform;
 	animation:fadein 2s;
@@ -147,6 +150,18 @@ hr {
 	.date {
 		padding-right:0px;	
 	}
+	.lipunmyynti {
+		margin-top:90px;
+		font-size:32px;
+	}
+	.lipunmyyntiLink {
+		font-size:40px;
+	}
+}
+@media (max-width:1048px){
+	.lipunmyynti {
+		margin-top:20px;
+	}
 }
 @media (max-width:992px){
 	.content_home {
@@ -158,8 +173,12 @@ hr {
 		margin-top:150px;
 	}
 	.lipunmyynti {
-		margin-top:200px;
-		font-size:62px;
+		font-family:Calibri;
+		margin-top:140px;
+		font-size:26px;
+	}
+	.lipunmyyntiLink {
+		font-size:36px;
 	}
 }
 @media (max-width:768px){
@@ -175,8 +194,11 @@ hr {
 		background-size:500px 500px;
 	}
 	.lipunmyynti {
-		margin-top:160px;
-		font-size:44px;
+		margin-top:80px;
+		font-size:22px;
+	}
+	.lipunmyyntiLink {
+		font-size:26px;
 	}
 }
 @media (max-width:500px){
@@ -207,8 +229,11 @@ hr {
 		background-size:300px 300px;
 	}
 	.lipunmyynti {
-		margin-top:100px;
-		font-size:26px;
+		margin-top:25px;
+		font-size:16px;
+	}
+	.lipunmyyntiLink{
+		font-size:18px;
 	}
 	.content_speksi {
 		background-image:none;
@@ -217,5 +242,15 @@ hr {
 	}
 	.speksi_desc {
 		text-align:left;
+	}
+}
+@media (max-width:400px){
+	.lipunmyynti {
+		font-family:Calibri;
+		margin-top:60px;
+		font-size:12px;
+	}
+	.lipunmyyntiLink{
+		font-size:14px;
 	}
 }

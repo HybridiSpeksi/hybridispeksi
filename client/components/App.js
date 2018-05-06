@@ -23,6 +23,7 @@ import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
 import Vahvistus from './Speksi2018/Vahvistus';
 import Virhe from './Speksi2018/Virhe';
+import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -104,6 +105,7 @@ export default class App extends React.Component {
                 <PublicLayout path="/ilmo" component={Sitsit} />
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
+                <PublicLayout path="/vuodenspeksaaja" component={Vuodenspeksaaja} />
               </Switch>
             </div>
 

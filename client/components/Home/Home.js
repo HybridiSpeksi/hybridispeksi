@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import styles from './Home.css';
@@ -6,10 +7,9 @@ import styles from './Home.css';
 class Home extends Component {
 
   componentDidMount() {
+    $(window).scrollTop(0);
   }
-  componentDidUpdate(){
-    $(window).scrollTop();
-  }
+
   render() {
     return (
       <div className={"container-fluid " + styles.container}>
@@ -24,7 +24,16 @@ class Home extends Component {
                 <div className={"col " + styles.logo}></div>
               </div>
               <div className="row justify-content-center">
-                <div className={"col " + styles.lipunmyynti}><Link className={styles.lipunmyyntiLink} to="/speksi2018">OSTA LIPPUSI NYT TÄÄLTÄ!</Link></div>
+                <div className={"col " + styles.lipunmyynti}>
+                  <Link className={styles.lipunmyyntiLink} to="/palaute">
+                    HybridiSpeksi 2018 on saatu päätökseen.
+                    <br/> 
+                    Kiitokset katsojille ja koko produktiolle!
+                    <br/>
+                    Jätä meille palautetta klikkaamalla tästä! 
+                  </Link>
+                  Ensimmäiset haut ensi vuoden produktioon aukeavat kevään aikana, stay tuned!
+                </div>
               </div>
             </div>
           </div>
