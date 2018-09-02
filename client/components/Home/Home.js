@@ -25,14 +25,9 @@ class Home extends Component {
               </div>
               <div className="row justify-content-center">
                 <div className={"col " + styles.lipunmyynti}>
-                  <Link className={styles.lipunmyyntiLink} to="/palaute">
-                    HybridiSpeksi 2018 on saatu päätökseen.
+                    <p className={styles.lipunmyynti}>HybridiSpeksi 2018 on saatu päätökseen.
                     <br/> 
-                    Kiitokset katsojille ja koko produktiolle!
-                    <br/>
-                    Jätä meille palautetta klikkaamalla tästä! 
-                  </Link>
-                  Ensimmäiset haut ensi vuoden produktioon aukeavat kevään aikana, stay tuned!
+                    Kiitokset katsojille ja koko produktiolle!</p>
                 </div>
               </div>
             </div>

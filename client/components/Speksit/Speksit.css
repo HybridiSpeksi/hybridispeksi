@@ -1,5 +1,5 @@
 .container {
-	background:#FFECAF;
+	background:#f7f7f7;
 	padding:0px;
 }
 .header {
@@ -8,6 +8,38 @@
 	padding-bottom:30px;
 	background:#292B2C;
 	color:white;
+}
+
+/* STYLES FOR ALA AMMU OHI */
+
+.content_alaammuohi {
+	background-color:#FFECAF;
+	margin:0px;
+	padding:50px;	
+	text-align: justify;
+}
+.font_alaammuohi_header {
+	font-family: alaammuohi;
+	color:#580d0d;
+	font-size:60px;
+}
+.font_alaammuohi {
+	font-family: "Baskerville Old Face";
+	color:black;
+	font-size:20px;
+}
+.polaroid_alaammuohi {
+	max-width:80%;
+	background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:skew(-1deg, 1deg);
+}
+.polaroid_alaammuohi, img {
+	width:100%;
+}
+.polaroid_alaammuohi_desc {
+	text-align: center;
+    padding: 10px 20px;
 }
 
 /* STYLES FOR KRUUNUN KOHTALO */
@@ -78,6 +110,8 @@
 	margin:0px;
 	padding:50px;
 	text-align: justify;
+	background-color: #580d0d;
+	color:white;
 }
 .font_hali {
 	font-family:"Arial";
@@ -91,6 +125,7 @@
 }
 .polaroid_hali, img {
 	width:100%;
+	color:black;
 }
 .polaroid_hali_desc {
 	text-align: center;

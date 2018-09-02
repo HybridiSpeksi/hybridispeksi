@@ -57,50 +57,56 @@ class Yhdistys extends Component {
                 <h3 className={styles.otsikko}>Hallitus</h3>
                 <div className="row">
                   <div className="col-11">
-                    <p><strong>Laura Forsman</strong><br />
+                    <p><strong>Matias Kari</strong><br />
                       <i>Puheenjohtaja</i><br />
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
-                    <p><strong>Pyry Pajunpää</strong><br />
-                      <i>Varapuheenjohtaja</i>
+                    <p><strong>Ilmari Kautiala</strong><br />
+                      <i>Varapuheenjohtaja</i><br />
+                      <i>Improkerhovastaava</i><br />
+                      <i>Rekisteri- ja tietosuojavastaava</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
-                    <p><strong>Maija Jortikka</strong><br />
-                      <i>Sihteeri</i>
+                    <p><strong>Ira Tulla</strong><br />
+                      <i>Sihteeri</i><br />
+                      <i>Tiedotusvastaava</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-11">
                     <p><strong>Jenni Peuhkurinen</strong><br />
-                      <i>Taloudenhoitaja</i>
+                      <i>Taloudenhoitaja</i><br />
+                      <i>Häirintäyhdyshenkilö</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <p><strong>Sampsa Vuorela</strong><br />
-                      <i>Taloudellisen tiimin yhteyshenkilö</i>
+                    <p><strong>Otso Lauerma</strong><br />
+                      <i>Interspeksivastaava</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <p><strong>Ilmari Kautiala</strong><br />
-                      <i>Esiintyjien yhteyshenkilö</i>
+                    <p><strong>Teppo Lindberg</strong><br />
+                      <i>Yhdenvertaisuus- ja hyvinvointivastaava</i><br />
+                      <i>Ympäristövastaava</i>
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <p><strong>Oliver Boucht</strong><br />
-                      <i>Visuaalisen tiimin yhteyshenkilö</i>
+                    <p><strong>Lassi Lehtinen</strong><br />
+                      <i>Häirintäyhdyshenkilö</i><br />
+                      <i>Liikuntavastaava</i>
                     </p>
                   </div>
                 </div>
@@ -112,7 +118,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Tuottaja</p>
                   </div>
                   <div className="col-7">
-                    <p>Matias Kari</p>
+                    <p>Maria Nieminen</p>
                   </div>
                 </div>
                 <div className="row">
@@ -128,7 +134,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Ohjaaja</p>
                   </div>
                   <div className="col-7">
-                    <p>Ilmari Kautiala</p>
+                    <p>Milla Weckman</p>
                   </div>
                 </div>
                 <div className="row">
@@ -136,20 +142,12 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Apulaisohjaaja</p>
                   </div>
                   <div className="col-7">
-                    <p>Milla Weckman</p>
+                    <p>Ilari Laaksonen</p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-sm-4 col-5">
                     <p className={styles.persontitle}>Pääkoreografi</p>
-                  </div>
-                  <div className="col-7">
-                    <p>Maria Nieminen</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4 col-5">
-                    <p className={styles.persontitle}>Koreografi</p>
                   </div>
                   <div className="col-7">
                     <p>Saara Koskela</p>
@@ -168,8 +166,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Käsikirjoitus</p>
                   </div>
                   <div className="col-7">
-                    <p>Otto-Harald Hirvonen<br />
-                    Justus Anttila
+                    <p>Matilda Lintunen
                     </p>
                   </div>
                 </div>
@@ -178,7 +175,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Lavastus</p>
                   </div>
                   <div className="col-7">
-                    <p>Teppo Lindberg</p>
+                    <p>Ida Mäkinen</p>
                   </div>
                 </div>
                 <div className="row">
@@ -194,7 +191,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Puvustus</p>
                   </div>
                   <div className="col-7">
-                    <p>Anna Vahlberg</p>
+                    <p>Anni Halkola</p>
                   </div>
                 </div>
                 <div className="row">
@@ -202,7 +199,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Kuvaus</p>
                   </div>
                   <div className="col-7">
-                    <p>Sami Nieminen</p>
+                    <p>Justus Anttila</p>
                   </div>
                 </div>
                 <div className="row">
@@ -210,7 +207,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Grafiikka</p>
                   </div>
                   <div className="col-7">
-                    <p>Aleksei Myller</p>
+                    <p>Sanna Launiainen</p>
                   </div>
                 </div>
                 <div className="row">
@@ -218,7 +215,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Virkistys</p>
                   </div>
                   <div className="col-7">
-                    <p>Oliver Boucht</p>
+                    <p>Anniina Jokela</p>
                   </div>
                 </div>
                 <div className="row">
@@ -226,7 +223,7 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Varainhankinta</p>
                   </div>
                   <div className="col-7">
-                    <p>Janita Louhelainen</p>
+                    <p>Teppo Vättö</p>
                   </div>
                 </div>
                 <div className="row">
@@ -234,28 +231,12 @@ class Yhdistys extends Component {
                     <p className={styles.persontitle}>Markkinointi</p>
                   </div>
                   <div className="col-7">
-                    <p>Sampsa Vuorela</p>
+                    <p>Sari Mustonen</p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-sm-4 col-5">
-                    <p className={styles.persontitle}>Some</p>
-                  </div>
-                  <div className="col-7">
-                    <p>Magdaleena Kupila</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4 col-5">
-                    <p className={styles.persontitle}>Huolto</p>
-                  </div>
-                  <div className="col-7">
-                    <p>Ela Arasola</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4 col-5">
-                    <p className={styles.persontitle}>Äänitekniikka</p>
+                    <p className={styles.persontitle}>Tekniikka</p>
                   </div>
                   <div className="col-7">
                     <p>Pyry Pajunpää</p>

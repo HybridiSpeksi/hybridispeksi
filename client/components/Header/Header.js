@@ -23,11 +23,11 @@ class Header extends Component {
 				<Link className="d-block d-md-none navbar-brand small-screen-link" to="/">HybridiSpeksi</Link>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav">
-						<li className="nav-item">
+						{/*<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/speksi2018">Speksi 2018</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/speksi2018">Speksi 2018</Link>
 						</li>
-						{/*<li className="nav-item">
+						<li className="nav-item">
 							<Link className="nav-link d-none d-md-block" to="/lipunmyynti">Lipunmyynti</Link>
 							<Link className="nav-link d-md-none small-screen-link" to="/lipunmyynti">Lipunmyynti</Link>
 						</li>*/}

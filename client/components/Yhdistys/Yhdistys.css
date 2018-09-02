@@ -1,5 +1,5 @@
 .container {
-	background:#FFECAF;
+	background:#f7f7f7;
 	padding:0px;
 	margin:0px;
 }
@@ -12,11 +12,11 @@
 	color:white;
 }
 .internallink {
-	color:#FFECAF;
+	color:#d6d6d6;
 }
 .internallink:hover {
 	text-decoration: none;
-	color:#C0521F;
+	color:#b7b7b7;
 }
 .logo {
 	background: url("/assets/images/hslogo_dark.png") no-repeat center top;
@@ -40,7 +40,7 @@
 .yhdistys_desc {
 	padding:40px;
 	opacity:1!important;
-	background-color:#f9e095;
+	background-color:#eaeaea;
 	color:black;
 }
 .otsikko {

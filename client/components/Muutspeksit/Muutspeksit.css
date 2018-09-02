@@ -1,5 +1,5 @@
 .container {
-	background:#FFECAF;
+	background:#f7f7f7;
 	padding:0px;
 }
 .content {
@@ -23,11 +23,11 @@
 	color:black;
 	text-decoration: none;
 	margin:20px;
-	background-color:#f9e095;
+	background-color:#d6d6d6;
 }
 .externallink:hover{
 	transform:scale(1.05);
-	background-color:#C0521F;
+	background-color:#b7b7b7;
 }
 a:hover {
 	text-decoration: none;

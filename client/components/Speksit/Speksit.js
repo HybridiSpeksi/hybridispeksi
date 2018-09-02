@@ -21,9 +21,44 @@ class Speksit extends Component {
             </p>
             <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>,
             lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.
-            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen
-              <strong>Kruunun Kohtalo - Kalevalan perintö.</strong>
+            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen  
+              <strong> Kruunun Kohtalo - Kalevalan perintö.</strong>
             </p>
+            <p>Vuonna 2018 HybridiSpeksi jatkoi nousevaa uraansa Manilla-teatterilla, kun 
+            esiripun takaa paljastui villi länsi ja näytös <strong>Älä Ammu Ohi</strong>.
+            </p>
+          </div>
+        </div>
+
+        {/* ÄLÄ AMMU OHI */}
+        <div className={'row align-items-center justify-content-center ' + styles.content_alaammuohi}>
+          <div className={'col-md-5 col-sm-11 ' + styles.bratva_alaammuohi}>
+            <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
+            <p className={styles.font_alaammuohi}>
+              Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
+              pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
+              kohonnut Alexandra hallitsee kyläläisten kukkaroita ja himoja. Kaikkien rakastama
+              pappi, Isä Henry, tekee parhaansa pitääkseen harmonian näiden kahden ja asukkaiden
+              välillä. Tasapaino kuitenkin järkkyy, kun sen keskelle ilmestyy raakalaismaisen
+              rikollisliigan johtajatar suojaa etsien.
+            </p>
+            <br />
+            <p>
+              Älä Ammu Ohi<br />
+              HybridiSpeksi 2018<br />
+              Ensi-ilta 27.3.<br />
+              @Manilla
+            </p>
+          </div>
+          <div className={'col-md-5 col-sm-11 d-flex justify-content-end ' + styles.polaroid_alaammuohi_container}>
+            <div className={'justify-content-end ' + styles.polaroid_alaammuohi}>
+              <img src="/assets/images/hs16.jpg" />
+              <div className={styles.polaroid_alaammuohi_desc}>
+                <p>
+                  "I will break you"
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

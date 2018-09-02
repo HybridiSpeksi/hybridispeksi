@@ -1,5 +1,5 @@
 .container {
-   background:#ffecaf;
+   background:#f7f7f7;
 }
 hr {
 	background-color:#7a1111;
@@ -12,20 +12,23 @@ hr {
 	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top;
 	/*background-size: contain;*/
 }
+/*div {
+	border:1px solid red;
+}*/
 
 .content_contact {
 	height:50vh;
-	background:#d8d8d8;
+	background:#f7f7f7;
 }
 @font-face {
-	font-family:'hybridispeksi';
+	font-family:'alaammuohi';
 	src:url("/assets/fonts/westernbangbang.otf");
 }
 
 .slogan {
 	padding:20px;
 	padding-top:33px;
-	font-family:'hybridispeksi';	
+	font-family:'alaammuohi';	
 	animation:fadein 4s;
 }
 @keyframes fadein {
@@ -54,7 +57,7 @@ hr {
 	font-size:44px;
 }
 .lipunmyynti {
-	margin-top:120px;
+	margin-top:140px;
 	text-align:center;
 	color:white;
 	font-size:36px;
@@ -77,7 +80,6 @@ hr {
 
 /* CONTENTS */
 .content_contents{
-	background:#ffecaf;
 	padding-top:20px;
 	padding-bottom:50px;
 }
@@ -106,7 +108,6 @@ hr {
 
 /* SPEKSI */
 .content_speksi {
-	background-color:#ffecaf;
 	padding:50px;
 	padding-top:60px;
 }
@@ -151,8 +152,8 @@ hr {
 		padding-right:0px;	
 	}
 	.lipunmyynti {
-		margin-top:90px;
-		font-size:32px;
+		margin-top:70px;
+		font-size:46px;
 	}
 	.lipunmyyntiLink {
 		font-size:40px;
@@ -174,7 +175,7 @@ hr {
 	}
 	.lipunmyynti {
 		font-family:Calibri;
-		margin-top:140px;
+		margin-top:100px;
 		font-size:26px;
 	}
 	.lipunmyyntiLink {
