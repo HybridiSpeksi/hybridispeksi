@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Dropdown, Radio } from '../../Utils/Form';
+import { Dropdown, Radio } from '../../../Utils/Form';
 
 class VarausForm extends Component {
   render() {

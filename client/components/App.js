@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import globalStyles from './App.css';
 
-import auth from './Utils/Auth';
+import auth from './../Utils/Auth';
 
 // Public
 import Header from './Header/Header';
@@ -23,6 +23,7 @@ import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Speksi2018 from './Speksi2018/Speksi2018';
 import Vahvistus from './Speksi2018/Vahvistus';
 import Virhe from './Speksi2018/Virhe';
+import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -36,6 +37,7 @@ import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
 import Varaustenhallinta from './Admin/Varaustenhallinta/Varaustenhallinta';
 import Palautteet from './Admin/Palautteet/Palautteet';
+import Vuodenspeksilainen from './Admin/Vuodenspeksilainen/Vuodenspeksilainen';
 
 import Login from './Admin/Auth/Login';
 
@@ -104,6 +106,7 @@ export default class App extends React.Component {
                 <PublicLayout path="/ilmo" component={Sitsit} />
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
+                <PublicLayout path="/vuodenspeksaaja" component={Vuodenspeksaaja} />
               </Switch>
             </div>
 
@@ -119,6 +122,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
                 <AdminLayout path="/tapahtumat" component={Tapahtumat} />
                 <AdminLayout path="/palautteet" component={Palautteet} />
+                <AdminLayout path="/vuodenspeksilainen" component={Vuodenspeksilainen} />
               </Switch>
             </div>
           </div>

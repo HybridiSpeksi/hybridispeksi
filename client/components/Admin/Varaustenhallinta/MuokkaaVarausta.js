@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VarausForm from './VarausForm';
-import { getUserRole } from '../../Utils/Auth';
+import { getUserRole } from '../../../Utils/Auth';
 
 class MuokkaaVarausta extends Component {
   render() {

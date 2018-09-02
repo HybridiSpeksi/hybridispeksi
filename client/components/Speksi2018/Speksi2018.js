@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import UusiVaraus from './UusiVaraus';
 import Esitysvalinta from './Esitysvalinta';
 
-import ajax from './../Utils/Ajax';
-import Messages from './../Utils/Messages';
+import ajax from './../../Utils/Ajax';
+import Messages from './../../Utils/Messages';
 
 import styles from './Speksi2018.css';
 

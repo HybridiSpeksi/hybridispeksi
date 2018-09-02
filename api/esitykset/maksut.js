@@ -1,6 +1,5 @@
 const Varaus = require('../../schema/varaus-model');
 const Esitys = require('../../schema/esitys-model');
-const payment = require('../../utils/payments');
 const mailer = require('../../utils/mailer');
 const config = require('../../config');
 const crypto = require('crypto');

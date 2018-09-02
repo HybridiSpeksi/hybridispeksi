@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import Loginform from './Loginform';
 import Signupform from './Signupform';
 
-import utils from '../../Utils/Utils';
-import auth from '../../Utils/Auth';
-import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
+import utils from '../../../Utils/Utils';
+import auth from '../../../Utils/Auth';
+import ajax from '../../../Utils/Ajax';
+import Messages from '../../../Utils/Messages';
 
 const MESSAGE_SUCCESS = 'success';
 const MESSAGE_WARNING = 'warning';

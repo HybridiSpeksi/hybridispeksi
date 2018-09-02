@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Radio } from '../../Utils/Form';
-import utils from '../../Utils/Utils';
-import Modal from '../../Utils/Modal';
-import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
+import { Text, Radio } from '../../../Utils/Form';
+import utils from '../../../Utils/Utils';
+import Modal from '../../../Utils/Modal';
+import ajax from '../../../Utils/Ajax';
+import Messages from '../../../Utils/Messages';
 
 class Uusijasen extends Component {
   constructor(props) {

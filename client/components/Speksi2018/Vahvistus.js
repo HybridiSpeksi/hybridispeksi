@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
-import ajax from './../Utils/Ajax';
+import ajax from './../../Utils/Ajax';
 
 
 import styles from './Vahvistus.css';
