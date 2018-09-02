@@ -2,14 +2,14 @@
    background:#f7f7f7;
 }
 hr {
-	background-color:#7a1111;
+	background-color:black;
 }
 .hr {
 	margin:0px;
 }
 .content_home {
 	height:810px;
-	background:url("/assets/images/teaser-tausta2.jpg") no-repeat center top;
+	background:black;
 	/*background-size: contain;*/
 }
 /*div {
@@ -28,7 +28,7 @@ hr {
 .slogan {
 	padding:20px;
 	padding-top:33px;
-	font-family:'alaammuohi';	
+	font-family:'calibri';	
 	animation:fadein 4s;
 }
 @keyframes fadein {
@@ -39,44 +39,22 @@ hr {
 		opacity:1;
 	}
 }
-.name{
-	text-align:center;
-	color:#580d0d;
-	font-size:32px;
-}
-.logo{
-	margin-top:-16px;
-	width:550px;
-	height:330px;
-	background:url("/assets/images/logo_lapinak.png") no-repeat center;
-	background-size: 580px 580px;
-}
-.date {
-	text-align:right;
-	color:white;
-	font-size:44px;
-}
-.lipunmyynti {
-	margin-top:140px;
+.rekry_header{
 	text-align:center;
 	color:white;
-	font-size:36px;
-	line-height:120%;
+	font-size:64px;
 }
-.lipunmyyntiLink {
-	margin-top:20px;
-	margin-bottom:20px;
-	font-size:50px;
+.rekry_desc{
+	text-align:center;
 	color:white;
-	transition:0.1s ease-in transform;
-	animation:fadein 2s;
-	display:block;
+	font-size:18px;
 }
-.lipunmyyntiLink:hover {
-	text-decoration: none;
+.rekry_date{
+	text-align:center;
 	color:white;
-	transform:scale(1.05);
+	font-size:26px;
 }
+
 
 /* CONTENTS */
 .content_contents{
@@ -151,40 +129,33 @@ hr {
 	.date {
 		padding-right:0px;	
 	}
-	.lipunmyynti {
-		margin-top:70px;
-		font-size:46px;
+	.rekry_desc {
 	}
-	.lipunmyyntiLink {
-		font-size:40px;
+	.rekry_header {
 	}
 }
 @media (max-width:1048px){
-	.lipunmyynti {
+	.rekry_desc {
 		margin-top:20px;
 	}
 }
 @media (max-width:992px){
 	.content_home {
-		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background:black;
 		background-size: 992px 992px;
 		height:992px;
 	}
 	.logo {
 		margin-top:150px;
 	}
-	.lipunmyynti {
-		font-family:Calibri;
-		margin-top:100px;
-		font-size:26px;
+	.rekry_desc {
 	}
-	.lipunmyyntiLink {
-		font-size:36px;
+	.rekry_header {
 	}
 }
 @media (max-width:768px){
 	.content_home {
-		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background:black;
 		background-size: 768px 768px;
 		height:768px;
 	}
@@ -194,19 +165,21 @@ hr {
 		width:500px;
 		background-size:500px 500px;
 	}
-	.lipunmyynti {
-		margin-top:80px;
-		font-size:22px;
+	.rekry_desc {
+
 	}
-	.lipunmyyntiLink {
+	.rekry_date {
 		font-size:26px;
+	}
+	.rekry_header {
+		font-size: 44px;
 	}
 }
 @media (max-width:500px){
 	.content_home {
-		background:url("/assets/images/teaser-tausta-mobiili.jpg") no-repeat center top black;
+		background:black;
 		background-size: 500px 500px;
-		height:500px;
+		height:600px;
 	}
 	.rivi {
 		margin:0px;
@@ -216,25 +189,17 @@ hr {
 		padding:20px;
 		padding-top:35px;	
 	}
-	.name{
-		font-size:32px;
-		margin-top:0px;
+	.rekry{
+
 	}
-	.date{
-		
+	.rekry_desc {
+		font-size: 14px;
 	}
-	.logo {
-		margin-top:0px;
-		height:200px;
-		width:300px;
-		background-size:300px 300px;
+	.rekry_date {
+		font-size:20px;
 	}
-	.lipunmyynti {
-		margin-top:25px;
-		font-size:16px;
-	}
-	.lipunmyyntiLink{
-		font-size:18px;
+	.rekry_header{
+		font-size:28px;
 	}
 	.content_speksi {
 		background-image:none;
@@ -246,12 +211,13 @@ hr {
 	}
 }
 @media (max-width:400px){
-	.lipunmyynti {
-		font-family:Calibri;
-		margin-top:60px;
-		font-size:12px;
+	.rekry_desc {
+
 	}
-	.lipunmyyntiLink{
-		font-size:14px;
+	.rekry_date {
+
+	}
+	.rekry_header{
+
 	}
 }

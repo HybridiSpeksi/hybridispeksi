@@ -51,14 +51,14 @@ class Speksit extends Component {
             </p>
           </div>
           <div className={'col-md-5 col-sm-11 d-flex justify-content-end ' + styles.polaroid_alaammuohi_container}>
-            <div className={'justify-content-end ' + styles.polaroid_alaammuohi}>
+             {/*<div className={'justify-content-end ' + styles.polaroid_alaammuohi}>
               <img src="/assets/images/hs16.jpg" />
               <div className={styles.polaroid_alaammuohi_desc}>
                 <p>
-                  "I will break you"
+                  &nbsp;
                 </p>
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
 
