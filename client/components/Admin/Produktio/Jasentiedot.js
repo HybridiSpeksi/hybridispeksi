@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
+import cuid from 'cuid';
 
 import auth from '../../../Utils/Auth';
 
@@ -25,7 +26,7 @@ const Jasentiedot = (props) => {
         t = 'tyhja';
       }
       return (
-        <div className="col" key={i._id}>
+        <div className="col" key={cuid()}>
           <Dropdown
             options={tehtavat}
             selected={t}
@@ -83,7 +84,7 @@ const Jasentiedot = (props) => {
             />
           </div>
         </div>
-        <div className="row">{getTehtavavalinnat}</div>
+        <div className="row">{getTehtavavalinnat()}</div>
         <div className="row">
           <div className="col">
             <button className="btn" onClick={lisaaTehtava}>

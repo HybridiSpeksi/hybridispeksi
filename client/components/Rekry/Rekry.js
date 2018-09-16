@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import { BrowserRouter, Route } from 'react-router-dom';
 
-import styles from './Rekry.css';
 import Rekryform from './Rekryform';
 import Kiitos from './Kiitos';
 
