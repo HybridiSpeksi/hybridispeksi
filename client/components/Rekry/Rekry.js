@@ -77,12 +77,10 @@ class Rekry extends Component {
       lisatiedot: values.lisatiedot,
       jasenyys: values.jasenyys === 'true',
     };
-    console.log('DATA:');
-    console.log(data);
     if (this.validateRekry(values)) {
       ajax
         .sendPut(url, data)
-        .then((data) => {
+        .then(() => {
           if (data.success === true) {
             this.setState({ authState: 1 });
           }
@@ -126,8 +124,6 @@ class Rekry extends Component {
         {this.state.authState === 0 ? (
           <Rekryform
             rekryAuki={this.state.rekryAuki}
-            tehtavat={this.state.tehtavat}
-            jasenyys={this.state.jasenyys}
             kaikkiTehtavat={this.state.kaikkiTehtavat}
             kaikkiJarjestot={this.state.kaikkiJarjestot}
             onSubmit={this.handleSubmit}
