@@ -50,7 +50,7 @@ const Jasentiedot = (props) => {
         <div className="row">
           <div className="col">
             <h3>
-              {jasen.fname} {jasen.sname}
+              {jasen.fname} {jasen.lname}
             </h3>
           </div>
           <div className="col text-right">

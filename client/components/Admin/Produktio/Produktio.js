@@ -30,14 +30,14 @@ class Produktio extends Component {
       haku: {
         pikahaku: '',
         fname: '',
-        sname: '',
+        lname: '',
         email: '',
         tehtava: '',
         jarjesto: '',
       },
       valittuJasen: {
         fname: '',
-        sname: '',
+        lname: '',
         email: '',
         pnumber: '',
         tehtavat: [],
@@ -124,7 +124,7 @@ class Produktio extends Component {
           const l = _haku.pikahaku.toLowerCase();
           if (
             jasen.fname.toLowerCase().indexOf(l) !== -1 ||
-            jasen.sname.toLowerCase().indexOf(l) !== -1 ||
+            jasen.lname.toLowerCase().indexOf(l) !== -1 ||
             jasen.email.toLowerCase().indexOf(l) !== -1 ||
             jasen.tehtavat.indexOf(l) !== -1
           ) {

@@ -67,8 +67,8 @@ function newJasen(req, res) {
 function muokkaaJasen(req, res) {
   const jasen = req.body;
   Jasen.findByIdAndUpdate(jasen._id, jasen)
-    .then((jasen) => {
-      res.json({ success: true, data: jasen });
+    .then(() => {
+      res.json({ success: true });
     })
     .catch((err) => {
       res.json({ success: false, data: err });
@@ -80,7 +80,7 @@ module.exports.getById = getById;
 module.exports.newJasen = newJasen;
 module.exports.muokkaaJasen = muokkaaJasen;
 
-var yhdistaJasenetJaProduktio = function (henkilot, jasenet) {
+const yhdistaJasenetJaProduktio = (henkilot, jasenet) => {
   for (let i = 0; i < henkilot.length; i++) {
     for (let j = 0; j < jasenet.length; j++) {
       if (henkilot[i].email.toLowerCase() === jasenet[j].email.toLowerCase()) {

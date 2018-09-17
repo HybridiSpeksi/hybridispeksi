@@ -15,7 +15,7 @@ const ProduktionjasenLista = ({ jasenet, valitseJasen }) => {
       <tr key={jasen._id} onClick={() => valitseJasen(jasen)}>
         <td>{i + 1}</td>
         <td>
-          {jasen.fname} {jasen.sname}
+          {jasen.fname} {jasen.lname}
         </td>
         <td>{jasen.email}</td>
         <td>{jasen.pnumber}</td>
