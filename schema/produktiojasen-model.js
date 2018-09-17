@@ -1,19 +1,18 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
- module.exports = mongoose.model('Produktionjasen', new mongoose.Schema({
-    fname: String,
-    sname: String,
-    email: String,
-    pnumber: String,
-    tehtavat: [String],
-    jarjesto: String,
-    lisatiedot: String,
-    hakeeJaseneksi: Boolean,
-    tuotannonMuistiinpanot: String,
-    vuosi: Number,
-    member: Boolean
+module.exports = mongoose.model('Produktionjasen', new mongoose.Schema({
+  fname: String,
+  lname: String,
+  email: String,
+  pnumber: String,
+  tehtavat: [String],
+  jarjesto: String,
+  lisatiedot: String,
+  hakeeJaseneksi: Boolean,
+  tuotannonMuistiinpanot: String,
+  vuosi: Number,
+  member: Boolean,
 }, {
-    collection: 'produktionjasenet',
-    timestamps: true
-}))
+  collection: 'produktionjasenet',
+  timestamps: true,
+}));

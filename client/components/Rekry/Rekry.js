@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Rekryform from './Rekryform';
 import Kiitos from './Kiitos';
 
 import utils from '../../Utils/Utils';
 import ajax from '../../Utils/Ajax';
 import Messages from '../../Utils/Messages';
+import { addMessage, clearMessages } from '../../actions/messageActions';
+import constants from '../../Utils/constants';
 
-const MESSAGE_SUCCESS = 'success';
-const MESSAGE_WARNING = 'warning';
-const MESSAGE_ERROR = 'error';
+
+const getTehtavat = (values) => {
+  const result = [];
+  values.tehtavat1 ? result.push(values.tehtavat1) : null;
+  values.tehtavat2 ? result.push(values.tehtavat2) : null;
+  values.tehtavat3 ? result.push(values.tehtavat3) : null;
+  return result;
+};
 
 class Rekry extends Component {
   constructor(props) {
@@ -18,26 +25,14 @@ class Rekry extends Component {
 
     // Initial state
     this.state = {
-      fname: '',
-      sname: '',
-      email: '',
-      pnumber: '',
       tehtavat: [],
-      jarjesto: '',
-      lisatiedot: '',
-      jasenyys: 'true',
-      messages: [],
-      warnings: [],
-      errors: [],
       authState: 0,
       kaikkiTehtavat: [],
       kaikkiJarjestot: [],
       rekryAuki: false,
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleTehtavaChange = this.handleTehtavaChange.bind(this);
   }
 
   componentDidMount() {
@@ -58,58 +53,29 @@ class Rekry extends Component {
         console.log(err);
       });
     ajax.sendGet('/rekryAuki').then((tag) => {
-      console.log(tag.data[0]);
       this.setState({ rekryAuki: tag.data[0].truefalse });
     });
   }
 
-  // Handle all input events
-  handleChange(e) {
-    const value = e.target.value;
-
-    this.setState({ [e.target.name]: value });
-    this.setState({
-      messages: [],
-      warnings: [],
-      errors: [],
-    });
-  }
-  handleTehtavaChange(e) {
-    const uusiTehtavat = this.state.tehtavat;
-
-    if (e.target.name === 'tehtavat1') {
-      uusiTehtavat[0] = e.target.value;
-    } else if (e.target.name === 'tehtavat2') {
-      uusiTehtavat[1] = e.target.value;
-    } else {
-      uusiTehtavat[2] = e.target.value;
-    }
-
-    this.setState({ tehtavat: uusiTehtavat });
-    this.setState({
-      messages: [],
-      warnings: [],
-      errors: [],
-    });
-  }
-
   // Submit form
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(values) {
+    this.props.clearMessages();
     const url = '/produktionjasen';
-
-    if (this.validateRekry()) {
+    const data = {
+      fname: values.fname,
+      sname: values.lname,
+      email: values.email,
+      pnumber: values.pnumber,
+      tehtavat: getTehtavat(values),
+      jarjesto: values.jarjesto,
+      lisatiedot: values.lisatiedot,
+      jasenyys: values.jasenyys === 'true',
+    };
+    console.log('DATA:');
+    console.log(data);
+    if (this.validateRekry(values)) {
       ajax
-        .sendPut(url, {
-          fname: this.state.fname,
-          sname: this.state.sname,
-          email: this.state.email,
-          pnumber: this.state.pnumber,
-          tehtavat: this.state.tehtavat,
-          jarjesto: this.state.jarjesto,
-          lisatiedot: this.state.lisatiedot,
-          jasenyys: this.state.jasenyys === 'true',
-        })
+        .sendPut(url, data)
         .then((data) => {
           if (data.success === true) {
             this.setState({ authState: 1 });
@@ -127,42 +93,25 @@ class Rekry extends Component {
   }
 
   // Validates if all necessary info has been given
-  validateRekry() {
+  validateRekry(values) {
     let valid = true;
     if (
-      this.state.fname === '' ||
-      this.state.sname === '' ||
-      this.state.email === '' ||
-      this.state.pnumber === '' ||
-      this.state.tehtavat[0] === '' ||
-      this.state.jarjesto === '' ||
-      this.state.lisatiedot === ''
+      !values.fname ||
+      !values.lname ||
+      !values.email ||
+      !values.pnumber ||
+      !values.tehtavat1 ||
+      !values.jarjesto ||
+      !values.lisatiedot
     ) {
-      this.addMessage(MESSAGE_WARNING, 'Virhe!', 'Kaikki kentät on täytettävä');
+      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Kaikki kentät on täytettävä' });
       valid = false;
     }
-    if (!utils.isValidEmail(this.state.email)) {
-      this.addMessage(MESSAGE_WARNING, 'Virhe!', 'Sähköposti on virheellinen');
+    if (!utils.isValidEmail(values.email)) {
+      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Sähköposti on virheellinen' });
       valid = false;
     }
     return valid;
-  }
-
-  // Add different kinds of error or warning messages
-  addMessage(type, newHeader, newText) {
-    if (type === MESSAGE_WARNING) {
-      const newWarnings = this.state.warnings;
-      newWarnings.push({ header: newHeader, text: newText });
-      this.setState({ warnings: newWarnings });
-    } else if (type === MESSAGE_ERROR) {
-      const newErrors = this.state.errors;
-      newErrors.push({ header: newHeader, text: newText });
-      this.setState({ erros: newErrors });
-    } else if (type === MESSAGE_SUCCESS) {
-      const newMessages = this.state.messages;
-      newMessages.push({ header: newHeader, text: newText });
-      this.setState({ messages: newMessages });
-    }
   }
 
   render() {
@@ -171,25 +120,13 @@ class Rekry extends Component {
         {this.state.authState === 0 ? (
           <Rekryform
             rekryAuki={this.state.rekryAuki}
-            fname={this.state.fname}
-            sname={this.state.sname}
-            email={this.state.email}
-            pnumber={this.state.pnumber}
             tehtavat={this.state.tehtavat}
-            jarjesto={this.state.jarjesto}
-            lisatiedot={this.state.lisatiedot}
             jasenyys={this.state.jasenyys}
             kaikkiTehtavat={this.state.kaikkiTehtavat}
             kaikkiJarjestot={this.state.kaikkiJarjestot}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleTehtavaChange={this.handleTehtavaChange}
+            onSubmit={this.handleSubmit}
             messages={
-              <Messages
-                messages={this.state.messages}
-                warnings={this.state.warnings}
-                errors={this.state.errors}
-              />
+              <Messages />
             }
           />
         ) : (
@@ -200,4 +137,18 @@ class Rekry extends Component {
   }
 }
 
-export default Rekry;
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = dispatch => ({
+  addMessage: message => dispatch(addMessage(message)),
+  clearMessages: () => dispatch(clearMessages()),
+});
+
+Rekry.propTypes = {
+  addMessage: PropTypes.func,
+  clearMessages: PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Rekry);

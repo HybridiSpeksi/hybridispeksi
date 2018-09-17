@@ -7,8 +7,6 @@ import { DropdownReduxform } from '../../Utils/Form';
 import styles from './Rekry.css';
 
 let RekryForm = (props) => {
-  // console.log("rekryauki:")
-  // console.log(props.rekryAuki)
   const { kaikkiTehtavat, kaikkiJarjestot, handleSubmit } = props;
 
   return (
@@ -37,7 +35,6 @@ let RekryForm = (props) => {
               </div>
               <div className="col">
                 <Field name="fname" component="input" type="text" className="form-control" />
-                {/* <input name="fname" id="fnameInput" className="form-control" type="text" onChange={props.handleChange} value={props.fname} placeholder="Etunimi" /> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.sname}>
@@ -48,7 +45,6 @@ let RekryForm = (props) => {
               </div>
               <div className="col">
                 <Field name="lname" component="input" type="text" className="form-control" />
-                {/* <input name="sname" id="snameInput" className="form-control" type="text" onChange={props.handleChange} value={props.sname} placeholder="Sukunimi" /> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.email}>
@@ -59,7 +55,6 @@ let RekryForm = (props) => {
               </div>
               <div className="col">
                 <Field name="email" component="input" type="email" className="form-control" />
-                {/* <input name="email" id="emailInput" className="form-control" type="text" onChange={props.handleChange} value={props.email} placeholder="Sähköposti" /> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.pnumber}>
@@ -70,7 +65,6 @@ let RekryForm = (props) => {
               </div>
               <div className="col">
                 <Field name="pnumber" component="input" type="tel" className="form-control" />
-                {/* <input name="pnumber" id="pnumberInput" className="form-control" type="tel" onChange={props.handleChange} value={props.pnumber} placeholder="Puhelinnumero" /> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.tehtavat}>
@@ -84,10 +78,6 @@ let RekryForm = (props) => {
                   options={props.kaikkiTehtavat}
                   selected={props.formState ? props.formState.tehtavat1 : 'grafiikka'}
                 />
-                {/* <select name="tehtavat1" id="tehtavatInput" className="form-control" onChange={props.handleTehtavaChange} value={props.tehtavat1}>
-                  <option value="" />
-                  {tehtavatOptions}
-                </select> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.tehtavat}>
@@ -103,10 +93,6 @@ let RekryForm = (props) => {
                   options={kaikkiTehtavat}
                   selected={props.formState ? props.formState.tehtavat2 : 'grafiikka'}
                 />
-                {/* <select name="tehtavat2" id="tehtavatInput" className="form-control" onChange={props.handleTehtavaChange} value={props.tehtavat2}>
-                  <option value="" />
-                  {tehtavatOptions}
-                </select> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.tehtavat}>
@@ -120,10 +106,6 @@ let RekryForm = (props) => {
                   options={kaikkiTehtavat}
                   selected={props.formState ? props.formState.tehtavat3 : 'grafiikka'}
                 />
-                {/* <select name="tehtavat3" id="tehtavatInput" className="form-control" onChange={props.handleTehtavaChange} value={props.tehtavat3}>
-                  <option value="" />
-                  {tehtavatOptions}
-                </select> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.jarjesto}>
@@ -139,10 +121,6 @@ let RekryForm = (props) => {
                   options={kaikkiJarjestot}
                   selected={props.formState ? props.formState.jarjesto : ''}
                 />
-                {/* <select name="jarjesto" id="jarjestoInput" className="form-control" onChange={props.handleChange} value={props.jarjesto}>
-                  <option value="" />
-                  {jarjestoOptions}
-                </select> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.lisatiedot}>
@@ -151,7 +129,6 @@ let RekryForm = (props) => {
               </div>
               <div className="col">
                 <Field component="textarea" name="lisatiedot" className="form-control" rows="4" />
-                {/* <textarea rows="4" name="lisatiedot" id="lisatiedotInput" className="form-control" onChange={props.handleChange} value={props.lisatiedot} /> */}
               </div>
             </div>
             <div className={'row form-group align-items-center ' + styles.jasen}>
@@ -164,6 +141,7 @@ let RekryForm = (props) => {
                   component="input"
                   type="radio"
                   value="true"
+                  checked={props.formState && props.formState.jasenyys === 'true'}
                   className={styles.jasenradio}
                 /> Kyllä
                 <Field
@@ -171,10 +149,9 @@ let RekryForm = (props) => {
                   component="input"
                   type="radio"
                   value="false"
+                  checked={props.formState && props.formState.jasenyys === 'false'}
                   className={styles.jasenradio}
                 /> Ei
-                {/* <input checked={props.jasenyys === 'true'} className={styles.jasenradio} type="radio" name="jasenyys" value="true" onChange={props.handleChange} /> Kyllä
-                <input checked={props.jasenyys === 'false'} className={styles.jasenradio} type="radio" name="jasenyys" value="false" onChange={props.handleChange} /> Ei */}
               </div>
             </div>
             <div className="row">
@@ -193,7 +170,6 @@ let RekryForm = (props) => {
                   :
                   <p><i>Rekry on suljettu!</i></p>
                 }
-                {/* <button className="btn btn-default" type="submit">Lähetä hakemus</button> */}
               </div>
             </div>
 
@@ -228,4 +204,7 @@ RekryForm = connect(mapStateToProps)(RekryForm);
 
 export default reduxForm({
   form: 'rekryForm',
+  initialValues: {
+    jasenyys: 'true',
+  },
 })(RekryForm);
