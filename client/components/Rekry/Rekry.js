@@ -39,7 +39,13 @@ class Rekry extends Component {
     ajax
       .sendGet('/tehtavat')
       .then((tehtavat) => {
-        this.setState({ kaikkiTehtavat: tehtavat.data });
+        this.setState({
+          kaikkiTehtavat: [
+            { value: null, name: 'Tehtävä' },
+            ...tehtavat.data.filter(tehtava =>
+              tehtava.value !== 'hallitus' && tehtava.value !== 'tuotanto'),
+          ],
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +53,7 @@ class Rekry extends Component {
     ajax
       .sendGet('/jarjestot')
       .then((jarjestot) => {
-        this.setState({ kaikkiJarjestot: jarjestot.data });
+        this.setState({ kaikkiJarjestot: [{ value: null, name: 'Ainejärjestö' }, ...jarjestot.data] });
       })
       .catch((err) => {
         console.log(err);
@@ -83,11 +89,11 @@ class Rekry extends Component {
         })
         .catch((err) => {
           console.log(err);
-          this.addMessage(
-            MESSAGE_ERROR,
-            'Virhe!',
-            'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
-          );
+          this.props.addMessage({
+            type: constants.MESSAGE_ERROR,
+            header: 'Virhe!',
+            text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
+          });
         });
     }
   }
