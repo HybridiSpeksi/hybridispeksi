@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Loginform from './Loginform';
 import Signupform from './Signupform';
@@ -6,11 +8,10 @@ import Signupform from './Signupform';
 import utils from '../../../Utils/Utils';
 import auth from '../../../Utils/Auth';
 import ajax from '../../../Utils/Ajax';
+import constants from '../../../Utils/constants';
 import Messages from '../../../Utils/Messages';
+import { addMessage, clearMessages } from '../../../actions/messageActions';
 
-const MESSAGE_SUCCESS = 'success';
-const MESSAGE_WARNING = 'warning';
-const MESSAGE_ERROR = 'error';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +24,6 @@ class Login extends Component {
       fname: '',
       sname: '',
       authState: 0,
-      messages: [],
-      warnings: [],
-      errors: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,7 +34,6 @@ class Login extends Component {
 
   // Handle all input events
   handleChange(e) {
-    this.setState({ warnings: [] });
     let value = e.target.value;
 
     // Check if numeric value and parse
@@ -47,6 +44,7 @@ class Login extends Component {
 
   // Submit form
   handleSubmit(e) {
+    this.props.clearMessages();
     e.preventDefault();
     let url = '';
     if (e.target.name === 'login') {
@@ -58,16 +56,16 @@ class Login extends Component {
             auth.signIn(data.token, data.user);
             location.replace('/admin');
           } else {
-            this.addMessage(MESSAGE_WARNING, 'Kirjautuminen epäonnistui!', data.message);
+            this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Kirjautuminen epäonnistui!', text: data.message });
           }
         })
         .catch((err) => {
           console.log(err);
-          this.addMessage(
-            MESSAGE_ERROR,
-            'Virhe!',
-            'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
-          );
+          this.props.addMessage({
+            type: constants.MESSAGE_ERROR,
+            title: 'Virhe!',
+            text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
+          });
         });
     } else if (e.target.name === 'signup') {
       if (this.validateSignup()) {
@@ -81,22 +79,22 @@ class Login extends Component {
           })
           .then((data) => {
             if (data.success === true) {
-              this.addMessage(
-                MESSAGE_SUCCESS,
-                'Rekisteröinti onnistui!',
-                'Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.',
-              );
+              this.props.addMessage({
+                type: constants.MESSAGE_SUCCESS,
+                header: 'Rekisteröinti onnistui!',
+                text: 'Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.',
+              });
             } else {
-              this.addMessage(MESSAGE_WARNING, 'Rekisteröinti epäonnistui:', data.message);
+              this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Rekisteröinti epäonnistui:', text: data.message });
             }
           })
           .catch((err) => {
             console.log(err);
-            this.addMessage(
-              MESSAGE_ERROR,
-              'Virhe!',
-              'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
-            );
+            this.props.addMessage({
+              type: constants.MESSAGE_ERROR,
+              header: 'Virhe!',
+              text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
+            });
           });
       }
     }
@@ -105,34 +103,18 @@ class Login extends Component {
   validateSignup() {
     let valid = true;
     if (this.state.fname === '' || this.state.sname === '' || this.state.email === '') {
-      this.addMessage(MESSAGE_WARNING, 'Virhe!', 'Kaikki kentät on täytettävä');
+      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Kaikki kentät on täytettävä' });
       valid = false;
     }
     if (!utils.isValidEmail(this.state.email)) {
-      this.addMessage(MESSAGE_WARNING, 'Virhe!', 'Sähköposti on virheellinen');
+      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Sähköposti on virheellinen' });
       valid = false;
     }
     if (this.state.password !== this.state.passwordAgain) {
-      this.addMessage(MESSAGE_WARNING, 'Virhe!', 'Salasanat eivät täsmää');
+      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Salasanat eivät täsmää' });
       valid = false;
     }
     return valid;
-  }
-
-  addMessage(type, newHeader, newText) {
-    if (type === MESSAGE_WARNING) {
-      const newWarnings = this.state.warnings;
-      newWarnings.push({ header: newHeader, text: newText });
-      this.setState({ warnings: newWarnings });
-    } else if (type === MESSAGE_ERROR) {
-      const newErrors = this.state.errors;
-      newErrors.push({ header: newHeader, text: newText });
-      this.setState({ errors: newErrors });
-    } else if (type === MESSAGE_SUCCESS) {
-      const newMessages = this.state.messages;
-      newMessages.push({ header: newHeader, text: newText });
-      this.setState({ messages: newMessages });
-    }
   }
 
   render() {
@@ -145,11 +127,7 @@ class Login extends Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             messages={
-              <Messages
-                messages={this.state.messages}
-                warnings={this.state.warnings}
-                errors={this.state.errors}
-              />
+              <Messages />
             }
           />
         ) : (
@@ -161,11 +139,7 @@ class Login extends Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             messages={
-              <Messages
-                messages={this.state.messages}
-                warnings={this.state.warnings}
-                errors={this.state.errors}
-              />
+              <Messages />
             }
           />
         )}
@@ -174,4 +148,17 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  addMessage: PropTypes.func,
+  clearMessages: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = dispatch => ({
+  addMessage: message => dispatch(addMessage(message)),
+  clearMessages: () => dispatch(clearMessages()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
