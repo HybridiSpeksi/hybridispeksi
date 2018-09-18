@@ -10,9 +10,9 @@ export const actions = {
 export function sendFeedback(feedback) {
   return async (dispatch) => {
     try {
-      dispatch(ajaxActions.ajaxLoading());
+      dispatch(ajaxActions.ajaxLoading(constants.SEND_FEEDBACK));
       const res = await ajax.sendPost('/palaute', feedback);
-      dispatch(ajaxActions.ajaxSuccess());
+      dispatch(ajaxActions.ajaxSuccess(constants.SEND_FEEDBACK));
       if (!res.success) {
         dispatch(messageActions.addMessage({ type: constants.MESSAGE_WARNING, text: res.data }));
       } else {
@@ -22,7 +22,7 @@ export function sendFeedback(feedback) {
         }));
       }
     } catch (err) {
-      dispatch(ajaxActions.ajaxFailure(err));
+      dispatch(ajaxActions.ajaxFailure(constants.SEND_FEEDBACK, err));
       dispatch(messageActions.addMessage({
         type: constants.MESSAGE_ERROR,
         text: 'Virhe palautteen lähettämisessä. Yritä myöhemmin uudelleen.',

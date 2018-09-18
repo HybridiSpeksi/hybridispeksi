@@ -1,27 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import cuid from 'cuid';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
-import cuid from 'cuid';
+import { clearSelectedMember, updateSelectedMember } from '../../../actions/productionActions';
 
 import auth from '../../../Utils/Auth';
 
 const Jasentiedot = (props) => {
   const {
-    jasen,
     tehtavat,
     handleChange,
     henkilotiedotMuuttuneet,
     tallennaMuutokset,
     lisaaTehtava,
     poistaTehtava,
-    valitseJasen,
+    selectedMember,
+    clearSelectedMember,
   } = props;
   const getTehtavavalinnat = () => {
-    if (!jasen.tehtavat) {
-      jasen.tehtavat = [];
+    if (!selectedMember.tehtavat) {
+      selectedMember.tehtavat = [];
     }
-    const tehtavaValinnat = jasen.tehtavat.map((t, i) => {
+    const tehtavaValinnat = selectedMember.tehtavat.map((t, i) => {
       if (t === '') {
         t = 'tyhja';
       }
@@ -50,11 +52,11 @@ const Jasentiedot = (props) => {
         <div className="row">
           <div className="col">
             <h3>
-              {jasen.fname} {jasen.lname}
+              {selectedMember.fname} {selectedMember.lname}
             </h3>
           </div>
           <div className="col text-right">
-            <button onClick={() => valitseJasen(false)} className="btn btn-default">
+            <button onClick={() => clearSelectedMember()} className="btn btn-default">
               <i className="fa fa-times" aria-hidden="true" />
             </button>
           </div>
@@ -62,7 +64,7 @@ const Jasentiedot = (props) => {
         <div className="row">
           <div className="col-sm-6">
             <Text
-              value={jasen.email}
+              value={selectedMember.email}
               name="email"
               type="email"
               onChange={handleChange}
@@ -74,7 +76,7 @@ const Jasentiedot = (props) => {
           </div>
           <div className="col-sm-6">
             <Text
-              value={jasen.pnumber}
+              value={selectedMember.pnumber}
               name="pnumber"
               type="tel"
               onChange={handleChange}
@@ -95,13 +97,13 @@ const Jasentiedot = (props) => {
         <div className="row">
           <div className="col">
             <p>
-              <i>"{jasen.lisatiedot}"</i>
+              <i>"{selectedMember.lisatiedot}"</i>
             </p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>{jasen.jarjesto}</p>
+            <p>{selectedMember.jarjesto}</p>
           </div>
         </div>
         {henkilotiedotMuuttuneet ? (
@@ -111,10 +113,10 @@ const Jasentiedot = (props) => {
         ) : (
           ''
         )}
-        {jasen.hakeeJaseneksi && !jasen.member ? <p>Hakee yhdistyksen jäseneksi</p> : ''}
-        {jasen.hakeeJaseneksi && !jasen.member && auth.getUserRole() > 3 ? (
+        {selectedMember.hakeeJaseneksi && !selectedMember.member ? <p>Hakee yhdistyksen jäseneksi</p> : ''}
+        {selectedMember.hakeeJaseneksi && !selectedMember.member && auth.getUserRole() > 3 ? (
           <button className="btn btn-primary" data-toggle="modal" data-target="#uusijasen-modal">
-            Hae {jasen.fname}lle yhdistyksen jäsenyyttä
+            Hae {selectedMember.fname}lle yhdistyksen jäsenyyttä
           </button>
         ) : (
           ''
@@ -125,14 +127,23 @@ const Jasentiedot = (props) => {
 };
 
 Jasentiedot.propTypes = {
-  jasen: PropTypes.object,
+  selectedMember: PropTypes.object,
+  clearSelectedMember: PropTypes.func,
   tehtavat: PropTypes.array,
   handleChange: PropTypes.func,
   tallennaMuutokset: PropTypes.func,
   lisaaTehtava: PropTypes.func,
   poistaTehtava: PropTypes.func,
   henkilotiedotMuuttuneet: PropTypes.bool,
-  valitseJasen: PropTypes.func,
 };
 
-export default Jasentiedot;
+const mapStateToProps = state => ({
+  selectedMember: state.production.selectedMember,
+});
+
+const mapDispatchToProps = dispatch => ({
+  clearSelectedMember: () => dispatch(clearSelectedMember()),
+  updateMember: member => dispatch(updateSelectedMember(member)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Jasentiedot);

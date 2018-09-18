@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ajax from '../../../Utils/Ajax';
 import Messages from '../../../Utils/Messages';
 import utils from '../../../Utils/Utils';
+import { fetchProduction } from '../../../actions/productionActions';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
@@ -15,18 +18,11 @@ class Produktio extends Component {
     super(props);
 
     this.state = {
-      messages: [],
-      warnings: [],
-      errors: [],
 
-      ajaxReady: false,
       naytaSahkopostit: false,
-      henkilotiedotMuuttuneet: false,
 
       tehtavat: [],
       jarjestot: [],
-      produktionjasenet: [],
-      produktionjasenetFiltered: [],
       haku: {
         pikahaku: '',
         fname: '',
@@ -44,7 +40,6 @@ class Produktio extends Component {
         tuotannonMuistiinpanot: '',
       },
     };
-    this.valitseJasen = this.valitseJasen.bind(this);
     this.handleJasenChange = this.handleJasenChange.bind(this);
     this.handleHaku = this.handleHaku.bind(this);
     this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
@@ -84,19 +79,6 @@ class Produktio extends Component {
           this.setState({ errors: [] });
         }, 4000);
       });
-  }
-
-  valitseJasen(jasen) {
-    this.setState({ henkilotiedotMuuttuneet: false });
-    if (!jasen) {
-      jasen = {
-        email: '',
-        pnumber: '',
-        tehtavat: [''],
-      };
-    }
-    const uusiJasen = JSON.parse(JSON.stringify(jasen));
-    this.setState({ valittuJasen: uusiJasen });
   }
 
   handleHaku(e) {
@@ -187,6 +169,7 @@ class Produktio extends Component {
   }
 
   ajaKutsut() {
+    this.props.fetchProduction();
     ajax
       .sendGet('/admin/produktionjasen/2018')
       .then((jasenet) => {
@@ -229,7 +212,7 @@ class Produktio extends Component {
         <div className="row">
           <div className="col">
             <h1>
-              Produktion jäsenten hallinta <small>{this.state.produktionjasenet.length} hlö</small>
+              Produktion jäsenten hallinta <small>{this.props.productionmembers.length} hlö</small>
             </h1>
           </div>
         </div>
@@ -237,10 +220,7 @@ class Produktio extends Component {
         <div className="row">
           <div className="col-sm-7 col-xs-12">
             {this.state.ajaxReady ? (
-              <ProduktionjasenLista
-                jasenet={this.state.produktionjasenetFiltered}
-                valitseJasen={this.valitseJasen}
-              />
+              <ProduktionjasenLista />
             ) : (
               <div>
                 <h4>Ladataan...</h4>
@@ -254,10 +234,8 @@ class Produktio extends Component {
               tehtavat={this.state.tehtavat}
               jarjestot={this.state.jarjestot}
             />
-            {this.state.valittuJasen.fname ? (
+            {this.props.selectedMember.fname ? (
               <Jasentiedot
-                jasen={this.state.valittuJasen}
-                valitseJasen={this.valitseJasen}
                 handleChange={this.handleJasenChange}
                 tehtavat={this.state.tehtavat}
                 poistaTehtava={this.poistaTehtava}
@@ -290,7 +268,7 @@ class Produktio extends Component {
         <div className="row">
           <div className="col">
             <Uusijasen
-              jasen={this.state.valittuJasen}
+              jasen={this.props.selectedMember}
               jasenLisatty={this.yhdistyksenJasenLisatty}
             />
           </div>
@@ -300,4 +278,19 @@ class Produktio extends Component {
   }
 }
 
-export default Produktio;
+Produktio.propTypes = {
+  productionmembers: PropTypes.array,
+  selectedMember: PropTypes.object,
+  fetchProduction: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  productionmembers: state.production.members,
+  selectedMember: state.production.selectedMember,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchProduction: () => dispatch(fetchProduction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Produktio);

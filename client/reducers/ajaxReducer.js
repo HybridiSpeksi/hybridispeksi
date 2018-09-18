@@ -2,7 +2,7 @@ import { actions } from '../actions/ajaxActions';
 
 const initialState = {
   loading: false,
-  ready: true,
+  ongoingRequests: [],
   errors: [],
   warnings: [],
 };
@@ -13,19 +13,19 @@ const ajax = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        ready: false,
+        ongoingRequests: [...state.ongoingRequests, action.payload],
       };
     case actions.AJAX_SUCCESS:
       return {
         ...state,
-        loading: false,
-        ready: true,
+        ongoingRequests: [...state.ongoingRequests.filter(requestId => requestId !== action.payload)],
+        loading: state.ongoingRequests.length > 0,
       };
     case actions.AJAX_FAILURE:
       return {
         ...state,
-        loading: false,
-        ready: true,
+        ongoingRequests: [...state.ongoingRequests.filter(requestId => requestId !== action.id)],
+        loading: state.ongoingRequests.length > 0,
         errors: [...state.errors, action.error],
       };
     case actions.AJAX_CLEAR_ERRORS:

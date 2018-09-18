@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './Produktionjasenet.css';
+import { selectMember } from '../../../actions/productionActions';
 
-const ProduktionjasenLista = ({ jasenet, valitseJasen }) => {
-  const listarivit = jasenet.map((jasen, i) => {
+const ProduktionjasenLista = ({ selectMember, productionmembers }) => {
+  const listarivit = productionmembers.map((jasen, i) => {
     let tehtavat = '';
     jasen.tehtavat.map((t, k) => {
       tehtavat += t;
@@ -12,7 +14,7 @@ const ProduktionjasenLista = ({ jasenet, valitseJasen }) => {
       }
     });
     return (
-      <tr key={jasen._id} onClick={() => valitseJasen(jasen)}>
+      <tr key={jasen._id} onClick={() => selectMember(jasen)}>
         <td>{i + 1}</td>
         <td>
           {jasen.fname} {jasen.lname}
@@ -44,8 +46,16 @@ const ProduktionjasenLista = ({ jasenet, valitseJasen }) => {
 };
 
 ProduktionjasenLista.propTypes = {
-  jasenet: PropTypes.array,
-  valitseJasen: PropTypes.func,
+  selectMember: PropTypes.func,
+  productionmembers: PropTypes.array,
 };
 
-export default ProduktionjasenLista;
+const mapStateToProps = state => ({
+  productionmembers: state.production.filteredMembers,
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectMember: member => dispatch(selectMember(member)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProduktionjasenLista);
