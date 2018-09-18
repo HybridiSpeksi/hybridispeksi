@@ -16,9 +16,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   mode: 'production',
   entry: {
-    polyfill: 'babel-polyfill',
+    polyfill: ['babel-polyfill', 'whatwg-fetch'],
     index: './client/index.js',
-    fetch_polyfill: 'whatwg-fetch',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -56,6 +55,17 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'initial',
+        },
+      },
+    },
   },
   plugins: [HtmlWebpackPluginConfig],
 };
