@@ -80,8 +80,8 @@ class Rekry extends Component {
     if (this.validateRekry(values)) {
       ajax
         .sendPut(url, data)
-        .then(() => {
-          if (data.success === true) {
+        .then((_data) => {
+          if (_data.success === true) {
             this.setState({ authState: 1 });
           }
         })
