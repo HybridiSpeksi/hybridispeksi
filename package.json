@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
     "crypto": "^1.0.1",
