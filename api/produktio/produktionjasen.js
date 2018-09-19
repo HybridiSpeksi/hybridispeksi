@@ -53,7 +53,7 @@ function newJasen(req, res) {
     jarjesto: req.body.jarjesto,
     lisatiedot: req.body.lisatiedot,
     hakeeJaseneksi: req.body.jasenyys,
-    vuosi: '2019',
+    vuosi: '2018',
   });
   jasen.save()
     .then((jasen) => {
