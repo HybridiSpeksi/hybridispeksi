@@ -57,7 +57,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: false,
+    // minimize: false,
     splitChunks: {
       cacheGroups: {
         commons: {

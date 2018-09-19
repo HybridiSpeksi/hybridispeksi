@@ -13,17 +13,17 @@ import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
 import Speksit from './Speksit/Speksit';
-import Esitykset from './Esitykset/Esitykset';
+// import Esitykset from './Esitykset/Esitykset';
 import Yhdistys from './Yhdistys/Yhdistys';
 import Rekisteriseloste from './Yhdistys/Rekisteriseloste';
 import Saannot from './Yhdistys/Saannot';
-import Sitsit from './Sitsit/Sitsit';
+// import Sitsit from './Sitsit/Sitsit';
 import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
-import Speksi2018 from './Speksi2018/Speksi2018';
-import Vahvistus from './Speksi2018/Vahvistus';
-import Virhe from './Speksi2018/Virhe';
-import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
+// import Speksi2018 from './Speksi2018/Speksi2018';
+// import Vahvistus from './Speksi2018/Vahvistus';
+// import Virhe from './Speksi2018/Virhe';
+// import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -94,19 +94,19 @@ export default class App extends React.Component {
               <Switch >
                 <PublicLayout exact path="/" component={Home} />
                 <PublicLayout path="/speksirekry2019" component={Rekry} />
-                <PublicLayout exact path="/speksi2018" component={Speksi2018} />
-                <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} />
-                <PublicLayout exact path="/speksi2018/virhe/:value" component={Virhe} />
+                {/* <PublicLayout exact path="/speksi2018" component={Speksi2018} /> */}
+                {/* <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} /> */}
+                {/* <PublicLayout exact path="/speksi2018/virhe/:value" component={Virhe} /> */}
                 <PublicLayout path="/speksit" component={Speksit} />
                 {/* <PublicLayout exact path="/galleria" component={Galleria} /> */}
                 <PublicLayout exact path="/yhdistys" component={Yhdistys} />
                 <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />
                 <PublicLayout exact path="/yhdistys/saannot" component={Saannot} />
-                <PublicLayout path="/esitykset" component={Esitykset} />
-                <PublicLayout path="/ilmo" component={Sitsit} />
+                {/* <PublicLayout path="/esitykset" component={Esitykset} /> */}
+                {/* <PublicLayout path="/ilmo" component={Sitsit} /> */}
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
-                <PublicLayout path="/vuodenspeksaaja" component={Vuodenspeksaaja} />
+                {/* <PublicLayout path="/vuodenspeksaaja" component={Vuodenspeksaaja} /> */}
               </Switch>
             </div>
 
