@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import globalStyles from './App.css';
 
-import auth from './../Utils/Auth';
+import * as auth from './../Utils/Auth';
 
 // Public
 import Header from './Header/Header';

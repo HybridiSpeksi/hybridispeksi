@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 import cuid from 'cuid';
 
-const Text = props => (
+export const Text = props => (
   <div className="form-group">
     <label htmlFor={props.id}>{props.label}</label>
     <input
@@ -18,7 +17,7 @@ const Text = props => (
   </div>
 );
 
-const Textarea = props => (
+export const Textarea = props => (
   <div className="form-group">
     <label htmlFor={props.id}>{props.label}</label>
     <textarea
@@ -43,7 +42,7 @@ const Textarea = props => (
  * @param {disabled}
  *
  */
-const Dropdown = (props) => {
+export const Dropdown = (props) => {
   if (!props.options) {
     props.options = [];
   }
@@ -78,7 +77,7 @@ const Dropdown = (props) => {
   );
 };
 
-const DropdownReduxform = (props) => {
+export const DropdownReduxform = (props) => {
   if (!props.options) {
     props.options = [];
   }
@@ -118,7 +117,7 @@ const DropdownReduxform = (props) => {
  * @param name
  * @param onChange
  */
-const Radio = (props) => {
+export const Radio = (props) => {
   const options = props.options.map(option => (
     <div key={cuid()}>
       <input
@@ -148,11 +147,11 @@ class Checkbox extends Component {
   }
 }
 
-module.exports = {
-  Text,
-  Textarea,
-  Dropdown,
-  DropdownReduxform,
-  Radio,
-  Checkbox,
-};
+// module.exports = {
+//   Text,
+//   Textarea,
+//   Dropdown,
+//   DropdownReduxform,
+//   Radio,
+//   Checkbox,
+// };
