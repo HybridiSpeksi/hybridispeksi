@@ -5,7 +5,7 @@
   "author": "pymapa, tatahe",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack/prod.config.js --progress --colors",
+    "build": "webpack --config ./webpack/prod.config.js --progress --colors --max_old_space_size=4096 ",
     "dev": "webpack-dev-server --config ./webpack/dev.config.js",
     "start": "node server",
     "lint": "./node_modules/.bin/eslint src",
