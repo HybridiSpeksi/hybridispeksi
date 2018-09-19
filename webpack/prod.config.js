@@ -62,9 +62,6 @@ module.exports = {
     minimizer: [
       new UglifyJSPlugin({
         sourceMap: false,
-        uglifyOptions: {
-          compress: false,
-        },
       }),
     ],
     splitChunks: {

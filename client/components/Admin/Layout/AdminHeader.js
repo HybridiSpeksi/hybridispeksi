@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import auth from '../../../Utils/Auth';
+import * as auth from '../../../Utils/Auth';
 
 class AdminHeader extends Component {
   render() {

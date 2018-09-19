@@ -6,7 +6,7 @@ import Loginform from './Loginform';
 import Signupform from './Signupform';
 
 import utils from '../../../Utils/Utils';
-import auth from '../../../Utils/Auth';
+import * as auth from '../../../Utils/Auth';
 import ajax from '../../../Utils/Ajax';
 import constants from '../../../Utils/constants';
 import Messages from '../../../Utils/Messages';

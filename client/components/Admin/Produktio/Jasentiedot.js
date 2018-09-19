@@ -1,10 +1,10 @@
 import React from 'react';
+import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
-import cuid from 'cuid';
 
-import auth from '../../../Utils/Auth';
+import * as auth from '../../../Utils/Auth';
 
 const Jasentiedot = (props) => {
   const {
