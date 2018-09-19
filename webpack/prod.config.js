@@ -66,10 +66,15 @@ module.exports = {
     ],
     splitChunks: {
       cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
+        // vendor chunk
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|redux|prop-types)[\\/]/,
           name: 'vendor',
-          chunks: 'initial',
+          chunks: 'all',
+        },
+        commons: {
+          chunks: 'all',
+          test: /node_modules/,
         },
       },
     },

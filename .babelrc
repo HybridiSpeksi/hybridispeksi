@@ -3,10 +3,15 @@
         "@babel/preset-env",
         "@babel/preset-react"
     ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
+    ],
     "retainLines": true,
     "env": {
         "test": {
-          "plugins": ["transform-es2015-modules-commonjs"]
+          "plugins": [
+            "transform-es2015-modules-commonjs"
+        ]
         }
       }
     

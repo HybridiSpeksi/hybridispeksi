@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Loadable from 'react-loadable';
 
 import globalStyles from './App.css';
 
@@ -29,18 +30,34 @@ import Muutspeksit from './Muutspeksit/Muutspeksit';
 import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
-import Produktio from './Admin/Produktio/Produktio';
-import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri';
+// import Produktio from './Admin/Produktio/Produktio';
+// import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import Kayttajat from './Admin/Kayttajat/Kayttajat';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
-import Varaustenhallinta from './Admin/Varaustenhallinta/Varaustenhallinta';
+// import Varaustenhallinta from './Admin/Varaustenhallinta/Varaustenhallinta';
 import Palautteet from './Admin/Palautteet/Palautteet';
 import Vuodenspeksilainen from './Admin/Vuodenspeksilainen/Vuodenspeksilainen';
 
 import Login from './Admin/Auth/Login';
 
+const Loading = () => <h3>Loading...</h3>;
+
+const Produktio = Loadable({
+  loader: () => import('./Admin/Produktio/Produktio'),
+  loading: Loading
+})
+
+const Jasenrekisteri = Loadable({
+  loader: () => import('./Admin/Jasenrekisteri/Jasenrekisteri'),
+  loading: Loading
+})
+
+const Varaustenhallinta = Loadable({
+  loader: () => import('./Admin/Varaustenhallinta/Varaustenhallinta'),
+  loading: Loading
+})
 
 export default class App extends React.Component {
   render() {
