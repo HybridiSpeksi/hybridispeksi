@@ -30,7 +30,7 @@ import Muutspeksit from './Muutspeksit/Muutspeksit';
 import AdminHeader from './Admin/Layout/AdminHeader';
 import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
-// import Produktio from './Admin/Produktio/Produktio';
+import Produktio from './Admin/Produktio/Produktio';
 // import Jasenrekisteri from './Admin/Jasenrekisteri/Jasenrekisteri';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import Kayttajat from './Admin/Kayttajat/Kayttajat';
@@ -44,10 +44,10 @@ import Login from './Admin/Auth/Login';
 
 const Loading = () => <h3>Loading...</h3>;
 
-const Produktio = Loadable({
-  loader: () => import('./Admin/Produktio/Produktio'),
-  loading: Loading
-})
+// const Produktio = Loadable({
+//   loader: () => import('./Admin/Produktio/Produktio'),
+//   loading: Loading
+// })
 
 const Jasenrekisteri = Loadable({
   loader: () => import('./Admin/Jasenrekisteri/Jasenrekisteri'),
