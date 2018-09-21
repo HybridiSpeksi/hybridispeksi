@@ -1,15 +1,12 @@
-FROM node:8
+FROM node:9-alpine
 
-RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
-USER nodejs
+WORKDIR /usr/app
 
-WORKDIR /var/www/hybridispeksi
-
-COPY package*.json ./
-RUN npm install --production
+# Install deps
+COPY ./package* ./
+RUN npm install --production && \
+  npm cache clean --force
 COPY . .
-ENV NODE_ENV production
 
 EXPOSE 8080
-
-CMD ["npm", "start"]
+RUN npm run build
