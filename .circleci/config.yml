@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image:  docker:17.05.0-ce-git
+      - image: circleci/node:9.7.1
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -20,13 +20,13 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-      # - restore_cache:
-      #     keys:
-      #     - v1-dependencies-{{ checksum "package.json" }}
-      #     # fallback to using the latest cache if no exact match is found
-      #     - v1-dependencies-
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
-      # - run: npm install
+      - run: npm install
 
       - run:
           name: Setup VirtualEnv
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Build docker image
           command: |
-            docker build .
+            docker build -t ariv3ra/$IMAGE_NAME:$TAG .
         # - run: npm run build
 
       - save_cache:
