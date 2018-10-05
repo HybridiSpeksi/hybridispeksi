@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 // Basic conf
 dotenv.load();
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 3002);
 app.set('secret', process.env.SECRET);
 
 if (process.env.NODE_ENV !== 'production') {
