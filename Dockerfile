@@ -1,6 +1,6 @@
 FROM node:9-alpine
 
-WORKDIR /usr/app
+WORKDIR /usr/app/
 
 # Install deps
 COPY ./package* ./
