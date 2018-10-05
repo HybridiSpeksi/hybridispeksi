@@ -37,7 +37,8 @@ jobs:
       - run:
           name: Build docker image
           command: |
-            docker build -t ariv3ra/$IMAGE_NAME:$TAG .
+            docker-compose run
+            # docker build -t ariv3ra/$IMAGE_NAME:$TAG .
         # - run: npm run build
 
       - save_cache:
