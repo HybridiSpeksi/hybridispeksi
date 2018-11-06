@@ -58,7 +58,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: false,
+    // minimize: false,
     // minimizer: [
     //   new UglifyJSPlugin({
     //     sourceMap: true,
