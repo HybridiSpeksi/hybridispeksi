@@ -1,14 +1,15 @@
 FROM keymetrics/pm2:latest-alpine
 
-WORKDIR /usr/app/
+WORKDIR /var/www/
 
 # Install deps
 COPY ./package* ./
-RUN npm install --production && \
-  npm cache clean --force
+COPY src src/
+COPY webpack webpack/
+COPY ecosystem.config.js .
+RUN npm install --production
 RUN npm install -g pm2
-COPY . .
+
 
 RUN npm run build
-# CMD npm start
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]

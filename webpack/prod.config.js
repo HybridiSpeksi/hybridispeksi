@@ -8,7 +8,7 @@ const combineLoaders = require('webpack-combine-loaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
+  template: './src/client/index.html',
   filename: 'index.html',
   inject: 'body',
 });
@@ -17,7 +17,7 @@ module.exports = {
   mode: 'production',
   entry: {
     polyfill: ['babel-polyfill', 'whatwg-fetch'],
-    index: './client/index.js',
+    index: './src/client/index.js',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

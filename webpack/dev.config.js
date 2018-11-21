@@ -10,7 +10,7 @@ module.exports = {
   mode: 'development',
   entry: {
     polyfill: 'babel-polyfill',
-    index: './client/index.js',
+    index: './src/client/index.js',
     fetch_polyfill: 'whatwg-fetch',
   },
   output: {
@@ -63,7 +63,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/index.html',
+      template: './src/client/index.html',
       filename: 'index.html',
       inject: 'body',
     }),
