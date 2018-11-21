@@ -21,6 +21,7 @@ import Saannot from './Yhdistys/Saannot';
 // import Sitsit from './Sitsit/Sitsit';
 import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
+import Kalenteri from './Kalenteri/Kalenteri';
 // import Speksi2018 from './Speksi2018/Speksi2018';
 // import Vahvistus from './Speksi2018/Vahvistus';
 // import Virhe from './Speksi2018/Virhe';
@@ -123,6 +124,7 @@ export default class App extends React.Component {
                 {/* <PublicLayout path="/ilmo" component={Sitsit} /> */}
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
+                <PublicLayout path="/kalenteri" component={Kalenteri} />
                 {/* <PublicLayout path="/vuodenspeksaaja" component={Vuodenspeksaaja} /> */}
               </Switch>
             </div>
