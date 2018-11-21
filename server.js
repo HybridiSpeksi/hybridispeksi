@@ -24,10 +24,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 // app.use(cors({origin: 'http://localhost:3000'}))
 
-mongoose.connect(process.env.MONGOLAB_URI);
-mongoose.connection.on('connected', () => {
-  console.log('Connected to database in ' + process.env.MONGOLAB_URI);
-});
+mongoose.connect(process.env.MONGOLAB_URI)
+  .then(() => {
+    console.log('Connected to database in ' + process.env.MONGOLAB_URI);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // Initiate API
 app.use('/api', require('./api/index'));
