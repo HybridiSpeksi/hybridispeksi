@@ -18,7 +18,7 @@ services:
     networks:
       docker-network:
         aliases:
-          - web_1
+          - web
 
 networks:
   docker-network:
