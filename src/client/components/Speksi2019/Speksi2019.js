@@ -40,17 +40,22 @@ class Speksi2019 extends Component {
       openModalError: '',
     };
 
+    /* NO FUNCTIONS TO BIND YET
     // this.valitseEsitys = this.valitseEsitys.bind(this);
     this.toggleUusiVarausModal = this.toggleUusiVarausModal.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addMessage = this.addMessage.bind(this);
-    this.countPrice = this.countPrice.bind(this);
+    this.countPrice = this.countPrice.bind(this); 
+
+    */
   }
 
   componentDidMount() {
     $(window).scrollTop(0);
+    
 
+    /*
     ajax
       .sendGet('/getShowsWithCounts')
       .then((_data) => {
@@ -81,7 +86,13 @@ class Speksi2019 extends Component {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    */
   }
+
+
+  /* EI TARVETTA FUNKTIOILLE TÄSSÄ VAIHEESSA. NÄMÄ VOI DEKOMMENTOIDA, KUN LÄHDETÄÄN RAKENTAMAAN LIPUNMYYNTIÄ!
+
   toggleUusiVarausModal(esitys, tilaa) {
     if (!this.state.lipunmyyntiAuki) {
       this.setState({ openModalError: 'Lipunmyynti ei ole enää auki.' }, () => {
@@ -206,11 +217,13 @@ class Speksi2019 extends Component {
     );
   }
 
+  */
+
   render() {
     return (
       <div className={'container-fluid ' + styles.container}>
         <div className={'row align-items-top justify-content-center ' + styles.header}>
-          <div className="col-md-6">
+          <div className="col-sm-10 col-md-8 col-lg-8">
             <h1 className={styles.headerh1}>Hybridispeksi 2019</h1>
             <p className={styles.headerplaintext}>
               Tunnetko lohikäärmeen voiman sisälläsi? Matkaa kanssamme mystisen Kung Fun maailmaan. Vuoden 2019 HybridiSpeksissä on luvassa näyttäviä taisteluita,

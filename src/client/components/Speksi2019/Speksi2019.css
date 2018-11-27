@@ -13,7 +13,6 @@
 	background:url('/assets/images/speksi2019bg.png') center bottom no-repeat;
 	background-size:cover;
 	color:black;
-	height:700px;
 	min-height:100vh;
 	text-align:center; 
 }
@@ -215,6 +214,9 @@
 	.esitykset{
 		margin-left:20px;
 	}
+	.headerh1{
+		font-size:80px;
+	}
 }
 @media (max-width:767px){
 	.container {
@@ -223,6 +225,9 @@
 	}
 	.header {
 		padding-top:40px;
+	}
+	.headerh1{
+		font-size:80px;
 	}
 	.formLogo {
 		height:200px;
@@ -253,6 +258,15 @@
 @media (max-width:500px) {
 	.esitykset{
 		font-size:28px;
+	}
+	.header{
+		min-height:90vh;
+	}
+	.headerh1{
+		font-size:50px;
+	}
+	.headerdate{
+		font-size:18px;
 	}
 }
 @media (max-width:400px) {
