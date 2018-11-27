@@ -42,9 +42,6 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              publicPath: 'assets/',
-            },
           },
         ],
       },
@@ -56,7 +53,7 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
     proxy: {
-      '/api/**': 'http://localhost:3001',
+      '/api/**': 'http://localhost:8080',
       secure: false,
       changeOrigin: true,
     },

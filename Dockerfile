@@ -4,8 +4,10 @@ WORKDIR /var/www/
 
 # Install deps
 COPY ./package* ./
-COPY src src/
+COPY . .
 COPY webpack webpack/
+# COPY dist dist/
+COPY assets src/assets
 COPY ecosystem.config.js .
 RUN npm install --production
 RUN npm install -g pm2

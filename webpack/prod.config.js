@@ -20,7 +20,7 @@ module.exports = {
     index: './src/client/index.js',
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../src/dist'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
   },
