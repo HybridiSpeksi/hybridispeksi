@@ -122,25 +122,6 @@ hr {
 }
 
 
-@media (max-width:3000px){
-	.date {
-		padding-right:100px;	
-	}
-}
-@media (max-width:1800px){
-	.date {
-		padding-right:50px;	
-	}
-}
-@media (max-width:1700px){
-	.date {
-		padding-right:0px;	
-	}
-	.rekry_desc {
-	}
-	.rekry_header {
-	}
-}
 @media (max-width:1048px){
 	.rekry_desc {
 		margin-top:20px;
@@ -150,17 +131,16 @@ hr {
 	.content_home {
 		height:992px;
 	}
-	.logo {
-		margin-top:150px;
+	.sloganh1 {
+		font-size:80px;
 	}
-	.rekry_desc {
-	}
-	.rekry_header {
+	.slogandate{
+		font-size:30px;
 	}
 }
 @media (max-width:768px){
 	.content_home {
-		height:768px;
+		height:60vh;
 	}
 	.logo {
 		margin-top:65px;
@@ -168,14 +148,11 @@ hr {
 		width:500px;
 		background-size:500px 500px;
 	}
-	.rekry_desc {
-
+	.sloganh1 {
+		font-size:60px;
 	}
-	.rekry_date {
+	.slogandate{
 		font-size:26px;
-	}
-	.rekry_header {
-		font-size: 44px;
 	}
 }
 @media (max-width:500px){
@@ -190,8 +167,11 @@ hr {
 		padding:20px;
 		padding-top:35px;	
 	}
-	.rekry{
-
+	.sloganh1 {
+		font-size:55px;
+	}
+	.slogandate{
+		font-size:30px;
 	}
 	.rekry_desc {
 		font-size: 14px;
@@ -212,13 +192,10 @@ hr {
 	}
 }
 @media (max-width:400px){
-	.rekry_desc {
-
+	.sloganh1 {
+		font-size:45px;
 	}
-	.rekry_date {
-
-	}
-	.rekry_header{
-
+	.slogandate{
+		font-size:24px;
 	}
 }
