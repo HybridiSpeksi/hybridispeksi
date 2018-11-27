@@ -14,19 +14,11 @@ class Home extends Component {
         <div className={'row justify-content-center align-items-center ' + styles.content_home}>
           <div className={'col-sm-12 col-xl-11  align-items-center ' + styles.slogan}>
             <div className={'d-md-block align-items-center ' + styles.slogan}>
-              <div className="row justify-content-lg-center justify-content-center align-items-center">
-                <h1 className={styles.headerh1}>Hybridispeksi 2019</h1>
-                <p className={styles.headerplaintext}>
-                  Tunnetko lohikäärmeen voiman sisälläsi? Matkaa kanssamme mystisen Kung Fun maailmaan. Vuoden 2019 HybridiSpeksissä on luvassa näyttäviä taisteluita,
-                  karismaattisia hahmoja, höyryäviä kylpyjä, koskettavaa romantiikkaa
-                  ja monipuolisia musiikkinumeroita!
-                </p>
-                <p className={styles.headerdate}>
-                  HybridiSpeksi 2019<br />
+                <h1 className={styles.sloganh1}>Hybridispeksi 2019</h1>
+                <p className={styles.slogandate}>
                   Ensi-ilta 27.3.<br />
                   @Manilla
                 </p>
-              </div>
             </div>
           </div>
         </div>
