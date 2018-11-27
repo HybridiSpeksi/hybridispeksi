@@ -212,7 +212,7 @@ class Speksi2019 extends Component {
         <div className={'row align-items-top justify-content-center ' + styles.header}>
           <div className="col-md-6">
             <h1 className={styles.headerh1}>Hybridispeksi 2019</h1>
-            <p classname={styles.headerplaintext}>
+            <p className={styles.headerplaintext}>
               Tunnetko lohikäärmeen voiman sisälläsi? Matkaa kanssamme mystisen Kung Fun maailmaan. Vuoden 2019 HybridiSpeksissä on luvassa näyttäviä taisteluita,
               karismaattisia hahmoja, höyryäviä kylpyjä, koskettavaa romantiikkaa
               ja monipuolisia musiikkinumeroita!
