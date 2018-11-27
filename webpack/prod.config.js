@@ -57,17 +57,6 @@ module.exports = {
     ],
   },
   optimization: {
-    // minimize: false,
-    // minimizer: [
-    //   new UglifyJSPlugin({
-    //     sourceMap: true,
-    //     uglifyOptions: {
-    //       compress: {
-    //         inline: false,
-    //       },
-    //     },
-    //   }),
-    // ],
     splitChunks: {
       cacheGroups: {
         // vendor chunk
