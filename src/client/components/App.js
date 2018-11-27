@@ -22,10 +22,10 @@ import Saannot from './Yhdistys/Saannot';
 import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
-// import Speksi2018 from './Speksi2018/Speksi2018';
-// import Vahvistus from './Speksi2018/Vahvistus';
-// import Virhe from './Speksi2018/Virhe';
-// import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
+import Speksi2019 from './Speksi2019/Speksi2019';
+// import Vahvistus from './Speksi2019/Vahvistus';
+// import Virhe from './Speksi2019/Virhe';
+import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -112,9 +112,9 @@ export default class App extends React.Component {
               <Switch >
                 <PublicLayout exact path="/" component={Home} />
                 <PublicLayout path="/speksirekry2019" component={Rekry} />
-                {/* <PublicLayout exact path="/speksi2018" component={Speksi2018} /> */}
-                {/* <PublicLayout exact path="/speksi2018/vahvistus/:_id" component={Vahvistus} /> */}
-                {/* <PublicLayout exact path="/speksi2018/virhe/:value" component={Virhe} /> */}
+                <PublicLayout exact path="/speksi2019" component={Speksi2019} />
+                {/*<PublicLayout exact path="/speksi2019/vahvistus/:_id" component={Vahvistus} />*/}
+                {/*<PublicLayout exact path="/speksi2019/virhe/:value" component={Virhe} />*/}
                 <PublicLayout path="/speksit" component={Speksit} />
                 {/* <PublicLayout exact path="/galleria" component={Galleria} /> */}
                 <PublicLayout exact path="/yhdistys" component={Yhdistys} />

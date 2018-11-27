@@ -13,25 +13,21 @@ class Home extends Component {
       <div className={'container-fluid ' + styles.container}>
         <div className={'row justify-content-center align-items-center ' + styles.content_home}>
           <div className={'col-sm-12 col-xl-11  align-items-center ' + styles.slogan}>
-            <div className={'d-md-block align-items-center ' + styles.slogan}>
+            {/*<div className={'d-md-block align-items-center ' + styles.slogan}>*/}
               <div className="row justify-content-lg-center justify-content-center align-items-center">
-                <div className={'col-12 col-sm-10 col-md-9 ' + styles.rekry}><h2 className={styles.rekry_header}>Tule mukaan <br /><strong>HYBRIDISPEKSIIN!</strong></h2>
-                  <p className={styles.rekry_desc}>Matkaa kanssamme mystisen Kung Fun maailmaan. </p>
-                  <p className={styles.rekry_desc}>Vuoden 2019 HybridiSpeksissä on luvassa näyttäviä taisteluita,
-                karismaattisia hahmoja, höyryäviä kylpyjä, koskettavaa romantiikkaa
-                ja monipuolisia musiikkinumeroita!
-                  </p>
-                  <p className={styles.rekry_desc}>Tunnetko lohikäärmeen voiman sisälläsi? Olit sitten
-                aloitteleva tai kokenut speksaaja - Tahdomme sinut! Olet tervetullut
-                joukkoomme, haetpa sitten esiintyjäksi, valoteknikoksi, muusikoksi,
-                markkinoijaksi tai joksikin siltä väliltä!
-                  </p>
-                  <p className={styles.rekry_date}>Tarkemmat speksit selviävät tiistaina 18.9.
-                klo 17:30 paikassa XXII (Agora)
-                  </p>
-                </div>
+                <h1 className={styles.headerh1}>Hybridispeksi 2019</h1>
+                <p classname={styles.headerplaintext}>
+                  Tunnetko lohikäärmeen voiman sisälläsi? Matkaa kanssamme mystisen Kung Fun maailmaan. Vuoden 2019 HybridiSpeksissä on luvassa näyttäviä taisteluita,
+                  karismaattisia hahmoja, höyryäviä kylpyjä, koskettavaa romantiikkaa
+                  ja monipuolisia musiikkinumeroita!
+                </p>
+                <p className={styles.headerdate}>
+                  HybridiSpeksi 2019<br />
+                  Ensi-ilta 27.3.<br />
+                  @Manilla
+                </p>
               </div>
-            </div>
+            {/*<div>*/}
           </div>
         </div>
         <div className={'row align-items-top justify-content-center text-center ' + styles.content_contents}>
