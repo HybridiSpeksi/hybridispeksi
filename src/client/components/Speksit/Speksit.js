@@ -32,7 +32,7 @@ class Speksit extends Component {
 
         {/* ÄLÄ AMMU OHI */}
         <div className={'row align-items-center justify-content-center ' + styles.content_alaammuohi}>
-          <div className={'col-md-5 col-sm-11 ' + styles.bratva_alaammuohi}>
+          <div className={'col-lg-5 col-sm-11 ' + styles.alaammuohi_desc}>
             <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
             <p className={styles.font_alaammuohi}>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
@@ -50,29 +50,107 @@ class Speksit extends Component {
               @Manilla
             </p>
           </div>
-          <div className={'col-md-5 col-sm-11 d-flex justify-content-end ' + styles.polaroid_alaammuohi_container}>
-             {/*<div className={'justify-content-end ' + styles.polaroid_alaammuohi}>
-              <img src="/assets/images/hs16.jpg" />
-              <div className={styles.polaroid_alaammuohi_desc}>
-                <p>
-                  &nbsp;
-                </p>
+          <div className={'col-lg-5 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+            <div id="alaammuohiIndikaattorit" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="0" className="active"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="2"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="3"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="4"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="5"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="6"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="7"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="8"></li>
+                <li data-target="#alaammuohiIndikaattorit" data-slide-to="9"></li>
+              </ol>
+              <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi1.jpg" alt="Eka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi2.jpg" alt="Toka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi3.jpg" alt="Kolmas"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi4.jpg" alt="Neljäs"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi5.jpg" alt="Viides"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi6.jpg" alt="Kuudes"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi7.jpg" alt="Seitsemäs"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi8.jpg" alt="Kahdeksas"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi9.jpg" alt="Yhdeksäs"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/alaammuohi/alaammuohi10.jpg" alt="Kymmenes"/>
+                </div>
               </div>
-            </div>*/}
+              <a className="carousel-control-prev" href="#alaammuohiIndikaattorit" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#alaammuohiIndikaattorit" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
+            </div>
           </div>
         </div>
 
         {/* KRUUNUN KOHTALO */}
         <div className={'row align-items-center justify-content-center ' + styles.content_kruunu}>
-          <div className={'col-md-5 col-sm-11 ' + styles.polaroid_kruunu_container}>
-            <div className={styles.polaroid_kruunu}>
-              <img src="/assets/images/hs17.jpg" />
-              <div className={styles.polaroid_kruunu_desc}>
-                <p>Väinämöinen antaa kitaran laulaa</p>
+          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+            <div id="kruununkohtaloIndikaattorit" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="0" className="active"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="2"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="3"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="4"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="5"></li>
+              </ol>
+              <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo1.jpg" alt="Eka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo3.jpg" alt="Kolmas"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo5.jpg" alt="Viides"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo6.jpg" alt="Kuudes"/>
+                </div>
               </div>
+              <a className="carousel-control-prev" href="#kruununkohtaloIndikaattorit" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#kruununkohtaloIndikaattorit" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
           </div>
-          <div className={'col-md-5 col-sm-11 ' + styles.kruunu_desc}>
+          <div className={'col-lg-5 col-sm-11 ' + styles.kruunu_desc}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo
               <br />&nbsp;&ndash; Kalevalan perintö
             </h1>
@@ -104,7 +182,7 @@ class Speksit extends Component {
 
         {/* BRATVAKONTRA */}
         <div className={'row align-items-center justify-content-center ' + styles.content_bratva}>
-          <div className={'col-md-5 col-sm-11 ' + styles.bratva_desc}>
+          <div className={'col-lg-5 col-sm-11 ' + styles.bratva_desc}>
             <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
             <p className={styles.font_bratva}>Kolme nuorta on
              kateissa. Tilanne on toki ikävä, enkä saisi elätellä
@@ -131,14 +209,36 @@ class Speksit extends Component {
             opiskelijakolmikosta alamaailman rikoshelvetissä.
             </p>
           </div>
-          <div className={'col-md-5 col-sm-11 d-flex justify-content-end ' + styles.polaroid_bratva_container}>
-            <div className={'justify-content-end ' + styles.polaroid_bratva}>
-              <img src="/assets/images/hs16.jpg" />
-              <div className={styles.polaroid_bratva_desc}>
-                <p>
-                  "I will break you"
-                </p>
+          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+            <div id="bratvakontraIndikaattorit" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li data-target="#bratvakontraIndikaattorit" data-slide-to="0" className="active"></li>
+                {/*<li data-target="#bratvakontraIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#bratvakontraIndikaattorit" data-slide-to="2"></li>
+                <li data-target="#bratvakontraIndikaattorit" data-slide-to="3"></li>*/}
+              </ol>
+              <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/bratvakontra/bratvakontra1.jpg" alt="Eka"/>
+                </div>
+                {/*<div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo3.jpg" alt="Kolmas"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
+                </div>*/}
               </div>
+              <a className="carousel-control-prev" href="#bratvakontraIndikaattorit" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#bratvakontraIndikaattorit" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
           </div>
         </div>
@@ -146,15 +246,39 @@ class Speksit extends Component {
 
         {/* H.A.L.I */}
         <div className={'row align-items-center justify-content-center ' + styles.content_hali}>
-          <div className={'col-md-5 col-sm-11 ' + styles.polaroid_hali_container}>
-            <div className={styles.polaroid_hali}>
-              <img src="/assets/images/hs15.jpg" />
-              <div className={styles.polaroid_hali_desc}>
-                <p>Hyvinvointia ja Avunantoa Lainkuuliaisille Ihmisille</p>
+          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+            <div id="haliIndikaattorit" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li data-target="#haliIndikaattorit" data-slide-to="0" className="active"></li>
+                {/*<li data-target="#haliIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#haliIndikaattorit" data-slide-to="2"></li>
+                <li data-target="#haliIndikaattorit" data-slide-to="3"></li>*/}
+              </ol>
+              <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/hali/hali1.jpg" alt="Eka"/>
+                </div>
+                {/*<div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo3.jpg" alt="Kolmas"/>
+                </div>
+                <div className="carousel-item ">
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
+                </div>*/}
               </div>
+              <a className="carousel-control-prev" href="#haliIndikaattorit" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#haliIndikaattorit" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
           </div>
-          <div className={'col-md-5 col-sm-11 ' + styles.hali_desc}>
+          <div className={'col-lg-5 col-sm-11 ' + styles.hali_desc}>
             <h1>H.A.L.I.</h1>
             <p className={styles.font_hali}>Turun yliopiston huippututkija Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin

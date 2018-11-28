@@ -9,6 +9,12 @@
 	background:#292B2C;
 	color:white;
 }
+.kuvakaruselli {
+	max-width:100%;
+	min-width:600px;
+	height:auto;
+	margin:10px;
+}
 
 /* STYLES FOR ALA AMMU OHI */
 
@@ -28,19 +34,8 @@
 	color:black;
 	font-size:20px;
 }
-.polaroid_alaammuohi {
-	max-width:80%;
-	background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(-1deg, 1deg);
-}
-.polaroid_alaammuohi, img {
-	width:100%;
-}
-.polaroid_alaammuohi_desc {
-	text-align: center;
-    padding: 10px 20px;
-}
+
+
 
 /* STYLES FOR KRUUNUN KOHTALO */
 
@@ -56,25 +51,12 @@
 	font-family: "Times New Roman";
 	font-size:20px;
 }
-.polaroid_kruunu {
-	max-width:80%;
-	background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(3deg, -3deg);
-}
-.polaroid_kruunu, img {
-	width:100%;
-}
-.polaroid_kruunu_desc {
-	text-align: center;
-    padding: 10px 20px;
-}
 
 /* STYLES FOR BRATVAKONTRA */
 
 .content_bratva {
 	margin:0px;
-	padding:60px;
+	padding:50px;
 	padding-top:40px;
 	background-color:#565656;
 	color:white;
@@ -86,22 +68,6 @@
 .font_bratva {
 	font-family:"Courier New";
 	font-size:18px;
-}
-.polaroid_bratva_container {
-}
-.polaroid_bratva {
-	max-width:80%;
-	background-color: white;
-	color:black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(-2deg, 2deg);
-}
-.polaroid_bratva, img {
-	width:100%;
-}
-.polaroid_bratva_desc {
-	text-align: center;
-    padding: 10px 20px;
 }
 
 /* STYLES FOR H.A.L.I */
@@ -117,20 +83,6 @@
 	font-family:"Arial";
 	font-size:18px;
 }
-.polaroid_hali {
-	max-width:80%;
-	background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform:skew(1deg, -1deg);
-}
-.polaroid_hali, img {
-	width:100%;
-	color:black;
-}
-.polaroid_hali_desc {
-	text-align: center;
-    padding: 10px 20px;
-}
 
 /* STYLES FOR MOBILE DEVICES */ 
 
@@ -141,6 +93,20 @@
 	}
 	.header {
 		padding-top:40px;
+	}
+	.kuvakaruselli{
+		max-width:100%;
+		min-width:400px;
+		height:auto;
+		margin:10px;
+	}
+	.content_alaammuohi {
+		border:none;
+		margin:0px;
+		padding:0px;
+		padding-top:50px;
+		padding-bottom:40px;
+		text-align: left;
 	}
 	.content_hali {
 		border:none;
@@ -167,41 +133,9 @@
 	}
 }
 
-@media (max-width:767px) {
-	.polaroid_kruunu {
-		min-width:100%;
-		transform:skew(0deg, 0deg);
-	}
-	.polaroid_kruunu_container {
-		width:100%;
-		padding:0px;
-		margin: 40px 0px 40px 0px;
-	}
-	.polaroid_kruunu_desc {
-		display:none;
-	}
-	.polaroid_bratva {
-		min-width:100%;
-		transform:skew(0deg, 0deg);
-	}
-	.polaroid_bratva_container {
-		width:100%;
-		padding:0px;
-		margin: 40px 0px 40px 0px;
-	}
-	.polaroid_bratva_desc {
-		display:none;
-	}
-	.polaroid_hali {
-		min-width:100%;
-		transform:skew(0deg, 0deg);
-	}
-	.polaroid_hali_container {
-		width:100%;
-		padding:0px;
-		margin: 40px 0px 40px 0px;
-	}
-	.polaroid_hali_desc {
-		display:none;
-	}	
+@media (max-width:500px) {
+/*	.kuvakaruselli {
+		min-width:300px;
+		min-height:200px;
+	}*/
 }

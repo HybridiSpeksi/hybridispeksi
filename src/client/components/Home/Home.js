@@ -67,15 +67,13 @@ class Home extends Component {
             {/* <p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p> */}
             <h1 className={styles.otsikko}>HybridiSpeksi</h1>
             <p>HybridiSpeksi on Turun yliopiston luonnontieteiden ja tekniikan tiedekunnan opiskelijoiden vuosittain toteuttama teatteriproduktio.
-                Ensimmäinen HybridiSpeksi <strong>H.A.L.I.</strong> nähtiin vuonna 2015 Barker-teatterilla.
+            Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla.
             </p>
-            <p>Vuonna 2016 Tanssiteatteri ERIn valtasi BratvaKontra, lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.
-            Keväällä 2017 HybridiSpeksi siirtyi Manilla-teatterille,
-            jossa vuorossa oli kansallisromanttinen <strong>Kruunun Kohtalo &ndash; Kalevalan perintö</strong>.
-            </p>
-            <h3>2018</h3>
-            <p>Tulevan produktion tuotanto- ja käsikirjoitustiimi  valittiin jo ennen kesää. Rekrytilaisuus pidettiin 26.9. ja runsaan satapäisen produktion
-                voimin katseemme on suunnattu kohti 27.3. koittavaa ensi-iltaa Manilla-teatterilla.
+            <h3>2019 - 5 v. juhlavuosispeksi</h3>
+            <p>Keväällä 2019 HybridiSpeksin näytökset valtaavat speksiscenen jo 
+            viidettä kertaa Turun historiassa. Tulevan produktion tuotanto- ja käsikirjoitustiimi 
+            valittiin ennen kesää. Rekrytilaisuus pidettiin 18.9. ja tämä viime kesäkuussa aloitettu produktio 
+            saakin ensi-iltansa 27.3. Manilla-teatterilla yli sadan ahkeran speksiläisen työn tuloksena.
             </p>
             <h3>Speksi</h3>
             <p>Speksi on interaktiivista opiskelijateatteria. Siinä yhdistyvät käsikirjoitettu teatteri, improvisaatio ja musikaali.
@@ -102,45 +100,6 @@ class Home extends Component {
           </div>
         </div>
       </div>
-
-      /*
-      //Carousel under construction
-
-      <div id="carousel" className={"carousel slide " + styles.carousel} data-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img className={"d-block h-100 " + styles.carousel_image} src="assets/images/carousel/1_peikot.jpg" alt="First slide"/>
-            <div class="carousel-caption d-md-block">
-              <h3>Otsikko 1</h3>
-              <p>Alaotsikko 1</p>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img className={"d-block " + styles.carousel_image} src="assets/images/carousel/2_ilmari1.jpg" alt="Second slide"/>
-            <div class="carousel-caption d-none d-md-block text-left">
-              <h3>Otsikko 2</h3>
-              <p>Alaotsikko 2</p>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img className={"d-block w-100 " + styles.carousel_image} src="assets/images/carousel/3_ilmari2.jpg" alt="Third slide"/>
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Otsikko 3</h3>
-              <p>Alaotsikko 3</p>
-            </div>
-          </div>
-        </div>
-        <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="sr-only">Previous</span>
-        </a>
-        <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="sr-only">Next</span>
-        </a>
-      </div>
-      */
-
     );
   }
 }
