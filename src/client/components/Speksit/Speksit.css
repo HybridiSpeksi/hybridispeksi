@@ -10,8 +10,7 @@
 	color:white;
 }
 .kuvakaruselli {
-	max-width:100%;
-	min-width:600px;
+	width:100%;
 	height:auto;
 	margin:10px;
 }
@@ -95,10 +94,7 @@
 		padding-top:40px;
 	}
 	.kuvakaruselli{
-		max-width:100%;
-		min-width:400px;
-		height:auto;
-		margin:10px;
+		width:100%;
 	}
 	.content_alaammuohi {
 		border:none;

@@ -50,7 +50,7 @@ class Speksit extends Component {
               @Manilla
             </p>
           </div>
-          <div className={'col-lg-5 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="alaammuohiIndikaattorit" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
                 <li data-target="#alaammuohiIndikaattorit" data-slide-to="0" className="active"></li>
