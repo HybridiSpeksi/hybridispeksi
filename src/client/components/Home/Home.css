@@ -1,12 +1,7 @@
 .container {
    background:#f7f7f7;
 }
-hr {
-	background-color:black;
-}
-.hr {
-	margin:0px;
-}
+
 .content_home {
 	height:700px;
 	min-height:100vh;
