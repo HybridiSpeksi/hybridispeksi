@@ -47,13 +47,13 @@
 	}
 }
 .heading {
-	font-family:speksi2019;
-	font-size:100px;
+	font-family: speksi2019;
+	font-size: 100px;
 }
 .subheading{
-	font-family:speksi2019plain;
-	font-size:36px;
-	margin-top:60px;
+	font-family: speksi2019plain;
+	font-size: 36px;
+	margin-top: 60px;
 	line-height: 2.5;
 	text-shadow: 0px 0px 1px black;
 }
