@@ -15,7 +15,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className={'container-fluid ' + styles.container}>
+      <div className={styles.container}>
         <Hero />
 
         <JumboLinks />

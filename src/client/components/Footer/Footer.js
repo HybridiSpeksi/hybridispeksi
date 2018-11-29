@@ -5,7 +5,7 @@ import styles from './Footer.css';
 import SomeIcons from './SomeIcons';
 
 const Footer = () => (
-  <div className={'container-fluid ' + styles.container}>
+  <div className={styles.container}>
     <div>
       <nav className="navbar navbar-inverse">
         <Link className="navbar-brand" to="/">HybridiSpeksi</Link>

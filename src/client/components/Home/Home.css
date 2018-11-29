@@ -46,11 +46,11 @@
 		opacity:1;
 	}
 }
-.sloganh1 {
+.heading {
 	font-family:speksi2019;
 	font-size:100px;
 }
-.slogandate{
+.subheading{
 	font-family:speksi2019plain;
 	font-size:36px;
 	margin-top:60px;
@@ -59,15 +59,26 @@
 }
 
 /* CONTENTS */
-.content_contents{
-	padding-top:20px;
-	padding-bottom:50px;
+.jumboLinks {
+  padding: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
+
+@media (max-width:767px){
+  .jumboLinks {
+    padding: 2em;
+  }
+}
+
 .linkicon{
 	margin-top:20px;
 	font-size:72px;
 }
 .internallink {
+  text-align: center;
+  max-width: 250px;
 	margin-top:20px;
 	color:black;
 	transition:0.1s ease-in transform;
@@ -76,14 +87,14 @@
 }
 .internallink:hover {
 	text-decoration: none;
-	color:#7a1111;
+	color:#a9a9a9;
 	transform:scale(1.05);
 }
 .externallink {
-	color:#7A1111;
+	color:#a9a9a9;
 }
 .externallink:hover {
-	color:#580D0D;
+	color:#a9a9a9;
 }
 
 /* SPEKSI */
