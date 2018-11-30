@@ -1,0 +1,31 @@
+.container {
+  background-color:#292b2c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3em;
+  flex-wrap: wrap;
+}
+.link{
+	height:30px;
+  width:30px;
+  margin: 20px;
+}
+
+.someIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 500px;
+}
+
+@media (max-width:1080px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .someIcons {
+    width: 70%;
+  }
+}

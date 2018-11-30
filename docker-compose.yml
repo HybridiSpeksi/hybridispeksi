@@ -1,0 +1,23 @@
+version: '2'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - docker-network
+    links:
+      - web
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      docker-network:
+        aliases:
+          - web
+
+networks:
+  docker-network:
+    driver: bridge

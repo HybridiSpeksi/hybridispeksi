@@ -1,0 +1,37 @@
+body {
+    /* background-color: red; */
+}
+
+.test {
+    background-color: blue;
+}
+
+.bigHeading {
+  font-family:speksi2019;
+	font-size:100px;
+}
+
+.subHeading {
+  font-family:speksi2019plain;
+	font-size:36px;
+	margin-top:60px;
+	line-height: 2.5;
+	text-shadow: 0px 0px 1px black;
+}
+
+.headingText {
+
+}
+
+@font-face {
+	font-family:'alaammuohi';
+	src:url("/assets/fonts/westernbangbang.otf");
+}
+@font-face {
+	font-family:'speksi2019';
+	src:url("/assets/fonts/shanghai.ttf");
+}
+@font-face {
+	font-family:'speksi2019plain';
+	src:url("/assets/fonts/zapfino.ttf");
+}

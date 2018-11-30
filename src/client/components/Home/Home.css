@@ -1,0 +1,207 @@
+.container {
+   background:#f7f7f7;
+}
+
+.content_home {
+	height:700px;
+	min-height:100vh;
+	background:url('/assets/images/speksi2019bg.png') center bottom no-repeat;
+	background-size:cover;
+	/*background-size: contain;*/
+}
+/*div {
+	border:1px solid red;
+}*/
+
+.content_contact {
+	height:50vh;
+	background:#f7f7f7;
+}
+@font-face {
+	font-family:'alaammuohi';
+	src:url("/assets/fonts/westernbangbang.otf");
+}
+@font-face {
+	font-family:'speksi2019';
+	src:url("/assets/fonts/shanghai.ttf");
+}
+@font-face {
+	font-family:'speksi2019plain';
+	src:url("/assets/fonts/zapfino.ttf");
+}
+.slogan {
+	padding:20px;
+	padding-top:33px;
+	font-family:'calibri';	
+	animation:fadein 4s;
+	color:black;
+	text-align:center; 
+}
+
+@keyframes fadein {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+.heading {
+	font-family: speksi2019;
+	font-size: 100px;
+}
+.subheading{
+	font-family: speksi2019plain;
+	font-size: 36px;
+	margin-top: 60px;
+	line-height: 2.5;
+	text-shadow: 0px 0px 1px black;
+}
+
+/* CONTENTS */
+.jumboLinks {
+  padding: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media (max-width:767px){
+  .jumboLinks {
+    padding: 2em;
+  }
+}
+
+.linkicon{
+	margin-top:20px;
+	font-size:72px;
+}
+.internallink {
+  text-align: center;
+  max-width: 250px;
+	margin-top:20px;
+	color:black;
+	transition:0.1s ease-in transform;
+	animation:fadein 2s;
+	display:block;
+}
+.internallink:hover {
+	text-decoration: none;
+	color:#a9a9a9;
+	transform:scale(1.05);
+}
+.externallink {
+	color:#a9a9a9;
+}
+.externallink:hover {
+	color:#a9a9a9;
+}
+
+/* SPEKSI */
+.content_speksi {
+	padding:50px;
+	padding-top:60px;
+}
+.hslogo{
+	width:270px;
+	height:270px;
+	background:url("/assets/images/normi.png") no-repeat center;
+	background-size:300px 300px;
+}
+.infoicon{
+	font-size:150px;
+	margin:20px;
+}
+.speksi_desc {
+	padding:20px;
+	text-align:justify;
+}
+.otsikko {
+	text-align: center;
+}
+.sponsors {
+	padding:50px;
+}
+.sponsor {
+	padding:20px;
+	width:auto;
+}
+
+
+@media (max-width:1048px){
+	.rekry_desc {
+		margin-top:20px;
+	}
+}
+@media (max-width:992px){
+	.content_home {
+		height:992px;
+	}
+	.sloganh1 {
+		font-size:80px;
+	}
+	.slogandate{
+		font-size:30px;
+	}
+}
+@media (max-width:768px){
+	.content_home {
+		height:60vh;
+	}
+	.logo {
+		margin-top:65px;
+		height:300px;
+		width:500px;
+		background-size:500px 500px;
+	}
+	.sloganh1 {
+		font-size:60px;
+	}
+	.slogandate{
+		font-size:26px;
+	}
+}
+@media (max-width:500px){
+	.content_home {
+		height:600px;
+	}
+	.rivi {
+		margin:0px;
+		padding:0px;
+	}
+	.slogan {
+		padding:20px;
+		padding-top:35px;	
+	}
+	.sloganh1 {
+		font-size:55px;
+	}
+	.slogandate{
+		font-size:30px;
+	}
+	.rekry_desc {
+		font-size: 14px;
+	}
+	.rekry_date {
+		font-size:20px;
+	}
+	.rekry_header{
+		font-size:28px;
+	}
+	.content_speksi {
+		background-image:none;
+		padding:12px;
+		padding-top:20px;
+	}
+	.speksi_desc {
+		text-align:left;
+	}
+}
+@media (max-width:400px){
+	.sloganh1 {
+		font-size:45px;
+	}
+	.slogandate{
+		font-size:24px;
+	}
+}

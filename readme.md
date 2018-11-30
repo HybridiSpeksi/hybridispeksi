@@ -1,31 +1,38 @@
 # HybridiSpeksi
 
-1. Env setup
+Website project for HybridiSpeksi ry and it's yearly theatre production.
 
-2. Deployment
+## Tech stack
 
+Client is a React application with Redux state management. Backen is a Node REST server with Express.js. MongoDB. Production application runs on Digitalocean using Docker containers.
 
-### Env setup
+## Development setup
 
-Clone the project
-
+1. Fork the repository from github: https://github.com/HybridiSpeksi/hybridispeksi
+2. Clone your for to your local environment: 
+```
+    $ git clone https://github.com/<yourUsername>/hybridispeksi
+```
+3. Go to root folder: 
+```
     $ cd hybridispeksi
+```
+4. Install dependencies:
+```
     $ npm install
-
-Start backend-server:
-
-    $ npm start
-
-Start client server:
-
+```
+5. Populate env variables. Add .dev_vars-env -file to project root, you'll get it from web admins.
+6. Start backend server (may need to install nodemon): 
+```
+    $ npm run server
+```
+7. Start frontent dev-server: 
+```
     $ npm run dev
+```
+8. Start developing. No bugs pls.
 
-### Deployment
+## Deployment
 
-Build project. Built files will be in /dist -folder.
+// TODO
 
-    $ npm run build-prod 
-    
-To run in prod mode, npm start with 
-
-    NODE_ENV=production

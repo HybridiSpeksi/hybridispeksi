@@ -1,0 +1,707 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Speksi2018 renders without crashing 1`] = `
+<div
+  class="container-fluid container"
+>
+  <div
+    class="row align-items-top justify-content-center header"
+  >
+    <div
+      class="col-md-6"
+    >
+      <h2
+        class=""
+      >
+        Speksi 2018
+      </h2>
+      <p>
+        Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin kohonnut Alexandra hallitsee kyläläisten kukkaroita ja himoja. Kaikkien rakastama pappi, Isä Henry, tekee parhaansa pitääkseen harmonian näiden kahden ja asukkaiden välillä. Tasapaino kuitenkin järkkyy, kun sen keskelle ilmestyy raakalaismaisen rikollisliigan johtajatar suojaa etsien.
+      </p>
+      <p>
+        Älä Ammu Ohi
+        <br />
+        HybridiSpeksi 2018
+        <br />
+        Ensi-ilta 27.3.
+        <br />
+        @Manilla
+      </p>
+    </div>
+    <div
+      class="col-12 col-sm-6 col-lg-6 col-xl-3"
+    >
+      <img
+        src="/assets/images/logo_lapinak_valk.png"
+      />
+    </div>
+  </div>
+  <div
+    class="row align-items-top justify-content-center lipunmyyntiMessage"
+  >
+    <div
+      class="col-9 text-center"
+    />
+  </div>
+  <div
+    class="row align-items-top justify-content-center content"
+  >
+    <div
+      class="col-12 col-md-10 col-lg-5 col-xl-5 flex-last"
+    >
+      <h2
+        class="textheader"
+      >
+        Ohjeet lipun ostamiseen
+      </h2>
+      <ol>
+        <li>
+          Valitse näytös ja klikkaa sitä
+        </li>
+        <li>
+          Täytä tiedot
+        </li>
+        <li>
+          Siirry maksamaan ja valitse oma nettipankkisi (maksutapahtuman käsittelee Paytrail, lisätietoa alempana)
+        </li>
+        <li>
+          Seuraa nettipankin ohjeita maksaaksesi
+        </li>
+        <li>
+          Saat sähköpostiisi varausnumeron, jota näyttämällä pääset katsomaan HybridiSpeksiä 2018!
+        </li>
+        <li>
+          Ongelmatilanteissa ota yhteyttä osoitteeseen 
+          <a
+            class="externallink"
+            href="mailto:lipunmyynti@hybridispeksi.fi"
+          >
+            lipunmyynti@hybridispeksi.fi
+          </a>
+        </li>
+      </ol>
+      <p>
+        Vähintään 8 hengen ryhmätilaukset voi lähettää sähköpostilla osoitteeseen 
+        <a
+          class="externallink"
+          href="mailto:lipunmyynti@hybridispeksi.fi"
+        >
+          lipunmyynti@hybridispeksi.fi
+        </a>
+        . Ryhmätilauksen alennushinta 12 €/hlö.
+      </p>
+      <p>
+        <strong>
+          Huomioithan, että esitystä ei suositella alle 12-vuotiaille. Esityksessä on kovia ääniä ja vilkkuvia valoja.
+        </strong>
+      </p>
+      <h2
+        class="textheader"
+      >
+        Hinnasto
+      </h2>
+      <table
+        class="hinnasto"
+      >
+        <tbody>
+          <tr>
+            <td>
+              Normaali
+            </td>
+            <td>
+              16 €
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Opiskelija
+            </td>
+            <td>
+              14 €
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Kannatus
+            </td>
+            <td>
+              25 €
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="col-12 col-md-10 col-lg-6 col-xl-5 justify-items-center esitykset"
+    >
+      <h2
+        class="textheader"
+      >
+        Esitykset Manilla-teatterilla:
+      </h2>
+      <div>
+        <table
+          class="table table-hover table-sm"
+        >
+          <tbody />
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row align-items-top justify-content-center videot"
+  >
+    <div
+      class="col-sm-11 col-md-5"
+    >
+      <div
+        class="videowrapper"
+      >
+        <h2
+          class="textheader"
+        >
+          Älä ammu ohi -teaser
+        </h2>
+        <iframe
+          allowfullscreen=""
+          frameborder="0"
+          height="360"
+          id="youtubeplayer"
+          src="https://www.youtube.com/embed/6HXoDboQjbU?enablejsapi=1&rel=0"
+          width="100%"
+        />
+      </div>
+    </div>
+    <div
+      class="col-sm-11 col-md-5"
+    >
+      <div
+        class="videowrapper"
+      >
+        <h2
+          class="textheader"
+        >
+          Älä ammu ohi -trailer
+        </h2>
+        <iframe
+          allowfullscreen=""
+          frameborder="0"
+          height="360"
+          id="youtubeplayer"
+          src="https://www.youtube.com/embed/vhLvRVZabTA?enablejsapi=1&rel=0"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="row justify-content-center hr"
+  >
+    <div
+      class="col-8"
+    >
+      <hr />
+    </div>
+  </div>
+  <div
+    class="row align-items-top justify-content-center paytrail"
+  >
+    <div
+      class="col-12 col-md-10 col-lg-8"
+    >
+      <h4>
+        Maksupalvelutarjoaja
+      </h4>
+      <p>
+        Maksunvälityspalvelun toteuttajana ja maksupalveluntarjoajana toimii Paytrail Oyj (2122839-7) yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Paytrail Oyj näkyy maksun saajana tiliotteella tai korttilaskulla ja välittää maksun kauppiaalle. Paytrail Oyj:llä on maksulaitoksen toimilupa. Reklamaatiotapauksissa pyydämme ottamaan ensisijaisesti yhteyttä tuotteen toimittajaan.
+      </p>
+      <p>
+        Paytrail Oyj, y-tunnus: 2122839-7
+        <br />
+        Innova 2
+        <br />
+        Lutakonaukio 7
+        <br />
+        40100 Jyväskylä
+        <br />
+        Puhelin: 0207 181830
+        <br />
+        www.paytrail.com
+      </p>
+      <h4>
+        Verkkopankit
+      </h4>
+      <p>
+        Verkkopankkimaksamiseen liittyvän maksunvälityspalvelun toteuttaa Paytrail Oyj (2122839-7) yhteistyössä suomalaisten pankkien ja luottolaitosten kanssa. Käyttäjän kannalta palvelu toimii aivan kuten perinteinen verkkomaksaminenkin.
+      </p>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="uusiVarausModalLabel"
+      class="modal fade"
+      id="uusiVarausModal"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-lg"
+        role="document"
+      >
+        <div
+          class="modal-content formContent"
+        >
+           
+          <div
+            class="modal-header align-items-start justify-content-center formHeader"
+          >
+            <div
+              class="col-8 col-sm-4 justify-content-center formLogo"
+            >
+              <h2
+                class="formLogoText"
+              >
+                HybridiSpeksi 2018
+              </h2>
+            </div>
+            <div
+              class="col-sm-9 d-flex justify-content-center align-items-center formTitleWrap"
+            >
+              <h5
+                class="modal-title formTitle"
+                id="uusiVarausModalLabel"
+              >
+                HybridiSpeksi 2018 lipunmyynti
+              </h5>
+            </div>
+            <button
+              aria-label="Close"
+              class="close btn btn-inverse formClose"
+              data-dismiss="modal"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                ×
+              </span>
+            </button>
+          </div>
+          <div
+            class="modal-body formBody"
+          >
+            <div>
+              <form>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="esitysInput"
+                    >
+                      Esitys:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <div>
+                      <select
+                        class="form-control"
+                        disabled=""
+                        id="esitysInput"
+                        name="esitys"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="fnameInput"
+                    >
+                      Etunimi:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <input
+                      class="form-control"
+                      id="fnameInput"
+                      name="fname"
+                      placeholder="Etunimi"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="snameInput"
+                    >
+                      Sukunimi:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <input
+                      class="form-control"
+                      id="snameInput"
+                      name="sname"
+                      placeholder="Sukunimi"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="emailInput"
+                    >
+                      Sähköposti:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <input
+                      class="form-control"
+                      id="emailInput"
+                      name="email"
+                      placeholder="Sähköposti"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="pnumberInput"
+                    >
+                      Puhelinnumero:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <input
+                      class="form-control"
+                      id="pnumberInput"
+                      name="pnumber"
+                      placeholder="Puhelinnumero"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3 justify-contents-center"
+                  >
+                    <label
+                      class="formLabel"
+                      for="ticketsInput"
+                    >
+                      Liput:
+                    </label>
+                  </div>
+                  <div
+                    class="col-4 col-sm-2 text-center justify-contents-center"
+                  >
+                    Normaali
+                    <br />
+                    16 €/kpl
+                    <input
+                      class="form-control"
+                      id="ticketsInput"
+                      min="0"
+                      name="ncount"
+                      placeholder="Normaali"
+                      type="number"
+                      value="0"
+                    />
+                  </div>
+                  <div
+                    class="col-4 col-sm-2 text-center justify-contents-center"
+                  >
+                    Opiskelija
+                    <br />
+                    14 €/kpl
+                    <input
+                      class="form-control"
+                      id="ticketsInput"
+                      min="0"
+                      name="scount"
+                      placeholder="Opiskelija"
+                      type="number"
+                      value="0"
+                    />
+                  </div>
+                  <div
+                    class="col-4 col-sm-2 text-center justify-contents-center"
+                  >
+                    Kannatus
+                    <br />
+                    25 €/kpl
+                    <input
+                      class="form-control"
+                      id="ticketsInput"
+                      min="0"
+                      name="ocount"
+                      placeholder="Kannatus"
+                      type="number"
+                      value="0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="priceInput"
+                    >
+                      Hinta:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <input
+                      class="form-control"
+                      id="priceInput"
+                      name="price"
+                      placeholder="Hinta"
+                      readonly=""
+                      type="text"
+                      value="0 €"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="row form-group align-items-center justify-content-center"
+                >
+                  <div
+                    class="col-sm-3"
+                  >
+                    <label
+                      class="formLabel"
+                      for="lisatiedotInput"
+                    >
+                      Lisätiedot:
+                    </label>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                  >
+                    <textarea
+                      class="form-control"
+                      id="lisatiedotInput"
+                      name="lisatiedot"
+                      rows="2"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              class="row justify-content-center"
+            >
+              <div
+                class="col-8 justify-content-center align-items-center"
+              >
+                <div />
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer justify-content-center formBorder"
+          >
+            <div
+              class="col-sm-11 d-flex justify-content-end"
+            >
+              <button
+                aria-label="Close"
+                class="btn btn-dark formButton formButtonClose"
+                data-dismiss="modal"
+                type="button"
+              >
+                Sulje ikkuna
+              </button>
+              <button
+                class="btn btn-dark formButton"
+                id="siirrymaksamaan"
+                type="button"
+              >
+                Siirry maksamaan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    aria-labelledby="errorModalLabel"
+    class="modal fade"
+    id="errorModal"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+      role="document"
+    >
+      <div
+        class="modal-content formContent"
+      >
+         
+        <div
+          class="modal-header formBorder"
+        >
+          <h5
+            class="modal-title"
+            id="errorModalLabel"
+          />
+          <button
+            aria-label="Close"
+            class="close btn btn-inverse formClose"
+            data-dismiss="modal"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+        <div
+          class="modal-footer justify-content-center formBorder"
+        >
+          <button
+            aria-label="Close"
+            class="btn btn-dark formButton formButtonClose"
+            data-dismiss="modal"
+            type="button"
+          >
+            Sulje ikkuna
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Speksi2018 shows UusiVaraus form with proper fielsd 1`] = `<component />`;
+
+exports[`Speksi2018 shows list of shows without crashing 1`] = `
+<div>
+  <table
+    className="table table-hover table-sm"
+  >
+    <tbody>
+      <tr
+        key="1"
+      >
+        <td
+          className="showTdFull"
+          onClick={[Function]}
+        >
+          Lauantai ILTA
+           klo 
+          <t
+            ago={false}
+            calendar={false}
+            element="time"
+            filter={[Function]}
+            format="HH.mm"
+            fromNow={false}
+            interval={60000}
+            onChange={[Function]}
+            toNow={false}
+            unix={false}
+            utc={false}
+          />
+        </td>
+        <td
+          className="showTdFull"
+          onClick={[Function]}
+        >
+          <i>
+            Täynnä
+          </i>
+        </td>
+      </tr>
+      <tr
+        key="2"
+      >
+        <td
+          className="showTdFull"
+          onClick={[Function]}
+        >
+          Sunnuntai
+           klo 
+          <t
+            ago={false}
+            calendar={false}
+            element="time"
+            filter={[Function]}
+            format="HH.mm"
+            fromNow={false}
+            interval={60000}
+            onChange={[Function]}
+            toNow={false}
+            unix={false}
+            utc={false}
+          />
+        </td>
+        <td
+          className="showTdFull"
+          onClick={[Function]}
+        >
+          <i>
+            Täynnä
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
