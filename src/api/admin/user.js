@@ -56,9 +56,11 @@ function deleteUser(req, res) {
 }
 
 function getUsers(req, res) {
-  User.find().then((users) => {
-    res.json({ success: true, data: users });
-  });
+  User.find()
+    .select({ password: 0 })
+    .then((users) => {
+      res.json({ success: true, data: users });
+    });
 }
 
 function isValidToken(req, res) {
