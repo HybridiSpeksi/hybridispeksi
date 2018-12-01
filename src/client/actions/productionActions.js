@@ -9,6 +9,7 @@ export const actions = {
   SELECT_MEMBER: 'SELECT_MEMBER',
   CLEAR_SELECTED_MEMBER: 'CLEAR_SELECTED_MEMBER',
   UPDATE_SELECTED_MEMBER: 'UPDATE_SELECTED_MEMBER',
+  UPDATE_SEARCH_OBJECT: 'UPDATE_SEARCH_OBJECT',
 };
 
 export function fetchProduction() {
@@ -41,6 +42,17 @@ export function updateSelectedMember(member) {
 export function clearSelectedMember() {
   return {
     type: actions.CLEAR_SELECTED_MEMBER,
+  };
+}
+
+/**
+ *
+ * @param {text: String, tehtava: String, jarjesto: String} searchObject
+ */
+export function updateSearchObject(searchObject) {
+  return {
+    type: actions.UPDATE_SEARCH_OBJECT,
+    searchObject,
   };
 }
 

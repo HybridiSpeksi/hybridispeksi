@@ -2,7 +2,11 @@ import { actions } from '../actions/productionActions';
 
 const initialState = {
   members: [],
-  filteredMembers: [],
+  searchObject: {
+    text: '',
+    tehtava: '',
+    jarjesto: '',
+  },
   selectedMember: {
     fname: '',
     lname: '',
@@ -36,6 +40,11 @@ const production = (state = initialState, action) => {
       return {
         ...state,
         selectedMember: { ...action.member, updated: true },
+      };
+    case actions.UPDATE_SEARCH_OBJECT:
+      return {
+        ...state,
+        searchObject: { ...action.searchObject },
       };
     default:
       return state;

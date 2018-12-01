@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import css from './Produktionjasenet.css';
 import { selectMember } from '../../../actions/productionActions';
 
-const ProduktionjasenLista = ({ selectMember, productionmembers }) => {
-  const listarivit = productionmembers.map((jasen, i) => {
+const ProduktionjasenLista = ({ select, productionmembers }) => {
+  const rows = productionmembers.map((jasen, i) => {
     let tehtavat = '';
     jasen.tehtavat.map((t, k) => {
       tehtavat += t;
@@ -14,7 +14,7 @@ const ProduktionjasenLista = ({ selectMember, productionmembers }) => {
       }
     });
     return (
-      <tr key={jasen._id} onClick={() => selectMember(jasen)}>
+      <tr key={jasen._id} onClick={() => select(jasen)}>
         <td>{i + 1}</td>
         <td>
           {jasen.fname} {jasen.lname}
@@ -39,23 +39,23 @@ const ProduktionjasenLista = ({ selectMember, productionmembers }) => {
             <th>Yhdistyksen jäsen</th>
           </tr>
         </thead>
-        <tbody>{listarivit}</tbody>
+        <tbody>{rows}</tbody>
       </table>
     </div>
   );
 };
 
 ProduktionjasenLista.propTypes = {
-  selectMember: PropTypes.func,
+  select: PropTypes.func,
   productionmembers: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-  productionmembers: state.production.filteredMembers,
+  productionmembers: state.production.members,
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectMember: member => dispatch(selectMember(member)),
+  select: member => dispatch(selectMember(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProduktionjasenLista);
