@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import ajax from '../../../Utils/Ajax';
 import Messages from '../../../Utils/Messages';
-import utils from '../../../Utils/Utils';
 import { fetchProduction } from '../../../actions/productionActions';
+import { addSuccessMessage, clearMessages } from '../../../actions/messageActions';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
@@ -22,25 +22,8 @@ class Produktio extends Component {
       naytaSahkopostit: false,
       tehtavat: [],
       jarjestot: [],
-      haku: {
-        pikahaku: '',
-        fname: '',
-        lname: '',
-        email: '',
-        tehtava: '',
-        jarjesto: '',
-      },
-      valittuJasen: {
-        fname: '',
-        lname: '',
-        email: '',
-        pnumber: '',
-        tehtavat: [],
-        tuotannonMuistiinpanot: '',
-      },
     };
     this.handleJasenChange = this.handleJasenChange.bind(this);
-    this.handleHaku = this.handleHaku.bind(this);
     this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
     this.poistaTehtava = this.poistaTehtava.bind(this);
     this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
@@ -55,9 +38,10 @@ class Produktio extends Component {
 
   tallennaMuutokset() {
     ajax
-      .sendPost('/admin/produktionjasen', this.state.valittuJasen)
+      .sendPost('/admin/produktionjasen', this.props.selectedMember)
       .then(() => {
         const _messages = this.state.messages;
+        this.props.addSuccessMessage();
         _messages.push({
           header: 'Muutokset tallennettu!',
           text: 'Muutokset tallennettiin onnistuneesti',
@@ -79,46 +63,42 @@ class Produktio extends Component {
       });
   }
 
-  handleHaku(e) {
-    const _haku = this.state.haku;
-    _haku[e.target.name] = e.target.value;
-    this.setState({ haku: _haku });
-    this.filterProduktio();
-  }
-
   toggleSahkopostit() {
     this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit });
   }
 
   poistaTehtava(i) {
-    const jasen = this.state.valittuJasen;
-    jasen.tehtavat.splice(i, 1);
-    this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
+    // TODO: redux
+    // const jasen = this.props.valittuJasen;
+    // jasen.tehtavat.splice(i, 1);
+    // this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
   }
 
   handleJasenChange(e) {
-    const jasen = this.state.valittuJasen;
-    if (e.target.name === 'tehtavat') {
-      const idNumber = utils.parseNumberIfNumber(e.target.id);
-      jasen.tehtavat[idNumber] = e.target.value;
-    } else {
-      jasen[e.target.name] = e.target.value;
-    }
-    this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
+    // TODO: redux
+    // const jasen = this.props.valittuJasen;
+    // if (e.target.name === 'tehtavat') {
+    //   const idNumber = utils.parseNumberIfNumber(e.target.id);
+    //   jasen.tehtavat[idNumber] = e.target.value;
+    // } else {
+    //   jasen[e.target.name] = e.target.value;
+    // }
+    // this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
   }
 
   lisaaTehtava() {
-    const _jasen = this.state.valittuJasen;
-    _jasen.tehtavat.push('');
-    this.setState({ valittuJasen: _jasen });
+    // TODO: redux
+    // const _jasen = this.state.valittuJasen;
+    // _jasen.tehtavat.push('');
+    // this.setState({ valittuJasen: _jasen });
   }
 
   yhdistyksenJasenLisatty() {
-    const _messages = this.state.messages;
-    _messages.push({ header: 'Jäsen lisätty!', text: '' });
-    this.setState({ messages: _messages });
+    this.props.addSuccessMessage({
+      header: 'Jäsen lisätty!',
+    });
     setTimeout(() => {
-      this.setState({ messages: [] });
+      this.props.clearMessages();
     }, 2000);
   }
 
@@ -222,6 +202,8 @@ Produktio.propTypes = {
   productionmembers: PropTypes.array,
   selectedMember: PropTypes.object,
   fetchProduction: PropTypes.func,
+  addSuccessMessage: PropTypes.func,
+  clearMessages: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -232,6 +214,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchProduction: () => dispatch(fetchProduction()),
+  addSuccessMessage: message => dispatch(addSuccessMessage(message)),
+  clearMessages: () => dispatch(clearMessages()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Produktio);
