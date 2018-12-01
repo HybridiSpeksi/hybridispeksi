@@ -18,7 +18,7 @@ const Haku = ({
             type="text"
             autoFocus="false"
             name="pikahaku"
-            onChange={e => update({ ...searchObject, text: e.target.value })}
+            onChange={e => update({ ...searchObject, text: e.target.value.toLowerCase() })}
             value={searchObject.text}
             placeholder="Pikahaku"
             id="pikahaku-input"

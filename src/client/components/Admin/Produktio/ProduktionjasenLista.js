@@ -4,28 +4,72 @@ import PropTypes from 'prop-types';
 import css from './Produktionjasenet.css';
 import { selectMember } from '../../../actions/productionActions';
 
-const ProduktionjasenLista = ({ select, productionmembers }) => {
-  const rows = productionmembers.map((jasen, i) => {
-    let tehtavat = '';
-    jasen.tehtavat.map((t, k) => {
-      tehtavat += t;
-      if (jasen.tehtavat.length > k + 1) {
-        tehtavat += ', ';
+const Jasen = ({
+  jasen, i, select,
+}) => {
+  const getTehtavatStr = (j) => {
+    let tehtavatStr = '';
+    j.tehtavat.map((t, k) => {
+      tehtavatStr += t;
+      if (j.tehtavat.length > k + 1) {
+        tehtavatStr += ', ';
       }
+      return tehtavatStr;
     });
-    return (
-      <tr key={jasen._id} onClick={() => select(jasen)}>
-        <td>{i + 1}</td>
-        <td>
-          {jasen.fname} {jasen.lname}
-        </td>
-        <td>{jasen.email}</td>
-        <td>{jasen.pnumber}</td>
-        <td>{tehtavat}</td>
-        <td>{jasen.member ? <i className="fa fa-check" aria-hidden="true" /> : ''}</td>
-      </tr>
-    );
-  });
+    return tehtavatStr;
+  };
+  return (
+    <tr onClick={() => select(jasen)}>
+      <td>{i + 1}</td>
+      <td>
+        {jasen.fname} {jasen.lname}
+      </td>
+      <td>{jasen.email}</td>
+      <td>{jasen.pnumber}</td>
+      <td>{getTehtavatStr(jasen)}</td>
+      <td>{jasen.member ? <i className="fa fa-check" aria-hidden="true" /> : ''}</td>
+    </tr>
+  );
+};
+
+Jasen.propTypes = {
+  jasen: PropTypes.object,
+  i: PropTypes.number,
+  select: PropTypes.func,
+};
+
+const ProduktionjasenLista = ({ select, productionmembers, searchObject }) => {
+  const { text, tehtava, jarjesto } = searchObject;
+  const checkString = (j) => {
+    if (text) {
+      return j.fname.toLowerCase().indexOf(text) !== -1
+      || j.lname.toLowerCase().indexOf(text) !== -1
+      || j.email.toLowerCase().indexOf(text) !== -1;
+    }
+    return true;
+  };
+
+  const checkTehtava = (j) => {
+    if (tehtava) {
+      return j.tehtavat.indexOf(tehtava) !== -1;
+    }
+    return true;
+  };
+
+  const checkJarjesto = (j) => {
+    if (jarjesto) {
+      return j.jarjesto.indexOf(jarjesto) !== -1;
+    }
+    return true;
+  };
+
+  const doFilter = jasen => checkString(jasen) && checkTehtava(jasen) && checkJarjesto(jasen);
+
+  const rows = productionmembers
+    .filter(jasen => doFilter(jasen))
+    .map((jasen, i) => (
+      <Jasen jasen={jasen} i={i} select={select} key={jasen._id} />
+    ));
   return (
     <div className={css.jasentable}>
       <table className="table table-inverse table-striped">
@@ -46,12 +90,14 @@ const ProduktionjasenLista = ({ select, productionmembers }) => {
 };
 
 ProduktionjasenLista.propTypes = {
+  searchObject: PropTypes.object,
   select: PropTypes.func,
   productionmembers: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
   productionmembers: state.production.members,
+  searchObject: state.production.searchObject,
 });
 
 const mapDispatchToProps = dispatch => ({

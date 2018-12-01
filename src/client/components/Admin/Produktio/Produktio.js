@@ -20,7 +20,6 @@ class Produktio extends Component {
     this.state = {
 
       naytaSahkopostit: false,
-
       tehtavat: [],
       jarjestot: [],
       haku: {
@@ -48,7 +47,6 @@ class Produktio extends Component {
     this.lisaaTehtava = this.lisaaTehtava.bind(this);
     this.ajaKutsut = this.ajaKutsut.bind(this);
     this.yhdistyksenJasenLisatty = this.yhdistyksenJasenLisatty.bind(this);
-    this.filterProduktio = this.filterProduktio.bind(this);
   }
 
   componentDidMount() {
@@ -86,50 +84,6 @@ class Produktio extends Component {
     _haku[e.target.name] = e.target.value;
     this.setState({ haku: _haku });
     this.filterProduktio();
-  }
-
-  filterProduktio() {
-    const _haku = this.state.haku;
-    let filtered = Object.assign([], this.state.produktionjasenet);
-    if (
-      _haku.pikahaku !== '' ||
-      _haku.fname !== '' ||
-      _haku.email !== '' ||
-      _haku.tehtava !== '' ||
-      _haku.jarjesto
-    ) {
-      filtered = filtered.filter((jasen) => {
-        let pikaB = true;
-        let jarjestoB = true;
-        let tehtavaB = true;
-        if (_haku.pikahaku !== '') {
-          const l = _haku.pikahaku.toLowerCase();
-          if (
-            jasen.fname.toLowerCase().indexOf(l) !== -1 ||
-            jasen.lname.toLowerCase().indexOf(l) !== -1 ||
-            jasen.email.toLowerCase().indexOf(l) !== -1 ||
-            jasen.tehtavat.indexOf(l) !== -1
-          ) {
-            pikaB = true;
-          } else pikaB = false;
-        }
-
-        if (_haku.jarjesto !== '') {
-          if (jasen.jarjesto !== _haku.jarjesto) {
-            jarjestoB = false;
-          }
-        }
-
-        if (_haku.tehtava !== '') {
-          if (jasen.tehtavat.indexOf(_haku.tehtava) === -1) {
-            tehtavaB = false;
-          }
-        }
-
-        return pikaB && tehtavaB && jarjestoB;
-      });
-    }
-    this.setState({ produktionjasenetFiltered: filtered });
   }
 
   toggleSahkopostit() {
@@ -171,25 +125,11 @@ class Produktio extends Component {
   ajaKutsut() {
     this.props.fetchProduction();
     ajax
-      .sendGet('/admin/produktionjasen/2018')
-      .then((jasenet) => {
-        this.setState({ produktionjasenet: jasenet });
-        this.setState({ produktionjasenetFiltered: jasenet });
-        this.setState({ ajaxReady: true });
-        this.filterProduktio();
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          errors: [
-            { header: 'Palvelinvirhe!', text: 'Virhe haettaessa produktionjäseniä palvelimelta' },
-          ],
-        });
-      });
-    ajax
       .sendGet('/tehtavat')
       .then((t) => {
-        t.data.unshift({ key: 'tehtava', name: 'Tehtävä', value: '' });
+        t.data.unshift({
+          key: 'tehtava', name: 'Tehtävä', value: '', _id: '',
+        });
         this.setState({ tehtavat: t.data });
       })
       .catch((err) => {
@@ -198,7 +138,9 @@ class Produktio extends Component {
     ajax
       .sendGet('/jarjestot')
       .then((j) => {
-        j.data.unshift({ key: 'jarjesto', name: 'Järjestö', value: '' });
+        j.data.unshift({
+          key: 'jarjesto', name: 'Järjestö', value: '', _id: '',
+        });
         this.setState({ jarjestot: j.data });
       })
       .catch((err) => {
@@ -219,7 +161,8 @@ class Produktio extends Component {
 
         <div className="row">
           <div className="col-sm-7 col-xs-12">
-            {this.state.ajaxReady ? (
+            {/* {!this.props.ajaxLoading ? ( */}
+            {true ? (
               <ProduktionjasenLista />
             ) : (
               <div>
@@ -229,8 +172,6 @@ class Produktio extends Component {
           </div>
           <div className="col">
             <Haku
-              handleChange={this.handleHaku}
-              haku={this.state.haku}
               tehtavat={this.state.tehtavat}
               jarjestot={this.state.jarjestot}
             />
@@ -254,7 +195,6 @@ class Produktio extends Component {
 
             {this.state.naytaSahkopostit ? (
               <Sahkopostit
-                jasenet={this.state.produktionjasenetFiltered}
                 toggleSahkopostit={this.toggleSahkopostit}
               />
             ) : (
@@ -287,6 +227,7 @@ Produktio.propTypes = {
 const mapStateToProps = state => ({
   productionmembers: state.production.members,
   selectedMember: state.production.selectedMember,
+  ajaxLoading: state.ajax.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
