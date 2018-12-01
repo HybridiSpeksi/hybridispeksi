@@ -6,6 +6,7 @@ import ajax from '../../../Utils/Ajax';
 import Messages from '../../../Utils/Messages';
 import { fetchProduction } from '../../../actions/productionActions';
 import { addSuccessMessage, clearMessages } from '../../../actions/messageActions';
+import { fetchOhjaustieto } from '../../../actions/ohjaustietoActions';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';
@@ -18,10 +19,7 @@ class Produktio extends Component {
     super(props);
 
     this.state = {
-
       naytaSahkopostit: false,
-      tehtavat: [],
-      jarjestot: [],
     };
     this.handleJasenChange = this.handleJasenChange.bind(this);
     this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
@@ -103,29 +101,31 @@ class Produktio extends Component {
   }
 
   ajaKutsut() {
+    this.props.fetchOhjaustieto('tehtavat');
+    this.props.fetchOhjaustieto('jarjestot');
     this.props.fetchProduction();
-    ajax
-      .sendGet('/tehtavat')
-      .then((t) => {
-        t.data.unshift({
-          key: 'tehtava', name: 'Tehtävä', value: '', _id: '',
-        });
-        this.setState({ tehtavat: t.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    ajax
-      .sendGet('/jarjestot')
-      .then((j) => {
-        j.data.unshift({
-          key: 'jarjesto', name: 'Järjestö', value: '', _id: '',
-        });
-        this.setState({ jarjestot: j.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // ajax
+    //   .sendGet('/tehtavat')
+    //   .then((t) => {
+    //     t.data.unshift({
+    //       key: 'tehtava', name: 'Tehtävä', value: '', _id: '',
+    //     });
+    //     this.setState({ tehtavat: t.data });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // ajax
+    //   .sendGet('/jarjestot')
+    //   .then((j) => {
+    //     j.data.unshift({
+    //       key: 'jarjesto', name: 'Järjestö', value: '', _id: '',
+    //     });
+    //     this.setState({ jarjestot: j.data });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }
 
   render() {
@@ -151,14 +151,10 @@ class Produktio extends Component {
             )}
           </div>
           <div className="col">
-            <Haku
-              tehtavat={this.state.tehtavat}
-              jarjestot={this.state.jarjestot}
-            />
+            <Haku />
             {this.props.selectedMember.fname ? (
               <Jasentiedot
                 handleChange={this.handleJasenChange}
-                tehtavat={this.state.tehtavat}
                 poistaTehtava={this.poistaTehtava}
                 tallennaMuutokset={this.tallennaMuutokset}
                 henkilotiedotMuuttuneet={this.state.henkilotiedotMuuttuneet}
@@ -167,11 +163,7 @@ class Produktio extends Component {
             ) : (
               ''
             )}
-            <Messages
-              messages={this.state.messages}
-              warnings={this.state.warnings}
-              errors={this.state.errors}
-            />
+            <Messages />
 
             {this.state.naytaSahkopostit ? (
               <Sahkopostit
@@ -204,18 +196,21 @@ Produktio.propTypes = {
   fetchProduction: PropTypes.func,
   addSuccessMessage: PropTypes.func,
   clearMessages: PropTypes.func,
+  fetchOhjaustieto: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   productionmembers: state.production.members,
   selectedMember: state.production.selectedMember,
   ajaxLoading: state.ajax.loading,
+  ohjaustieto: state.ohjaustieto,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchProduction: () => dispatch(fetchProduction()),
   addSuccessMessage: message => dispatch(addSuccessMessage(message)),
   clearMessages: () => dispatch(clearMessages()),
+  fetchOhjaustieto: key => dispatch(fetchOhjaustieto(key)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Produktio);

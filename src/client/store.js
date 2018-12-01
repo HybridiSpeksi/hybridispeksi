@@ -6,6 +6,7 @@ import feedback from './reducers/feedbackReducer';
 import ajax from './reducers/ajaxReducer';
 import messages from './reducers/messageReducer';
 import production from './reducers/productionReducer';
+import ohjaustieto from './reducers/ohjaustietoReducer';
 
 const reducers = combineReducers({
   form: formReducer,
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   ajax,
   messages,
   production,
+  ohjaustieto,
 });
 
 const middleWare = applyMiddleware(thunk);
