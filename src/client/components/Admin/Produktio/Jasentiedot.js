@@ -8,15 +8,13 @@ import { clearSelectedMember, updateSelectedMember } from '../../../actions/prod
 
 import * as auth from '../../../Utils/Auth';
 
-const Jasentiedot = (props) => {
+const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
   const {
-    tehtavat,
     handleChange,
     henkilotiedotMuuttuneet,
     tallennaMuutokset,
     lisaaTehtava,
     poistaTehtava,
-    selectedMember,
   } = props;
   const getTehtavavalinnat = () => {
     if (!selectedMember.tehtavat) {

@@ -26,29 +26,21 @@ class Produktio extends Component {
     this.poistaTehtava = this.poistaTehtava.bind(this);
     this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
     this.lisaaTehtava = this.lisaaTehtava.bind(this);
-    this.ajaKutsut = this.ajaKutsut.bind(this);
     this.yhdistyksenJasenLisatty = this.yhdistyksenJasenLisatty.bind(this);
   }
 
   componentDidMount() {
-    this.ajaKutsut();
+    this.fetchData();
   }
 
   tallennaMuutokset() {
     ajax
       .sendPost('/admin/produktionjasen', this.props.selectedMember)
       .then(() => {
-        const _messages = this.state.messages;
-        this.props.addSuccessMessage();
-        _messages.push({
-          header: 'Muutokset tallennettu!',
-          text: 'Muutokset tallennettiin onnistuneesti',
-        });
-        this.setState({ messages: _messages, henkilotiedotMuuttuneet: false });
         setTimeout(() => {
           this.setState({ messages: [] });
         }, 3000);
-        this.ajaKutsut();
+        this.fetchData();
       })
       .catch((err) => {
         console.log(err);
@@ -100,32 +92,10 @@ class Produktio extends Component {
     }, 2000);
   }
 
-  ajaKutsut() {
+  fetchData() {
     this.props.fetchOhjaustieto('tehtavat');
     this.props.fetchOhjaustieto('jarjestot');
     this.props.fetchProduction();
-    // ajax
-    //   .sendGet('/tehtavat')
-    //   .then((t) => {
-    //     t.data.unshift({
-    //       key: 'tehtava', name: 'Tehtävä', value: '', _id: '',
-    //     });
-    //     this.setState({ tehtavat: t.data });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    // ajax
-    //   .sendGet('/jarjestot')
-    //   .then((j) => {
-    //     j.data.unshift({
-    //       key: 'jarjesto', name: 'Järjestö', value: '', _id: '',
-    //     });
-    //     this.setState({ jarjestot: j.data });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   }
 
   render() {
@@ -153,13 +123,7 @@ class Produktio extends Component {
           <div className="col">
             <Haku />
             {this.props.selectedMember.fname ? (
-              <Jasentiedot
-                handleChange={this.handleJasenChange}
-                poistaTehtava={this.poistaTehtava}
-                tallennaMuutokset={this.tallennaMuutokset}
-                henkilotiedotMuuttuneet={this.state.henkilotiedotMuuttuneet}
-                lisaaTehtava={this.lisaaTehtava}
-              />
+              <Jasentiedot />
             ) : (
               ''
             )}
@@ -179,10 +143,10 @@ class Produktio extends Component {
 
         <div className="row">
           <div className="col">
-            <Uusijasen
+            {/* <Uusijasen
               jasen={this.props.selectedMember}
               jasenLisatty={this.yhdistyksenJasenLisatty}
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import * as ajaxActions from './ajaxActions';
+import * as messageActions from './messageActions';
 import constants from '../Utils/constants';
 import ajax from '../Utils/Ajax';
 
@@ -9,6 +10,7 @@ export const actions = {
   SELECT_MEMBER: 'SELECT_MEMBER',
   CLEAR_SELECTED_MEMBER: 'CLEAR_SELECTED_MEMBER',
   UPDATE_SELECTED_MEMBER: 'UPDATE_SELECTED_MEMBER',
+  SAVE_SELECTED_MEMBER: 'SAVE_SELECTED_MEMBER',
   UPDATE_SEARCH_OBJECT: 'UPDATE_SEARCH_OBJECT',
 };
 
@@ -36,6 +38,23 @@ export function updateSelectedMember(member) {
   return {
     type: actions.UPDATE_SELECTED_MEMBER,
     member,
+  };
+}
+
+export function saveSelectedMember(member) {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.SAVE_SELECTED_MEMBER));
+      await ajax.sendPost('/admin/produktionjasen', member);
+      dispatch(selectMember(member));
+      dispatch(ajaxActions.ajaxSuccess(actions.SAVE_SELECTED_MEMBER));
+      dispatch(fetchProduction());
+      dispatch(messageActions.addSuccessMessage({ header: 'Tiedot päivitetty!' }));
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Tietojen päivitys epäonnistui!' }));
+      console.log(err);
+      dispatch(ajaxActions.ajaxFailure(constants.SAVE_SELECTED_MEMBER, err));
+    }
   };
 }
 
