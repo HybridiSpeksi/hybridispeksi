@@ -29,10 +29,10 @@ const Haku = ({
   };
   return (
     <div className={'row ' + styles.hakulaatikko}>
-      <div className="col">
+      <div className="col-sm-12">
         <h3>Henkilöhaku</h3>
         <div className="row">
-          <div className="col">
+          <div className="col-sm-12">
             <Text
               type="text"
               autoFocus="false"
