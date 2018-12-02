@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ajax from '../../../Utils/Ajax';
-import Messages from '../../../Utils/Messages';
 
 import List from './List';
 import Jasentiedot from './Jasentiedot';
@@ -136,11 +135,6 @@ class Jasenrekisteri extends Component {
             ) : (
               ''
             )}
-            <Messages
-              messages={this.state.messages}
-              warnings={this.state.warnings}
-              errors={this.state.errors}
-            />
             {this.state.naytaSahkopostit ? (
               <Sahkopostit
                 jasenet={this.state.jasenet}

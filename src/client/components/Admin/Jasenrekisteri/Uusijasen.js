@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Text, Radio } from '../../../Utils/Form';
 import utils from '../../../Utils/Utils';
 import Modal from '../../../Utils/Modal';
 import ajax from '../../../Utils/Ajax';
-import Messages from '../../../Utils/Messages';
 
 class Uusijasen extends Component {
   constructor(props) {
@@ -140,15 +140,6 @@ class Uusijasen extends Component {
               />
             </div>
           </div>
-          <div className="row">
-            <div className="col">
-              <Messages
-                messages={this.state.messages}
-                warnings={this.state.warnings}
-                errors={this.state.errors}
-              />
-            </div>
-          </div>
         </div>
       </Modal>
     );
@@ -160,4 +151,12 @@ Uusijasen.propTypes = {
   jasenLisatty: PropTypes.func,
 };
 
-export default Uusijasen;
+const mapStateToProps = state => ({
+  jasen: state.production.selectedMember,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Uusijasen);

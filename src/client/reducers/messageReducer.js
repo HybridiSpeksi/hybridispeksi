@@ -1,6 +1,16 @@
 import { actions } from '../actions/messageActions';
 
-const initialState = [];
+const initialState = [
+  {
+    type: 'success', header: 'Success!', text: 'Stuff works well!', id: 'asdf',
+  },
+  {
+    type: 'warning', header: 'Warning!', text: 'Stuff works well!', id: '354tg',
+  },
+  {
+    type: 'error', header: 'Error!', text: 'Stuff works well!', id: 'g54',
+  },
+];
 
 const messages = (state = initialState, action) => {
   switch (action.type) {
@@ -11,6 +21,10 @@ const messages = (state = initialState, action) => {
       ];
     case actions.CLEAR_MESSAGES:
       return [];
+    case actions.CLOSE_MESSAGE:
+      return [
+        ...state.filter(message => message.id !== action.id),
+      ];
     default:
       return state;
   }

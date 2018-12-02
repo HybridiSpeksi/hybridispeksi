@@ -6,7 +6,6 @@ import UusiVaraus from './UusiVaraus';
 import Sahkopostit from '../../Shared/Sahkopostit';
 
 import ajax from '../../../Utils/Ajax';
-import Messages from '../../../Utils/Messages';
 /* import PropTypes from "" */
 
 const MESSAGE_SUCCESS = 'success';
@@ -447,13 +446,6 @@ class Varaustenhallinta extends Component {
           paid={this.state.paid}
           checked={this.state.checked}
           sendemail={this.state.sendemail}
-          messages={
-            <Messages
-              messages={this.state.messages}
-              warnings={this.state.warnings}
-              errors={this.state.errors}
-            />
-          }
         />
 
         <div className="row">
@@ -522,13 +514,6 @@ class Varaustenhallinta extends Component {
               paid={this.state.paid}
               checked={this.state.checked}
               sendemail={this.state.sendemail}
-              messages={
-                <Messages
-                  messages={this.state.messages}
-                  warnings={this.state.warnings}
-                  errors={this.state.errors}
-                />
-              }
             />
           </div>
         </div>

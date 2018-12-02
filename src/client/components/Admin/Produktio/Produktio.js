@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Messages from '../../../Utils/Messages';
 import { fetchProduction } from '../../../actions/productionActions';
 import { addSuccessMessage, clearMessages } from '../../../actions/messageActions';
 import { fetchOhjaustieto } from '../../../actions/ohjaustietoActions';
@@ -36,6 +35,7 @@ class Produktio extends Component {
     this.props.addSuccessMessage({
       header: 'Jäsen lisätty!',
     });
+    this.props.fetchProduction();
     setTimeout(() => {
       this.props.clearMessages();
     }, 2000);
@@ -76,8 +76,6 @@ class Produktio extends Component {
             ) : (
               ''
             )}
-            <Messages />
-
             {this.state.naytaSahkopostit ? (
               <Sahkopostit
                 jasenet={this.props.productionmembers}
@@ -93,10 +91,9 @@ class Produktio extends Component {
 
         <div className="row">
           <div className="col">
-            {/* <Uusijasen
-              jasen={this.props.selectedMember}
+            <Uusijasen
               jasenLisatty={this.yhdistyksenJasenLisatty}
-            /> */}
+            />
           </div>
         </div>
       </div>

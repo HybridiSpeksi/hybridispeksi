@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // import styles from './Palaute.css';
 import Palauteform from './Palauteform';
-import Messages from '../../Utils/Messages';
 
 import { addMessage, clearMessages } from '../../actions/messageActions';
 import { sendFeedback } from '../../actions/feedbackActions';
@@ -77,9 +76,6 @@ class Palaute extends Component {
           feedback={this.state.feedback}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          messages={
-            <Messages />
-          }
         />
       </div>
     );

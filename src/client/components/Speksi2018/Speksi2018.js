@@ -4,7 +4,6 @@ import UusiVaraus from './UusiVaraus';
 import Esitysvalinta from './Esitysvalinta';
 
 import ajax from './../../Utils/Ajax';
-import Messages from './../../Utils/Messages';
 
 import styles from './Speksi2018.css';
 
@@ -384,13 +383,6 @@ class Speksi2018 extends Component {
           ilmottu={this.state.ilmottu}
           valittuEsitys={this.state.valittuEsitys}
           esitykset={this.state.esitykset}
-          messages={
-            <Messages
-              messages={this.state.messages}
-              warnings={this.state.warnings}
-              errors={this.state.errors}
-            />
-          }
         />
 
         <div

@@ -1,8 +1,10 @@
 import constants from '../Utils/constants';
+import cuid from 'cuid';
 
 export const actions = {
   ADD_MESSAGE: 'ADD_MESSAGE',
   CLEAR_MESSAGES: 'CLEAR_MESSAGES',
+  CLOSE_MESSAGE: 'CLOSE_MESSAGE',
 };
 
 export function addMessage(message) {
@@ -15,6 +17,7 @@ export function addMessage(message) {
 export function addSuccessMessage(m) {
   const message = {
     ...m,
+    id: cuid(),
     type: constants.MESSAGE_SUCCESS,
   };
   return {
@@ -26,6 +29,7 @@ export function addSuccessMessage(m) {
 export function addWarningMessage(m) {
   const message = {
     ...m,
+    id: cuid(),
     type: constants.MESSAGE_WARNING,
   };
   return {
@@ -37,6 +41,7 @@ export function addWarningMessage(m) {
 export function addErrorMessage(m) {
   const message = {
     ...m,
+    id: cuid(),
     type: constants.MESSAGE_ERROR,
   };
   return {
@@ -48,5 +53,12 @@ export function addErrorMessage(m) {
 export function clearMessages() {
   return {
     type: actions.CLEAR_MESSAGES,
+  };
+}
+
+export function closeMessage(id) {
+  return {
+    type: actions.CLOSE_MESSAGE,
+    id,
   };
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ajax from '../../../Utils/Ajax';
-import Messages from '../../../Utils/Messages';
 
 import Kayttajalista from './Kayttajalista';
 import Kayttaja from './Kayttaja';
@@ -80,32 +79,27 @@ class Kayttajat extends Component {
   render() {
     return (
       <div className="container-fluid">
-            <h1>Käyttäjät</h1>
-            <div className="row">
-                <div className="col-sm-6">
-                    <Kayttajalista
-                        roolit={this.state.kayttajat}
-                        kayttajat={this.state.kayttajat}
-                        valitseKayttaja={this.valitseKayttaja}
-                      />
-                  </div>
-                <div className="col-sm-6">
-                    {this.state.valittuKayttaja._id ? (
-                        <Kayttaja
-                            kayttaja={this.state.valittuKayttaja}
-                            roolit={this.state.roolit}
-                            handleChange={this.handleChange}
-                            tallennaMuutokset={this.tallennaMuutokset}
-                          />
-                        ) : ''}
-                    <Messages
-                        messages={this.state.messages}
-                        warnings={this.state.warnings}
-                        errors={this.state.errors}
-                      />
-                  </div>
-              </div>
+        <h1>Käyttäjät</h1>
+        <div className="row">
+          <div className="col-sm-6">
+            <Kayttajalista
+              roolit={this.state.kayttajat}
+              kayttajat={this.state.kayttajat}
+              valitseKayttaja={this.valitseKayttaja}
+            />
           </div>
+          <div className="col-sm-6">
+            {this.state.valittuKayttaja._id ? (
+              <Kayttaja
+                kayttaja={this.state.valittuKayttaja}
+                roolit={this.state.roolit}
+                handleChange={this.handleChange}
+                tallennaMuutokset={this.tallennaMuutokset}
+              />
+                        ) : ''}
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import styles from './Vuodenspeksaaja.css';
 
 import Form from './VuodenspeksaajaForm';
-import Messages from '../../Utils/Messages';
 
 import { addMessage, clearMessages } from '../../actions/messageActions';
 import { sendVote } from '../../actions/feedbackActions';
@@ -54,7 +53,6 @@ class Vuodenspeksaaja extends Component {
               onSubmit={this.handleSubmit}
               submission={this.state.submission}
               sent={this.state.sent}
-              messages={<Messages />}
             />
           </div>
         </div>

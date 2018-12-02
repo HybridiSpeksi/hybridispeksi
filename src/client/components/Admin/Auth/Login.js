@@ -9,7 +9,6 @@ import utils from '../../../Utils/Utils';
 import * as auth from '../../../Utils/Auth';
 import ajax from '../../../Utils/Ajax';
 import constants from '../../../Utils/constants';
-import Messages from '../../../Utils/Messages';
 import { addMessage, clearMessages } from '../../../actions/messageActions';
 
 class Login extends Component {
@@ -126,9 +125,6 @@ class Login extends Component {
             password={this.state.password}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            messages={
-              <Messages />
-            }
           />
         ) : (
           <Signupform
@@ -138,9 +134,6 @@ class Login extends Component {
             password={this.state.password}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            messages={
-              <Messages />
-            }
           />
         )}
       </div>

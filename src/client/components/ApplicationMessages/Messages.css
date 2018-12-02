@@ -1,0 +1,40 @@
+.messagesContainer {
+  z-index: 50;
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  width: 500px;
+}
+
+.message {
+  padding: 1em;
+  color: white;
+  opacity: 0.9;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.message:hover {
+  opacity: 1;
+}
+
+.messageSuccess {
+  background-color: #4CAF50;
+}
+
+
+
+.messageWarning {
+  background-color: #ff9800;
+}
+
+.messageError {
+  background-color: #f44336;
+}
+
+.closeIcon {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}

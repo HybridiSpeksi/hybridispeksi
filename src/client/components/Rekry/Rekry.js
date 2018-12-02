@@ -6,7 +6,6 @@ import Kiitos from './Kiitos';
 
 import utils from '../../Utils/Utils';
 import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
 import { addMessage, clearMessages } from '../../actions/messageActions';
 import constants from '../../Utils/constants';
 
@@ -127,9 +126,6 @@ class Rekry extends Component {
             kaikkiTehtavat={this.state.kaikkiTehtavat}
             kaikkiJarjestot={this.state.kaikkiJarjestot}
             onSubmit={this.handleSubmit}
-            messages={
-              <Messages />
-            }
           />
         ) : (
           <Kiitos />

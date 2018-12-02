@@ -6,7 +6,6 @@ import Sitsitform from './Sitsitform';
 
 import utils from '../../Utils/Utils';
 import ajax from '../../Utils/Ajax';
-import Messages from '../../Utils/Messages';
 
 const MESSAGE_SUCCESS = 'success';
 const MESSAGE_WARNING = 'warning';
@@ -107,8 +106,8 @@ class Sitsit extends Component {
           ruokavalio: this.state.lisatiedot,
 
 
-        }
-).then((data) => {
+        },
+      ).then((data) => {
         this.addMessage(MESSAGE_SUCCESS, 'Ilmoittautuminen onnistui!');
         this.setState({ ilmottu: true });
       }).catch((err) => {
@@ -217,29 +216,28 @@ class Sitsit extends Component {
   render() {
     const form = null;
     return (
-          <div>
-              <Sitsitform
-                  sitsitAuki={this.state.sitsitAuki}
-                  ilmottu={this.state.ilmottu}
-                  fname={this.state.fname}
-                  sname={this.state.sname}
-                  email={this.state.email}
-                  jarjesto={this.state.jarjesto}
-                  holillisuus={this.state.holillisuus}
-                  allergiat={this.state.allergiat}
-                  ilmonneet={this.state.ilmonneet}
-                  hsCount={this.state.hsCount}
-                  ioCount={this.state.ioCount}
-                  lexCount={this.state.lexCount}
-                  tlksCount={this.state.tlksCount}
-                  tukyCount={this.state.tukyCount}
-                  spexetCount={this.state.spexetCount}
-                  humanistiCount={this.state.humanistiCount}
-                  handleChange={this.handleChange}
-                  handleSubmit={this.handleSubmit}
-                  messages={<Messages messages={this.state.messages} warnings={this.state.warnings} errors={this.state.errors} />}
-                />
-            </div>
+      <div>
+        <Sitsitform
+          sitsitAuki={this.state.sitsitAuki}
+          ilmottu={this.state.ilmottu}
+          fname={this.state.fname}
+          sname={this.state.sname}
+          email={this.state.email}
+          jarjesto={this.state.jarjesto}
+          holillisuus={this.state.holillisuus}
+          allergiat={this.state.allergiat}
+          ilmonneet={this.state.ilmonneet}
+          hsCount={this.state.hsCount}
+          ioCount={this.state.ioCount}
+          lexCount={this.state.lexCount}
+          tlksCount={this.state.tlksCount}
+          tukyCount={this.state.tukyCount}
+          spexetCount={this.state.spexetCount}
+          humanistiCount={this.state.humanistiCount}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     );
   }
 }
