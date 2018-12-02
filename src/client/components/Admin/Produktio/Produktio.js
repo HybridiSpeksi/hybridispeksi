@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ajax from '../../../Utils/Ajax';
 import Messages from '../../../Utils/Messages';
 import { fetchProduction } from '../../../actions/productionActions';
 import { addSuccessMessage, clearMessages } from '../../../actions/messageActions';
@@ -21,11 +20,7 @@ class Produktio extends Component {
     this.state = {
       naytaSahkopostit: false,
     };
-    this.handleJasenChange = this.handleJasenChange.bind(this);
     this.toggleSahkopostit = this.toggleSahkopostit.bind(this);
-    this.poistaTehtava = this.poistaTehtava.bind(this);
-    this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
-    this.lisaaTehtava = this.lisaaTehtava.bind(this);
     this.yhdistyksenJasenLisatty = this.yhdistyksenJasenLisatty.bind(this);
   }
 
@@ -33,54 +28,8 @@ class Produktio extends Component {
     this.fetchData();
   }
 
-  tallennaMuutokset() {
-    ajax
-      .sendPost('/admin/produktionjasen', this.props.selectedMember)
-      .then(() => {
-        setTimeout(() => {
-          this.setState({ messages: [] });
-        }, 3000);
-        this.fetchData();
-      })
-      .catch((err) => {
-        console.log(err);
-        const _errors = this.state.errors;
-        _errors.push({ header: 'Muutosten tallentaminen ei onnistunut:', text: err.status });
-        this.setState({ errors: _errors });
-        setTimeout(() => {
-          this.setState({ errors: [] });
-        }, 4000);
-      });
-  }
-
   toggleSahkopostit() {
     this.setState({ naytaSahkopostit: !this.state.naytaSahkopostit });
-  }
-
-  poistaTehtava(i) {
-    // TODO: redux
-    // const jasen = this.props.valittuJasen;
-    // jasen.tehtavat.splice(i, 1);
-    // this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
-  }
-
-  handleJasenChange(e) {
-    // TODO: redux
-    // const jasen = this.props.valittuJasen;
-    // if (e.target.name === 'tehtavat') {
-    //   const idNumber = utils.parseNumberIfNumber(e.target.id);
-    //   jasen.tehtavat[idNumber] = e.target.value;
-    // } else {
-    //   jasen[e.target.name] = e.target.value;
-    // }
-    // this.setState({ valittuJasen: jasen, henkilotiedotMuuttuneet: true });
-  }
-
-  lisaaTehtava() {
-    // TODO: redux
-    // const _jasen = this.state.valittuJasen;
-    // _jasen.tehtavat.push('');
-    // this.setState({ valittuJasen: _jasen });
   }
 
   yhdistyksenJasenLisatty() {
@@ -131,6 +80,7 @@ class Produktio extends Component {
 
             {this.state.naytaSahkopostit ? (
               <Sahkopostit
+                jasenet={this.props.productionmembers}
                 toggleSahkopostit={this.toggleSahkopostit}
               />
             ) : (

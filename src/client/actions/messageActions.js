@@ -17,7 +17,6 @@ export function addSuccessMessage(m) {
     ...m,
     type: constants.MESSAGE_SUCCESS,
   };
-  console.log(message);
   return {
     type: actions.ADD_MESSAGE,
     message,
@@ -40,7 +39,6 @@ export function addErrorMessage(m) {
     ...m,
     type: constants.MESSAGE_ERROR,
   };
-  console.log(message);
   return {
     type: actions.ADD_MESSAGE,
     message,
