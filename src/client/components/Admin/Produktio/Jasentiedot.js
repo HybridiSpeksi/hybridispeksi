@@ -4,22 +4,33 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
-import { clearSelectedMember, updateSelectedMember } from '../../../actions/productionActions';
+import { clearSelectedMember, updateSelectedMember, saveSelectedMember } from '../../../actions/productionActions';
 
 import * as auth from '../../../Utils/Auth';
 
-const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
-  const {
-    handleChange,
-    henkilotiedotMuuttuneet,
-    tallennaMuutokset,
-    lisaaTehtava,
-    poistaTehtava,
-  } = props;
+const Jasentiedot = ({
+
+  selectedMember, tehtavat, update, save,
+}) => {
+  const updateTehtavaAtIndex = (tehtava, i) => {
+    const _tehtavat = [...selectedMember.tehtavat];
+    _tehtavat[i] = tehtava;
+    return _tehtavat;
+  };
+
+  const removeTehtavaAtIndex = (i) => {
+    const _tehtavat = [...selectedMember.tehtavat];
+    _tehtavat.splice(i, 1);
+    return _tehtavat;
+  };
+
+  const addTehtava = () => {
+    const _tehtavat = [...selectedMember.tehtavat];
+    _tehtavat.push({ key: 'tehtava', value: '', name: '' });
+    return _tehtavat;
+  };
+
   const getTehtavavalinnat = () => {
-    if (!selectedMember.tehtavat) {
-      selectedMember.tehtavat = [];
-    }
     const tehtavaValinnat = selectedMember.tehtavat.map((t, i) => {
       if (t === '') {
         t = 'tyhja';
@@ -32,9 +43,9 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
             id={i}
             label=""
             name="tehtavat"
-            onChange={handleChange}
+            onChange={e => update({ ...selectedMember, tehtavat: updateTehtavaAtIndex(e.target.value, i) })}
           />
-          <button onClick={() => poistaTehtava(i)}>
+          <button onClick={() => update({ ...selectedMember, tehtavat: removeTehtavaAtIndex(i) })}>
             <i className="fa fa-trash" aria-hidden="true" />
           </button>
         </div>
@@ -64,7 +75,7 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
               value={selectedMember.email}
               name="email"
               type="email"
-              onChange={handleChange}
+              onChange={e => update({ ...selectedMember, email: e.target.value })}
               placeholder="Sähköposti"
               id="email-input"
               autofocus="false"
@@ -76,7 +87,7 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
               value={selectedMember.pnumber}
               name="pnumber"
               type="tel"
-              onChange={handleChange}
+              onChange={e => update({ ...selectedMember, pnumber: e.target.value })}
               placeholder="Puh"
               id="pnumber-input"
               autofocus="false"
@@ -86,7 +97,7 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
         <div className="row">{getTehtavavalinnat()}</div>
         <div className="row">
           <div className="col">
-            <button className="btn" onClick={lisaaTehtava}>
+            <button className="btn" onClick={() => update({ ...selectedMember, tehtavat: addTehtava() })}>
               Lisää tehtävä
             </button>
           </div>
@@ -103,8 +114,8 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
             <p>{selectedMember.jarjesto}</p>
           </div>
         </div>
-        {henkilotiedotMuuttuneet ? (
-          <button className="btn btn-primary" onClick={() => tallennaMuutokset()}>
+        {selectedMember.updated ? (
+          <button className="btn btn-primary" onClick={() => save(selectedMember)}>
             Tallenna muutokset
           </button>
         ) : (
@@ -126,21 +137,23 @@ const Jasentiedot = ({ selectedMember, tehtavat, updateSelectedMember }) => {
 Jasentiedot.propTypes = {
   selectedMember: PropTypes.object,
   clearSelectedMember: PropTypes.func,
+  update: PropTypes.func,
+  save: PropTypes.func,
   tehtavat: PropTypes.array,
-  handleChange: PropTypes.func,
-  tallennaMuutokset: PropTypes.func,
   lisaaTehtava: PropTypes.func,
   poistaTehtava: PropTypes.func,
-  henkilotiedotMuuttuneet: PropTypes.bool,
+
 };
 
 const mapStateToProps = state => ({
   selectedMember: state.production.selectedMember,
+  tehtavat: state.ohjaustieto.tehtavat,
 });
 
 const mapDispatchToProps = dispatch => ({
   clearSelectedMember: () => dispatch(clearSelectedMember()),
-  updateMember: member => dispatch(updateSelectedMember(member)),
+  update: member => dispatch(updateSelectedMember(member)),
+  save: member => dispatch(saveSelectedMember(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jasentiedot);
