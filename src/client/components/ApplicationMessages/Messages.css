@@ -1,13 +1,13 @@
 .messagesContainer {
   z-index: 50;
   position: absolute;
-  top: 80px;
-  right: 50px;
-  width: 500px;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .message {
-  padding: 1em;
+  padding: 1em 5em;
   color: white;
   opacity: 0.9;
   display: flex;
@@ -22,8 +22,6 @@
 .messageSuccess {
   background-color: #4CAF50;
 }
-
-
 
 .messageWarning {
   background-color: #ff9800;

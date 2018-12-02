@@ -8,8 +8,7 @@ import Signupform from './Signupform';
 import utils from '../../../Utils/Utils';
 import * as auth from '../../../Utils/Auth';
 import ajax from '../../../Utils/Ajax';
-import constants from '../../../Utils/constants';
-import { addMessage, clearMessages } from '../../../actions/messageActions';
+import { addWarningMessage, addErrorMessage, clearMessages, addSuccessMessage } from '../../../actions/messageActions';
 
 class Login extends Component {
   constructor(props) {
@@ -55,13 +54,12 @@ class Login extends Component {
             auth.signIn(data.token, data.user);
             location.replace('/admin');
           } else {
-            this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Kirjautuminen epäonnistui!', text: data.message });
+            this.props.addWarning({ header: 'Kirjautuminen epäonnistui!', text: data.message });
           }
         })
         .catch((err) => {
           console.log(err);
-          this.props.addMessage({
-            type: constants.MESSAGE_ERROR,
+          this.props.addError({
             title: 'Virhe!',
             text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
           });
@@ -78,19 +76,17 @@ class Login extends Component {
           })
           .then((data) => {
             if (data.success === true) {
-              this.props.addMessage({
-                type: constants.MESSAGE_SUCCESS,
+              this.props.addSuccess({
                 header: 'Rekisteröinti onnistui!',
                 text: 'Pääset kirjautumaan sisään kun sinut on hyväksytty webmasterien toimesta.',
               });
             } else {
-              this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Rekisteröinti epäonnistui:', text: data.message });
+              this.props.addWarning({ header: 'Rekisteröinti epäonnistui:', text: data.message });
             }
           })
           .catch((err) => {
             console.log(err);
-            this.props.addMessage({
-              type: constants.MESSAGE_ERROR,
+            this.props.addError({
               header: 'Virhe!',
               text: 'Palvelimella tapahtui virhe. Yritä myöhemmin uudelleen tai ota yhteys webmastereihin.',
             });
@@ -102,15 +98,15 @@ class Login extends Component {
   validateSignup() {
     let valid = true;
     if (this.state.fname === '' || this.state.sname === '' || this.state.email === '') {
-      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Kaikki kentät on täytettävä' });
+      this.props.addWarning({ header: 'Virhe!', text: 'Kaikki kentät on täytettävä' });
       valid = false;
     }
     if (!utils.isValidEmail(this.state.email)) {
-      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Sähköposti on virheellinen' });
+      this.props.addWarning({ header: 'Virhe!', text: 'Sähköposti on virheellinen' });
       valid = false;
     }
     if (this.state.password !== this.state.passwordAgain) {
-      this.props.addMessage({ type: constants.MESSAGE_WARNING, header: 'Virhe!', text: 'Salasanat eivät täsmää' });
+      this.props.addWarning({ header: 'Virhe!', text: 'Salasanat eivät täsmää' });
       valid = false;
     }
     return valid;
@@ -142,7 +138,9 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  addMessage: PropTypes.func,
+  addError: PropTypes.func,
+  addWarning: PropTypes.func,
+  addSuccess: PropTypes.func,
   clearMessages: PropTypes.func,
 };
 
@@ -151,7 +149,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addMessage: message => dispatch(addMessage(message)),
+  addSuccess: message => dispatch(addSuccessMessage(message)),
+  addWarning: message => dispatch(addWarningMessage(message)),
+  addError: message => dispatch(addErrorMessage(message)),
   clearMessages: () => dispatch(clearMessages()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

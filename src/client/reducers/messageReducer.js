@@ -1,15 +1,15 @@
 import { actions } from '../actions/messageActions';
 
 const initialState = [
-  {
-    type: 'success', header: 'Success!', text: 'Stuff works well!', id: 'asdf',
-  },
-  {
-    type: 'warning', header: 'Warning!', text: 'Stuff works well!', id: '354tg',
-  },
-  {
-    type: 'error', header: 'Error!', text: 'Stuff works well!', id: 'g54',
-  },
+  // {
+  //   type: 'success', header: 'Success!', text: 'Stuff works well!', id: 'asdf',
+  // },
+  // {
+  //   type: 'warning', header: 'Warning!', text: 'Stuff works well!', id: '354tg',
+  // },
+  // {
+  //   type: 'error', header: 'Error!', text: 'Stuff works well!', id: 'g54',
+  // },
 ];
 
 const messages = (state = initialState, action) => {
