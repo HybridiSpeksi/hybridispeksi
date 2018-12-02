@@ -1,5 +1,5 @@
-import constants from '../Utils/constants';
 import cuid from 'cuid';
+import constants from '../Utils/constants';
 
 export const actions = {
   ADD_MESSAGE: 'ADD_MESSAGE',
