@@ -24,7 +24,6 @@ const production = (state = initialState, action) => {
       return {
         ...state,
         members: [...action.production],
-        filteredMembers: [...action.production],
       };
     case actions.SELECT_MEMBER:
       return {

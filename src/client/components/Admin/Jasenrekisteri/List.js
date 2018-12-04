@@ -1,41 +1,53 @@
-import React, { Component } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Moment from 'react-moment';
+import cuid from 'cuid';
+import { selectMember } from '../../../actions/jasenrekisteriActions';
 
-import styles from './Jasenrekisteri.css'
+import styles from './Jasenrekisteri.css';
 
-class List extends Component {
+const List = (props) => {
+  const list = props.members.map((jasen, i) => (
+    <tr onClick={() => props.selectMember(jasen)} key={cuid()}>
+      <td>{i + 1}</td>
+      <td>{jasen.fname} {jasen.sname}</td>
+      <td>{jasen.email}</td>
+      <td>{jasen.approved ? <i className="fa fa-check" aria-hidden="true" /> : ''}</td>
+      <td><Moment format="DD.MM.YYYY">{jasen.joinDate}</Moment></td>
+    </tr>
+  ));
+  return (
+    <div className={styles.table}>
+      <table className="table table-inverse table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nimi</th>
+            <th>@</th>
+            <th>Hyväksytty</th>
+            <th>Hakupv</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-    render() {
-        let list = this.props.jasenet.map((jasen, i) => {
-            return (
-                <tr onClick={() => this.props.valitseJasen(jasen)} key={i}>
-                    <td>{i + 1}</td>
-                    <td>{jasen.fname} {jasen.sname}</td>
-                    <td>{jasen.email}</td>
-                    <td>{jasen.approved ? <i className="fa fa-check" aria-hidden="true"></i>: ""}</td>
-                    <td><Moment format="DD.MM.YYYY">{jasen.joinDate}</Moment></td>
-                </tr>
-            )
-        })
-        return (
-            <div className={styles.table}>
-                <table className={"table table-inverse table-striped"}>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nimi</th>
-                            <th>@</th>
-                            <th>Hyväksytty</th>
-                            <th>Hakupv</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {list}
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
-}
+List.propTypes = {
+  members: PropTypes.array,
+  selectMember: PropTypes.func,
+};
 
-export default List
+const mapStateToProps = state => ({
+  members: state.jasenrekisteri.members,
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectMember: member => dispatch(selectMember(member)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

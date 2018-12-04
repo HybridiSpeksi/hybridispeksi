@@ -7,6 +7,7 @@ import ajax from './reducers/ajaxReducer';
 import messages from './reducers/messageReducer';
 import production from './reducers/productionReducer';
 import ohjaustieto from './reducers/ohjaustietoReducer';
+import jasenrekisteri from './reducers/jasenrekisteriReducer';
 
 const reducers = combineReducers({
   form: formReducer,
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   messages,
   production,
   ohjaustieto,
+  jasenrekisteri,
 });
 
 const middleWare = applyMiddleware(thunk);

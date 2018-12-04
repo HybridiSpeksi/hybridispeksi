@@ -23,6 +23,7 @@ export function fetchProduction() {
       dispatch(recieveProduction(res));
     } catch (err) {
       dispatch(ajaxActions.ajaxFailure(constants.PRODUCTION_REQUEST, err));
+      messageActions.addErrorMessage({ header: 'Virhe haettaessa tietoja.', text: 'Ota yhteys webmasteriin' });
     }
   };
 }
