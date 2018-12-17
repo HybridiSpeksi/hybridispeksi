@@ -189,4 +189,5 @@ Radio.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   disabled: PropTypes.bool,
+  legend: PropTypes.string,
 };
