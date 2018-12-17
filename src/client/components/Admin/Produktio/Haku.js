@@ -35,7 +35,7 @@ const Haku = ({
           <div className="col-sm-12">
             <Text
               type="text"
-              autoFocus="false"
+              autoFocus={false}
               name="pikahaku"
               onChange={e => update({ ...searchObject, text: e.target.value.toLowerCase() })}
               value={searchObject.text}

@@ -1,36 +1,62 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import cuid from 'cuid';
 
-export const Text = props => (
+export const Text = ({
+  type, label, autoFocus, name, onChange, value, placeholder, id,
+}) => (
   <div className="form-group">
-    <label htmlFor={props.id}>{props.label}</label>
+    <label htmlFor={id}>{label}</label>
     <input
-      type={props.type}
-      autoFocus={props.autoFocus}
-      name={props.name}
-      onChange={props.onChange}
-      value={props.value}
+      type={type}
+      autoFocus={autoFocus}
+      name={name}
+      onChange={onChange}
+      value={value}
       className="form-control"
-      placeholder={props.placeholder}
-      id={props.id}
+      placeholder={placeholder}
+      id={id}
     />
   </div>
 );
 
-export const Textarea = props => (
+Text.propTypes = {
+  type: PropTypes.string,
+  label: PropTypes.string,
+  autoFocus: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  id: PropTypes.string,
+};
+
+export const Textarea = ({
+  id, label, name, rows, value, placeholder, onChange,
+}) => (
   <div className="form-group">
-    <label htmlFor={props.id}>{props.label}</label>
+    <label htmlFor={id}>{label}</label>
     <textarea
       className="form-control"
-      name={props.name}
-      id={props.id}
-      rows={props.rowd}
-      value={props.value}
-      placeholder={props.placeholder}
-      onChange={props.onChange}
+      name={name}
+      id={id}
+      rows={rows}
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
     />
   </div>
 );
+
+Textarea.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  rows: PropTypes.number,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 /**
  *
@@ -42,11 +68,13 @@ export const Textarea = props => (
  * @param {disabled}
  *
  */
-export const Dropdown = (props) => {
-  if (!props.options) {
-    props.options = [];
+export const Dropdown = ({
+  id, options, label, name, onChange, selected, disabled,
+}) => {
+  if (!options) {
+    options = [];
   }
-  const options = props.options.map((opt) => {
+  const getOptions = options.map((opt) => {
     let value = '';
     if (!opt.value) {
       value = opt._id;
@@ -57,23 +85,31 @@ export const Dropdown = (props) => {
       <option key={cuid()} value={value}>{opt.name}</option>
     );
   });
-  // const onChange = props.onChange ? 'onChange={props.onChange}' : '';
   return (
     <div>
-      {props.label !== 'undefined' && typeof props.label !== 'undefined' ? <label htmlFor={props.id}>{props.label}</label> : ''}
+      {label !== 'undefined' && typeof label !== 'undefined' ? <label htmlFor={id}>{label}</label> : ''}
       <select
-        {...props.input}
-        name={props.name}
-        onChange={props.onChange}
-        value={props.selected}
+        name={name}
+        onChange={onChange}
+        value={selected}
         className="form-control"
-        id={props.id}
-        disabled={props.disabled}
+        id={id}
+        disabled={disabled}
       >
-        {options}
+        {getOptions}
       </select>
     </div>
   );
+};
+
+Dropdown.propTypes = {
+  id: PropTypes.string,
+  options: PropTypes.array,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  selected: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export const DropdownReduxform = (props) => {
@@ -91,14 +127,12 @@ export const DropdownReduxform = (props) => {
       <option key={cuid()} value={value}>{opt.name}</option>
     );
   });
-  const onChange = props.onChange ? 'onChange={props.onChange}' : '';
   return (
     <div>
       {props.label !== 'undefined' && typeof props.label !== 'undefined' ? <label htmlFor={props.id}>{props.label}</label> : ''}
       <select
         {...props.input}
         name={props.name}
-        value=""
         value={props.selected}
         className="form-control"
         id={props.id}
@@ -108,6 +142,17 @@ export const DropdownReduxform = (props) => {
       </select>
     </div>
   );
+};
+
+DropdownReduxform.propTypes = {
+  id: PropTypes.string,
+  input: PropTypes.object,
+  options: PropTypes.array,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  selected: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 /**
@@ -138,19 +183,10 @@ export const Radio = (props) => {
   );
 };
 
-class Checkbox extends Component {
-  render() {
-    return (
-      <div />
-    );
-  }
-}
-
-// module.exports = {
-//   Text,
-//   Textarea,
-//   Dropdown,
-//   DropdownReduxform,
-//   Radio,
-//   Checkbox,
-// };
+Radio.propTypes = {
+  options: PropTypes.array,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  name: PropTypes.string,
+  disabled: PropTypes.bool,
+};
