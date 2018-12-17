@@ -9,7 +9,7 @@ export const actions = {
   FETCH_OHJAUSTIETO: 'FETCH_OHJAUSTIETO',
   SELECT_MEMBER: 'SELECT_MEMBER',
   CLEAR_SELECTED_MEMBER: 'CLEAR_SELECTED_MEMBER',
-  UPDATE_SELECTED_MEMBER: 'UPDATE_SELECTED_MEMBER',
+  UPDATE_SELECTED_PRODUCTION_MEMBER: 'UPDATE_SELECTED_PRODUCTION_MEMBER',
   SAVE_SELECTED_MEMBER: 'SAVE_SELECTED_MEMBER',
   UPDATE_SEARCH_OBJECT: 'UPDATE_SEARCH_OBJECT',
 };
@@ -35,9 +35,9 @@ export function selectMember(member) {
   };
 }
 
-export function updateSelectedMember(member) {
+export function updateSelecteProductiondMember(member) {
   return {
-    type: actions.UPDATE_SELECTED_MEMBER,
+    type: actions.UPDATE_SELECTED_PRODUCTION_MEMBER,
     member,
   };
 }

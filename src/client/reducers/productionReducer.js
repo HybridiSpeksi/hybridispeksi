@@ -10,6 +10,7 @@ const initialState = {
   selectedMember: {
     fname: '',
     lname: '',
+    sname: '',
     email: '',
     pnumber: '',
     tehtavat: [],
@@ -35,7 +36,7 @@ const production = (state = initialState, action) => {
         ...state,
         selectedMember: { ...initialState.selectedMember },
       };
-    case actions.UPDATE_SELECTED_MEMBER:
+    case actions.UPDATE_SELECTED_PRODUCTION_MEMBER:
       return {
         ...state,
         selectedMember: { ...action.member, updated: true },

@@ -4,7 +4,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
-import { clearSelectedMember, updateSelectedMember, saveSelectedMember } from '../../../actions/productionActions';
+import { clearSelectedMember, updateSelecteProductiondMember, saveSelectedMember } from '../../../actions/productionActions';
 
 import * as auth from '../../../Utils/Auth';
 
@@ -78,7 +78,7 @@ const Jasentiedot = ({
               onChange={e => update({ ...selectedMember, email: e.target.value })}
               placeholder="Sähköposti"
               id="email-input"
-              autofocus="false"
+              autofocus={false}
               label=""
             />
           </div>
@@ -90,7 +90,7 @@ const Jasentiedot = ({
               onChange={e => update({ ...selectedMember, pnumber: e.target.value })}
               placeholder="Puh"
               id="pnumber-input"
-              autofocus="false"
+              autofocus={false}
             />
           </div>
         </div>
@@ -152,7 +152,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   clearSelectedMember: () => dispatch(clearSelectedMember()),
-  update: member => dispatch(updateSelectedMember(member)),
+  update: member => dispatch(updateSelecteProductiondMember(member)),
   save: member => dispatch(saveSelectedMember(member)),
 });
 

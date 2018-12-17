@@ -57,7 +57,7 @@ export const Dropdown = (props) => {
       <option key={cuid()} value={value}>{opt.name}</option>
     );
   });
-  const onChange = props.onChange ? 'onChange={props.onChange}' : '';
+  // const onChange = props.onChange ? 'onChange={props.onChange}' : '';
   return (
     <div>
       {props.label !== 'undefined' && typeof props.label !== 'undefined' ? <label htmlFor={props.id}>{props.label}</label> : ''}
@@ -65,7 +65,6 @@ export const Dropdown = (props) => {
         {...props.input}
         name={props.name}
         onChange={props.onChange}
-        value=""
         value={props.selected}
         className="form-control"
         id={props.id}
@@ -124,7 +123,7 @@ export const Radio = (props) => {
         type="radio"
         onChange={props.onChange}
         value={option.value}
-        checked={option.value == props.value}
+        checked={option.value === props.value}
         name={props.name}
         disabled={props.disabled}
       /> &nbsp;

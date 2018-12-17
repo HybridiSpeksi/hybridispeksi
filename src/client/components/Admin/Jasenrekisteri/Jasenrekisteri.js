@@ -7,7 +7,7 @@ import Jasentiedot from './Jasentiedot';
 import Uusijasen from './Uusijasen';
 import Sahkopostit from '../../Shared/Sahkopostit';
 import { addSuccessMessage, addErrorMessage, clearMessages } from '../../../actions/messageActions';
-import { fetchMembers } from '../../../actions/jasenrekisteriActions';
+import { fetchMembers, clearSelectedMember } from '../../../actions/jasenrekisteriActions';
 
 class Jasenrekisteri extends Component {
   constructor(props) {
@@ -41,6 +41,7 @@ class Jasenrekisteri extends Component {
                 className="btn btn-primary"
                 data-toggle="modal"
                 data-target="#uusijasen-modal"
+                onClick={this.props.clear}
               >
                 Lisää uusi jäsen
               </button>
@@ -80,6 +81,7 @@ Jasenrekisteri.propTypes = {
   fetchMembers: PropTypes.func,
   members: PropTypes.array,
   selectedMember: PropTypes.object,
+  clear: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -92,6 +94,7 @@ const mapDispatchToProps = dispatch => ({
   addError: message => dispatch(addErrorMessage(message)),
   clearMessages: () => dispatch(clearMessages()),
   fetchMembers: () => dispatch(fetchMembers()),
+  clear: () => dispatch(clearSelectedMember()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jasenrekisteri);

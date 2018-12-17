@@ -5,15 +5,13 @@ import { Text, Radio } from '../../../Utils/Form';
 import utils from '../../../Utils/Utils';
 import Modal from '../../../Utils/Modal';
 import ajax from '../../../Utils/Ajax';
+import { addWarningMessage, addSuccessMessage, clearMessages } from '../../../actions/messageActions';
 
 class Uusijasen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      messages: [],
-      warnings: [],
-      errors: [],
       jasen: {
         _id: '',
         fname: '',
@@ -42,20 +40,15 @@ class Uusijasen extends Component {
             || this.state.jasen.sname === ''
             || this.state.jasen.email === ''
             || this.state.jasen.hometown === '') {
-      this.setState({
-        warnings: [{
-          header: 'Kaikki kentät täytettävä!',
-          text: '',
-        }],
-      });
+      this.props.warningMessage({ header: 'Kaikki kentät on täytettävä' });
       setTimeout(() => {
-        this.setState({ warnings: [] });
-      }, 2000);
+        this.props.clear();
+      }, 3000);
     } else {
       ajax.sendPut('/admin/h/jasenrekisteri', this.state.jasen)
         .then((data) => {
           console.log(data);
-          this.props.jasenLisatty();
+          this.props.successMessage({ header: 'Jäsen lisätty!' });
           $('#uusijasen-modal').modal('hide');
         })
         .catch((err) => {
@@ -89,7 +82,7 @@ class Uusijasen extends Component {
             <div className="col">
               <Text
                 id="fname-input"
-                autoFocus="true"
+                autoFocus
                 name="fname"
                 onChange={this.handleChange}
                 value={this.state.jasen.fname}
@@ -148,7 +141,9 @@ class Uusijasen extends Component {
 
 Uusijasen.propTypes = {
   jasen: PropTypes.object,
-  jasenLisatty: PropTypes.func,
+  successMessage: PropTypes.func,
+  warningMessage: PropTypes.func,
+  clear: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -156,7 +151,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  successMessage: message => dispatch(addSuccessMessage(message)),
+  warningMessage: message => dispatch(addWarningMessage(message)),
+  clear: () => dispatch(clearMessages()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Uusijasen);

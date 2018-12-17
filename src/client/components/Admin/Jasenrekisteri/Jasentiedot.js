@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import { Text } from '../../../Utils/Form';
+import { Text, Radio, Dropdown } from '../../../Utils/Form';
 import { updateSelectedMember, clearSelectedMember, saveMember, approveMember } from '../../../actions/jasenrekisteriActions';
 
 const Jasentiedot = ({
@@ -72,6 +72,22 @@ const Jasentiedot = ({
         />
       </div>
     </div>
+
+    <div className="row">
+      <div className="col">
+        <Dropdown
+          options={[
+              { name: 'TYYn jäsen', value: 'yes' },
+              { name: 'Ei TYYn jäsen', value: 'no' },
+          ]}
+          selected={member.memberOfTyy ? 'yes' : 'no'}
+          name="memberOfTyy"
+          onChange={e => update({ ...member, memberOfTyy: e.target.value === 'yes' })}
+          id="memberoftyy-dropdown"
+        />
+      </div>
+    </div>
+
     <div className="row">
       <div className="col">
         {member.updated ? (
