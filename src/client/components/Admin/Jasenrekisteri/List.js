@@ -7,9 +7,9 @@ import { selectMember } from '../../../actions/jasenrekisteriActions';
 
 import styles from './Jasenrekisteri.css';
 
-const List = (props) => {
-  const list = props.members.map((jasen, i) => (
-    <tr onClick={() => props.selectMember(jasen)} key={cuid()}>
+const List = ({ select, members }) => {
+  const list = members.map((jasen, i) => (
+    <tr onClick={() => select(jasen)} key={cuid()}>
       <td>{i + 1}</td>
       <td>{jasen.fname} {jasen.sname}</td>
       <td>{jasen.email}</td>
@@ -39,7 +39,7 @@ const List = (props) => {
 
 List.propTypes = {
   members: PropTypes.array,
-  selectMember: PropTypes.func,
+  select: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -47,7 +47,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectMember: member => dispatch(selectMember(member)),
+  select: member => dispatch(selectMember(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Jasentiedot from './Jasentiedot';
 import Uusijasen from './Uusijasen';
+import Statistics from './Statistics';
 import Sahkopostit from '../../Shared/Sahkopostit';
 import { addSuccessMessage, addErrorMessage, clearMessages } from '../../../actions/messageActions';
 import { fetchMembers, clearSelectedMember } from '../../../actions/jasenrekisteriActions';
@@ -54,6 +55,7 @@ class Jasenrekisteri extends Component {
             <List />
           </div>
           <div className="col-sm-5">
+            <Statistics />
             {this.props.selectedMember._id ? (
               <Jasentiedot />
             ) : (

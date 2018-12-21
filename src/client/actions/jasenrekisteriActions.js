@@ -9,6 +9,7 @@ export const actions = {
   CLEAR_SELECTED_MEMBER: 'CLEAR_SELECTED_MEMBER',
   UPDATE_SELECTED_MEMBER: 'UPDATE_SELECTED_MEMBER',
   APPROVE_MEMBER: 'APPROVE_MEMBER',
+  DELETE_MEMBER: 'DELETE_MEMBER',
 };
 
 export function fetchMembers() {
@@ -76,6 +77,22 @@ export function approveMember(member) {
       dispatch(ajaxActions.ajaxFailure(actions.APPROVE_MEMBER, err));
     }
   };
+}
+
+export function deleteMember(member) {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.DELETE_MEMBER));
+      await ajax.sendDelete('/admin/h/delete/' + member._id);
+      dispatch(ajaxActions.ajaxSuccess(actions.DELETE_MEMBER));
+      dispatch(fetchMembers());
+      dispatch(messageActions.addSuccessMessage({ header: 'Jäsen poistettu rekisteristä!' }));
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Poisto epäonnistui!' }));
+      console.log(err);
+      dispatch(ajaxActions.ajaxFailure(actions.DELETE_MEMBER, err));
+    }
+  }
 }
 
 function receiveMembers(members) {
