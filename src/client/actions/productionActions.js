@@ -12,6 +12,7 @@ export const actions = {
   UPDATE_SELECTED_PRODUCTION_MEMBER: 'UPDATE_SELECTED_PRODUCTION_MEMBER',
   SAVE_SELECTED_MEMBER: 'SAVE_SELECTED_MEMBER',
   UPDATE_SEARCH_OBJECT: 'UPDATE_SEARCH_OBJECT',
+  DELETE_PRODUCTION_MEMBER: 'DELETE_PRODUCTION_MEMBER',
 };
 
 export function fetchProduction() {
@@ -63,6 +64,22 @@ export function clearSelectedMember() {
   return {
     type: actions.CLEAR_SELECTED_MEMBER,
   };
+}
+
+export function deleteProductionMember(member) {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.DELETE_PRODUCTION_MEMBER));
+      await ajax.sendDelete('/admin/w/produktionjasen/' + member._id);
+      dispatch(ajaxActions.ajaxSuccess(actions.DELETE_PRODUCTION_MEMBER));
+      dispatch(fetchProduction());
+      dispatch(messageActions.addSuccessMessage({ header: 'Jäsen poistettu rekisteristä!' }));
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Poisto epäonnistui!' }));
+      console.log(err);
+      dispatch(ajaxActions.ajaxFailure(actions.DELETE_PRODUCTION_MEMBER, err));
+    }
+  }
 }
 
 /**

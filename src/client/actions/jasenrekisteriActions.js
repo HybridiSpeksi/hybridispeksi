@@ -83,7 +83,7 @@ export function deleteMember(member) {
   return async (dispatch) => {
     try {
       dispatch(ajaxActions.ajaxLoading(actions.DELETE_MEMBER));
-      await ajax.sendDelete('/admin/h/delete/' + member._id);
+      await ajax.sendDelete('/admin/h/jasenrekisteri/' + member._id);
       dispatch(ajaxActions.ajaxSuccess(actions.DELETE_MEMBER));
       dispatch(fetchMembers());
       dispatch(messageActions.addSuccessMessage({ header: 'Jäsen poistettu rekisteristä!' }));

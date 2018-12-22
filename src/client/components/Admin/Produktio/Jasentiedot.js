@@ -4,13 +4,13 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { Text, Dropdown } from '../../../Utils/Form';
 import styles from './Produktionjasenet.css';
-import { clearSelectedMember, updateSelecteProductiondMember, saveSelectedMember } from '../../../actions/productionActions';
+import { clearSelectedMember, updateSelecteProductiondMember, saveSelectedMember, deleteProductionMember } from '../../../actions/productionActions';
 
 import * as auth from '../../../Utils/Auth';
 
 const Jasentiedot = ({
 
-  selectedMember, tehtavat, update, save,
+  selectedMember, clearSelection, tehtavat, update, save, remove
 }) => {
   const updateTehtavaAtIndex = (tehtava, i) => {
     const _tehtavat = [...selectedMember.tehtavat];
@@ -54,6 +54,12 @@ const Jasentiedot = ({
     return tehtavaValinnat;
   };
 
+  const handleRemove = () => {
+    if(confirm('Poistetaanko henkilö rekisteristä? Toimintoa ei voi peruuttaa')) {
+      remove(selectedMember);
+    }
+  }
+
   return (
     <div className="row">
       <div className={'col ' + styles.jasentiedotlaatikko}>
@@ -64,7 +70,7 @@ const Jasentiedot = ({
             </h3>
           </div>
           <div className="col text-right">
-            <button onClick={() => clearSelectedMember()} className="btn btn-default">
+            <button onClick={() => clearSelection()} className="btn btn-default">
               <i className="fa fa-times" aria-hidden="true" />
             </button>
           </div>
@@ -129,6 +135,11 @@ const Jasentiedot = ({
         ) : (
           ''
         )}
+        {auth.getUserRole() > 4 ? (
+          <button className="btn btn-danger" onClick={handleRemove}>
+            Poista henkilö rekisteristä
+          </button>
+        ) : ''}
       </div>
     </div>
   );
@@ -136,13 +147,11 @@ const Jasentiedot = ({
 
 Jasentiedot.propTypes = {
   selectedMember: PropTypes.object,
-  clearSelectedMember: PropTypes.func,
+  clearSelection: PropTypes.func,
   update: PropTypes.func,
   save: PropTypes.func,
   tehtavat: PropTypes.array,
-  lisaaTehtava: PropTypes.func,
-  poistaTehtava: PropTypes.func,
-
+  remove: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -151,9 +160,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  clearSelectedMember: () => dispatch(clearSelectedMember()),
+  clearSelection: () => dispatch(clearSelectedMember()),
   update: member => dispatch(updateSelecteProductiondMember(member)),
   save: member => dispatch(saveSelectedMember(member)),
+  remove: member => dispatch(deleteProductionMember(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jasentiedot);

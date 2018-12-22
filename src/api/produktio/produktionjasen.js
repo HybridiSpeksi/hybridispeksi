@@ -75,10 +75,17 @@ function muokkaaJasen(req, res) {
     });
 }
 
+function remove(req, res) {
+  Jasen.remove({ _id: req.params._id })
+    .then(() => res.json({ success: true }))
+    .catch(err => res.json({ success: false, data: err }));
+}
+
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.newJasen = newJasen;
 module.exports.muokkaaJasen = muokkaaJasen;
+module.exports.remove = remove;
 
 const yhdistaJasenetJaProduktio = (henkilot, jasenet) => {
   for (let i = 0; i < henkilot.length; i++) {

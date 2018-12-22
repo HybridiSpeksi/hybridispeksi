@@ -34,13 +34,14 @@ router.get('/admin/produktionjasen/:vuosi', produktionjasen.getAll);
 router.get('/produktionjasen/:_id', produktionjasen.getById);
 router.put('/produktionjasen', produktionjasen.newJasen);
 router.post('/admin/produktionjasen', produktionjasen.muokkaaJasen);
+router.delete('/admin/w/produktionjasen/:_id', produktionjasen.remove);
 
 // Jäsenrekisteri
 router.get('/admin/h/jasenrekisteri', jasenrekisteri.getAll);
 router.post('/admin/h/jasenrekisteri', jasenrekisteri.muokkaaJasen);
 router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasen);
 router.put('/admin/h/jasenrekisteri', jasenrekisteri.newJasen);
-router.delete('/admin/h/delete/:_id', jasenrekisteri.remove);
+router.delete('/admin/h/jasenrekisteri/:_id', jasenrekisteri.remove);
 
 // Käyttäjät
 
