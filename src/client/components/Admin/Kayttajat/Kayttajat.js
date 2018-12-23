@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import ajax from '../../../Utils/Ajax';
+import { fetchUsers, selectUser, updateUser } from 'actions/userActions';
 
-import Kayttajalista from './Kayttajalista';
-import Kayttaja from './Kayttaja';
+import UsersList from './UsersList';
+import User from './User';
 
 class Kayttajat extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      messages: [],
-      warnings: [],
-      errors: [],
-      roolit: [
+      roles: [
         { value: 0, name: 'Ei hyväksytty' },
         { value: 1, name: 'Lipunmyynti' },
         { value: 2, name: 'Ei määritelty' },
@@ -21,59 +20,11 @@ class Kayttajat extends Component {
         { value: 4, name: 'Hallitus' },
         { value: 5, name: 'Webmaster' },
       ],
-      valittuKayttaja: {
-        fname: '',
-        sname: '',
-        email: '',
-      },
-      kayttajat: [],
     };
-    this.teeHaut = this.teeHaut.bind(this);
-    this.valitseKayttaja = this.valitseKayttaja.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.tallennaMuutokset = this.tallennaMuutokset.bind(this);
   }
 
   componentDidMount() {
-    this.teeHaut();
-  }
-
-  valitseKayttaja(k) {
-    const _kayttaja = JSON.parse(JSON.stringify(k));
-    this.setState({ valittuKayttaja: _kayttaja });
-  }
-
-  handleChange(e) {
-    const _kayttaja = this.state.valittuKayttaja;
-    _kayttaja[e.target.name] = e.target.value;
-    this.setState({ valittuKayttaja: _kayttaja });
-  }
-
-  tallennaMuutokset() {
-    ajax.sendPost('/admin/w/kayttaja', this.state.valittuKayttaja)
-      .then((data) => {
-        console.log(data);
-        this.teeHaut();
-        const _messages = this.state.messages;
-        _messages.push({ header: 'Muutokset tallennettu!', text: 'Muutokset tallennettiin onnistuneesti' });
-        this.setState({ messages: _messages, henkilotiedotMuuttuneet: false });
-        setTimeout(() => {
-          this.setState({ messages: [] });
-        }, 3000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  teeHaut() {
-    ajax.sendGet('/admin/w/kayttajat')
-      .then((k) => {
-        this.setState({ kayttajat: k.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.fetchUsers();
   }
 
   render() {
@@ -82,19 +33,13 @@ class Kayttajat extends Component {
         <h1>Käyttäjät</h1>
         <div className="row">
           <div className="col-sm-6">
-            <Kayttajalista
-              roolit={this.state.kayttajat}
-              kayttajat={this.state.kayttajat}
-              valitseKayttaja={this.valitseKayttaja}
-            />
+            <UsersList />
           </div>
           <div className="col-sm-6">
-            {this.state.valittuKayttaja._id ? (
-              <Kayttaja
-                kayttaja={this.state.valittuKayttaja}
-                roolit={this.state.roolit}
-                handleChange={this.handleChange}
-                tallennaMuutokset={this.tallennaMuutokset}
+            {this.props.selectedUser._id ? (
+              <User
+                kayttaja={this.props.selectedUser}
+                roles={this.state.roles}
               />
                         ) : ''}
           </div>
@@ -104,4 +49,21 @@ class Kayttajat extends Component {
   }
 }
 
-export default Kayttajat;
+Kayttajat.propTypes = {
+  users: PropTypes.array,
+  selectedUser: PropTypes.object,
+  fetchUsers: PropTypes.func,
+  selectUser: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  users: state.user.users,
+  selectedUser: state.user.selectedUser,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers()),
+  selectUser: user => dispatch(selectUser(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Kayttajat);
