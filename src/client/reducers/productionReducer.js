@@ -1,4 +1,4 @@
-import { actions } from '../actions/productionActions';
+import { actions } from 'actions/productionActions';
 
 const initialState = {
   members: [],

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchProduction } from '../../../actions/productionActions';
-import { addSuccessMessage, clearMessages } from '../../../actions/messageActions';
-import { fetchOhjaustieto } from '../../../actions/ohjaustietoActions';
+import { fetchProduction } from 'actions/productionActions';
+import { addSuccessMessage, clearMessages } from 'actions/messageActions';
+import { fetchOhjaustieto } from 'actions/ohjaustietoActions';
 
 import ProduktionjasenLista from './ProduktionjasenLista';
 import Jasentiedot from './Jasentiedot';

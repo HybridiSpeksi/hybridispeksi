@@ -24,6 +24,13 @@ module.exports = {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
   },
+  resolve: {
+    alias: {
+      actions: path.resolve(__dirname, '../src/client/actions/'),
+      reducers: path.resolve(__dirname, '../src/client/reducers'),
+      utils: path.resolve(__dirname, '../src/client/Utils'),
+    },
+  },
   module: {
     rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
