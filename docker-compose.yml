@@ -1,23 +1,21 @@
-version: '2'
+# Docker-compose for dev
+version: '3'
 services:
-  nginx:
-    build: ./nginx
+  front:
+    build:
+      context: ./
+      dockerfile: ./dev/front.Dockerfile
+    volumes:
+      - ./:/app
     ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - docker-network
+      - "3000:3000"
     links:
-      - web
-  web:
-    build: .
+      - back:back
+  back:
+    build:
+      context: ./
+      dockerfile: ./dev/back.Dockerfile
+    volumes:
+      - ./:/app
     ports:
       - "8080:8080"
-    networks:
-      docker-network:
-        aliases:
-          - web
-
-networks:
-  docker-network:
-    driver: bridge

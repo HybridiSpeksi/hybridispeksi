@@ -56,13 +56,20 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
+    host: '0.0.0.0',
     port: 3000,
     historyApiFallback: true,
     inline: true,
     proxy: {
-      '/api/**': 'http://localhost:8080',
-      secure: false,
-      changeOrigin: true,
+      '/api': {
+        target: {
+          host: 'back',
+          protocol: 'http:',
+          port: 8080,
+        },
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   plugins: [
