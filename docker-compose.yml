@@ -19,3 +19,17 @@ services:
       - ./:/app
     ports:
       - "8080:8080"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/speksidev
+    depends_on:
+      - db
+  db:
+    image: postgres:10.2-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=speksidev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
