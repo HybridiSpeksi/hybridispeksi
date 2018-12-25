@@ -22,8 +22,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('common'));
 }
 
-// app.use(cors({origin: 'http://localhost:3000'}))
-
 mongoose.connect(process.env.MONGOLAB_URI)
   .then(() => {
     console.log('Connected to database in ' + process.env.MONGOLAB_URI);
@@ -46,6 +44,5 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 app.listen(app.get('port'), '0.0.0.0', () => {
-  console.log('new version!!!');
   console.log('Node App Started on port ' + app.get('port'));
 });
