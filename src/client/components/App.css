@@ -8,7 +8,7 @@ body {
 
 .bigHeading {
   font-family:speksi2019;
-	font-size:100px;
+  font-size:100px;
 }
 
 .subHeading {
@@ -20,7 +20,16 @@ body {
 }
 
 .headingText {
+  
+}
 
+@media (max-width:767px){
+  .bigHeading {
+    font-size: 50px;
+  }
+  .subHeading {
+    font-size: unset;
+  }
 }
 
 @font-face {

@@ -48,7 +48,7 @@
 }
 .heading {
 	font-family: speksi2019;
-	font-size: 100px;
+  font-size: 100px;
 }
 .subheading{
 	font-family: speksi2019plain;
@@ -69,6 +69,13 @@
 @media (max-width:767px){
   .jumboLinks {
     padding: 2em;
+  }
+
+  .heading {
+    font-size: 50px;
+  }
+  .subheading{
+    font-size: unset;
   }
 }
 
