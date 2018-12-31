@@ -6,4 +6,6 @@ RUN npm install -g webpack-dev-server
 RUN mkdir /app
 WORKDIR /app
 
-CMD node webpack-dev-server --host 0.0.0.0 --config ./webpack/dev.config.js
+ADD ./ ./
+
+CMD npm run dev
