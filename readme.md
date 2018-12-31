@@ -22,6 +22,10 @@ Docker
 ```
 4. Populate env variables. Add .dev_vars-env -file to project root, you'll get it from web admins.
 
+5. Install dependencies. Docker-compose will use node_modules for molumes.
+```
+    $ npm install
+```
 5. Run project in development mode with docker-compose:
 ```
     docker-compose up
