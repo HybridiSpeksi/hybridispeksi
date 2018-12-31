@@ -26,11 +26,11 @@ Docker
 ```
     $ npm install
 ```
-5. Run project in development mode with docker-compose:
+6. Run project in development mode with docker-compose:
 ```
     docker-compose up
 ```
-8. Start developing. No bugs pls, only perfect code.
+7. Start developing. No bugs pls, only perfect code.
 
 ## Deployment
 
