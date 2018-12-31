@@ -1,6 +1,7 @@
 node_modules
 dist/
 .pgdata/
+.pgadmindata/
 .env
 .dev_vars-env
 .vscode/

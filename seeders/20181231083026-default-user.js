@@ -2,11 +2,11 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('ContactInfos', [
-      {
+    // await queryInterface.bulkInsert('ContactInfos', [
+    //   {
 
-      },
-    ]);
+    //   },
+    // ]);
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
