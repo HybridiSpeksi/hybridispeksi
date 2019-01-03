@@ -1,24 +1,24 @@
-
+const uuid = require('uuid/v4');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Control', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue: uuid(),
       },
-      fname: {
+      key: {
         type: Sequelize.STRING,
       },
-      lname: {
+      value: {
         type: Sequelize.STRING,
       },
-      email: {
-        type: Sequelize.STRING,
+      bool: {
+        type: Sequelize.BOOLEAN,
       },
-      password: {
+      name: {
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -32,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Control');
   },
 };

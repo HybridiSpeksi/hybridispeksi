@@ -1,7 +1,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Controls', [
+    return queryInterface.bulkInsert('Control', [
       // Student organizations
       {
         key: 'jarjesto',
@@ -114,6 +114,131 @@ module.exports = {
         key: 'speksi',
         value: 'lexspeks',
         name: 'Lex Spex',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+
+      // Occupations
+      {
+        key: 'tehtava',
+        value: 'grafiikka',
+        name: 'Grafiikka',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'kuvaus',
+        name: 'Kuvaus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'puvustus',
+        name: 'Puvustus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'maskeeraus',
+        name: 'Maskeeraus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'lavastus',
+        name: 'Lavastus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'varainhankinta',
+        name: 'Varainhankinta',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'nayttelija',
+        name: 'Näyttelijä',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'bandi',
+        name: 'Bändi',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'tanssija',
+        name: 'Tanssija',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'kasikirjoitus',
+        name: 'Käsikirjoitus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'hallitus',
+        name: 'Hallitus',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'tuotanto',
+        name: 'Tuotanto',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'webmaster',
+        name: 'Webmaster',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'huoltotiimi',
+        name: 'Huolto- ja virkistys',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'tehtava',
+        value: 'tekniikka',
+        name: 'Ääni- ja valotekniikka',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+
+      // Control flags
+      {
+        key: 'rekryAuki',
+        value: 'false',
+        bool: false,
+        name: 'rekryAuki',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        key: 'lipunmyyntiAuki',
+        value: 'false',
+        bool: false,
+        name: 'lipunmyyntiAuki',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
