@@ -1,9 +1,11 @@
+const uuid = require('uuid/v4');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Control', [
       // Student organizations
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'asteriski',
         name: 'Asteriski ry',
@@ -11,6 +13,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'delta',
         name: 'Delta ry',
@@ -18,6 +21,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'digit',
         name: 'Digit ry',
@@ -25,6 +29,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'iva',
         name: 'IVA ry',
@@ -32,6 +37,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'pulterit',
         name: 'Pulterit ry',
@@ -39,6 +45,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'synapsi',
         name: 'Synapsi ry',
@@ -46,6 +53,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'tyk',
         name: 'TYK ry',
@@ -53,6 +61,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'nucleus',
         name: 'Nucleus ry',
@@ -60,6 +69,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'jarjesto',
         value: 'statistica',
         name: 'Statistica ry',
@@ -69,6 +79,7 @@ module.exports = {
 
       // Speksis
       {
+        id: uuid(),
         key: 'speksi',
         value: 'hybridispeksi',
         name: 'HybridiSpeksi',
@@ -76,6 +87,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'iospeksi',
         name: 'I/O-Speksi',
@@ -83,6 +95,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'humanistispeksi',
         name: 'Humanistispeksi',
@@ -90,6 +103,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'tukyspeksi',
         name: 'TuKY-Speksi',
@@ -97,6 +111,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'tlksspeksi',
         name: 'TLKS Speksi',
@@ -104,6 +119,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'akademiska',
         name: 'Akademiska spexed',
@@ -111,6 +127,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'speksi',
         value: 'lexspeks',
         name: 'Lex Spex',
@@ -120,6 +137,7 @@ module.exports = {
 
       // Occupations
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'grafiikka',
         name: 'Grafiikka',
@@ -127,6 +145,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'kuvaus',
         name: 'Kuvaus',
@@ -134,6 +153,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'puvustus',
         name: 'Puvustus',
@@ -141,6 +161,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'maskeeraus',
         name: 'Maskeeraus',
@@ -148,6 +169,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'lavastus',
         name: 'Lavastus',
@@ -155,6 +177,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'varainhankinta',
         name: 'Varainhankinta',
@@ -162,6 +185,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'nayttelija',
         name: 'Näyttelijä',
@@ -169,6 +193,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'bandi',
         name: 'Bändi',
@@ -176,6 +201,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'tanssija',
         name: 'Tanssija',
@@ -183,6 +209,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'kasikirjoitus',
         name: 'Käsikirjoitus',
@@ -190,6 +217,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'hallitus',
         name: 'Hallitus',
@@ -197,6 +225,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'tuotanto',
         name: 'Tuotanto',
@@ -204,6 +233,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'webmaster',
         name: 'Webmaster',
@@ -211,6 +241,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'huoltotiimi',
         name: 'Huolto- ja virkistys',
@@ -218,6 +249,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'tehtava',
         value: 'tekniikka',
         name: 'Ääni- ja valotekniikka',
@@ -227,6 +259,7 @@ module.exports = {
 
       // Control flags
       {
+        id: uuid(),
         key: 'rekryAuki',
         value: 'false',
         bool: false,
@@ -235,6 +268,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid(),
         key: 'lipunmyyntiAuki',
         value: 'false',
         bool: false,

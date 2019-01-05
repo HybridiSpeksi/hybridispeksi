@@ -10,9 +10,23 @@ module.exports = {
           model: 'ContactInfo',
           key: 'id',
         },
-        onDelete: 'SET NULL',
+        onDelete: 'CASCADE',
       },
     )
+      .then(() => {
+        return queryInterface.addColumn(
+          'Member',
+          'contactInfoId',
+          {
+            type: Sequelize.UUID,
+            references: {
+              model: 'ContactInfo',
+              key: 'id',
+            },
+            onDelete: 'CASCADE',
+          },
+        );
+      })
       .then(() => {
         return queryInterface.addColumn(
           'UserRole',
