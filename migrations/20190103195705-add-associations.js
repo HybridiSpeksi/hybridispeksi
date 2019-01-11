@@ -2,73 +2,76 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.addColumn(
-      'User',
+      'Users',
       'contactInfoId',
       {
         type: Sequelize.UUID,
         references: {
-          model: 'ContactInfo',
+          model: 'ContactInfos',
           key: 'id',
+          as: 'contactInfoId',
         },
         onDelete: 'CASCADE',
       },
     )
       .then(() => {
         return queryInterface.addColumn(
-          'Member',
-          'contactInfoId',
-          {
-            type: Sequelize.UUID,
-            references: {
-              model: 'ContactInfo',
-              key: 'id',
-            },
-            onDelete: 'CASCADE',
-          },
-        );
-      })
-      .then(() => {
-        return queryInterface.addColumn(
-          'UserRole',
+          'UserRoles',
           'userId',
           {
             type: Sequelize.UUID,
             references: {
-              model: 'User',
+              model: 'Users',
               key: 'id',
+              as: 'userId',
             },
           },
         );
       })
       .then(() => {
         return queryInterface.addColumn(
-          'UserRole',
+          'UserRoles',
           'roleId',
           {
             type: Sequelize.UUID,
             references: {
-              model: 'Role',
+              model: 'Roles',
               key: 'id',
+              as: 'roleId',
             },
           },
         );
       });
+    // .then(() => {
+    //   return queryInterface.addColumn(
+    //     'Members',
+    //     'contactInfoId',
+    //     {
+    //       type: Sequelize.UUID,
+    //       references: {
+    //         model: 'ContactInfos',
+    //         key: 'id',
+    //       },
+    //       onDelete: 'CASCADE',
+    //     },
+    //   );
+    // })
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeColumn(
-      'User',
+      'Users',
       'contactInfoId',
     )
       .then(() => {
         return queryInterface.removeColumn(
-          'UserRole',
+          'UserRoles',
           'userId',
         );
       })
       .then(() => {
         return queryInterface.removeColumn(
-          'UserRole',
+          'UserRoles',
           'roleId',
         );
       });

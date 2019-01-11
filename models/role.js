@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     value: DataTypes.INTEGER,
   }, {});
   Role.associate = (models) => {
-
+    Role.belongsToMany(models.User, { through: 'UserRole', foreignKey: 'roleId', unique: false });
   };
   return Role;
 };

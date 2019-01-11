@@ -27,6 +27,7 @@
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.3",
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
     "crypto": "^1.0.1",

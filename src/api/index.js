@@ -43,7 +43,7 @@ router.get('/admin/h/hyvaksyJasen/:_id', jasenrekisteri.hyvaksyJasen);
 router.put('/admin/h/jasenrekisteri', jasenrekisteri.newJasen);
 router.delete('/admin/h/jasenrekisteri/:_id', jasenrekisteri.remove);
 
-// Käyttäjät
+// Users
 
 router.post('/authenticate', user.authenticate);
 router.post('/signup', user.newUser);
@@ -51,6 +51,10 @@ router.get('/isValidToken', user.isValidToken);
 router.get('/admin/w/kayttajat', user.getUsers);
 router.post('/admin/w/kayttaja', user.updateUser);
 router.delete('/admin/w/kayttaja/:_id', user.deleteUser);
+router.get('/admin/w/user/:userId', user.getUserById);
+router.get('/admin/roles', user.getRoles);
+router.get('/admin/w/role/:userId/:roleId', user.addRoleToUser);
+router.delete('/admin/w/role/:userId/:roleId', user.removeRoleFromUser);
 // router.post('/uusiKayttaja', user.newUser);
 
 // Tapahtumat

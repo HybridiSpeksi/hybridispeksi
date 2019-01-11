@@ -30,7 +30,7 @@ import AdminFooter from './Admin/Layout/AdminFooter';
 import Admin from './Admin/Admin';
 import Produktio from './Admin/Produktio/Produktio';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
-import Kayttajat from './Admin/Kayttajat/Kayttajat';
+import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
 import Palautteet from './Admin/Palautteet/Palautteet';
@@ -123,7 +123,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
                 <AdminLayout path="/produktionhallinta" component={Produktio} />
                 <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
-                <AdminLayout path="/kayttajat" component={Kayttajat} />
+                <AdminLayout path="/kayttajat" component={UserManagement} />
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
                 <AdminLayout path="/tapahtumat" component={Tapahtumat} />

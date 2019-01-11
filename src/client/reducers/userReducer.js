@@ -2,10 +2,15 @@ import { actions } from 'actions/userActions';
 
 const initialState = {
   users: [],
+  roles: [],
   selectedUser: {
-    fname: '',
-    sname: '',
-    email: '',
+    id: '',
+    ContactInfo: {
+      fname: '',
+      lname: '',
+      email: '',
+    },
+    Roles: [],
     updated: false,
   },
 
@@ -32,6 +37,11 @@ const user = (state = initialState, action) => {
       return {
         ...state,
         selectedUser: { ...initialState.selectedUser },
+      };
+    case actions.RECEIVE_ROLES:
+      return {
+        ...state,
+        roles: [...action.roles],
       };
     default:
       return state;

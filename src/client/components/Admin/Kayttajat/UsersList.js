@@ -6,13 +6,16 @@ import cuid from 'cuid';
 import { selectUser } from 'actions/userActions';
 
 const UsersList = ({ users, select }) => {
-  const rows = users.map(user => (
-    <tr key={cuid()} onClick={() => select(user)}>
-      <td>{user.fname} {user.sname}</td>
-      <td>{user.email}</td>
-      <td>{user.role}</td>
-    </tr>
-  ));
+  const rows = users.map((user) => {
+    const { ContactInfo, Roles } = user;
+    return (
+      <tr key={cuid()} onClick={() => select(user)}>
+        <td>{ContactInfo.fname} {ContactInfo.lname}</td>
+        <td>{ContactInfo.email}</td>
+        <td>{Roles.length}</td>
+      </tr>
+    );
+  });
   return (
     <div>
       <table className="table table-inverse">
@@ -20,7 +23,7 @@ const UsersList = ({ users, select }) => {
           <tr>
             <th>Nimi</th>
             <th>@</th>
-            <th>Rooli</th>
+            <th>Rooleja</th>
           </tr>
         </thead>
         <tbody>

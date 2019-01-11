@@ -3,7 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
   }, {});
   User.associate = (models) => {
-    User.hasOne(models.ContactInfo);
+    User.belongsTo(models.ContactInfo, {
+      // as: 'ContactInfo',
+      foreignKey: 'contactInfoId',
+    });
+    User.belongsToMany(models.Role, { through: 'UserRole', foreignKey: 'userId', unique: false });
   };
   return User;
 };
