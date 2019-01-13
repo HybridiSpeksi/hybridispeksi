@@ -31,6 +31,8 @@ module.exports = {
     const { email, password } = req.body;
     try {
       let user = await userService.findUserByEmail(email);
+      const role = await userService.getRoleByValue(5);
+      await user.addRole(role);
       if (!user) {
       // While mongoDb users still exists, they are moved to postgres when they sign in
         const mongoUser = await userService.findMongoUserByEmail(email);
@@ -101,14 +103,21 @@ module.exports = {
       });
   },
 
-  deleteUser: (req, res) => {
-    UserMongo.findByIdAndRemove(req.params._id)
-      .then((_data) => {
-        res.json({ success: true, data: _data });
-      })
-      .catch((err) => {
-        res.json({ success: false, data: err });
-      });
+  deleteUser: async (req, res) => {
+    try {
+      await userService.deleteUser(req.params.id);
+      res.json({ success: true });
+    } catch (e) {
+      console.log('error catched');
+      res.json({ success: false, message: e.message });
+    }
+    // UserMongo.findByIdAndRemove(req.params._id)
+    //   .then((_data) => {
+    //     res.json({ success: true, data: _data });
+    //   })
+    //   .catch((err) => {
+    //     res.json({ success: false, data: err });
+    //   });
   },
 
   addRoleToUser: async (req, res) => {

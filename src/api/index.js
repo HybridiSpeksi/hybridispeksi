@@ -50,7 +50,7 @@ router.post('/signup', user.newUser);
 router.get('/isValidToken', user.isValidToken);
 router.get('/admin/w/kayttajat', user.getUsers);
 router.post('/admin/w/kayttaja', user.updateUser);
-router.delete('/admin/w/kayttaja/:_id', user.deleteUser);
+router.delete('/admin/w/kayttaja/:id', user.deleteUser);
 router.get('/admin/w/user/:userId', user.getUserById);
 router.get('/admin/roles', user.getRoles);
 router.get('/admin/w/role/:userId/:roleId', user.addRoleToUser);

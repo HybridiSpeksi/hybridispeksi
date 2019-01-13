@@ -7,5 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
     },
   }, {});
+  UserRole.associate = (models) => {
+    UserRole.belongsTo(models.User, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+    });
+  };
   return UserRole;
 };

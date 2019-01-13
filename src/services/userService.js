@@ -47,6 +47,18 @@ module.exports = {
     }
   },
 
+  deleteUser: async (id) => {
+    try {
+      await User.destroy({
+        where: { id },
+      });
+    } catch (e) {
+      console.log(e);
+      console.log('ERROOOOOOOOOR');
+      throw e;
+    }
+  },
+
   findUserByEmail: async (email) => {
     try {
       const user = await User.findOne({

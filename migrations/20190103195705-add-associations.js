@@ -25,6 +25,7 @@ module.exports = {
               key: 'id',
               as: 'userId',
             },
+            onDelete: 'CASCADE',
           },
         );
       })
@@ -39,6 +40,7 @@ module.exports = {
               key: 'id',
               as: 'roleId',
             },
+            onDelete: 'CASCADE',
           },
         );
       });

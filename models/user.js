@@ -6,8 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsTo(models.ContactInfo, {
       // as: 'ContactInfo',
       foreignKey: 'contactInfoId',
+      onDelete: 'CASCADE',
     });
-    User.belongsToMany(models.Role, { through: 'UserRole', foreignKey: 'userId', unique: false });
+    User.belongsToMany(models.Role, {
+      through: 'UserRole', foreignKey: 'userId', unique: false, onDelete: 'CASCADE',
+    });
   };
   return User;
 };

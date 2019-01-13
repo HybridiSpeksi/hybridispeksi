@@ -78,6 +78,7 @@ export function addRoleToUser(userId, roleId) {
       dispatch(ajaxActions.ajaxLoading(actions.SAVE_USER));
       const res = await ajax.sendGet(`/admin/w/role/${userId}/${roleId}`);
       dispatch(selectUser(res.data));
+      dispatch(fetchUsers());
       dispatch(ajaxActions.ajaxSuccess(actions.SAVE_USER));
       dispatch(messageActions.addSuccessMessage({ header: 'Tiedot päivitetty!' }));
     } catch (err) {
@@ -92,7 +93,9 @@ export function removeRoleFromUser(userId, roleId) {
     try {
       dispatch(ajaxActions.ajaxLoading(actions.SAVE_USER));
       const res = await ajax.sendDelete(`/admin/w/role/${userId}/${roleId}`);
+      if (!res.success) { throw res.message; }
       dispatch(selectUser(res.data));
+      dispatch(fetchUsers());
       dispatch(ajaxActions.ajaxSuccess(actions.SAVE_USER));
       dispatch(messageActions.addSuccessMessage({ header: 'Tiedot päivitetty!' }));
     } catch (err) {
@@ -106,7 +109,9 @@ export function deleteUser(user) {
   return async (dispatch) => {
     try {
       dispatch(ajaxActions.ajaxLoading(actions.DELETE_USER));
-      await ajax.sendDelete('/admin/w/kayttaja/' + user._id);
+      const res = await ajax.sendDelete('/admin/w/kayttaja/' + user.id);
+      console.log(res.success);
+      if (!res.success) { throw res.message; }
       dispatch(clearUser());
       dispatch(fetchUsers());
       dispatch(ajaxActions.ajaxSuccess(actions.DELETE_USER));
