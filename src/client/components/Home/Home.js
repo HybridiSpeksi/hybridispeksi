@@ -21,7 +21,7 @@ class Home extends Component {
       <div className={styles.container}>
         <Hero globalStyles={globalStyles} />
 
-        {/* <Teaser />
+        <Teaser />
 
         <JumboLinks />
 
@@ -31,7 +31,7 @@ class Home extends Component {
 
         <SectionDivider />
 
-        <Sponsors /> */}
+        <Sponsors />
       </div>
     );
   }
