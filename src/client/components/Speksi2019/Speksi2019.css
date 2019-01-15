@@ -1,4 +1,42 @@
 .headerContainer {
-  width: 50%;
-  text-align: center;
+	margin-top:20px;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 80%;
+	text-align: center;
+}
+.bigsubHeading{
+	font-size:48px;
+	margin-bottom: 0px;
+}
+.subHeading {
+	font-size:28px;
+	width:100%;
+}
+.headingText{
+	width:50%;
+}
+
+@media (max-width:1048px;){
+	.headerContainer{
+		width:100%;
+	}
+	.bigHeading{
+		font-size: 26px;
+	}
+	.subHeading{
+		font-size: 20px;	
+	}
+	.headingText{
+		width:70%;
+	}
+}
+@media (max-width:650px;){
+	.bigHeading{
+		font-size: 40px;
+	}
+	.subHeading{
+		font-size: 20px;	
+	}
 }

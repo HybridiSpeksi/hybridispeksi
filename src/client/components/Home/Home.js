@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SectionDivider from '../SectionDivider/SectionDivider';
 import Hero from './Hero';
+import Teaser from './Teaser';
 import JumboLinks from './JumboLinks';
 import HybridiSpeksiAbout from './HybridiSpeksiAbout';
 import Sponsors from './Sponsors';
@@ -17,6 +18,8 @@ class Home extends Component {
     return (
       <div className={styles.container}>
         <Hero />
+
+        <Teaser />
 
         <JumboLinks />
 

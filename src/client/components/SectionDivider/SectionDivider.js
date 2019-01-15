@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SectionDivider';
+import styles from './SectionDivider.css';
 
 const SectionDivider = () => (
   <div className={'row justify-content-center ' + styles.hr}>

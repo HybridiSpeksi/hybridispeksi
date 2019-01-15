@@ -9,9 +9,6 @@
 	background-size:cover;
 	/*background-size: contain;*/
 }
-/*div {
-	border:1px solid red;
-}*/
 
 .content_contact {
 	height:50vh;
@@ -31,11 +28,11 @@
 }
 .slogan {
 	padding:20px;
-	padding-top:33px;
 	font-family:'calibri';	
 	animation:fadein 4s;
 	color:black;
 	text-align:center; 
+	justify-content: center;
 }
 
 @keyframes fadein {
@@ -46,11 +43,25 @@
 		opacity:1;
 	}
 }
+.teaser{
+	margin-top:100px;
+	margin-bottom:50px;
+	margin-right:auto;
+	margin-left: auto;
+	width:100%;
+}
 .heading {
 	font-family: speksi2019;
-  font-size: 100px;
+  	font-size: 60px;
+  	padding-top: 50px;
+  	padding-bottom:50px;
 }
-.subheading{
+.speksiName{
+	font-family:speksi2019;
+	font-size:100px;
+	padding-bottom:50px;
+}
+.subHeading{
 	font-family: speksi2019plain;
 	font-size: 36px;
 	margin-top: 60px;
@@ -66,18 +77,6 @@
   flex-wrap: wrap;
 }
 
-@media (max-width:767px){
-  .jumboLinks {
-    padding: 2em;
-  }
-
-  .heading {
-    font-size: 50px;
-  }
-  .subheading{
-    font-size: unset;
-  }
-}
 
 .linkicon{
 	margin-top:20px;
@@ -106,7 +105,9 @@
 
 /* SPEKSI */
 .content_speksi {
-	padding:50px;
+	margin:0px;
+	padding:0px;
+	/*padding:50px;*/
 	padding-top:60px;
 }
 .hslogo{
@@ -127,10 +128,19 @@
 	text-align: center;
 }
 .sponsors {
-	padding:50px;
+	padding-top:50px;
+	padding-bottom:50px;
+	margin:0px;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	justify-content: center;
 }
 .sponsor {
-	padding:20px;
+	padding:0px;
+	padding-top:20px;
+	padding-bottom:0px;
+	margin:0px;
 	width:auto;
 }
 
@@ -138,6 +148,20 @@
 @media (max-width:1048px){
 	.rekry_desc {
 		margin-top:20px;
+	}
+	.heading{
+		font-size:42px;
+	}
+	.speksiName{
+		font-size: 64px;
+	}
+	.subHeading {
+		font-size:24px;
+	}
+	.teaser{
+		margin-right:auto;
+		margin-left: auto;
+		width:100%;
 	}
 }
 @media (max-width:992px){
@@ -166,6 +190,12 @@
 	}
 	.slogandate{
 		font-size:26px;
+	}
+	.jumboLinks {
+	    padding: 2em;
+	}
+	.sponsors{
+		width:80%;
 	}
 }
 @media (max-width:500px){
@@ -197,7 +227,7 @@
 	}
 	.content_speksi {
 		background-image:none;
-		padding:12px;
+		/*padding:12px;*/
 		padding-top:20px;
 	}
 	.speksi_desc {
