@@ -10,7 +10,7 @@ const Teaser = ({ globalStyles }) => (
         <iframe
           title="teaser"
           id="youtubeplayer"
-          src="https://www.youtube.com/embed/fmCjxaopc-E?rel=0&amp;controls=1&amp&amp;showinfo=0&amp;modestbranding=1"
+          src="https://www.youtube.com/embed/fmCjxaopc-E?rel=0&controls=1&showinfo=0modestbranding=1"
           width="100%"
           height="360"
           frameBorder="0"
