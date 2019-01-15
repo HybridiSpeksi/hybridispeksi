@@ -26,13 +26,22 @@ const UserRoles = ({ roles, remove, user }) => {
   );
 };
 
-const AllRoles = ({ roles, add, user }) => {
+const AllRoles = ({
+  roles, userRoles, add, user,
+}) => {
   const addRole = (id) => {
     add(user.id, id);
   };
+
+  const hasRole = (role) => {
+    return userRoles.filter(userRole => userRole.id === role.id).length > 0;
+  };
+
   return (
     <div className={styles.roles}>
-      {roles.map((role) => {
+      {roles
+      .filter(role => !hasRole(role))
+      .map((role) => {
         return (
           <div key={cuid()} className={styles.role}>
             <div>{role.name}</div>
@@ -46,6 +55,7 @@ const AllRoles = ({ roles, add, user }) => {
 
 AllRoles.propTypes = {
   roles: PropTypes.array,
+  userRoles: PropTypes.array,
   add: PropTypes.func,
   user: PropTypes.object,
 };
@@ -76,7 +86,7 @@ const User = ({
         </div>
         <div className="col">
           <h4>Valittavat roolit</h4>
-          <AllRoles roles={roles} add={addRole} user={user} />
+          <AllRoles roles={roles} userRoles={Roles} add={addRole} user={user} />
         </div>
       </div>
       <div className="row">

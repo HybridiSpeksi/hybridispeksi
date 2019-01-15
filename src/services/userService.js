@@ -54,7 +54,18 @@ module.exports = {
       });
     } catch (e) {
       console.log(e);
-      console.log('ERROOOOOOOOOR');
+      throw e;
+    }
+  },
+
+  changePassword: async (userId, pwHash) => {
+    try {
+      const user = await User.findOne({ where: { id: userId } });
+      user.update({
+        password: pwHash,
+      });
+    } catch (e) {
+      console.log(e);
       throw e;
     }
   },
