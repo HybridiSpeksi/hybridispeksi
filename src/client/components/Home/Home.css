@@ -14,59 +14,13 @@
 	height:50vh;
 	background:#f7f7f7;
 }
-@font-face {
-	font-family:'alaammuohi';
-	src:url("/assets/fonts/westernbangbang.otf");
-}
-@font-face {
-	font-family:'speksi2019';
-	src:url("/assets/fonts/shanghai.ttf");
-}
-@font-face {
-	font-family:'speksi2019plain';
-	src:url("/assets/fonts/zapfino.ttf");
-}
-.slogan {
-	padding:20px;
-	font-family:'calibri';	
-	animation:fadein 4s;
-	color:black;
-	text-align:center; 
-	justify-content: center;
-}
 
-@keyframes fadein {
-	0% {
-		opacity:0;
-	}
-	100% {
-		opacity:1;
-	}
-}
 .teaser{
 	margin-top:100px;
 	margin-bottom:50px;
 	margin-right:auto;
 	margin-left: auto;
 	width:100%;
-}
-.heading {
-	font-family: speksi2019;
-  	font-size: 60px;
-  	padding-top: 50px;
-  	padding-bottom:50px;
-}
-.speksiName{
-	font-family:speksi2019;
-	font-size:100px;
-	padding-bottom:50px;
-}
-.subHeading{
-	font-family: speksi2019plain;
-	font-size: 36px;
-	margin-top: 60px;
-	line-height: 2.5;
-	text-shadow: 0px 0px 1px black;
 }
 
 /* CONTENTS */
@@ -145,100 +99,3 @@
 }
 
 
-@media (max-width:1048px){
-	.rekry_desc {
-		margin-top:20px;
-	}
-	.heading{
-		font-size:42px;
-	}
-	.speksiName{
-		font-size: 64px;
-	}
-	.subHeading {
-		font-size:24px;
-	}
-	.teaser{
-		margin-right:auto;
-		margin-left: auto;
-		width:100%;
-	}
-}
-@media (max-width:992px){
-	.content_home {
-		height:992px;
-	}
-	.sloganh1 {
-		font-size:80px;
-	}
-	.slogandate{
-		font-size:30px;
-	}
-}
-@media (max-width:768px){
-	.content_home {
-		height:60vh;
-	}
-	.logo {
-		margin-top:65px;
-		height:300px;
-		width:500px;
-		background-size:500px 500px;
-	}
-	.sloganh1 {
-		font-size:60px;
-	}
-	.slogandate{
-		font-size:26px;
-	}
-	.jumboLinks {
-	    padding: 2em;
-	}
-	.sponsors{
-		width:80%;
-	}
-}
-@media (max-width:500px){
-	.content_home {
-		height:600px;
-	}
-	.rivi {
-		margin:0px;
-		padding:0px;
-	}
-	.slogan {
-		padding:20px;
-		padding-top:35px;	
-	}
-	.sloganh1 {
-		font-size:55px;
-	}
-	.slogandate{
-		font-size:30px;
-	}
-	.rekry_desc {
-		font-size: 14px;
-	}
-	.rekry_date {
-		font-size:20px;
-	}
-	.rekry_header{
-		font-size:28px;
-	}
-	.content_speksi {
-		background-image:none;
-		/*padding:12px;*/
-		padding-top:20px;
-	}
-	.speksi_desc {
-		text-align:left;
-	}
-}
-@media (max-width:400px){
-	.sloganh1 {
-		font-size:45px;
-	}
-	.slogandate{
-		font-size:24px;
-	}
-}

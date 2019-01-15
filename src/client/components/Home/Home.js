@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import SectionDivider from '../SectionDivider/SectionDivider';
 import Hero from './Hero';
@@ -15,11 +16,12 @@ class Home extends Component {
   }
 
   render() {
+    const globalStyles = this.props.globalStyles;
     return (
       <div className={styles.container}>
-        <Hero />
+        <Hero globalStyles={globalStyles} />
 
-        <Teaser />
+        {/* <Teaser />
 
         <JumboLinks />
 
@@ -29,10 +31,14 @@ class Home extends Component {
 
         <SectionDivider />
 
-        <Sponsors />
+        <Sponsors /> */}
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  globalStyles: PropTypes.any,
+};
 
 export default Home;
