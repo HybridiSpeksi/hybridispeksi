@@ -8,13 +8,10 @@ body {
 
 .bigHeading {
   font-family:speksi2019;
-  font-size:80px;
 }
 
 .subHeading {
   font-family:speksi2019plain;
-	font-size:36px;
-	margin-top:60px;
 	line-height: 2.5;
 	text-shadow: 0px 0px 1px black;
 }
@@ -25,10 +22,8 @@ body {
 
 @media (max-width:767px){
   .bigHeading {
-    font-size: 50px;
   }
   .subHeading {
-    font-size: unset;
   }
 }
 
