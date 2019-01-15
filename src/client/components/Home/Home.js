@@ -21,7 +21,7 @@ class Home extends Component {
       <div className={styles.container}>
         <Hero globalStyles={globalStyles} />
 
-        <Teaser />
+        <Teaser globalStyles={globalStyles} />
 
         <JumboLinks />
 

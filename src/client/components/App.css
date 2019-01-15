@@ -20,6 +20,10 @@ body {
   
 }
 
+.speksi2019plain {
+  font-family: speksi2019plain;
+}
+
 @media (max-width:767px){
   .bigHeading {
   }
