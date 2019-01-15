@@ -61,15 +61,9 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
     proxy: {
-      '/api': {
-        target: {
-          host: 'back',
-          protocol: 'http:',
-          port: 8080,
-        },
-        changeOrigin: true,
-        secure: false,
-      },
+      '/api/**': 'http://localhost:3001',
+      secure: false,
+      changeOrigin: true,
     },
   },
   plugins: [

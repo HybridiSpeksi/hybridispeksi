@@ -10,6 +10,14 @@ class Header extends Component {
         	})
         	$(window).scroll(function(){
       			$(".top").css("opacity", 1 - $(window).scrollTop() / 200);
+      			var opacity = $(".top").css("opacity");
+      			console.log(opacity);
+      			if(opacity <= 0){	
+      				$(".top").css("display", "none");
+      			}
+      			else {
+      				$(".top").css("display", "block");
+      			}
     		});
     }
     render () {
