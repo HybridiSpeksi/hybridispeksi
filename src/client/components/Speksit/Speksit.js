@@ -3,6 +3,27 @@ import Carousel from './Carousel';
 import styles from './Speksit.css';
 
 class Speksit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images2018: {
+        year: 2018,
+        numberOfImages: 10
+      },
+      images2017: {
+        year:2017,
+        numberOfImages:6
+      },
+      images2016: {
+        year:2016,
+        numberOfImages:1
+      },
+      images2015: {
+        year:2015,
+        numberOfImages:1
+      }
+    };
+  }
   componentDidMount() {
     $(window).scrollTop(0);
   }
@@ -50,7 +71,7 @@ class Speksit extends Component {
               @Manilla
             </p>
           </div>
-          <Carousel name="alaammuohi" images="10"/>
+          <Carousel/>
           {/*
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="alaammuohiIndikaattorit" className="carousel slide" data-ride="carousel">
