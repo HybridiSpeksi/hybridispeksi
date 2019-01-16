@@ -41,18 +41,15 @@
 @media (min-width: 600px) {
   .teaser {
     margin-top: unset;
-    /* width: 50%; */
   }
 
   .synopsis {
-    /* width: 50%; */
     padding: 1em 5em;
   }
 }
 
 @media (min-width: 1080px) {
   .teaser {
-    /* margin-top: 5em; */
     display: flex;
     align-items: center;
     width: 50%;
