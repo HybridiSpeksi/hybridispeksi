@@ -36,7 +36,7 @@ services:
       - ./config/my-postgres.conf:/etc/postgresql.conf
     command: postgres -c 'config_file=/etc/postgresql.conf'
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     depends_on:
       - db
     environment:
