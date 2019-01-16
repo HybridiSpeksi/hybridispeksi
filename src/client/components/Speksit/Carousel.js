@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Carousel.css';
-import ImageSlider from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
+// import PropTypes from 'prop-types';
+import './Carousel.css';
 
 /**
  *
@@ -10,24 +10,22 @@ import ImageSlider from 'react-responsive-carousel';
  */
 
 
-const Carousel = ( props ) => {
-  return (
-    <ImageSlider>
-        <div>
-            <img src="assets/images/carousel/2018/2018_1.jpg" />
-            <p className="legend">Legend 1</p>
-        </div>
-        <div>
-            <img src="assets/images/carousel/2018/2018_2.jpg" />
-            <p className="legend">Legend 2</p>
-        </div>
-        <div>
-            <img src="assets/images/carousel/2018/2018_3.jpg" />
-            <p className="legend">Legend 3</p>
-        </div>
-    </ImageSlider>
-  );
-};
+const CarouselContainer = props => (
+  <Carousel>
+    <div>
+      <img src="assets/images/carousel/2018/2018_1.jpg" />
+      <p className="legend">Legend 1</p>
+    </div>
+    <div>
+      <img src="assets/images/carousel/2018/2018_2.jpg" />
+      <p className="legend">Legend 2</p>
+    </div>
+    <div>
+      <img src="assets/images/carousel/2018/2018_3.jpg" />
+      <p className="legend">Legend 3</p>
+    </div>
+  </Carousel>
+);
 
 
-export default Carousel;
+export default CarouselContainer;

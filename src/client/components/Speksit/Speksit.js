@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import Carousel from './Carousel';
+import CarouselContainer from './Carousel';
 import styles from './Speksit.css';
 
 class Speksit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images2018: {
-        year: 2018,
-        numberOfImages: 10
-      },
-      images2017: {
-        year:2017,
-        numberOfImages:6
-      },
-      images2016: {
-        year:2016,
-        numberOfImages:1
-      },
-      images2015: {
-        year:2015,
-        numberOfImages:1
-      }
+      // images2018: {
+      //   year: 2018,
+      //   numberOfImages: 10,
+      // },
+      // images2017: {
+      //   year: 2017,
+      //   numberOfImages: 6,
+      // },
+      // images2016: {
+      //   year: 2016,
+      //   numberOfImages: 1,
+      // },
+      // images2015: {
+      //   year: 2015,
+      //   numberOfImages: 1,
+      // },
     };
   }
   componentDidMount() {
@@ -42,10 +42,10 @@ class Speksit extends Component {
             </p>
             <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>,
             lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.
-            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen  
+            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen
               <strong> Kruunun Kohtalo - Kalevalan perintö.</strong>
             </p>
-            <p>Vuonna 2018 HybridiSpeksi jatkoi nousevaa uraansa Manilla-teatterilla, kun 
+            <p>Vuonna 2018 HybridiSpeksi jatkoi nousevaa uraansa Manilla-teatterilla, kun
             esiripun takaa paljastui villi länsi ja näytös <strong>Älä Ammu Ohi</strong>.
             </p>
           </div>
@@ -70,8 +70,8 @@ class Speksit extends Component {
               Ensi-ilta 27.3.<br />
               @Manilla
             </p>
+            <CarouselContainer />
           </div>
-          <Carousel/>
           {/*
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="alaammuohiIndikaattorit" className="carousel slide" data-ride="carousel">
@@ -138,39 +138,39 @@ class Speksit extends Component {
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="kruununkohtaloIndikaattorit" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="0" className="active"></li>
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="1"></li>
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="2"></li>
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="3"></li>
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="4"></li>
-                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="5"></li>
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="0" className="active" />
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="1" />
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="2" />
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="3" />
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="4" />
+                <li data-target="#kruununkohtaloIndikaattorit" data-slide-to="5" />
               </ol>
               <div className="carousel-inner" role="listbox">
                 <div className="carousel-item active">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo1.jpg" alt="Eka"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo1.jpg" alt="Eka" />
                 </div>
                 <div className="carousel-item ">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka" />
                 </div>
                 <div className="carousel-item ">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo3.jpg" alt="Kolmas"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo3.jpg" alt="Kolmas" />
                 </div>
                 <div className="carousel-item ">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs" />
                 </div>
                 <div className="carousel-item ">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo5.jpg" alt="Viides"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo5.jpg" alt="Viides" />
                 </div>
                 <div className="carousel-item ">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo6.jpg" alt="Kuudes"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo6.jpg" alt="Kuudes" />
                 </div>
               </div>
               <a className="carousel-control-prev" href="#kruununkohtaloIndikaattorit" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon" aria-hidden="true" />
                 <span className="sr-only">Previous</span>
               </a>
               <a className="carousel-control-next" href="#kruununkohtaloIndikaattorit" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="carousel-control-next-icon" aria-hidden="true" />
                 <span className="sr-only">Next</span>
               </a>
             </div>
@@ -237,16 +237,16 @@ class Speksit extends Component {
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="bratvakontraIndikaattorit" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
-                <li data-target="#bratvakontraIndikaattorit" data-slide-to="0" className="active"></li>
-                {/*<li data-target="#bratvakontraIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#bratvakontraIndikaattorit" data-slide-to="0" className="active" />
+                {/* <li data-target="#bratvakontraIndikaattorit" data-slide-to="1"></li>
                 <li data-target="#bratvakontraIndikaattorit" data-slide-to="2"></li>
-                <li data-target="#bratvakontraIndikaattorit" data-slide-to="3"></li>*/}
+                <li data-target="#bratvakontraIndikaattorit" data-slide-to="3"></li> */}
               </ol>
               <div className="carousel-inner" role="listbox">
                 <div className="carousel-item active">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/bratvakontra/bratvakontra1.jpg" alt="Eka"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/bratvakontra/bratvakontra1.jpg" alt="Eka" />
                 </div>
-                {/*<div className="carousel-item ">
+                {/* <div className="carousel-item ">
                   <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
                 </div>
                 <div className="carousel-item ">
@@ -254,14 +254,14 @@ class Speksit extends Component {
                 </div>
                 <div className="carousel-item ">
                   <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
-                </div>*/}
+                </div> */}
               </div>
               <a className="carousel-control-prev" href="#bratvakontraIndikaattorit" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon" aria-hidden="true" />
                 <span className="sr-only">Previous</span>
               </a>
               <a className="carousel-control-next" href="#bratvakontraIndikaattorit" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="carousel-control-next-icon" aria-hidden="true" />
                 <span className="sr-only">Next</span>
               </a>
             </div>
@@ -274,16 +274,16 @@ class Speksit extends Component {
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="haliIndikaattorit" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
-                <li data-target="#haliIndikaattorit" data-slide-to="0" className="active"></li>
-                {/*<li data-target="#haliIndikaattorit" data-slide-to="1"></li>
+                <li data-target="#haliIndikaattorit" data-slide-to="0" className="active" />
+                {/* <li data-target="#haliIndikaattorit" data-slide-to="1"></li>
                 <li data-target="#haliIndikaattorit" data-slide-to="2"></li>
-                <li data-target="#haliIndikaattorit" data-slide-to="3"></li>*/}
+                <li data-target="#haliIndikaattorit" data-slide-to="3"></li> */}
               </ol>
               <div className="carousel-inner" role="listbox">
                 <div className="carousel-item active">
-                  <img className="d-block img-fluid" src="/assets/images/carousel/hali/hali1.jpg" alt="Eka"/>
+                  <img className="d-block img-fluid" src="/assets/images/carousel/hali/hali1.jpg" alt="Eka" />
                 </div>
-                {/*<div className="carousel-item ">
+                {/* <div className="carousel-item ">
                   <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo2.jpg" alt="Toka"/>
                 </div>
                 <div className="carousel-item ">
@@ -291,14 +291,14 @@ class Speksit extends Component {
                 </div>
                 <div className="carousel-item ">
                   <img className="d-block img-fluid" src="/assets/images/carousel/kruununkohtalo/kruununkohtalo4.jpg" alt="Neljäs"/>
-                </div>*/}
+                </div> */}
               </div>
               <a className="carousel-control-prev" href="#haliIndikaattorit" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon" aria-hidden="true" />
                 <span className="sr-only">Previous</span>
               </a>
               <a className="carousel-control-next" href="#haliIndikaattorit" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="carousel-control-next-icon" aria-hidden="true" />
                 <span className="sr-only">Next</span>
               </a>
             </div>
