@@ -4,14 +4,25 @@ import { Link } from 'react-router-dom';
 import cuid from 'cuid';
 
 import styles from './Header.css';
+import mobile from './MobileHeader.css';
 
 const NavItem = ({ site }) => (
-  <Link className={styles.navLink} to={site.url} >
+  <Link className={`${styles.navLink}`} to={site.url} >
     {site.name}
   </Link>
 );
 
 NavItem.propTypes = {
+  site: PropTypes.object,
+};
+
+const MobileNavItem = ({ site }) => (
+  <Link className={`${mobile.navLink}`} to={site.url} >
+    {site.name}
+  </Link>
+);
+
+MobileNavItem.propTypes = {
   site: PropTypes.object,
 };
 
@@ -33,7 +44,10 @@ class Header extends Component {
           name: 'Muut Speksit',
         },
       ],
+      showMobileMenu: false,
+
     };
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
   }
   componentDidMount() {
     $('.small-screen-link').on('click', () => {
@@ -50,8 +64,15 @@ class Header extends Component {
     });
   }
 
+  toggleMobileMenu() {
+    this.setState(prevState => ({
+      showMobileMenu: !prevState.showMobileMenu,
+    }));
+  }
+
   render() {
     const { globalStyles } = this.props;
+    const { showMobileMenu } = this.state;
     return (
       <div className={styles.navContainer + ' top'}>
         <div className={`${styles.brand} ${globalStyles.subHeading}`}>
@@ -61,9 +82,14 @@ class Header extends Component {
         <div className={styles.navItems}>
           {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
         </div>
-        <div className={styles.mobileMenuIcon}>
+        <div className={mobile.mobileMenuIcon} onClick={this.toggleMobileMenu}>
           <i className="fa fa-bars" />
         </div>
+        {showMobileMenu ? (
+          <div className={mobile.mobileMenu}>
+            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} />)}
+          </div>
+        ) : null}
       </div>
     );
   }

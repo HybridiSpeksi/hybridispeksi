@@ -1,0 +1,32 @@
+.mobileMenuIcon {
+  padding: 0 2em;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  /* display: none; */
+  background-color: black;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  text-align: right;
+}
+
+.navLink {
+  padding: 1em;
+}
+
+@media (min-width: 840px) {
+  .mobileMenuIcon {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+}

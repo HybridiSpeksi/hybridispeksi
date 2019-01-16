@@ -1,30 +1,30 @@
 .navContainer {
+  position: relative;
   display: flex;
-  background-color: rgba(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  box-shadow: 0px 7px 20px 3px #333;
+  /* box-shadow: 0px 7px 20px 3px #333; */
   position: fixed;
   z-index: 10;
   width: 100%;
-  font-family: Apercu,sans-serif;
-  color: white;
+  color: black;
 }
 
 .brand {
   padding: 0 2em;
   
 }
+
+.brandLink {
+  color: black;
+}
+
 .brandLink:hover {
   color: white;
 }
 
-.mobileMenuIcon {
-  padding: 0 2em;
-  font-size: 22px;
-  cursor: pointer;
-}
 
 .navItems {
   display: none;
@@ -37,38 +37,15 @@
   text-transform: uppercase;
 }
 
-.navLink *::after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: #fff;
-  content: '';
-  opacity: 0;
-  transition: height 0.3s, opacity 0.3s, transform 0.3s;
-  transform: translateY(-10px);
-}
-
 .navLink:hover {
   text-decoration: none;
   color: white;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
-
 @media (min-width: 840px) {
   .navItems {
     display: flex;
     width: 50%;
-  }
-
-  .mobileMenuIcon {
-    display: none;
   }
 }
 
