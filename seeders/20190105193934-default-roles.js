@@ -19,13 +19,6 @@ module.exports = {
       },
       {
         id: uuid(),
-        name: '',
-        value: 2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        id: uuid(),
         name: 'Tuotanto',
         value: 3,
         createdAt: new Date(),
