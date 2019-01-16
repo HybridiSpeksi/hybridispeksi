@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Carousel from './Carousel';
 import styles from './Speksit.css';
 
 class Speksit extends Component {
@@ -50,6 +50,8 @@ class Speksit extends Component {
               @Manilla
             </p>
           </div>
+          <Carousel name="alaammuohi" images="10"/>
+          {/*
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <div id="alaammuohiIndikaattorit" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
@@ -106,6 +108,8 @@ class Speksit extends Component {
               </a>
             </div>
           </div>
+        */}
+
         </div>
 
         {/* KRUUNUN KOHTALO */}
