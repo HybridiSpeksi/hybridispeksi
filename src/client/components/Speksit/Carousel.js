@@ -1,31 +1,29 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './Carousel.css';
 
-/**
- *
- * @param {backgroundImage} param0
- * Renders full viewport hero with possible background-image. Renders content middle
- */
 
+const CarouselContainer = ({images}) => {
 
-const CarouselContainer = props => (
-  <Carousel>
-    <div>
-      <img src="assets/images/carousel/2018/2018_1.jpg" />
-      <p className="legend">Legend 1</p>
-    </div>
-    <div>
-      <img src="assets/images/carousel/2018/2018_2.jpg" />
-      <p className="legend">Legend 2</p>
-    </div>
-    <div>
-      <img src="assets/images/carousel/2018/2018_3.jpg" />
-      <p className="legend">Legend 3</p>
-    </div>
-  </Carousel>
-);
+	let urls = [];
+	for (let i = 1; i <= images[0].numberOfImages; i++){
+		urls.push('/assets/images/carousel/' + images[0].year + '/' + images[0].year + '_' + i + '.jpg');
+	}
+	return (
+	  <Carousel showStatus={false} showThumbs={false} infiniteLoop={true}>
+	    {urls.map((url,i) => 
+		    <div key={i}>
+		      <img src={url} />
+		    </div>
+	    )}
+	  </Carousel>
+	)	
+};
+
+CarouselContainer.propTypes = {
+  images: PropTypes.array,
+};
 
 
 export default CarouselContainer;

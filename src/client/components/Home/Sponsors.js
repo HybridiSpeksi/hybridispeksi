@@ -7,8 +7,13 @@ const Sponsors = () => (
       <h2>Menossa mukana</h2>
       <div className={styles.sponsor}>
         <a href="https://www.tek.fi/fi">
-          <img src="/assets/images/tek.svg" />
+          <img className={styles.sponsorImage} src="/assets/images/sponsors/tek.png" />
         </a>
+      </div>
+      <div className={styles.sponsor}>
+      	<a href="http://tivia.fi/etusivu">
+      		<img className={styles.sponsorImage} src="/assets/images/sponsors/tivia.png" />
+      	</a>
       </div>
     </div>
 );

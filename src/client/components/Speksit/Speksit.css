@@ -12,7 +12,9 @@
 .kuvakaruselli {
 	width:100%;
 	height:auto;
-	margin:10px;
+	margin:0px;
+	padding:0px;
+	padding-bottom:30px;
 }
 
 /* STYLES FOR ALA AMMU OHI */
@@ -20,18 +22,19 @@
 .content_alaammuohi {
 	background-color:#FFECAF;
 	margin:0px;
-	padding:50px;	
-	text-align: justify;
+	padding:0px;
+	padding-top:20px;
+	text-align:left;
 }
 .font_alaammuohi_header {
 	font-family: alaammuohi;
 	color:#580d0d;
-	font-size:60px;
+	font-size:50px;
 }
 .font_alaammuohi {
 	font-family: "Baskerville Old Face";
 	color:black;
-	font-size:20px;
+	font-size:16px;
 }
 
 
@@ -40,98 +43,134 @@
 
 .content_kruunu {
 	margin:0px;
-	padding:50px;	
-	text-align: justify;
+	padding:0px;
+	padding-bottom:20px;
+	text-align:left;
 }
 .font_kruunu_header {
 	font-family: "Times New Roman";
+	font-size:32px;
 }
 .font_kruunu {
 	font-family: "Times New Roman";
-	font-size:20px;
+	font-size:16px;
 }
 
 /* STYLES FOR BRATVAKONTRA */
 
 .content_bratva {
-	margin:0px;
-	padding:50px;
-	padding-top:40px;
 	background-color:#565656;
 	color:white;
-	text-align: justify;
+	margin:0px;
+	padding:0px;
+	padding-top:20px;
+	padding-bottom:20px;
+	text-align:left;
 }
 .font_bratva_header {
 	font-family:"Courier New";
+	font-size:32px;
 }
 .font_bratva {
 	font-family:"Courier New";
-	font-size:18px;
+	font-size:16px;
 }
 
 /* STYLES FOR H.A.L.I */
 
 .content_hali {
-	margin:0px;
-	padding:50px;
-	text-align: justify;
 	background-color: #580d0d;
+	margin:0px;
+	padding:0px;
+	padding-bottom:20px;
+	text-align:left;
 	color:white;
+}
+.font_hali_header{
+	font-family: "Arial";
+	font-size:36px;
 }
 .font_hali {
 	font-family:"Arial";
-	font-size:18px;
+	font-size:16px;
 }
 
 /* STYLES FOR MOBILE DEVICES */ 
+@media (min-width: 600px) {
+	.kuvakaruselli {
 
-@media (max-width:767px){
-	.container {
-		padding:0px;
-		padding-top:40px;
 	}
-	.header {
-		padding-top:40px;
+	.content_alaammuohi{
+
 	}
-	.kuvakaruselli{
-		width:100%;
+	.content_kruunu{
+
 	}
-	.content_alaammuohi {
-		border:none;
-		margin:0px;
-		padding:0px;
-		padding-top:50px;
-		padding-bottom:40px;
-		text-align: left;
+	.content_bratva{
+
 	}
-	.content_hali {
-		border:none;
-		margin:0px;
-		padding:0px;
-		padding-bottom:40px;
-		text-align: left;
-	}
-	.content_bratva {
-		margin:0px;
-		padding:0px;
-		padding-top:50px;
-		padding-bottom:20px;
-		margin-bottom:20px;
-		text-align: left;
-	}
-	.content_kruunu {
-		border:none;
-		margin:0px;
-		margin-bottom:40px;
-		padding:0px;
-		padding-top:20px;
-		text-align: left;	
+	.content_hali{
+
 	}
 }
 
-@media (max-width:500px) {
-/*	.kuvakaruselli {
-		min-width:300px;
-		min-height:200px;
-	}*/
+@media (min-width: 840px) {
+	.kuvakaruselli{
+		padding:30px;
+	}
+	.content_alaammuohi{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	.content_kruunu{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	.content_bratva{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	.content_hali{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+}
+
+@media (min-width: 1080px) {
+	.content_alaammuohi{
+		text-align: right;
+	}
+	.content_kruunu{
+
+	}
+	.content_bratva{
+		text-align: right;
+	}
+	.content_hali{
+		
+	}
+	.font_alaammuohi_header{
+		font-size: 60px;
+	}
+	.font_alaammuohi{
+		font-size: 20px;
+	}
+	.font_kruunu_header{
+		font-size: 44px;
+	}
+	.font_kruunu{
+		font-size: 20px;
+	}
+	.font_bratva_header{
+		font-size:44px;
+	}
+	.font_bratva{
+		font-size: 18px;
+	}
+	.font_hali_header{
+		font-size: 44px;
+	}
+	.font_hali{
+		font-size: 18px;
+	}
 }
