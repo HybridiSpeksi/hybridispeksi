@@ -18,7 +18,6 @@ module.exports = {
       }, { transaction: t });
       const user = await User.create({
         id: uuid(),
-        role: 0,
         password: pwHash,
       }, { transaction: t });
       await user.setContactInfo(contactInfo, { transaction: t });

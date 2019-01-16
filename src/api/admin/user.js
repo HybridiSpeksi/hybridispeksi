@@ -31,36 +31,39 @@ module.exports = {
     const { email, password } = req.body;
     try {
       let user = await userService.findUserByEmail(email);
-      const role = await userService.getRoleByValue(5);
-      await user.addRole(role);
       if (!user) {
       // While mongoDb users still exists, they are moved to postgres when they sign in
         const mongoUser = await userService.findMongoUserByEmail(email);
         if (!mongoUser) {
           throw new Error('Käyttäjää ei löydy');
         } else {
-          console.log('mongouser found');
           if (mongoUser.password !== sha1(password)) {
             throw new Error('Virheellinen salasana');
           }
           const { fname, sname } = mongoUser;
           const pwHash = await generateHash(password);
           user = await userService.createUser(fname, sname, email, pwHash);
+          await user.addRole(await userService.getRoleByValue(mongoUser.role));
+          if (mongoUser.role === 4) {
+            await user.addRole(await userService.getRoleByValue(3));
+          }
+          user = await userService.findUserByEmail(email);
         }
       }
       const passwordIsCorrect = await isPasswordCorrect(password, user.password);
       if (!passwordIsCorrect) {
         throw new Error('Virheellinen salasana');
       }
-      if (!user.Roles.length) {
+      const roles = await user.getRoles();
+      if (!roles || roles.length === 0) {
         throw new Error('Käyttäjää ei ole vielä hyväksytty');
       }
-      console.log(user);
+      const contactInfo = user.getContactInfo();
       const payload = {
         id: user.id,
-        fname: user.ContactInfo.fname,
-        lname: user.ContactInfo.lname,
-        email: user.ContactInfo.email,
+        fname: contactInfo.fname,
+        lname: contactInfo.lname,
+        email: contactInfo.email,
       };
       const token = jwt.sign(payload, process.env.SECRET, jwtOptions);
       res.json({
@@ -111,13 +114,6 @@ module.exports = {
       console.log('error catched');
       res.json({ success: false, message: e.message });
     }
-    // UserMongo.findByIdAndRemove(req.params._id)
-    //   .then((_data) => {
-    //     res.json({ success: true, data: _data });
-    //   })
-    //   .catch((err) => {
-    //     res.json({ success: false, data: err });
-    //   });
   },
 
   addRoleToUser: async (req, res) => {
