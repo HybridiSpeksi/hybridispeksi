@@ -1,9 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import cuid from 'cuid';
 
 import styles from './Header.css';
 
+const NavItem = ({ site }) => (
+  <Link className={styles.navLink} to={site.url} >
+    {site.name}
+  </Link>
+);
+
+NavItem.propTypes = {
+  site: PropTypes.object,
+};
+
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sites: [
+        {
+          url: '/speksit',
+          name: 'Aiemmat Speksit',
+        },
+        {
+          url: '/yhdistys',
+          name: 'Yhdistys',
+        },
+        {
+          url: '/muutspeksit',
+          name: 'Muut Speksit',
+        },
+      ],
+    };
+  }
   componentDidMount() {
     $('.small-screen-link').on('click', () => {
       $('.navbar-collapse').collapse('hide');
@@ -14,39 +45,32 @@ class Header extends Component {
       if (opacity <= 0) {
         $('.top').css('display', 'none');
       } else {
-        $('.top').css('display', 'block');
+        $('.top').css('display', 'flex');
       }
     });
   }
+
   render() {
+    const { globalStyles } = this.props;
     return (
-      <div className={'top ' + styles.container}>
-        <nav className="navbar navbar-toggleable-sm navbar-inverse bg-inverse">
-          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
-          <Link className="d-none d-md-block navbar-brand" to="/">HybridiSpeksi</Link>
-          <Link className="d-block d-md-none navbar-brand small-screen-link" to="/">HybridiSpeksi</Link>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link d-none d-md-block" to="/speksit">Aiemmat Speksit</Link>
-                <Link className="nav-link d-md-none small-screen-link" to="/speksit">Aiemmat Speksit</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link d-none d-md-block" to="/yhdistys">Yhdistys</Link>
-                <Link className="nav-link d-md-none small-screen-link" to="/yhdistys">Yhdistys</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link d-none d-md-block" to="/muutspeksit">Muut speksit</Link>
-                <Link className="nav-link d-md-none small-screen-link" to="/muutspeksit">Muut speksit</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      <div className={styles.navContainer + ' top'}>
+        <div className={`${styles.brand} ${globalStyles.subHeading}`}>
+          <Link className={styles.brandLink} to="/">HybridiSpeksi</Link>
+        </div>
+
+        <div className={styles.navItems}>
+          {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
+        </div>
+        <div className={styles.mobileMenuIcon}>
+          <i className="fa fa-bars" />
+        </div>
       </div>
     );
   }
 }
+
+Header.propTypes = {
+  globalStyles: PropTypes.any,
+};
 
 export default Header;
