@@ -12,7 +12,6 @@ const CarouselContainer = ({ images }) => {
   return (
     <Carousel showStatus={false} showThumbs={false} infiniteLoop>
       {urls.map(url => (
-        // eslint-disable-next-line no-undef
         <div key={cuid()}>
           <img src={url} />
         </div>)) }
