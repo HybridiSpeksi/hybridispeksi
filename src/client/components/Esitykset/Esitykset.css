@@ -1,24 +1,24 @@
 .container {
-	background:lightgray;
+	background: lightgray;
 }
 .content {
 	background: url("/assets/images/teasertausta.png") no-repeat bottom right;
-	height:calc(100vh - 50px);
+	height: calc(100vh - 50px);
 }
 .content_row {
-	background-color:   rgba(255, 255, 255, 0.4);
-	padding:0px;
-	margin:0px;
-	width:100%;
+	background-color:  rgba(255, 255, 255, 0.4);
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
 }
 .esitykset_desc {
-	padding:20px;
-	opacity:1!important;
+	padding: 20px;
+	opacity: 1!important;
 }
-@media (max-width:400px) {
+@media ( max-width:400px ) {
 	.content {
-	height:calc(90vh - 50px);
+	height: calc(90vh - 50px);
 	background: url("/assets/images/teasertausta.png") no-repeat bottom right;
-	background-size:100%;
+	background-size: 100%;
 	}
 }

@@ -1,18 +1,17 @@
 .container {
-   background:#f7f7f7;
+   background: #f7f7f7;
 }
 
 .content_home {
-	height:700px;
-	min-height:100vh;
-	background:url('/assets/images/speksi2019bg.png') center bottom no-repeat;
-	background-size:cover;
-	/*background-size: contain;*/
+	height: 700px;
+	min-height: 100vh;
+	background: url('/assets/images/speksi2019bg.png') center bottom no-repeat;
+	background-size: cover;
 }
 
 .content_contact {
-	height:50vh;
-	background:#f7f7f7;
+	height: 50vh;
+	background: #f7f7f7;
 }
 
 /* CONTENTS */
@@ -25,69 +24,72 @@
 
 
 .linkicon{
-	margin-top:20px;
-	font-size:72px;
+	margin-top: 20px;
+	font-size: 72px;
 }
 .internallink {
   text-align: center;
   max-width: 250px;
-	margin-top:20px;
-	color:black;
-	transition:0.1s ease-in transform;
-	animation:fadein 2s;
-	display:block;
+	margin-top: 20px;
+	color: black;
+	transition: 0.1s ease-in transform;
+	animation: fadein 2s;
+	display: block;
 }
 .internallink:hover {
 	text-decoration: none;
-	color:#a9a9a9;
-	transform:scale(1.05);
+	color: #a9a9a9;
+	transform: scale(1.05);
 }
 .externallink {
-	color:#a9a9a9;
+	color: #a9a9a9;
 }
 .externallink:hover {
-	color:#a9a9a9;
+	color: #a9a9a9;
 }
 
 /* SPEKSI */
 .content_speksi {
-	margin:0px;
-	padding:0px;
-	/*padding:50px;*/
-	padding-top:60px;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 60px;
 }
 .hslogo{
-	width:270px;
-	height:270px;
-	background:url("/assets/images/normi.png") no-repeat center;
-	background-size:300px 300px;
+	width: 270px;
+	height: 270px;
+	background: url("/assets/images/normi.png") no-repeat center;
+	background-size: 300px 300px;
 }
 .infoicon{
-	font-size:150px;
-	margin:20px;
+	font-size: 150px;
+	margin: 20px;
 }
 .speksi_desc {
-	padding:20px;
-	text-align:justify;
+	padding: 20px;
+	text-align: justify;
 }
 .otsikko {
 	text-align: center;
 }
 .sponsors {
-	padding-top:50px;
-	padding-bottom:50px;
-	margin:0px;
-	margin-left:auto;
-	margin-right:auto;
-	width:50%;
+	padding-top: 50px;
+	padding-bottom: 60px;
+	margin: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 	justify-content: center;
+	text-align: center;
 }
 .sponsor {
-	padding:0px;
-	padding-top:20px;
-	padding-bottom:0px;
-	margin:0px;
-	width:auto;
+	padding: 0px;
+	padding-top: 30px;
+	padding-bottom: 0px;
+	margin: 0px;
+}
+.sponsorImage {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 

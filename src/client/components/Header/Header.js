@@ -11,7 +11,6 @@ class Header extends Component {
     $(window).scroll(() => {
       $('.top').css('opacity', 1 - $(window).scrollTop() / 200);
       const opacity = $('.top').css('opacity');
-      console.log(opacity);
       if (opacity <= 0) {
         $('.top').css('display', 'none');
       } else {
