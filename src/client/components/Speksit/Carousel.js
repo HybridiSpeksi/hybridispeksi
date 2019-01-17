@@ -1,7 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
-import './Carousel.css';
 
 
 const CarouselContainer = ({images}) => {

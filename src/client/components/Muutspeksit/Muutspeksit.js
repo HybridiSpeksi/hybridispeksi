@@ -65,7 +65,7 @@ class Muutspeksit extends Component {
 
         <div className={'row align-items-center justify-content-center ' + styles.content}>
           <div className="col-md-8 col-sm-11 col-11">
-            {this.state.speksit.map(speksi => <SpeksiRow speksi={speksi} />)}
+            {this.state.speksit.map(speksi => <SpeksiRow key={speksi.name} speksi={speksi} />)}
           </div>
         </div>
       </div>
