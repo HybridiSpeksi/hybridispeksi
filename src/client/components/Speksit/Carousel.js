@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
+import cuid from 'cuid';
 
 
 const CarouselContainer = ({ images }) => {
@@ -10,9 +11,9 @@ const CarouselContainer = ({ images }) => {
   }
   return (
     <Carousel showStatus={false} showThumbs={false} infiniteLoop>
-      {urls.map((url, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div key={i}>
+      {urls.map(url => (
+        // eslint-disable-next-line no-undef
+        <div key={cuid()}>
           <img src={url} />
         </div>)) }
     </Carousel>
