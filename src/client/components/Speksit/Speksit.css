@@ -1,30 +1,30 @@
 .container {
-	background:#f7f7f7;
-	padding:0px;
+	background: #f7f7f7;
+	padding: 0px;
 }
 .header {
-	margin:0px;
-	padding-top:70px;
-	padding-bottom:30px;
-	background:#292B2C;
-	color:white;
+	margin: 0px;
+	padding-top: 70px;
+	padding-bottom: 30px;
+	background: #292B2C;
+	color: white;
 }
 .kuvakaruselli {
-	width:100%;
-	height:auto;
-	margin:0px;
-	padding:0px;
-	padding-bottom:30px;
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 30px;
 }
 
 /* STYLES FOR ALA AMMU OHI */
 
 .content_alaammuohi {
-	background-color:#FFECAF;
-	margin:0px;
-	padding:0px;
-	padding-top:20px;
-	text-align:left;
+	background-color: #FFECAF;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 20px;
+	text-align: left;
 }
 .font_alaammuohi_header {
 	font-family: alaammuohi;
@@ -33,8 +33,8 @@
 }
 .font_alaammuohi {
 	font-family: "Baskerville Old Face";
-	color:black;
-	font-size:16px;
+	color: black;
+	font-size: 16px;
 }
 
 
@@ -42,135 +42,135 @@
 /* STYLES FOR KRUUNUN KOHTALO */
 
 .content_kruunu {
-	margin:0px;
-	padding:0px;
-	padding-bottom:20px;
-	text-align:left;
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 20px;
+	text-align: left;
 }
 .font_kruunu_header {
 	font-family: "Times New Roman";
-	font-size:32px;
+	font-size: 32px;
 }
 .font_kruunu {
 	font-family: "Times New Roman";
-	font-size:16px;
+	font-size: 16px;
 }
 
 /* STYLES FOR BRATVAKONTRA */
 
 .content_bratva {
-	background-color:#565656;
-	color:white;
-	margin:0px;
-	padding:0px;
-	padding-top:20px;
-	padding-bottom:20px;
-	text-align:left;
+	background-color: #565656;
+	color: white;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: left;
 }
 .font_bratva_header {
-	font-family:"Courier New";
-	font-size:32px;
+	font-family: "Courier New";
+	font-size: 32px;
 }
 .font_bratva {
-	font-family:"Courier New";
-	font-size:16px;
+	font-family: "Courier New";
+	font-size: 16px;
 }
 
 /* STYLES FOR H.A.L.I */
 
 .content_hali {
 	background-color: #580d0d;
-	margin:0px;
-	padding:0px;
-	padding-bottom:20px;
-	text-align:left;
-	color:white;
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 20px;
+	text-align: left;
+	color: white;
 }
-.font_hali_header{
+.font_hali_header {
 	font-family: "Arial";
-	font-size:36px;
+	font-size: 36px;
 }
 .font_hali {
-	font-family:"Arial";
-	font-size:16px;
+	font-family: "Arial";
+	font-size: 16px;
 }
 
 /* STYLES FOR MOBILE DEVICES */ 
-@media (min-width: 600px) {
+@media ( min-width: 600px ) {
 	.kuvakaruselli {
 
 	}
-	.content_alaammuohi{
+	.content_alaammuohi {
 
 	}
-	.content_kruunu{
+	.content_kruunu {
 
 	}
-	.content_bratva{
+	.content_bratva {
 
 	}
-	.content_hali{
+	.content_hali {
 
 	}
 }
 
-@media (min-width: 840px) {
-	.kuvakaruselli{
-		padding:30px;
+@media ( min-width: 840px ) {
+	.kuvakaruselli {
+		padding: 30px ;
 	}
-	.content_alaammuohi{
-		padding-top:30px;
-		padding-bottom:30px;
+	.content_alaammuohi {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
-	.content_kruunu{
-		padding-top:30px;
-		padding-bottom:30px;
+	.content_kruunu {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
-	.content_bratva{
-		padding-top:30px;
-		padding-bottom:30px;
+	.content_bratva {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
-	.content_hali{
-		padding-top:30px;
-		padding-bottom:30px;
+	.content_hali {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 }
 
-@media (min-width: 1080px) {
-	.content_alaammuohi{
+@media ( min-width: 1080px ) {
+	.content_alaammuohi {
 		text-align: right;
 	}
-	.content_kruunu{
+	.content_kruunu {
 
 	}
-	.content_bratva{
+	.content_bratva {
 		text-align: right;
 	}
-	.content_hali{
+	.content_hali {
 		
 	}
-	.font_alaammuohi_header{
+	.font_alaammuohi_header {
 		font-size: 60px;
 	}
-	.font_alaammuohi{
+	.font_alaammuohi {
 		font-size: 20px;
 	}
-	.font_kruunu_header{
+	.font_kruunu_header {
 		font-size: 44px;
 	}
-	.font_kruunu{
+	.font_kruunu {
 		font-size: 20px;
 	}
-	.font_bratva_header{
-		font-size:44px;
+	.font_bratva_header {
+		font-size: 44px;
 	}
-	.font_bratva{
+	.font_bratva {
 		font-size: 18px;
 	}
-	.font_hali_header{
+	.font_hali_header {
 		font-size: 44px;
 	}
-	.font_hali{
+	.font_hali {
 		font-size: 18px;
 	}
 }

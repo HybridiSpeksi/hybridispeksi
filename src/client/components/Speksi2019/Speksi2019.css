@@ -6,7 +6,7 @@
   width: 90%;
 }
 
-.bigsubHeading{
+.bigsubHeading {
   font-size: 26px;
 }
 
@@ -21,11 +21,11 @@
   margin-bottom: 50px;
 }
 
-.headingText{
+.headingText {
   margin-top: 10px;
 }
 
-@media (min-width: 600px) {
+@media ( min-width: 600px ) {
   .headerContainer {
     margin-top: 10vh;
   }
@@ -47,7 +47,7 @@
   }
 }
 
-@media (min-width: 840px) {
+@media ( min-width: 840px ) {
   .headerContainer {
     width: 80%;
   }
@@ -62,7 +62,7 @@
   }
 }
 
-@media (min-width: 1080px) {
+@media ( min-width: 1080px ) {
   .headerContainer {
     margin-top: unset;
     justify-content: center;

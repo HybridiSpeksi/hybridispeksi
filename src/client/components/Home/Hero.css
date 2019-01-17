@@ -9,10 +9,10 @@
 
 @keyframes fadein {
 	0% {
-		opacity:0;
+		opacity: 0;
 	}
 	100% {
-		opacity:1;
+		opacity: 1;
 	}
 }
 
@@ -40,20 +40,12 @@
   justify-content: center;
 }
 
-@keyframes fadein {
-	0% {
-		opacity:0;
-	}
-	100% {
-		opacity:1;
-	}
-}
 .teaser{
-	margin-top:100px;
-	margin-bottom:50px;
-	margin-right:auto;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	margin-right: auto;
 	margin-left: auto;
-	width:100%;
+	width: 100%;
 }
 
 .bigsubHeading{
