@@ -16,14 +16,15 @@ NavItem.propTypes = {
   site: PropTypes.object,
 };
 
-const MobileNavItem = ({ site }) => (
-  <Link className={`${mobile.navLink}`} to={site.url} >
+const MobileNavItem = ({ site, handleClick }) => (
+  <Link className={`${mobile.navLink}`} to={site.url} onClick={handleClick} >
     {site.name}
   </Link>
 );
 
 MobileNavItem.propTypes = {
   site: PropTypes.object,
+  handleClick: PropTypes.func,
 };
 
 class Header extends Component {
@@ -87,7 +88,7 @@ class Header extends Component {
         </div>
         {showMobileMenu ? (
           <div className={mobile.mobileMenu}>
-            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} />)}
+            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={this.toggleMobileMenu} />)}
           </div>
         ) : null}
       </div>

@@ -2,11 +2,12 @@
   padding: 0 2em;
   font-size: 22px;
   cursor: pointer;
+  color: #d3d3d3;
 }
 
 .mobileMenu {
   /* display: none; */
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 50%;
   position: absolute;
   right: 0;
@@ -19,6 +20,7 @@
 
 .navLink {
   padding: 1em;
+  composes: navLink from './Header.css';
 }
 
 @media (min-width: 840px) {
