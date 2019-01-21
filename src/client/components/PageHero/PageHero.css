@@ -1,0 +1,43 @@
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  position: relative;
+}
+
+.mainTitleContainer {
+  padding: 0 1em;
+  z-index: 2;
+}
+
+.mainTitle {
+  composes: bigHeading from '../App.css';
+  font-size: 42px;
+}
+
+.subTitleContainer {
+  padding: 0 1em;
+}
+
+.subTitle {
+  composes: subHeading from '../App.css';
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .heroContainer {
+    height: 40vh;
+  }
+  .mainTitleContainer {
+    padding: 0 3em;
+  }
+
+  .mainTitle {
+    font-size: 52px;
+  }
+
+  .subTitleContainer {
+    padding: 0 3em;
+  }
+}

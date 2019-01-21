@@ -1,15 +1,36 @@
 .container {
-	background: #f7f7f7;
-	padding: 0px;
+  background-color: #fff;
+  width: 100%;
 }
-.header {
-	margin: 0px;
-	padding-top: 70px;
+
+.hero {
+  display: flex;
+	padding-top: 100px;
 	padding-bottom: 30px;
-	background: #292B2C;
-	color: white;
+  background-color: #fff;
+  width: 100%;
 }
-.kuvakaruselli {
+
+.heroSpeksit {
+
+}
+
+.heroFirstColumn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.heroSecondColumn {
+  width: 100%;
+}
+
+.heroTextColumn {
+  padding: 2em;
+}
+
+.carousel {
 	width: 100%;
 	height: auto;
 	margin: 0px;

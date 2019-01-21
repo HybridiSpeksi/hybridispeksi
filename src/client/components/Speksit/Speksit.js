@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CarouselContainer from './Carousel';
 import styles from './Speksit.css';
+import PageHero from '../PageHero/PageHero';
 
 class Speksit extends Component {
   constructor(props) {
@@ -32,24 +33,7 @@ class Speksit extends Component {
   render() {
     return (
       <div className={'container-fluid ' + styles.container}>
-        <div className={'row align-items-center justify-content-center ' + styles.header}>
-          <div className="col-10">
-            <h2 className="">Aiemmat speksit</h2>
-            <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen
-            tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
-            Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla.
-            Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
-            </p>
-            <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>,
-            lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.
-            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen
-              <strong> Kruunun Kohtalo - Kalevalan perintö.</strong>
-            </p>
-            <p>Vuonna 2018 HybridiSpeksi jatkoi nousevaa uraansa Manilla-teatterilla, kun
-            esiripun takaa paljastui villi länsi ja näytös <strong>Älä Ammu Ohi</strong>.
-            </p>
-          </div>
-        </div>
+        <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi vuodesta 2015" />
 
         {/* ÄLÄ AMMU OHI */}
         <div className={'row align-items-center justify-content-center ' + styles.content_alaammuohi}>
@@ -70,13 +54,13 @@ class Speksit extends Component {
               Ensi-ilta 27.3.<br />
               @Manilla
             </p>
-            
+
           </div>
-          
+
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <CarouselContainer images={this.state.images2018} />
           </div>
-     
+
 
         </div>
 
