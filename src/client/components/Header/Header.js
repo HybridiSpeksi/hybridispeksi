@@ -7,9 +7,11 @@ import styles from './Header.css';
 import mobile from './MobileHeader.css';
 
 const NavItem = ({ site }) => (
-  <Link className={`${styles.navLink}`} to={site.url} >
-    {site.name}
-  </Link>
+  <li className={`${styles.navLink}`}>
+    <Link to={site.url} >
+      {site.name}
+    </Link>
+  </li>
 );
 
 NavItem.propTypes = {
@@ -72,25 +74,26 @@ class Header extends Component {
   }
 
   render() {
-    const { globalStyles } = this.props;
     const { showMobileMenu } = this.state;
     return (
       <div className={styles.navContainer + ' top'}>
-        <div className={`${styles.brand} ${globalStyles.subHeading}`}>
-          <Link className={styles.brandLink} to="/">HybridiSpeksi</Link>
-        </div>
-
-        <div className={styles.navItems}>
-          {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
-        </div>
-        <div className={mobile.mobileMenuIcon} onClick={this.toggleMobileMenu}>
-          <i className="fa fa-bars" />
-        </div>
-        {showMobileMenu ? (
-          <div className={mobile.mobileMenu}>
-            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={this.toggleMobileMenu} />)}
+        <div className={styles.content}>
+          <div className={`${styles.brand}`}>
+            <Link className={styles.brandLink} to="/">HybridiSpeksi</Link>
           </div>
+
+          <ul className={styles.navItems}>
+            {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
+          </ul>
+          <div className={mobile.mobileMenuIcon} onClick={this.toggleMobileMenu}>
+            <i className="fa fa-bars" />
+          </div>
+          {showMobileMenu ? (
+            <div className={mobile.mobileMenu}>
+              {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={this.toggleMobileMenu} />)}
+            </div>
         ) : null}
+        </div>
       </div>
     );
   }

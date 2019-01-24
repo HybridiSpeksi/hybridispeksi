@@ -1,0 +1,16 @@
+.fontShanghai {
+  font-family: shanghai;
+}
+
+.fontZapfino {
+  font-family: zapfino;
+}
+
+@font-face {
+	font-family: 'shanghai';
+	src: url("/assets/fonts/shanghai.ttf");
+}
+@font-face {
+	font-family: 'zapfino';
+	src: url("/assets/fonts/zapfino.ttf");
+}
