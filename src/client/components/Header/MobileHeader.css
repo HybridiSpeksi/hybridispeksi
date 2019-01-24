@@ -2,13 +2,14 @@
   padding: 0 2em;
   font-size: 22px;
   cursor: pointer;
-  color: #d3d3d3;
+  background: none;
+	border: none;
+	cursor: pointer;
+  composes: fontPurple from '../../styles/Colors.css';
 }
 
 .mobileMenu {
-  /* display: none; */
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 50%;
+  background-color: rgba(0, 0, 0, 1);
   position: absolute;
   right: 0;
   top: 80px;
@@ -16,10 +17,26 @@
   flex-direction: column;
   overflow: visible;
   text-align: right;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.mobileMenuHidden {
+  visibility: hidden;
+  opacity: 0;
+  top: 80px;
+  transform: translateY(-2em);
+  z-index: -1;
+}
+
+.mobileMenuVisible {
+  visibility: visible;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
 }
 
 .navLink {
-  padding: 1em;
+  padding: 1em 2em;
   composes: navLink from './Header.css';
 }
 

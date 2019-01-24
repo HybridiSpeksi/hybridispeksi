@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cuid from 'cuid';
 
 import styles from './Header.css';
 import mobile from './MobileHeader.css';
 
 const NavItem = ({ site }) => (
-  <li className={`${styles.navLink}`}>
-    <Link to={site.url} >
+  <li className={styles.navItem}>
+    <NavLink className={styles.navLink} to={site.url} activeClassName={styles.activeNavLink} >
       {site.name}
-    </Link>
+    </NavLink>
   </li>
 );
 
@@ -19,9 +19,9 @@ NavItem.propTypes = {
 };
 
 const MobileNavItem = ({ site, handleClick }) => (
-  <Link className={`${mobile.navLink}`} to={site.url} onClick={handleClick} >
+  <NavLink className={`${mobile.navLink}`} to={site.url} onClick={handleClick} >
     {site.name}
-  </Link>
+  </NavLink>
 );
 
 MobileNavItem.propTypes = {
@@ -50,9 +50,16 @@ class Header extends Component {
       showMobileMenu: false,
 
     };
+    this.bindListeners = this.bindListeners.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+    this.hideMobileMenu = this.hideMobileMenu.bind(this);
   }
+
   componentDidMount() {
+    this.bindListeners();
+  }
+
+  bindListeners() {
     $('.small-screen-link').on('click', () => {
       $('.navbar-collapse').collapse('hide');
     });
@@ -65,6 +72,9 @@ class Header extends Component {
         $('.top').css('display', 'flex');
       }
     });
+    $(document).on('click', () => {
+      this.hideMobileMenu();
+    });
   }
 
   toggleMobileMenu() {
@@ -73,34 +83,43 @@ class Header extends Component {
     }));
   }
 
+  hideMobileMenu() {
+    this.setState({
+      showMobileMenu: false,
+    });
+  }
+
   render() {
     const { showMobileMenu } = this.state;
+    let mobileMenuClasses;
+    if (showMobileMenu) {
+      mobileMenuClasses = `${mobile.mobileMenu} ${mobile.mobileMenuVisible}`;
+    } else {
+      mobileMenuClasses = `${mobile.mobileMenu} ${mobile.mobileMenuHidden}`;
+    }
+
     return (
       <div className={styles.navContainer + ' top'}>
         <div className={styles.content}>
           <div className={`${styles.brand}`}>
-            <Link className={styles.brandLink} to="/">HybridiSpeksi</Link>
+            <NavLink className={styles.brandLink} to="/">HybridiSpeksi</NavLink>
           </div>
 
           <ul className={styles.navItems}>
             {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
           </ul>
-          <div className={mobile.mobileMenuIcon} onClick={this.toggleMobileMenu}>
+          <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()}>
             <i className="fa fa-bars" />
+          </button>
+          {/* {showMobileMenu ? ( */}
+          <div className={mobileMenuClasses}>
+            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={() => this.toggleMobileMenu()} />)}
           </div>
-          {showMobileMenu ? (
-            <div className={mobile.mobileMenu}>
-              {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={this.toggleMobileMenu} />)}
-            </div>
-        ) : null}
+          {/* ) : null} */}
         </div>
       </div>
     );
   }
 }
-
-Header.propTypes = {
-  globalStyles: PropTypes.any,
-};
 
 export default Header;

@@ -1,16 +1,16 @@
 .navContainer {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 80px;
   position: fixed;
   z-index: 10;
   width: 100%;
 }
 
 .content {
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,35 +22,51 @@
 }
 
 .brandLink {
-  color: #d0bdd0;
-  transition: transform .2s;
+  composes: fontPurple from '../../styles/Colors.css';
   composes: fontZapfino from '../../styles/Fonts.css';
 }
 
 .brandLink:hover {
   color: #e2e2e2;
   transform: scale(1.1);
+  text-decoration: none;
 }
 
+.brandLink:focus {
+  color: #d0bdd0;
+  text-decoration: none;
+}
 
 .navItems {
   display: none;
   justify-content: space-around;
   list-style-type: none;
+  margin: 0;
+}
+
+.navItem {
+  font-size: 14px;
+  transition: transform .2s;
 }
 
 .navLink {
   composes: fontZapfino from '../../styles/Fonts.css';
-  font-size: 10px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #d0bdd0;
-  transition: transform .2s;
+}
+
+.activeNavLink {
+  color: white;
+  font-size: 16px;
+}
+
+.navItem:hover {
+  transform: scale(1.1);
 }
 
 .navLink:hover {
   text-decoration: none;
   color: #e2e2e2;
-  transform: scale(1.1);
 }
 
 @media (min-width: 840px) {
