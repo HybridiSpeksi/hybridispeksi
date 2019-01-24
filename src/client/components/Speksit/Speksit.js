@@ -32,13 +32,18 @@ class Speksit extends Component {
   }
   render() {
     return (
-      <div className={'container-fluid ' + styles.container}>
+      <div className={styles.container}>
         <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi vuodesta 2015" />
 
-        {/* ÄLÄ AMMU OHI */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_alaammuohi}>
-          <div className={'col-lg-5 col-sm-11 ' + styles.alaammuohi_desc}>
+        <div className={`${styles.speksiContainer} ${styles.black}`}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
+          </div>
+          <div className={styles.carouselContainer}>
+            <CarouselContainer images={this.state.images2018} />
+          </div>
+
+          <div className={`${styles.speksiDescription} ${styles.whiteText}`}>
             <p className={styles.font_alaammuohi}>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
               pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
@@ -50,29 +55,23 @@ class Speksit extends Component {
             <br />
             <p>
               Älä Ammu Ohi<br />
-              HybridiSpeksi 2018<br />
-              Ensi-ilta 27.3.<br />
-              @Manilla
+              HybridiSpeksi 2018
             </p>
 
           </div>
 
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
-            <CarouselContainer images={this.state.images2018} />
-          </div>
-
-
         </div>
 
-        {/* KRUUNUN KOHTALO */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_kruunu}>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2017} />
           </div>
-          <div className={'col-lg-5 col-sm-11 ' + styles.kruunu_desc}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo
               <br />&nbsp;&ndash; Kalevalan perintö
             </h1>
+          </div>
+          <div className={styles.speksiDescription}>
             <p className={styles.font_kruunu} lang="fi">Kalevalan lopussa Louhi on
              kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta
             ja jatkanut matkaansa muihin seikkailuihin
@@ -91,7 +90,7 @@ class Speksit extends Component {
             <p className={styles.font_kruunu}><strong>SEIS!</strong></p>
             <p className={styles.font_kruunu}>“Entä kruununperillisen tulikoe?”</p>
             <br />
-            <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
+            <p className={styles.font_kruunu}>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
                Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun,
             kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista.
             Saunan täydeltä tervaisia sankareita ja suomalaista sisua!
@@ -100,9 +99,14 @@ class Speksit extends Component {
         </div>
 
         {/* BRATVAKONTRA */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_bratva}>
-          <div className={'col-lg-5 col-sm-11 ' + styles.bratva_desc}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
+          </div>
+          <div className={styles.carouselContainer}>
+            <CarouselContainer images={this.state.images2016} />
+          </div>
+          <div className={styles.speksiDescription}>
             <p className={styles.font_bratva}>Kolme nuorta on
              kateissa. Tilanne on toki ikävä, enkä saisi elätellä
             liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
@@ -128,13 +132,10 @@ class Speksit extends Component {
             opiskelijakolmikosta alamaailman rikoshelvetissä.
             </p>
           </div>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
-            <CarouselContainer images={this.state.images2016} />
-          </div>
         </div>
 
         {/* H.A.L.I */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_hali}>
+        {/* <div className={'row align-items-center justify-content-center ' + styles.content_hali}>
           <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
             <CarouselContainer images={this.state.images2015} />
           </div>
@@ -162,7 +163,7 @@ class Speksit extends Component {
             opiskelijaromantiikallakin höystetyllä toimintakomedialla keväällä 2015.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

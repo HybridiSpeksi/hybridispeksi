@@ -1,13 +1,16 @@
 .heroContainer {
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 40vh;
   justify-content: center;
+  align-items: center;
   position: relative;
+  border-bottom: 1px solid black;
 }
 
 .mainTitleContainer {
-  padding: 0 1em;
+  width: 80%;
   z-index: 2;
 }
 
@@ -17,7 +20,7 @@
 }
 
 .subTitleContainer {
-  padding: 0 1em;
+  width: 80%;
 }
 
 .subTitle {
@@ -27,10 +30,10 @@
 
 @media (min-width: 600px) {
   .heroContainer {
-    height: 40vh;
+    height: 60vh;
   }
   .mainTitleContainer {
-    padding: 0 3em;
+    /* padding: 0 6em; */
   }
 
   .mainTitle {
@@ -38,6 +41,6 @@
   }
 
   .subTitleContainer {
-    padding: 0 3em;
+    /* padding: 0 6em; */
   }
 }
