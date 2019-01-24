@@ -1,5 +1,6 @@
 .container {
-  background-color: #a9a9a9;
+  composes: backgroundBlack from '../../styles/Colors.css';
+  composes: fontPurple from '../../styles/Colors.css';
   width: 100%;
 }
 
@@ -12,16 +13,16 @@
 }
 
 .speksiContainer {
-  margin-top: 1em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px black solid;
+  border-top: 1px solid white;
 }
 
 .speksiTitle {
+  order: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +31,7 @@
 }
 
 .carouselContainer {
+  order: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,16 +40,9 @@
 }
 
 .speksiDescription {
+  order: 3;
   width: 80%;
   padding: 100px 2em;
-}
-
-.black {
-  /* background-color: black; */
-}
-
-.whiteText {
-  /* color: white; */
 }
 
 .font_alaammuohi_header {
@@ -78,7 +73,8 @@
 }
 .font_bratva {
 	font-family: "Courier New";
-	font-size: 16px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .font_hali_header {
@@ -88,7 +84,8 @@
 
 .font_hali {
 	font-family: "Arial";
-	font-size: 16px;
+  font-size: 16px;
+  text-align: center;
 }
 
 @media ( min-width: 600px ) {
@@ -103,10 +100,16 @@
 
 	.carouselContainer {
     width: 50%;
+    order: unset;
   }
   
   .speksiTitle {
     width: 50%;
+    order: unset;
+  }
+
+  .speksiDescription {
+    order: unset;
   }
 }
 

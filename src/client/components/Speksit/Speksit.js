@@ -35,7 +35,7 @@ class Speksit extends Component {
       <div className={styles.container}>
         <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi vuodesta 2015" />
 
-        <div className={`${styles.speksiContainer} ${styles.black}`}>
+        <div className={`${styles.speksiContainer}`}>
           <div className={styles.speksiTitle}>
             <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
           </div>
@@ -43,7 +43,7 @@ class Speksit extends Component {
             <CarouselContainer images={this.state.images2018} />
           </div>
 
-          <div className={`${styles.speksiDescription} ${styles.whiteText}`}>
+          <div className={`${styles.speksiDescription}`}>
             <p className={styles.font_alaammuohi}>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
               pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
@@ -134,22 +134,26 @@ class Speksit extends Component {
           </div>
         </div>
 
-        {/* H.A.L.I */}
-        {/* <div className={'row align-items-center justify-content-center ' + styles.content_hali}>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2015} />
           </div>
-          <div className={'col-lg-5 col-sm-11 ' + styles.hali_desc}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_hali_header}>H.A.L.I.</h1>
-            <p className={styles.font_hali}>Turun yliopiston huippututkija Viktor Salaoja ja hänen assistenttinsa
+          </div>
+          <div className={styles.speksiDescription}>
+            <p className={styles.font_hali}>Turun yliopiston huippututkija
+            Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin
             yhteiskunnassa vastaan tulleisiin ongelmiin.
             </p>
-            <p className={styles.font_hali}>Samaan aikaan kaupungilla Hyvinvointia ja Avunantoa Lainkuuliaisille
+            <p className={styles.font_hali}>Samaan aikaan kaupungilla Hyvinvointia
+            ja Avunantoa Lainkuuliaisille
             Ihmisille -puolue (H.A.L.I.) tekee kiihkeää kampanjatyötä ja valmistautuu
             edessä oleviin kunnanvaltuuston vaaleihin.
             </p>
-            <p className={styles.font_hali}>Kun H.A.L.I. pääsee vallankahvaan kiinni, joutuu Viktor tiimeineen keskelle
+            <p className={styles.font_hali}>Kun H.A.L.I. pääsee vallankahvaan
+            kiinni, joutuu Viktor tiimeineen keskelle
             myrskyä. Tieteellinen huippututkimus valjastetaan poliittisen
             päätäntäkoneiston osaksi tuomaan absoluuttista tasa-arvoa ihmisten
             elämään. Minkälaisia vaikutuksia on Kauppatorilla riehuvalla tornadolla tai
@@ -163,7 +167,7 @@ class Speksit extends Component {
             opiskelijaromantiikallakin höystetyllä toimintakomedialla keväällä 2015.
             </p>
           </div>
-        </div> */}
+        </div>
       </div>
     );
   }
