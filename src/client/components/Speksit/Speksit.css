@@ -94,11 +94,11 @@
 }
 
 @media ( min-width: 840px ) {
-	.speksiContainer {
+  .speksiContainer {
     flex-direction: row;
   }
 
-	.carouselContainer {
+  .carouselContainer {
     width: 50%;
     order: unset;
   }
@@ -114,35 +114,35 @@
 }
 
 @media ( min-width: 1080px ) {
-	.font_alaammuohi_header {
+  .font_alaammuohi_header {
 		font-size: 60px;
   }
   
-	.font_alaammuohi {
+  .font_alaammuohi {
 		font-size: 20px;
   }
   
-	.font_kruunu_header {
+  .font_kruunu_header {
 		font-size: 44px;
   }
   
-	.font_kruunu {
+  .font_kruunu {
 		font-size: 20px;
   }
   
-	.font_bratva_header {
+  .font_bratva_header {
 		font-size: 44px;
   }
   
-	.font_bratva {
+  .font_bratva {
 		font-size: 18px;
   }
   
-	.font_hali_header {
+  .font_hali_header {
 		font-size: 44px;
   }
   
-	.font_hali {
+  .font_hali {
 		font-size: 18px;
 	}
 }
