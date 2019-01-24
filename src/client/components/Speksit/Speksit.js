@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CarouselContainer from './Carousel';
 import styles from './Speksit.css';
+import PageHero from '../PageHero/PageHero';
 
 class Speksit extends Component {
   constructor(props) {
@@ -31,30 +32,18 @@ class Speksit extends Component {
   }
   render() {
     return (
-      <div className={'container-fluid ' + styles.container}>
-        <div className={'row align-items-center justify-content-center ' + styles.header}>
-          <div className="col-10">
-            <h2 className="">Aiemmat speksit</h2>
-            <p>HybridiSpeksi on Turun yliopiston matemaattis-luonnontieteellisen
-            tiedekunnan opiskelijoiden vuosittain toteuttama opiskelijateatteriproduktio.
-            Ensimmäinen HybridiSpeksi nähtiin vuonna 2015 Barker-teatterilla.
-            Ensimmäinen speksi kantoi nimeä <strong>H.A.L.I.</strong>
-            </p>
-            <p>2016 Tanssiteatteri ERIn valtasi <strong>BratvaKontra</strong>,
-            lähitulevaisuuteen sijoittuva tiivistunnelmainen etsiväseikkailu.
-            2017 HybridiSpeksi siirtyi Manilla-teatteriin jossa nähtiin kansallisromanttinen
-              <strong> Kruunun Kohtalo - Kalevalan perintö.</strong>
-            </p>
-            <p>Vuonna 2018 HybridiSpeksi jatkoi nousevaa uraansa Manilla-teatterilla, kun
-            esiripun takaa paljastui villi länsi ja näytös <strong>Älä Ammu Ohi</strong>.
-            </p>
-          </div>
-        </div>
+      <div className={styles.container}>
+        <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi vuodesta 2015" />
 
-        {/* ÄLÄ AMMU OHI */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_alaammuohi}>
-          <div className={'col-lg-5 col-sm-11 ' + styles.alaammuohi_desc}>
+        <div className={`${styles.speksiContainer}`}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
+          </div>
+          <div className={styles.carouselContainer}>
+            <CarouselContainer images={this.state.images2018} />
+          </div>
+
+          <div className={`${styles.speksiDescription}`}>
             <p className={styles.font_alaammuohi}>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
               pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
@@ -66,29 +55,23 @@ class Speksit extends Component {
             <br />
             <p>
               Älä Ammu Ohi<br />
-              HybridiSpeksi 2018<br />
-              Ensi-ilta 27.3.<br />
-              @Manilla
+              HybridiSpeksi 2018
             </p>
-            
+
           </div>
-          
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
-            <CarouselContainer images={this.state.images2018} />
-          </div>
-     
 
         </div>
 
-        {/* KRUUNUN KOHTALO */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_kruunu}>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2017} />
           </div>
-          <div className={'col-lg-5 col-sm-11 ' + styles.kruunu_desc}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo
               <br />&nbsp;&ndash; Kalevalan perintö
             </h1>
+          </div>
+          <div className={styles.speksiDescription}>
             <p className={styles.font_kruunu} lang="fi">Kalevalan lopussa Louhi on
              kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta
             ja jatkanut matkaansa muihin seikkailuihin
@@ -107,7 +90,7 @@ class Speksit extends Component {
             <p className={styles.font_kruunu}><strong>SEIS!</strong></p>
             <p className={styles.font_kruunu}>“Entä kruununperillisen tulikoe?”</p>
             <br />
-            <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
+            <p className={styles.font_kruunu}>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
                Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun,
             kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista.
             Saunan täydeltä tervaisia sankareita ja suomalaista sisua!
@@ -116,9 +99,14 @@ class Speksit extends Component {
         </div>
 
         {/* BRATVAKONTRA */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_bratva}>
-          <div className={'col-lg-5 col-sm-11 ' + styles.bratva_desc}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
+          </div>
+          <div className={styles.carouselContainer}>
+            <CarouselContainer images={this.state.images2016} />
+          </div>
+          <div className={styles.speksiDescription}>
             <p className={styles.font_bratva}>Kolme nuorta on
              kateissa. Tilanne on toki ikävä, enkä saisi elätellä
             liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
@@ -144,27 +132,28 @@ class Speksit extends Component {
             opiskelijakolmikosta alamaailman rikoshelvetissä.
             </p>
           </div>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
-            <CarouselContainer images={this.state.images2016} />
-          </div>
         </div>
 
-        {/* H.A.L.I */}
-        <div className={'row align-items-center justify-content-center ' + styles.content_hali}>
-          <div className={'col-lg-6 col-sm-12 d-flex justify-content-center ' + styles.kuvakaruselli}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2015} />
           </div>
-          <div className={'col-lg-5 col-sm-11 ' + styles.hali_desc}>
+          <div className={styles.speksiTitle}>
             <h1 className={styles.font_hali_header}>H.A.L.I.</h1>
-            <p className={styles.font_hali}>Turun yliopiston huippututkija Viktor Salaoja ja hänen assistenttinsa
+          </div>
+          <div className={styles.speksiDescription}>
+            <p className={styles.font_hali}>Turun yliopiston huippututkija
+            Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin
             yhteiskunnassa vastaan tulleisiin ongelmiin.
             </p>
-            <p className={styles.font_hali}>Samaan aikaan kaupungilla Hyvinvointia ja Avunantoa Lainkuuliaisille
+            <p className={styles.font_hali}>Samaan aikaan kaupungilla Hyvinvointia
+            ja Avunantoa Lainkuuliaisille
             Ihmisille -puolue (H.A.L.I.) tekee kiihkeää kampanjatyötä ja valmistautuu
             edessä oleviin kunnanvaltuuston vaaleihin.
             </p>
-            <p className={styles.font_hali}>Kun H.A.L.I. pääsee vallankahvaan kiinni, joutuu Viktor tiimeineen keskelle
+            <p className={styles.font_hali}>Kun H.A.L.I. pääsee vallankahvaan
+            kiinni, joutuu Viktor tiimeineen keskelle
             myrskyä. Tieteellinen huippututkimus valjastetaan poliittisen
             päätäntäkoneiston osaksi tuomaan absoluuttista tasa-arvoa ihmisten
             elämään. Minkälaisia vaikutuksia on Kauppatorilla riehuvalla tornadolla tai

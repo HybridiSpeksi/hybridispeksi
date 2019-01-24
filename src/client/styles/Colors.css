@@ -1,0 +1,35 @@
+.backgroundPurple {
+  background-color: #d0bdd0;
+}
+
+.backgroundBlack {
+  background-color: #000000;
+}
+
+.backgroundGrey {
+  background-color: #a9a9a9;
+}
+
+.backgroundPale {
+  background-color: #d1dac6;
+}
+
+.fontPurple {
+  color: #d0bdd0;
+}
+
+.fontBlack {
+  color: #000000;
+}
+
+.fontGrey {
+  color: #a9a9a9;
+}
+
+.fontPale {
+  color: #d1dac6;
+}
+
+.fontWhite {
+  color: #ffffff;
+}
