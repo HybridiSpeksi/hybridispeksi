@@ -69,7 +69,7 @@ export default class App extends React.Component {
         {...rest}
         render={({ match }) => (
           <div>
-            <Header globalStyles={globalStyles} />
+            <Header />
             <Messages />
             <Component params={match.params} globalStyles={globalStyles} />
             <Footer />
