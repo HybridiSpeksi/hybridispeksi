@@ -1,0 +1,55 @@
+.mobileMenuIcon {
+  padding: 0 2em;
+  font-size: 22px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
+  composes: fontPurple from '../../styles/Colors.css';
+}
+
+.mobileMenu {
+  background-color: rgba(0, 0, 0, 1);
+  position: absolute;
+  right: 0;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  text-align: right;
+  transition: all 0.1s ease-in-out 0s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
+}
+
+.mobileMenuHidden {
+  visibility: hidden;
+  opacity: 0;
+  top: 80px;
+  transform: translateY(-2em);
+  z-index: -1;
+}
+
+.mobileMenuVisible {
+  visibility: visible;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+.navLink {
+  padding: 1em 2em;
+  composes: navLink from './Header.css';
+}
+
+@media (min-width: 840px) {
+  .mobileMenuContainer {
+    display: none;
+  }
+  
+  .mobileMenuIcon {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+}
