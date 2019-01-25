@@ -108,7 +108,7 @@ class Header extends Component {
           <ul className={styles.navItems}>
             {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
           </ul>
-          <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()}>
+          <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()} aria-label="Avaa mobiilimenu">
             <i className="fa fa-bars" />
           </button>
           {/* {showMobileMenu ? ( */}
