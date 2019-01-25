@@ -7,9 +7,7 @@ import SomeIcons from './SomeIcons';
 const Footer = () => (
   <div className={styles.container}>
     <div>
-      <nav className="navbar navbar-inverse">
-        <Link className="navbar-brand" to="/">HybridiSpeksi</Link>
-      </nav>
+      <Link className={styles.homeLink} to="/">HybridiSpeksi</Link>
     </div>
     <SomeIcons />
     <div>

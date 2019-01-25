@@ -1,5 +1,6 @@
 .container {
-  background-color: #292b2c;
+  composes: backgroundBlack from '../../styles/Colors.css';
+  composes: fontPurple from '../../styles/Colors.css';
   display: flex;
   justify-content: space-around;
   align-items: center;
