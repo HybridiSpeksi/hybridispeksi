@@ -3,8 +3,8 @@
   font-size: 22px;
   cursor: pointer;
   background: none;
-	border: none;
-	cursor: pointer;
+  border: none;
+  cursor: pointer;
   composes: fontPurple from '../../styles/Colors.css';
 }
 
