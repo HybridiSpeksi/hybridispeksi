@@ -51,7 +51,7 @@
 
 .navLink {
   composes: fontZapfino from '../../styles/Fonts.css';
-  color: #d0bdd0;
+  composes: fontPurple from '../../styles/Colors.css';
 }
 
 .activeNavLink {

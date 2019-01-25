@@ -125,7 +125,7 @@ class Header extends Component {
               ))}
           </ul>
           {/* eslint-disable */}
-          <div ref={node => this.node = node}>
+          <div className={mobile.mobileMenuContainer} ref={node => this.node = node}>
           {/* eslint-enable */}
             <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()} aria-label="Avaa mobiilimenu">
               <i className="fa fa-bars" />

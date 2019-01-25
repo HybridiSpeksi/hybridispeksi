@@ -41,6 +41,10 @@
 }
 
 @media (min-width: 840px) {
+  .mobileMenuContainer {
+    display: none;
+  }
+  
   .mobileMenuIcon {
     display: none;
   }
