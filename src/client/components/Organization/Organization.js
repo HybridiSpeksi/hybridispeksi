@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Yhdistys.css';
 
-class Yhdistys extends Component {
+class Organization extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
   }
@@ -267,4 +267,4 @@ class Yhdistys extends Component {
   }
 }
 
-export default Yhdistys;
+export default Organization;
