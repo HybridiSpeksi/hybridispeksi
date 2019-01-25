@@ -51,8 +51,10 @@ class Header extends Component {
 
     };
     this.bindListeners = this.bindListeners.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.hideMobileMenu = this.hideMobileMenu.bind(this);
+    this.showMobileMenu = this.showMobileMenu.bind(this);
   }
 
   componentDidMount() {
@@ -72,9 +74,15 @@ class Header extends Component {
         $('.top').css('display', 'flex');
       }
     });
-    $(document).on('click', () => {
-      this.hideMobileMenu();
-    });
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.hideMobileMenu();
   }
 
   toggleMobileMenu() {
@@ -86,6 +94,12 @@ class Header extends Component {
   hideMobileMenu() {
     this.setState({
       showMobileMenu: false,
+    });
+  }
+
+  showMobileMenu() {
+    this.setState({
+      showMobileMenu: true,
     });
   }
 
@@ -106,16 +120,22 @@ class Header extends Component {
           </div>
 
           <ul className={styles.navItems}>
-            {this.state.sites.map(site => <NavItem key={cuid()} site={site} />)}
+            {this.state.sites.map(site => (
+              <NavItem key={cuid()} site={site} />
+              ))}
           </ul>
-          <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()} aria-label="Avaa mobiilimenu">
-            <i className="fa fa-bars" />
-          </button>
-          {/* {showMobileMenu ? ( */}
-          <div className={mobileMenuClasses}>
-            {this.state.sites.map(site => <MobileNavItem key={cuid()} site={site} handleClick={() => this.toggleMobileMenu()} />)}
+          {/* eslint-disable */}
+          <div ref={node => this.node = node}>
+          {/* eslint-enable */}
+            <button className={mobile.mobileMenuIcon} onClick={() => this.toggleMobileMenu()} aria-label="Avaa mobiilimenu">
+              <i className="fa fa-bars" />
+            </button>
+            <div className={mobileMenuClasses}>
+              {this.state.sites.map(site => (
+                <MobileNavItem key={cuid()} site={site} handleClick={() => this.hideMobileMenu()} />
+              ))}
+            </div>
           </div>
-          {/* ) : null} */}
         </div>
       </div>
     );
