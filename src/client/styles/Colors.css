@@ -26,10 +26,22 @@
   color: #a9a9a9;
 }
 
+.fontLightGrey {
+  color: #e2e2e2
+}
+
 .fontPale {
   color: #d1dac6;
 }
 
 .fontWhite {
   color: #ffffff;
+}
+
+.fontHoverGrey:hover {
+  color: #e2e2e2;
+}
+
+.linkPurple {
+  composes: fontPurple fontHoverGrey;
 }

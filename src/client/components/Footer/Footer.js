@@ -12,7 +12,7 @@ const Footer = () => (
     <SomeIcons />
     <div>
       <nav className="navbar navbar-inverse">
-        <a href="mailto:hallitus@hybridispeksi.fi" className="navbar-brand">hallitus@hybridispeksi.fi</a>
+        <a href="mailto:hallitus@hybridispeksi.fi" className={styles.contactLink}>hallitus@hybridispeksi.fi</a>
       </nav>
     </div>
   </div>

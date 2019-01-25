@@ -7,6 +7,15 @@
   padding: 1em;
   flex-wrap: wrap;
 }
+
+.homeLink {
+  composes: linkPurple from '../../styles/Colors.css';
+}
+
+.contactLink {
+  composes: linkPurple from '../../styles/Colors.css';
+}
+
 .link{
 	height: 30px;
   width: 30px;
