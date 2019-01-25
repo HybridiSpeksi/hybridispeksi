@@ -42,6 +42,10 @@
   color: #e2e2e2;
 }
 
+.fontFocusGrey:focus {
+  color: #e2e2e2;
+}
+
 .linkPurple {
-  composes: fontPurple fontHoverGrey;
+  composes: fontPurple fontHoverGrey fontFocusGrey;
 }
