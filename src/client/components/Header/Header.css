@@ -51,7 +51,6 @@
 
 .navLink {
   composes: fontZapfino from '../../styles/Fonts.css';
-  /* text-transform: uppercase; */
   color: #d0bdd0;
 }
 
