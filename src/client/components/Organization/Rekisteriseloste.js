@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-import styles from './Yhdistys.css';
+import styles from './Organization';
 
 class Rekisteriseloste extends Component {
   componentDidMount() {
@@ -17,7 +16,7 @@ class Rekisteriseloste extends Component {
         </div>
         <div className={'row justify-content-center ' + styles.content}>
           <div className={'col-11 col-sm-11 col-md-10 ' + styles.saannotJaSeloste}>
-            {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p> */}
+            {/* <p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p> */}
             <h3>Henkilötietolaki (523/99) 10 §</h3>
             <h4>Rekisterin pitäjä</h4>
             <p>HybridiSpeksi ry<br />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import cuid from 'cuid';
 
 import PageHero from '../PageHero/PageHero';
-import styles from './Yhdistys.css';
+import styles from './Organization.css';
 
 class Organization extends Component {
   constructor() {

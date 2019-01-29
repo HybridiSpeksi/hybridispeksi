@@ -30,7 +30,6 @@
   margin-top: 50px;
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
 }
 
@@ -61,14 +60,11 @@
 	text-align:justify;
 }
 .saannotJaSeloste h4 {
-	margin-top:30px;
-	text-align:left;
+	margin-top: 30px;
+	text-align: left;
 }
 .yhdistys_desc {
-	padding:40px;
-	opacity:1!important;
-	/* background-color:#eaeaea; */
-	color:black;
+	padding: 40px;
 }
 .otsikko {
 	margin-top:20px;
