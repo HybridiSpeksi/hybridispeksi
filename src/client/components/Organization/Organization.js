@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import cuid from 'cuid';
+import SectionDivider from '../SectionDivider/SectionDivider';
+
 
 import PageHero from '../PageHero/PageHero';
 import styles from './Organization.css';
@@ -43,8 +45,9 @@ class Organization extends Component {
     );
     return (
       <div className={styles.container}>
-        <PageHero title="HybridiSpeksi ry" subTitle="Yhdistys" />
-
+        <div className={styles.pageHero}>
+          <PageHero title="HybridiSpeksi ry" subTitle="Yhdistys" />
+        </div>
 
         <div className={styles.basicInfoContainer}>
           <div className={styles.info}>
@@ -61,6 +64,7 @@ class Organization extends Component {
           </div>
         </div>
         {/* BasicInfo */}
+        <SectionDivider />
 
         <div className="container-fluid">
           <div className={'row justify-content-center ' + styles.content}>
