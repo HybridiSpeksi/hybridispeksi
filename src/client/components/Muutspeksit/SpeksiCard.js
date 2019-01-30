@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Muutspeksit.css';
+import styles from './SpeksiCard.css';
 
 const SpeksiRow = ({ speksi }) => (
-  <a href={speksi.url}>
-    <div className={styles.externallink}>
-      <div>
+  <div className={styles.cardContainer}>
+    <div className={styles.card}>
+      <div className={styles.tdk}>
+        {speksi.tdk}
+      </div>
+      <div className={styles.name}>
         <h3 dangerouslySetInnerHTML={{ __html: speksi.name }} />
       </div>
       <div>
         <img src={speksi.imageUrl} className={styles.linkimage} />
       </div>
+      <a href={speksi.url} className={styles.linkOverlay} />
     </div>
-  </a>
+  </div>
 );
 
 SpeksiRow.propTypes = {

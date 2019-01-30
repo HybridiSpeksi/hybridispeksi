@@ -1,0 +1,53 @@
+.cardContainer {
+  width: 100%;
+}
+
+.tdk {
+  font-size: 16px;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  min-height: 400px;
+	transition: 0.1s ease-in transform;
+  display: flex;
+  flex-direction: column;
+	justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 7px 20px 0px #d3d3d3;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.card:hover {
+  transform: scale(1.05);
+	background-color: #f1f1f1;
+}
+
+.linkimage {
+	height: 100px;
+	width: 100px;
+}
+
+.linkOverlay {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-width: 600px) {
+  .cardContainer {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1080px) {
+  .cardContainer {
+    width: 33%;
+  }
+}
