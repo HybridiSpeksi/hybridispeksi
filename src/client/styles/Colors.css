@@ -50,6 +50,19 @@
   color: #e2e2e2;
 }
 
+.fontHoverPurple:hover {
+  color: #d0bdd0;
+}
+
+.fontFocusPurple:focus {
+  color: #d0bdd0;
+}
+
+
 .linkPurple {
   composes: fontPurple fontHoverGrey fontFocusGrey;
+}
+
+.linkBlack {
+  composes: fontBlack fontHoverPurple fontFocusPurple;
 }
