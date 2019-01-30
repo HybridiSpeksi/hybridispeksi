@@ -29,10 +29,9 @@
 
 @media (min-width: 600px) {
   .heroContainer {
-    height: 60vh;
+    height: 50vh;
   }
   .mainTitleContainer {
-    /* padding: 0 6em; */
   }
 
   .mainTitle {
@@ -40,6 +39,5 @@
   }
 
   .subTitleContainer {
-    /* padding: 0 6em; */
   }
 }

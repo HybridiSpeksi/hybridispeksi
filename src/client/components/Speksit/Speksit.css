@@ -1,27 +1,27 @@
 .container {
-  composes: backgroundBlack from '../../styles/Colors.css';
-  composes: fontPurple from '../../styles/Colors.css';
-  width: 100%;
-}
-
-.year {
   width: 100%;
   display: flex;
-  composes: subHeading from '../App.css';
-  justify-content: flex-end;
-  padding: 2em 4em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageHero {
+  width: 100%;
+  composes: fontPurple from '../../styles/Colors.css';
+  composes: backgroundBlack from '../../styles/Colors.css';
+  box-shadow: 0px 7px 20px 5px #888888;
 }
 
 .speksiContainer {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid white;
 }
 
-.speksiTitle {
+.titleContainer {
   order: 1;
   display: flex;
   justify-content: center;
@@ -37,17 +37,16 @@
   justify-content: center;
   width: 100%;
   height: auto;
+  box-shadow: 0px 7px 20px 5px #888888;
 }
 
-.speksiDescription {
+.descriptionContainer {
   order: 3;
-  width: 80%;
   padding: 100px 2em;
 }
 
 .font_alaammuohi_header {
 	font-family: alaammuohi;
-	/* color: white; */
 	font-size:50px;
 }
 .font_alaammuohi {
@@ -96,6 +95,7 @@
 @media ( min-width: 840px ) {
   .speksiContainer {
     flex-direction: row;
+    width: 80%;
   }
 
   .carouselContainer {
@@ -103,12 +103,12 @@
     order: unset;
   }
   
-  .speksiTitle {
+  .titleContainer {
     width: 50%;
     order: unset;
   }
 
-  .speksiDescription {
+  .descriptionContainer {
     order: unset;
   }
 }
