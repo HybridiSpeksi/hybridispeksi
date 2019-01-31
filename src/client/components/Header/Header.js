@@ -74,9 +74,7 @@ class Header extends Component {
         $('.top').css('display', 'flex');
       }
     });
-    // if (this.state.showMobileMenu) {
     document.addEventListener('mousedown', this.handleClick, false);
-    // }
   }
 
   handleClick(e) {
