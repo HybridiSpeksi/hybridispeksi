@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-import styles from './Yhdistys.css';
+import styles from './Organization';
 
 class Rekisteriseloste extends Component {
   componentDidMount() {
@@ -9,23 +8,25 @@ class Rekisteriseloste extends Component {
   }
   render() {
     return (
-      <div className={'container-fluid ' + styles.container}>
+      <div className={'container-fluid ' + styles.container + ' ' + styles.headerPadding}>
         <div className={'row align-items-center justify-content-center ' + styles.header}>
           <div className="col-sm-10 col-11">
             <h2 className="">Rekisteriseloste</h2>
           </div>
         </div>
         <div className={'row justify-content-center ' + styles.content}>
-          <div className={"col-11 col-sm-11 col-md-10 " + styles.saannotJaSeloste}>
-            {/*<p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p>*/}
+          <div className={'col-11 col-sm-11 col-md-10 ' + styles.saannotJaSeloste}>
+            {/* <p className={"d-block text-center material-icons " + styles.infoicon}>info_outline</p> */}
             <h3>Henkilötietolaki (523/99) 10 §</h3>
             <h4>Rekisterin pitäjä</h4>
-            <p>HybridiSpeksi ry<br/>
-            Itäinen Pitkäkatu 16 B 63<br/>
-            20520 Turku</p>
+            <p>HybridiSpeksi ry<br />
+            Itäinen Pitkäkatu 16 B 63<br />
+            20520 Turku
+            </p>
             <h4>Rekisteriasioista vastaava henkilö</h4>
-            <p>HybridiSpeksi ry:n varapuheenjohtaja<br/>
-            Yhteystiedot löytyvät osoitteesta https://hybridispeksi.fi/yhdistys</p>
+            <p>HybridiSpeksi ry:n varapuheenjohtaja<br />
+            Yhteystiedot löytyvät osoitteesta https://hybridispeksi.fi/yhdistys
+            </p>
             <h4>Rekisterin nimi</h4>
             <p>HybridiSpeksi ry  – Jäsenrekisteri</p>
             <h4>Henkilötietojen käsittelyn tarkoitus (rekisterin käyttötarkoitus)</h4>
@@ -37,11 +38,13 @@ class Rekisteriseloste extends Component {
             <h4>Säännönmukaiset tietojen luovutukset ja tietojen siirto EU:n tai Euroopan talousalueen ulkopuolelle</h4>
             <p>Tietoja ei luovuteta kenellekään kolmannelle osapuolelle ilman jäsenen suostumusta.</p>
             <h4>Tietojen säilytys</h4>
-            <p>Rekisteritiedot poistetaan, kun henkilö pyytää niiden poistamista lähettämällä sähköpostia rekisterissä olevasta 
-            sähköpostiosoitteesta tai kirjallisesti rekisteriä hoitavalta henkilöltä.</p>
+            <p>Rekisteritiedot poistetaan, kun henkilö pyytää niiden poistamista lähettämällä sähköpostia rekisterissä olevasta
+            sähköpostiosoitteesta tai kirjallisesti rekisteriä hoitavalta henkilöltä.
+            </p>
             <h4>Rekisterin suojauksen periaatteet</h4>
-            <p>Rekisterin tiedot säilytetään tietojärjestelmässä, johon on pääsy vain rajatulla joukolla. Joukko pitää sisällään jäsenrekisterin ylläpidon kannalta välttämättömät henkilöt eli HybridiSpeksi 
-            ry:n istuvan hallituksen (kts. ”Rekisteriasioista vastaava henkilö”). Rekisterijärjestelmä on suojattu salasanalla.</p>
+            <p>Rekisterin tiedot säilytetään tietojärjestelmässä, johon on pääsy vain rajatulla joukolla. Joukko pitää sisällään jäsenrekisterin ylläpidon kannalta välttämättömät henkilöt eli HybridiSpeksi
+            ry:n istuvan hallituksen (kts. ”Rekisteriasioista vastaava henkilö”). Rekisterijärjestelmä on suojattu salasanalla.
+            </p>
           </div>
         </div>
       </div>

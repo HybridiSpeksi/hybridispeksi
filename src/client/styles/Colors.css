@@ -14,6 +14,10 @@
   background-color: #d1dac6;
 }
 
+.backgroundWhite {
+  background-color: #ffffff;
+}
+
 .fontPurple {
   color: #d0bdd0;
 }
@@ -26,10 +30,39 @@
   color: #a9a9a9;
 }
 
+.fontLightGrey {
+  color: #e2e2e2
+}
+
 .fontPale {
   color: #d1dac6;
 }
 
 .fontWhite {
   color: #ffffff;
+}
+
+.fontHoverGrey:hover {
+  color: #e2e2e2;
+}
+
+.fontFocusGrey:focus {
+  color: #e2e2e2;
+}
+
+.fontHoverPurple:hover {
+  color: #d0bdd0;
+}
+
+.fontFocusPurple:focus {
+  color: #d0bdd0;
+}
+
+
+.linkPurple {
+  composes: fontPurple fontHoverGrey fontFocusGrey;
+}
+
+.linkBlack {
+  composes: fontBlack fontHoverPurple fontFocusPurple;
 }

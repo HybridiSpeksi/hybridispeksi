@@ -33,17 +33,20 @@ class Speksit extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi vuodesta 2015" />
+        <div className={styles.pageHero}>
+          <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi 2015 -" />
+        </div>
 
-        <div className={`${styles.speksiContainer}`}>
-          <div className={styles.speksiTitle}>
+        <div className={styles.speksiContainer}>
+          <div className={styles.titleContainer}>
             <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
           </div>
+
           <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2018} />
           </div>
 
-          <div className={`${styles.speksiDescription}`}>
+          <div className={styles.descriptionContainer}>
             <p className={styles.font_alaammuohi}>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
               pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
@@ -57,21 +60,20 @@ class Speksit extends Component {
               Älä Ammu Ohi<br />
               HybridiSpeksi 2018
             </p>
-
           </div>
-
         </div>
+
 
         <div className={styles.speksiContainer}>
           <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2017} />
           </div>
-          <div className={styles.speksiTitle}>
+          <div className={styles.titleContainer}>
             <h1 className={styles.font_kruunu_header}>Kruunun kohtalo
               <br />&nbsp;&ndash; Kalevalan perintö
             </h1>
           </div>
-          <div className={styles.speksiDescription}>
+          <div className={styles.descriptionContainer}>
             <p className={styles.font_kruunu} lang="fi">Kalevalan lopussa Louhi on
              kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta
             ja jatkanut matkaansa muihin seikkailuihin
@@ -100,13 +102,13 @@ class Speksit extends Component {
 
         {/* BRATVAKONTRA */}
         <div className={styles.speksiContainer}>
-          <div className={styles.speksiTitle}>
+          <div className={styles.titleContainer}>
             <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
           </div>
           <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2016} />
           </div>
-          <div className={styles.speksiDescription}>
+          <div className={styles.descriptionContainer}>
             <p className={styles.font_bratva}>Kolme nuorta on
              kateissa. Tilanne on toki ikävä, enkä saisi elätellä
             liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
@@ -138,10 +140,10 @@ class Speksit extends Component {
           <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2015} />
           </div>
-          <div className={styles.speksiTitle}>
+          <div className={styles.titleContainer}>
             <h1 className={styles.font_hali_header}>H.A.L.I.</h1>
           </div>
-          <div className={styles.speksiDescription}>
+          <div className={styles.descriptionContainer}>
             <p className={styles.font_hali}>Turun yliopiston huippututkija
             Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin
