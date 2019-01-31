@@ -82,9 +82,8 @@ class Header extends Component {
       if (this.node.contains(e.target)) {
         return;
       }
+      this.hideMobileMenu();
     }
-
-    this.hideMobileMenu();
   }
 
   toggleMobileMenu() {
