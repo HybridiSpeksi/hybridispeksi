@@ -46,7 +46,6 @@ module.exports = {
   // TODO: test if works without removing booking inplicitly
   deleteBooking: async (bookingId) => {
     try {
-      const t = await transaction;
       const booking = await Booking.findOne({ where: { id: bookingId } });
       await ContactInfo.destroy({
         where: { id: booking.get('contactInfoId') },
