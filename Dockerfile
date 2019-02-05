@@ -14,7 +14,7 @@ ENV NODE_ENV production
 
 RUN apk --no-cache add --virtual native-deps \
   g++ gcc libgcc libstdc++ linux-headers autoconf automake make nasm python && \
-  npm install pm2 node-gyp -g
+  npm install pm2 node-gyp sequelize pg sequelize-cli -g
 
 RUN npm install --production
 
