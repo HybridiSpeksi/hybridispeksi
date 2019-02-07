@@ -65,6 +65,18 @@ module.exports = {
       secure: false,
       changeOrigin: true,
     },
+    // Use this when using env with docker-compose
+    // proxy: {
+    //   '/api': {
+    //     target: {
+    //       host: 'back',
+    //       protocol: 'http:',
+    //       port: 8080,
+    //     },
+    //     changeOrigin: true,
+    //     secure: false,
+    //   },
+    // },
   },
   plugins: [
     new HtmlWebpackPlugin({

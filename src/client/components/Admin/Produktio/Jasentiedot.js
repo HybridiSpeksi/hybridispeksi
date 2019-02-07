@@ -10,7 +10,7 @@ import * as auth from '../../../Utils/Auth';
 
 const Jasentiedot = ({
 
-  selectedMember, clearSelection, tehtavat, update, save, remove
+  selectedMember, clearSelection, tehtavat, update, save, remove,
 }) => {
   const updateTehtavaAtIndex = (tehtava, i) => {
     const _tehtavat = [...selectedMember.tehtavat];
@@ -55,10 +55,10 @@ const Jasentiedot = ({
   };
 
   const handleRemove = () => {
-    if(confirm('Poistetaanko henkilö rekisteristä? Toimintoa ei voi peruuttaa')) {
+    if (confirm('Poistetaanko henkilö rekisteristä? Toimintoa ei voi peruuttaa')) {
       remove(selectedMember);
     }
-  }
+  };
 
   return (
     <div className="row">
@@ -128,14 +128,14 @@ const Jasentiedot = ({
           ''
         )}
         {selectedMember.hakeeJaseneksi && !selectedMember.member ? <p>Hakee yhdistyksen jäseneksi</p> : ''}
-        {selectedMember.hakeeJaseneksi && !selectedMember.member && auth.getUserRole() > 3 ? (
+        {selectedMember.hakeeJaseneksi && !selectedMember.member && auth.hasRole(4) ? (
           <button className="btn btn-primary" data-toggle="modal" data-target="#uusijasen-modal">
             Hae {selectedMember.fname}lle yhdistyksen jäsenyyttä
           </button>
         ) : (
           ''
         )}
-        {auth.getUserRole() > 4 ? (
+        {auth.hasRole(5) ? (
           <button className="btn btn-danger" onClick={handleRemove}>
             Poista henkilö rekisteristä
           </button>

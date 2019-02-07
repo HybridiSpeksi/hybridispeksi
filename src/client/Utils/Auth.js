@@ -46,6 +46,20 @@ export const getUserRole = () => {
   return user.role;
 };
 
+export const hasRole = (role) => {
+  let hasRequestedRole = false;
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (!user) {
+    return 0;
+  }
+  user.Roles.forEach((_role) => {
+    if (_role.value === role) {
+      hasRequestedRole = true;
+    }
+  });
+  return hasRequestedRole;
+};
+
 export const getFullUserName = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   if (!user) {

@@ -10,6 +10,8 @@ export const actions = {
   CLEAR_SELECTED_USER: 'CLEAR_SELECTED_USER',
   DELETE_USER: 'DELETE_USER',
   SAVE_USER: 'SAVE_USER',
+  FETCH_ROLES: 'FETCH_ROLES',
+  RECEIVE_ROLES: 'RECEIVE_ROLES',
 };
 
 export function fetchUsers() {
@@ -22,6 +24,20 @@ export function fetchUsers() {
     } catch (err) {
       dispatch(ajaxActions.ajaxFailure(actions.FETCH_USERS, err));
       messageActions.addErrorMessage({ header: 'Käyttäjien haku epäonnistui' });
+    }
+  };
+}
+
+export function fetchRoles() {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.FETCH_ROLES));
+      const res = await ajax.sendGet('/admin/roles');
+      dispatch(ajaxActions.ajaxSuccess(actions.FETCH_ROLES));
+      dispatch(receiveRoles(res.data));
+    } catch (err) {
+      dispatch(ajaxActions.ajaxFailure(actions.FETCH_ROLES, err));
+      messageActions.addErrorMessage({ header: 'Roolien haku epäonnistui: ', text: err.message });
     }
   };
 }
@@ -56,11 +72,46 @@ export function saveUser(user) {
   };
 }
 
+export function addRoleToUser(userId, roleId) {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.SAVE_USER));
+      const res = await ajax.sendGet(`/admin/w/role/${userId}/${roleId}`);
+      dispatch(selectUser(res.data));
+      dispatch(fetchUsers());
+      dispatch(ajaxActions.ajaxSuccess(actions.SAVE_USER));
+      dispatch(messageActions.addSuccessMessage({ header: 'Tiedot päivitetty!' }));
+    } catch (err) {
+      dispatch(ajaxActions.ajaxFailure(actions.SAVE_USER, err));
+      messageActions.addErrorMessage({ header: 'Tietojen tallennus epäonnistui' });
+    }
+  };
+}
+
+export function removeRoleFromUser(userId, roleId) {
+  return async (dispatch) => {
+    try {
+      dispatch(ajaxActions.ajaxLoading(actions.SAVE_USER));
+      const res = await ajax.sendDelete(`/admin/w/role/${userId}/${roleId}`);
+      if (!res.success) { throw res.message; }
+      dispatch(selectUser(res.data));
+      dispatch(fetchUsers());
+      dispatch(ajaxActions.ajaxSuccess(actions.SAVE_USER));
+      dispatch(messageActions.addSuccessMessage({ header: 'Tiedot päivitetty!' }));
+    } catch (err) {
+      dispatch(ajaxActions.ajaxFailure(actions.SAVE_USER, err));
+      messageActions.addErrorMessage({ header: 'Tietojen tallennus epäonnistui' });
+    }
+  };
+}
+
 export function deleteUser(user) {
   return async (dispatch) => {
     try {
       dispatch(ajaxActions.ajaxLoading(actions.DELETE_USER));
-      await ajax.sendDelete('/admin/w/kayttaja/' + user._id);
+      const res = await ajax.sendDelete('/admin/w/kayttaja/' + user.id);
+      console.log(res.success);
+      if (!res.success) { throw res.message; }
       dispatch(clearUser());
       dispatch(fetchUsers());
       dispatch(ajaxActions.ajaxSuccess(actions.DELETE_USER));
@@ -82,5 +133,12 @@ function receiveUsers(users) {
   return {
     type: actions.RECEIVE_USERS,
     users,
+  };
+}
+
+function receiveRoles(roles) {
+  return {
+    type: actions.RECEIVE_ROLES,
+    roles,
   };
 }

@@ -2,29 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchUsers, selectUser, updateUser } from 'actions/userActions';
+import { fetchUsers, fetchRoles, selectUser } from 'actions/userActions';
 
 import UsersList from './UsersList';
 import User from './User';
 
-class Kayttajat extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      roles: [
-        { value: 0, name: 'Ei hyväksytty' },
-        { value: 1, name: 'Lipunmyynti' },
-        { value: 2, name: 'Ei määritelty' },
-        { value: 3, name: 'Tuotanto' },
-        { value: 4, name: 'Hallitus' },
-        { value: 5, name: 'Webmaster' },
-      ],
-    };
-  }
-
+class UserManagement extends Component {
   componentDidMount() {
     this.props.fetchUsers();
+    this.props.fetchRoles();
   }
 
   render() {
@@ -36,10 +22,9 @@ class Kayttajat extends Component {
             <UsersList />
           </div>
           <div className="col-sm-6">
-            {this.props.selectedUser._id ? (
+            {this.props.selectedUser.id ? (
               <User
                 kayttaja={this.props.selectedUser}
-                roles={this.state.roles}
               />
                         ) : ''}
           </div>
@@ -49,11 +34,10 @@ class Kayttajat extends Component {
   }
 }
 
-Kayttajat.propTypes = {
-  users: PropTypes.array,
+UserManagement.propTypes = {
   selectedUser: PropTypes.object,
   fetchUsers: PropTypes.func,
-  selectUser: PropTypes.func,
+  fetchRoles: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -63,7 +47,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
+  fetchRoles: () => dispatch(fetchRoles()),
   selectUser: user => dispatch(selectUser(user)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Kayttajat);
+export default connect(mapStateToProps, mapDispatchToProps)(UserManagement);
