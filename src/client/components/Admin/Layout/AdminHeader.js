@@ -41,18 +41,7 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
-                {auth.getUserRole() > 2 ? (
-                  <Link className="nav-link" to="/tapahtumat">
-                    Tapahtumat
-                  </Link>
-                ) : (
-                  <a className="nav-link disabled" to="#">
-                    Tapahtumat <i className="fa fa-lock" aria-hidden="true" />
-                  </a>
-                )}
-              </li>
-              <li className="nav-item">
-                {auth.getUserRole() > 3 ? (
+                {auth.hasRole(4) ? (
                   <Link className="nav-link" to="/jasenrekisteri">
                     Jäsenrekisteri
                   </Link>
@@ -63,18 +52,7 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
-                {auth.getUserRole() > 3 ? (
-                  <Link className="nav-link" to="/vuodenspeksilainen">
-                    Vuoden speksiläinen
-                  </Link>
-                ) : (
-                  <a className="nav-link disabled">
-                    Vuoden speksiläinen <i className="fa fa-lock" aria-hidden="true" />
-                  </a>
-                )}
-              </li>
-              <li className="nav-item">
-                {auth.getUserRole() > 4 ? (
+                {auth.hasRole(5) ? (
                   <Link className="nav-link" to="/kayttajat">
                     Käyttäjät
                   </Link>
