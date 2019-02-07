@@ -22,7 +22,6 @@ import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
-import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -32,9 +31,7 @@ import Produktio from './Admin/Produktio/Produktio';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
-import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
 import Palautteet from './Admin/Palautteet/Palautteet';
-import Vuodenspeksilainen from './Admin/Vuodenspeksilainen/Vuodenspeksilainen';
 
 import Login from './Admin/Auth/Login';
 
@@ -126,9 +123,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/kayttajat" component={UserManagement} />
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
-                <AdminLayout path="/tapahtumat" component={Tapahtumat} />
                 <AdminLayout path="/palautteet" component={Palautteet} />
-                <AdminLayout path="/vuodenspeksilainen" component={Vuodenspeksilainen} />
               </Switch>
             </div>
           </div>

@@ -41,6 +41,7 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
+<<<<<<< HEAD
                 {auth.hasRole(3) ? (
                   <Link className="nav-link" to="/tapahtumat">
                     Tapahtumat
@@ -52,6 +53,8 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
+=======
+>>>>>>> develop
                 {auth.hasRole(4) ? (
                   <Link className="nav-link" to="/jasenrekisteri">
                     Jäsenrekisteri
@@ -63,6 +66,7 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
+<<<<<<< HEAD
                 {auth.hasRole(4) ? (
                   <Link className="nav-link" to="/vuodenspeksilainen">
                     Vuoden speksiläinen
@@ -74,6 +78,8 @@ class AdminHeader extends Component {
                 )}
               </li>
               <li className="nav-item">
+=======
+>>>>>>> develop
                 {auth.hasRole(5) ? (
                   <Link className="nav-link" to="/kayttajat">
                     Käyttäjät
