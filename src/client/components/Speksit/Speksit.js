@@ -34,12 +34,12 @@ class Speksit extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.pageHero}>
-          <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi 2015 -" />
+          <PageHero title="Aiemmat speksit" subTitle="HybridiSpeksi 2015 -" imageUrl="/assets/images/testi2.jpg" />
         </div>
 
         <div className={styles.speksiContainer}>
           <div className={styles.titleContainer}>
-            <h1 className={styles.font_alaammuohi_header}>Älä Ammu Ohi</h1>
+            <h1>Älä Ammu Ohi</h1>
           </div>
 
           <div className={styles.carouselContainer}>
@@ -47,7 +47,7 @@ class Speksit extends Component {
           </div>
 
           <div className={styles.descriptionContainer}>
-            <p className={styles.font_alaammuohi}>
+            <p>
               Villin lännen kuumimmalla aavikolla on pieni kylä keskellä preeriaa. Tuomari Martin
               pitää yllä järjestystä lakikirjalla ja hirttosilmukalla, samalla ryysyistä rikkauksiin
               kohonnut Alexandra hallitsee kyläläisten kukkaroita ja himoja. Kaikkien rakastama
@@ -69,12 +69,12 @@ class Speksit extends Component {
             <CarouselContainer images={this.state.images2017} />
           </div>
           <div className={styles.titleContainer}>
-            <h1 className={styles.font_kruunu_header}>Kruunun kohtalo
+            <h1>Kruunun kohtalo
               <br />&nbsp;&ndash; Kalevalan perintö
             </h1>
           </div>
           <div className={styles.descriptionContainer}>
-            <p className={styles.font_kruunu} lang="fi">Kalevalan lopussa Louhi on
+            <p lang="fi">Kalevalan lopussa Louhi on
              kukistettu ja Karjalassa on viimein rauha. Väinämöinen on lähtenyt Karjalasta
             ja jatkanut matkaansa muihin seikkailuihin
              jättäen velhoneuvoston huolehtimaan kruunusta.
@@ -84,15 +84,15 @@ class Speksit extends Component {
              Velhoneuvosto auttaa Marjattaa kasvattamaan Puolukan
             opettaen häntä hallitsijan rooliin.
             </p>
-            <p className={styles.font_kruunu}>Puolukan saavutettua
+            <p>Puolukan saavutettua
              täysi-ikäisyyden, koko kansa valmistautuu hänen kruunajaisiinsa.
             Kaikki on valmiina. Kruunajaiset voivat alkaa!
             </p>
 
-            <p className={styles.font_kruunu}><strong>SEIS!</strong></p>
-            <p className={styles.font_kruunu}>“Entä kruununperillisen tulikoe?”</p>
+            <p><strong>SEIS!</strong></p>
+            <p>“Entä kruununperillisen tulikoe?”</p>
             <br />
-            <p className={styles.font_kruunu}>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
+            <p>HybridiSpeksi 2017: Kruunun kohtalo &ndash;
                Kalevalan perintö herätti henkiin kauan sitten unohdetun kansantarun,
             kertoen Suomen kansalliseepoksen, Kalevalan, jälkeisistä tapahtumista.
             Saunan täydeltä tervaisia sankareita ja suomalaista sisua!
@@ -103,28 +103,28 @@ class Speksit extends Component {
         {/* BRATVAKONTRA */}
         <div className={styles.speksiContainer}>
           <div className={styles.titleContainer}>
-            <h1 className={styles.font_bratva_header}>BratvaKontra</h1>
+            <h1>BratvaKontra</h1>
           </div>
           <div className={styles.carouselContainer}>
             <CarouselContainer images={this.state.images2016} />
           </div>
           <div className={styles.descriptionContainer}>
-            <p className={styles.font_bratva}>Kolme nuorta on
+            <p>Kolme nuorta on
              kateissa. Tilanne on toki ikävä, enkä saisi elätellä
             liian suuria toiveita, mutta tämän ansiosta saatan vihdoin edetä
             tutkinnassani. BratvaKontra toimii yleensä harkitusti, eikä ole
             aikaisemmin jättänyt mitään pitäviä todisteita lainvastaisesta
             toiminnastaan.
             </p>
-            <p className={styles.font_bratva}>Vaikken voi
+            <p>Vaikken voi
              suoraan osoittaa yhteyttä kadonneiden nuorten ja
             BratvaKontran välillä, viimeaikaiset tapahtumat viittaavat heidän
             käyttävän näitä nuoria tavotteidensa saavuttamiseksi. Miksi BratvaKontra
             poikkeaa kaavastaan? Mihin kylmän laskelmoivasti toimiva rikollisliiga
             heitä tarvitsee?
             </p>
-            <p className={styles.font_bratva}>En tiedä. Vielä.</p>
-            <p className={styles.font_bratva}>Etsivä Saarnion muistiinpanot.<br />
+            <p>En tiedä. Vielä.</p>
+            <p>Etsivä Saarnion muistiinpanot.<br />
             28.01. vuosi 21 jsk.
             </p>
             <br />
@@ -141,20 +141,20 @@ class Speksit extends Component {
             <CarouselContainer images={this.state.images2015} />
           </div>
           <div className={styles.titleContainer}>
-            <h1 className={styles.font_hali_header}>H.A.L.I.</h1>
+            <h1>H.A.L.I.</h1>
           </div>
           <div className={styles.descriptionContainer}>
-            <p className={styles.font_hali}>Turun yliopiston huippututkija
+            <p>Turun yliopiston huippututkija
             Viktor Salaoja ja hänen assistenttinsa
             kehittävät Turun yliopiston hämyisissä työhuoneissa ratkaisuja monenlaisiin
             yhteiskunnassa vastaan tulleisiin ongelmiin.
             </p>
-            <p className={styles.font_hali}>Samaan aikaan kaupungilla Hyvinvointia
+            <p>Samaan aikaan kaupungilla Hyvinvointia
             ja Avunantoa Lainkuuliaisille
             Ihmisille -puolue (H.A.L.I.) tekee kiihkeää kampanjatyötä ja valmistautuu
             edessä oleviin kunnanvaltuuston vaaleihin.
             </p>
-            <p className={styles.font_hali}>Kun H.A.L.I. pääsee vallankahvaan
+            <p>Kun H.A.L.I. pääsee vallankahvaan
             kiinni, joutuu Viktor tiimeineen keskelle
             myrskyä. Tieteellinen huippututkimus valjastetaan poliittisen
             päätäntäkoneiston osaksi tuomaan absoluuttista tasa-arvoa ihmisten

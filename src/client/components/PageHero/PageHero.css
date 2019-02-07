@@ -2,15 +2,36 @@
   padding-top: 50px;
   display: flex;
   flex-direction: column;
-  height: 40vh;
-  justify-content: center;
+  height: 80vh;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
+  padding-bottom: 4em;
+}
+
+.backgroundImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .mainTitleContainer {
   width: 80%;
   z-index: 2;
+}
+
+.titleBlock {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1em 0;
+  background-color: rgba(34, 34, 34, 0.7);
 }
 
 .mainTitle {
@@ -29,7 +50,7 @@
 
 @media (min-width: 600px) {
   .heroContainer {
-    height: 40vh;
+    height: 80vh;
   }
   .mainTitleContainer {
   }

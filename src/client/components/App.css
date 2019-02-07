@@ -2,18 +2,27 @@ body {
 
 }
 
+p, h1, h2, h3, h4, h5, h6, a {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+  /* letter-spacing: 3px; */
+}
+
 .test {
     background-color: blue;
 }
 
 .bigHeading {
-  font-family: speksi2019;
+  /* font-family: speksi2019; */
 }
 
 .subHeading {
-  font-family: speksi2019plain;
-  line-height: 2.5;
-  font-weight: bold;
+  /* font-family: speksi2019plain; */
+  /* line-height: 2.5; */
+  font-style: italic;
+  /* font-weight: bold; */
 }
 
 .headingText {

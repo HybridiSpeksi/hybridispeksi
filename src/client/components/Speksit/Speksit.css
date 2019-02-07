@@ -7,7 +7,7 @@
 
 .pageHero {
   width: 100%;
-  composes: fontPurple from '../../styles/Colors.css';
+  composes: fontWhite from '../../styles/Colors.css';
   composes: backgroundBlack from '../../styles/Colors.css';
   box-shadow: 0px 7px 20px 5px #888888;
 }
@@ -41,54 +41,12 @@
 }
 
 .descriptionContainer {
+  text-align: center;
   order: 3;
   padding: 100px 2em;
 }
 
-.font_alaammuohi_header {
-	font-family: alaammuohi;
-	font-size:50px;
-}
-.font_alaammuohi {
-	font-family: "Baskerville Old Face";
-  font-size: 16px;
-  text-align: center;
-}
-
-
-.font_kruunu_header {
-	font-family: "Times New Roman";
-	font-size: 32px;
-}
-.font_kruunu {
-	font-family: "Times New Roman";
-  font-size: 16px;
-  text-align: center;
-}
-
-.font_bratva_header {
-	font-family: "Courier New";
-	font-size: 32px;
-}
-.font_bratva {
-	font-family: "Courier New";
-  font-size: 16px;
-  text-align: center;
-}
-
-.font_hali_header {
-	font-family: "Arial";
-	font-size: 36px;
-}
-
-.font_hali {
-	font-family: "Arial";
-  font-size: 16px;
-  text-align: center;
-}
-
 @media ( min-width: 600px ) {
-  
 	
 }
 
@@ -114,35 +72,5 @@
 }
 
 @media ( min-width: 1080px ) {
-  .font_alaammuohi_header {
-		font-size: 60px;
-  }
   
-  .font_alaammuohi {
-		font-size: 20px;
-  }
-  
-  .font_kruunu_header {
-		font-size: 44px;
-  }
-  
-  .font_kruunu {
-		font-size: 20px;
-  }
-  
-  .font_bratva_header {
-		font-size: 44px;
-  }
-  
-  .font_bratva {
-		font-size: 18px;
-  }
-  
-  .font_hali_header {
-		font-size: 44px;
-  }
-  
-  .font_hali {
-		font-size: 18px;
-	}
 }

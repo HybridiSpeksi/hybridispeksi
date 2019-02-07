@@ -9,7 +9,7 @@ import styles from './HeroFullViewport.css';
  */
 
 const HeroFullViewport = (props) => {
-  const { backgroundImage } = props
+  const { backgroundImage } = props;
   return (
     <div className={styles.container} style={{ background: 'url(' + backgroundImage + ') center bottom no-repeat / cover' }}>
       {props.children}

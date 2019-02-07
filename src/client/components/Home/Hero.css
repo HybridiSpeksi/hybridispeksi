@@ -18,11 +18,13 @@
 
 .bigsubHeading{
   font-size: 26px;
+  composes: fontShanghai from '../../styles/Fonts.css';
 }
 
 .bigHeading {
   margin-top: 20px;
   font-size: 40px;
+  composes: fontShanghai from '../../styles/Fonts.css';
 }
 
 .subHeading {
