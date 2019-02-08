@@ -43,7 +43,45 @@ module.exports = {
     }
   },
 
-  // TODO: test if works without removing booking inplicitly
+  updateBooking: async (
+    id,
+    showId,
+    fname,
+    lname,
+    email,
+    pnumber,
+    normalCount,
+    discountCount,
+    specialPriceCount,
+    specialPrice,
+  ) => {
+    try {
+      const booking = await Booking.findOne({ where: { id }, include: { model: ContactInfo } });
+      if (booking) {
+        await booking.update({
+          showId,
+          normalCount,
+          discountCount,
+          specialPriceCount,
+          specialPrice,
+        });
+        const contactInfo = booking.get('ContactInfo');
+        contactInfo.update({
+          fname,
+          lname,
+          email,
+          pnumber,
+        });
+      } else {
+        throw new Error('No booking found for id');
+      }
+      return booking;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
   deleteBooking: async (bookingId) => {
     try {
       const booking = await Booking.findOne({ where: { id: bookingId } });
@@ -51,6 +89,16 @@ module.exports = {
         where: { id: booking.get('contactInfoId') },
       });
       await Booking.destr;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  getBookingsByShowId: async (showId) => {
+    try {
+      const bookings = Booking.findAll({ where: { showId } });
+      return bookings;
     } catch (e) {
       console.log(e);
       throw e;

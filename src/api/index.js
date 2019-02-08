@@ -9,6 +9,7 @@ const varaus = require('./esitykset/varaukset');
 const maksu = require('./esitykset/maksut');
 const palaute = require('./palautteet/palautteet');
 const showController = require('./shows/showController');
+const bookingController = require('./shows/bookingController');
 
 
 router.all('/admin*', user.checkToken);
@@ -67,11 +68,15 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Shows
 router.get('/shows', showController.getShows);
-// TODO: auth check!!
 router.post('/admin/h/show', showController.createShow);
 router.delete('/admin/h/show/:showId', showController.deleteShow);
-router.put('/show/:showId', showController.updateShow);
+router.put('/admin/h/show/:showId', showController.updateShow);
 
+// Bookings
+router.get('/bookings/:showId', bookingController.getBookingsByShowId);
+router.post('/booking', bookingController.createBooking);
+router.delete('/booking/:bookingId', bookingController.deleteBooking);
+router.put('/booking/:bookingId', bookingController.updateBooking);
 
 // Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
