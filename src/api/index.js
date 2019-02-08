@@ -74,9 +74,9 @@ router.put('/admin/h/show/:showId', showController.updateShow);
 
 // Bookings
 router.get('/bookings/:showId', bookingController.getBookingsByShowId);
-router.post('/booking', bookingController.createBooking);
-router.delete('/booking/:bookingId', bookingController.deleteBooking);
-router.put('/booking/:bookingId', bookingController.updateBooking);
+router.post('/admin/booking', bookingController.createBooking);
+router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
+router.put('/admin/booking/:bookingId', bookingController.updateBooking);
 
 // Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
