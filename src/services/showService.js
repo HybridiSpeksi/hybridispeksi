@@ -56,14 +56,15 @@ module.exports = {
 
   getShows: async () => {
     try {
-      const shows = Show.findAll({
+      const shows = await Show.findAll({
         include: [
-          { model: Booking },
+          { model: Booking, as: 'Bookings' },
         ],
       });
       const showsWithBookingCounts = shows.map((show) => {
-        show.bookingCount = countBookings(show);
-        return show;
+        const showJson = show.toJSON();
+        showJson.bookingCount = countBookings(show);
+        return showJson;
       });
       return showsWithBookingCounts;
     } catch (e) {

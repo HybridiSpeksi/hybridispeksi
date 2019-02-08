@@ -1,13 +1,15 @@
 
 
 module.exports = (sequelize, DataTypes) => {
-  const show = sequelize.define('Show', {
+  const Show = sequelize.define('Show', {
     date: DataTypes.DATE,
     limit: DataTypes.INTEGER,
     nameLong: DataTypes.STRING,
     nameShort: DataTypes.STRING,
+    bookingCount: DataTypes.VIRTUAL,
   }, {});
-  show.associate = function (models) {
+  Show.associate = function (models) {
+    Show.hasMany(models.Booking, { as: 'Bookings', foreignKey: 'showId' });
   };
-  return show;
+  return Show;
 };

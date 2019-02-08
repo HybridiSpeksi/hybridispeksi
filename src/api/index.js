@@ -68,7 +68,7 @@ router.delete('/ilmo', ilmo.removeIlmo);
 
 // Shows
 router.get('/shows', showController.getShows);
-router.post('/admin/h/show', showController.createShow);
+router.post('/show', showController.createShow);
 router.delete('/admin/h/show/:showId', showController.deleteShow);
 router.put('/admin/h/show/:showId', showController.updateShow);
 

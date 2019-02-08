@@ -1,0 +1,20 @@
+.container {
+  padding: 2em;
+}
+
+.showRow {
+  font-size: 14px;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background: white;
+  color: black;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.selected {
+  background-color: rgb(187, 187, 187);
+}

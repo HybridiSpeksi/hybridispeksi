@@ -41,7 +41,7 @@ module.exports = {
 
   getShows: async (req, res) => {
     try {
-      const shows = showService.getShows();
+      const shows = await showService.getShows();
       res.status(200).send(shows);
     } catch (e) {
       console.log(e);
