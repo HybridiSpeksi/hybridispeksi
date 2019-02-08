@@ -24,6 +24,25 @@ module.exports = {
     }
   },
 
+  updateShow: async (
+    id, date, limit, nameLong, nameShort,
+  ) => {
+    try {
+      const show = await Show.findOne({ where: { id } });
+      if (show) {
+        await show.update({
+          date, limit, nameLong, nameShort,
+        });
+      } else {
+        throw new Error('No show found for id');
+      }
+      return show;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
   deleteShow: async (id) => {
     try {
       await Show.destroy({

@@ -42,8 +42,8 @@ const Jasenrekisteri = Loadable({
   loading: Loading
 })
 
-const Varaustenhallinta = Loadable({
-  loader: () => import('./Admin/Varaustenhallinta/Varaustenhallinta'),
+const BookingManagement = Loadable({
+  loader: () => import('./Admin/BookingManagement/BookingManagement'),
   loading: Loading
 })
 
@@ -117,7 +117,7 @@ export default class App extends React.Component {
               <Switch>
                 <LoginLayout path="/login" component={Login} />
                 <AdminLayout path="/admin" component={Admin} />
-                <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
+                <AdminLayout path="/varaustenhallinta" component={BookingManagement} />
                 <AdminLayout path="/produktionhallinta" component={Produktio} />
                 <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
                 <AdminLayout path="/kayttajat" component={UserManagement} />

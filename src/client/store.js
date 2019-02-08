@@ -9,6 +9,7 @@ import production from './reducers/productionReducer';
 import ohjaustieto from './reducers/ohjaustietoReducer';
 import jasenrekisteri from './reducers/jasenrekisteriReducer';
 import user from './reducers/userReducer';
+import bookingManagement from './reducers/bookingManagementReducer';
 
 const reducers = combineReducers({
   form: formReducer,
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   ohjaustieto,
   jasenrekisteri,
   user,
+  bookingManagement,
 });
 
 const middleWare = applyMiddleware(thunk);

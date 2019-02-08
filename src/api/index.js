@@ -5,10 +5,10 @@ const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 const ilmo = require('./ilmo/ilmo');
 const tapahtuma = require('./ilmo/tapahtuma');
-const esitys = require('./esitykset/esitykset');
 const varaus = require('./esitykset/varaukset');
 const maksu = require('./esitykset/maksut');
 const palaute = require('./palautteet/palautteet');
+const showController = require('./shows/showController');
 
 
 router.all('/admin*', user.checkToken);
@@ -65,9 +65,13 @@ router.get('/ilmo/:value', ilmo.getAllPublic);
 router.post('/ilmo', ilmo.updateIlmo);
 router.delete('/ilmo', ilmo.removeIlmo);
 
-// Esitykset
-router.get('/esitykset', esitys.getAll);
-router.get('/getShowsWithCounts', esitys.getAllWithBookingCounts);
+// Shows
+router.get('/shows', showController.getShows);
+// TODO: auth check!!
+router.post('/admin/h/show', showController.createShow);
+router.delete('/admin/h/show/:showId', showController.deleteShow);
+router.put('/show/:showId', showController.updateShow);
+
 
 // Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
