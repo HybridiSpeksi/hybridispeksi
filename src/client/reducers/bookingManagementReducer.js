@@ -5,10 +5,10 @@ const initialState = {
   selectedShow: {},
   bookings: [],
   selectedBooking: {
-    id: 'asdf',
-    normalCount: 1,
-    discountCount: 2,
-    specialPriceCount: 3,
+    id: '',
+    normalCount: 0,
+    discountCount: 0,
+    specialPriceCount: 0,
     specialPrice: 10.00,
     ContactInfo: {
       fname: 'Iiris',

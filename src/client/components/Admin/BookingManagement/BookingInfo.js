@@ -9,7 +9,7 @@ const BookingInfo = ({ booking }) => {
     return (
       <div className={styles.container}>
         <div className={styles.buttonRow}>
-          <button>Uusi varaus</button>
+          <Link className={styles.button} to="varaus">Uusi varaus</Link>
         </div>
       </div>
     );

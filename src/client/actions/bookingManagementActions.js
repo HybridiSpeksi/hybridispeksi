@@ -10,6 +10,7 @@ export const actions = {
   FETCH_BOOKINGS: 'FETCH_BOOKINGS',
   RECEIVE_BOOKINGS: 'RECEIVE_BOOKINGS',
   SELECT_BOOKING: 'SELECT_BOOKING',
+  SAVE_BOOKING: 'SAVE_BOOKING',
 };
 
 export function fetchShows() {
@@ -37,6 +38,31 @@ export function fetchBookings(showId) {
     } catch (err) {
       dispatch(ajaxActions.ajaxFailure(actions.FETCH_BOOKINGS));
       dispatch(messageActions.addErrorMessage({ header: 'Virhe haettaessa varauksia' }));
+    }
+  };
+}
+
+export function createBooking(booking) {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendPost('/admin/booking', booking);
+      console.log(res);
+      location.replace('/varaustenhallinta');
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
+      console.log(err);
+    }
+  };
+}
+
+export function updateBooking(booking) {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendPut('/admin/booking/' + booking.id, booking);
+      console.log(res);
+      location.replace('/varaustenhallinta');
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
     }
   };
 }
