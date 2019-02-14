@@ -47,7 +47,7 @@ export function createBooking(booking) {
     try {
       const res = await ajax.sendPost('/admin/booking', booking);
       console.log(res);
-      location.replace('/varaustenhallinta');
+      // location.replace('/varaustenhallinta');
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
       console.log(err);

@@ -2,17 +2,20 @@ const bookingService = require('../../services/bookingService');
 
 module.exports = {
   createBooking: async (req, res) => {
+    console.log(req.body);
     const {
       showId,
-      fname,
-      lname,
-      email,
-      pnumber,
       normalCount,
       discountCount,
       specialPriceCount,
       specialPrice,
     } = req.body;
+    const {
+      fname,
+      lname,
+      email,
+      pnumber,
+    } = req.body.ContactInfo;
     try {
       const booking = await bookingService.createBooking(
         showId,

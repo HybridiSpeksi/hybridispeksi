@@ -19,7 +19,7 @@ module.exports = {
   ) => {
     try {
       const t = await transaction;
-      const show = await Show.findOne({ where: { id: showId } });
+      const show = await Show.findOne({ where: { id: showId } }, { transaction: t });
       const contactInfo = await ContactInfo.create({
         id: uuid(),
         fname,
@@ -33,7 +33,7 @@ module.exports = {
         discountCount,
         specialPriceCount,
         specialPrice,
-      });
+      }, { transaction: t });
       await booking.setShow(show, { transaction: t });
       await booking.setContactInfo(contactInfo, { transaction: t });
       return booking;

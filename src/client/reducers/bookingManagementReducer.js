@@ -10,6 +10,7 @@ const initialState = {
     discountCount: 0,
     specialPriceCount: 0,
     specialPrice: 10.00,
+    showId: '38586081-888f-419d-a9ea-fcf9360acd6f',
     ContactInfo: {
       fname: 'Iiris',
       lname: 'Hongisto',

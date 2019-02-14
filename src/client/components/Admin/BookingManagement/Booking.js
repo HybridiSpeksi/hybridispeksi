@@ -51,6 +51,7 @@ const Tickets = ({ selectedShow }) => (
       <div className={styles.formRow}>
         <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
         <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erokoishinta" />
+        <Field name="showId" component="input" type="text" className={styles.hidden} />
       </div>
     </div>
   </div>
@@ -110,7 +111,8 @@ class Booking extends Component {
       booking, selectedShow, initialValues, handleSubmit,
     } = this.props;
     const onSubmit = (values) => {
-      console.log(values.normalCount);
+      console.log(values);
+      this.props.createBooking(values);
     };
 
     return (
@@ -136,6 +138,7 @@ Booking.propTypes = {
   initialValues: PropTypes.object,
   shows: PropTypes.array,
   fetchShows: PropTypes.func,
+  createBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
