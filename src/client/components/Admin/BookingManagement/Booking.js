@@ -51,7 +51,6 @@ const Tickets = ({ selectedShow }) => (
       <div className={styles.formRow}>
         <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
         <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erokoishinta" />
-        <Field name="showId" component="input" type="text" className={styles.hidden} />
       </div>
     </div>
   </div>
@@ -112,6 +111,7 @@ class Booking extends Component {
     } = this.props;
     const onSubmit = (values) => {
       console.log(values);
+      values.showId = selectedShow.id;
       this.props.createBooking(values);
     };
 
