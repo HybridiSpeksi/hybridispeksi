@@ -73,7 +73,7 @@ router.delete('/admin/h/show/:showId', showController.deleteShow);
 router.put('/admin/h/show/:showId', showController.updateShow);
 
 // Bookings
-router.get('/bookings/:showId', bookingController.getBookingsByShowId);
+router.get('/admin/bookings/:showId', bookingController.getBookingsByShowId);
 router.post('/admin/booking', bookingController.createBooking);
 router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
 router.put('/admin/booking/:bookingId', bookingController.updateBooking);

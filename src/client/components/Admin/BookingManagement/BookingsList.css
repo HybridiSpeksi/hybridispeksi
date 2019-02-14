@@ -2,7 +2,7 @@
   /* padding: 2em; */
 }
 
-.showRow {
+.bookingRow {
   font-size: 14px;
   width: 100%;
   padding: 1em;
@@ -17,4 +17,15 @@
 
 .selected {
   background-color: rgb(187, 187, 187);
+}
+
+.name {
+  width: 25%;
+}
+.email {
+  width: 20%;
+}
+
+.bookingCount {
+  width: 10%;
 }

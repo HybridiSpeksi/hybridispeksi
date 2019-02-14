@@ -3,7 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './ShowsList.css';
-import { selectShow } from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingManagementActions';
 
 const Show = ({ show, handleClick, selected }) => (
   <button className={`${styles.showRow} ${selected ? styles.selected : ''}`} onClick={() => handleClick(show)}>
@@ -18,15 +18,19 @@ Show.propTypes = {
   selected: PropTypes.bool,
 };
 
-const ShowsList = ({ shows, selectedShow, select }) => {
+const ShowsList = ({
+  shows, selectedShow, select, fetchBookings,
+}) => {
   const handleClick = (show) => {
     select(show);
+    fetchBookings(show.id);
   };
   return (
     <div className={styles.container} >
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
+      <a href="/esitykset">Hallinnoi esityksiä</a>
     </div>
   );
 };
@@ -35,6 +39,7 @@ ShowsList.propTypes = {
   shows: PropTypes.array,
   select: PropTypes.func,
   selectedShow: PropTypes.object,
+  fetchBookings: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -43,7 +48,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  select: show => dispatch(selectShow(show)),
+  select: show => dispatch(actions.selectShow(show)),
+  fetchBookings: showId => dispatch(actions.fetchBookings(showId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowsList);

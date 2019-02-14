@@ -97,7 +97,10 @@ module.exports = {
 
   getBookingsByShowId: async (showId) => {
     try {
-      const bookings = Booking.findAll({ where: { showId } });
+      const bookings = Booking.findAll({
+        where: { showId },
+        include: { model: ContactInfo },
+      });
       return bookings;
     } catch (e) {
       console.log(e);
