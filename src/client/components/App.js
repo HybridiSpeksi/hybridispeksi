@@ -52,6 +52,11 @@ const Booking = Loadable({
   loading: Loading
 })
 
+const ShowsManagement = Loadable({
+  loader: () => import('./Admin/BookingManagement/ShowsManagement'),
+  loading: Loading
+})
+
 export default class App extends React.Component {
   render() {
     const PublicLayout = ({ component: Component, ...rest }) => (
@@ -124,6 +129,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/admin" component={Admin} />
                 <AdminLayout exact path="/varaustenhallinta" component={BookingManagement} />
                 <AdminLayout exact path="/varaus" component={Booking} />
+                <AdminLayout path="/esitystenhallinta" component={ShowsManagement} />
                 <AdminLayout path="/produktionhallinta" component={Produktio} />
                 <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
                 <AdminLayout path="/kayttajat" component={UserManagement} />

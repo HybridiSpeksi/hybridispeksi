@@ -48,6 +48,7 @@ module.exports = {
       await Show.destroy({
         where: { id },
       });
+      return;
     } catch (e) {
       console.log(e);
       throw e;

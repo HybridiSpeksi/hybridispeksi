@@ -44,9 +44,9 @@ const BookingInfo = ({ booking }) => {
         <span>Yhteensä {normalCount + discountCount + specialPriceCount} kpl</span>
       </div>
       <div className={styles.buttonRow}>
-        <button onClick={redeem} disabled>Lunasta</button>
-        <button onClick={clearSelection}>Tyhjennä valinta</button>
-        <Link to="/varaus"><button>Muokkaa tietoja</button></Link>
+        {/* <button className={styles.button} onClick={redeem} disabled>Lunasta</button> */}
+        <button className={styles.button} onClick={clearSelection}>Tyhjennä valinta</button>
+        <Link className={styles.button} to="/varaus">Muokkaa tai poista</Link>
       </div>
     </div>
   );

@@ -30,7 +30,6 @@ const ShowsList = ({
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
-      <a href="/esitykset">Hallinnoi esityksiä</a>
     </div>
   );
 };

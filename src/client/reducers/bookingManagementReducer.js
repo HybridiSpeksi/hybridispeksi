@@ -2,7 +2,13 @@ import { actions } from 'actions/bookingManagementActions';
 
 const initialState = {
   shows: [],
-  selectedShow: {},
+  selectedShow: {
+    id: '',
+    limit: 135,
+    nameLong: '',
+    nameShort: '',
+    date: '',
+  },
   bookings: [],
   selectedBooking: {
     id: '',
@@ -41,6 +47,16 @@ const bookingManagement = (state = initialState, action) => {
       return {
         ...state,
         selectedBooking: { ...action.booking },
+      };
+    case actions.CLEAR_SELECTED_SHOW:
+      return {
+        ...state,
+        selectedShow: initialState.selectedShow,
+      };
+    case actions.CLEAR_SELECTED_BOOKING:
+      return {
+        ...state,
+        selectedBooking: initialState.selectedBooking,
       };
     default:
       return state;

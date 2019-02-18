@@ -8,7 +8,7 @@ module.exports = {
     } = req.body;
     try {
       await showService.createShow(date, limit, nameLong, nameShort);
-      res.status(200).send();
+      res.json({ success: true });
     } catch (e) {
       console.log(e);
       res.status(500).send('Palvelimella tapahtui virhe');
@@ -18,7 +18,7 @@ module.exports = {
   deleteShow: async (req, res) => {
     try {
       await showService.deleteShow(req.params.showId);
-      res.status(200).send();
+      res.json({ success: true });
     } catch (e) {
       console.log(e);
       res.status(500).send('Palvelimella tapahtui virhe');

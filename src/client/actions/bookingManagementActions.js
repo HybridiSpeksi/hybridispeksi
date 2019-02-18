@@ -11,6 +11,8 @@ export const actions = {
   RECEIVE_BOOKINGS: 'RECEIVE_BOOKINGS',
   SELECT_BOOKING: 'SELECT_BOOKING',
   SAVE_BOOKING: 'SAVE_BOOKING',
+  CLEAR_SELECTED_SHOW: 'CLEAR_SELECTED_SHOW',
+  CLEAR_SELECTED_BOOKING: 'CLEAR_SELECTED_BOOKING',
 };
 
 export function fetchShows() {
@@ -47,7 +49,7 @@ export function createBooking(booking) {
     try {
       const res = await ajax.sendPost('/admin/booking', booking);
       console.log(res);
-      // location.replace('/varaustenhallinta');
+      location.replace('/varaustenhallinta');
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
       console.log(err);
@@ -67,6 +69,48 @@ export function updateBooking(booking) {
   };
 }
 
+export function createShow(show) {
+  return async (dispatch) => {
+    try {
+      await ajax.sendPost('/admin/h/show', show);
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }));
+      dispatch(fetchShows());
+      dispatch(clearSelectedShow());
+    } catch (err) {
+      console.log(err);
+      dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
+    }
+  };
+}
+
+export function updateShow(show) {
+  return async (dispatch) => {
+    try {
+      await ajax.sendPut('/admin/h/show/' + show.id, show);
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }));
+      dispatch(fetchShows());
+      dispatch(clearSelectedShow());
+    } catch (err) {
+      console.log(err);
+      dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
+    }
+  };
+}
+
+export function deleteShow(show) {
+  return async (dispatch) => {
+    try {
+      await ajax.sendDelete('/admin/h/show/' + show.id);
+      dispatch(fetchShows());
+      dispatch(clearSelectedShow());
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }));
+    } catch (err) {
+      console.log(err);
+      dispatch(messageActions.addErrorMessage({ header: 'Esitystä ei voitu poistaa' }));
+    }
+  };
+}
+
 export function selectShow(show) {
   return {
     type: actions.SELECT_SHOW,
@@ -78,6 +122,18 @@ export function selectBooking(booking) {
   return {
     type: actions.SELECT_BOOKING,
     booking,
+  };
+}
+
+export function clearSelectedShow() {
+  return {
+    type: actions.CLEAR_SELECTED_SHOW,
+  };
+}
+
+export function clearSelectedBooking() {
+  return {
+    type: actions.CLEAR_SELECTED_BOOKING,
   };
 }
 
