@@ -21,6 +21,12 @@ module.exports = {
       specialPrice: {
         type: Sequelize.DECIMAL(10, 2),
       },
+      tag: {
+        type: Sequelize.STRING,
+      },
+      redeemed: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

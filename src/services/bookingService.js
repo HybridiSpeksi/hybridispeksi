@@ -4,6 +4,15 @@ const Booking = require('../../models').Booking;
 const Show = require('../../models').Show;
 const ContactInfo = require('../../models').ContactInfo;
 
+const generateTag = () => {
+  let id = '';
+  const letters = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
+  for (let i = 0; i < 5; i++) {
+    id += letters.charAt(Math.floor(Math.random() * letters.length));
+  }
+  return id;
+};
+
 module.exports = {
 
   createBooking: async (
@@ -26,6 +35,7 @@ module.exports = {
         lname,
         email,
         pnumber,
+        tag: generateTag(),
       }, { transaction: t });
       const booking = await Booking.create({
         id: uuid(),
@@ -107,4 +117,5 @@ module.exports = {
       throw e;
     }
   },
+
 };
