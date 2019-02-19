@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import styles from './BookingManagement.css';
 import ShowsList from './ShowsList';
 import BookingsList from './BookingsList';
@@ -18,7 +18,9 @@ class BookingManagement extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.showsList}>
+          <h1>Varaustenhallinta</h1>
           <ShowsList />
+          <Link to="esitystenhallinta">Hallitse esityksiä</Link>
         </div>
         <div className={styles.bookingsList}>
           <BookingsList />

@@ -38,15 +38,17 @@ module.exports = {
   updateBooking: async (req, res) => {
     const {
       showId,
-      fname,
-      lname,
-      email,
-      pnumber,
       normalCount,
       discountCount,
       specialPriceCount,
       specialPrice,
     } = req.body;
+    const {
+      fname,
+      lname,
+      email,
+      pnumber,
+    } = req.body.ContactInfo;
     const id = req.params.bookingId;
     try {
       const booking = bookingService.updateBooking(
@@ -72,7 +74,7 @@ module.exports = {
     const { bookingId } = req.params;
     try {
       await bookingService.deleteBooking(bookingId);
-      res.status(200).send();
+      res.json({ success: true });
     } catch (e) {
       console.log(e);
       res.status(500).send('Palvelimella tapahtui virhe');

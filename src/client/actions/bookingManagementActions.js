@@ -1,5 +1,6 @@
 import * as ajaxActions from './ajaxActions';
 import * as messageActions from './messageActions';
+import { Redirect } from 'react-router-dom';
 
 import ajax from '../Utils/Ajax';
 
@@ -49,7 +50,10 @@ export function createBooking(booking) {
     try {
       const res = await ajax.sendPost('/admin/booking', booking);
       console.log(res);
-      location.replace('/varaustenhallinta');
+      dispatch(messageActions.addSuccessMessage({ header: 'Varaus luotiin onnistuneesti!' }));
+      setTimeout(() => {
+        location.replace('/varaustenhallinta');
+      }, 1500);
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
       console.log(err);
@@ -62,9 +66,26 @@ export function updateBooking(booking) {
     try {
       const res = await ajax.sendPut('/admin/booking/' + booking.id, booking);
       console.log(res);
-      location.replace('/varaustenhallinta');
+      dispatch(messageActions.addSuccessMessage({ header: 'Muutokset tallennettiin onnistuneesti!' }));
+      setTimeout(() => {
+        location.replace('/varaustenhallinta');
+      }, 1500);
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
+    }
+  };
+}
+
+export function deleteBooking(booking) {
+  return async (dispatch) => {
+    try {
+      await ajax.sendDelete('/admin/booking/' + booking.id);
+      dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }));
+      setTimeout(() => {
+        location.replace('/varaustenhallinta');
+      }, 1500);
+    } catch (err) {
+      dispatch(messageActions.addErrorMessage({ header: 'Virhe poistettaessa varausta' }));
     }
   };
 }

@@ -46,11 +46,11 @@ const Tickets = ({ selectedShow }) => (
       </div>
       <div className={styles.formRow}>
         <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (14€)" />
-        <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (12€)" />
+        <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14€)" />
       </div>
       <div className={styles.formRow}>
         <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
-        <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erokoishinta" />
+        <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erikoishinta" />
       </div>
     </div>
   </div>
@@ -67,30 +67,26 @@ const Shows = () => (
   </div>
 );
 
-const Buttons = ({ booking }) => {
+const Buttons = ({ booking, deleteBooking }) => {
   const isNewBooking = booking.id === '';
   return (
     <div className={styles.column}>
       <div className={styles.formRow}>
         {isNewBooking ? (
-          <React.Fragment>
-            <button type="submit" className={`${styles.input} ${styles.button} ${styles.success}`}>
+          <button type="submit" className={`${styles.input} ${styles.button} ${styles.success}`}>
               Tallenna uusi varaus
-            </button>
-            <Link to="varaustenhallinta" className={`${styles.input} ${styles.button} ${styles.cancel}`}>
-              Tyhjennä ja palaa
-            </Link>
-          </React.Fragment>
+          </button>
         ) : (
           <React.Fragment>
+            <button type="button" onClick={deleteBooking} className={`${styles.input} ${styles.button}`}>Poista varaus</button>
             <button type="submit" className={`${styles.input} ${styles.button} ${styles.success}`}>
               Tallenna muutokset
             </button>
-            <Link to="varaustenhallinta" className={`${styles.input} ${styles.button} ${styles.cancel}`}>
-              Peruuta ja palaa varaustenhallintaan
-            </Link>
           </React.Fragment>
         )}
+        <Link to="varaustenhallinta" className={`${styles.input} ${styles.button} ${styles.cancel}`}>
+          Peruuta
+        </Link>
       </div>
     </div>
   );
@@ -98,6 +94,7 @@ const Buttons = ({ booking }) => {
 
 Buttons.propTypes = {
   booking: PropTypes.object,
+  deleteBooking: PropTypes.func,
 };
 
 class Booking extends Component {
@@ -107,12 +104,21 @@ class Booking extends Component {
 
   render() {
     const {
-      booking, selectedShow, initialValues, handleSubmit,
+      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking,
     } = this.props;
     const onSubmit = (values) => {
-      console.log(values);
       values.showId = selectedShow.id;
-      this.props.createBooking(values);
+      if (booking.id === '') {
+        createBooking(values);
+      } else {
+        updateBooking(values);
+      }
+    };
+
+    const handleDelete = () => {
+      if (confirm('Poistetaanko varaus?')) {
+        deleteBooking(booking);
+      }
     };
 
     return (
@@ -124,7 +130,7 @@ class Booking extends Component {
           </div>
           <div className={styles.row}>
             <Shows />
-            <Buttons booking={booking} />
+            <Buttons booking={booking} deleteBooking={handleDelete} />
           </div>
         </form>
       </div>
@@ -135,10 +141,12 @@ class Booking extends Component {
 Booking.propTypes = {
   booking: PropTypes.object,
   selectedShow: PropTypes.object,
-  initialValues: PropTypes.object,
   shows: PropTypes.array,
   fetchShows: PropTypes.func,
   createBooking: PropTypes.func,
+  updateBooking: PropTypes.func,
+  deleteBooking: PropTypes.func,
+  handleSubmit: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -151,6 +159,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
+  updateBooking: booking => dispatch(actions.updateBooking(booking)),
+  deleteBooking: booking => dispatch(actions.deleteBooking(booking)),
 });
 
 const BookingWithReduxForm = reduxForm({

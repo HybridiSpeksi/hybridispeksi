@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingManagementActions';
@@ -15,6 +17,7 @@ const ShowInfo = ({ show, deleteShow, toggleShowForm }) => {
     <React.Fragment>
       <h2>Esityksen tiedot</h2>
       <p>{show.nameLong}</p>
+      <p><Moment format="DD.MM.YYYY HH.mm">{show.date}</Moment></p>
       <div className={pagestyles.formRow}>
         <button className={pagestyles.button} onClick={toggleShowForm}>Muokkaa</button>
         <button onClick={deleteShow} className={`${pagestyles.button} ${pagestyles.danger}`}>Poista</button>
@@ -40,6 +43,7 @@ const Shows = ({ showForm, toggleShowForm, clearSelectedShow }) => {
           </button>
         </div>
       ) : null}
+      <Link to="varaustenhallinta">Palaa varaustenhallintaan</Link>
     </React.Fragment>
   );
 };

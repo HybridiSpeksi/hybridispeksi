@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(22, 22, 22);
+  background-color: black;
   color: white;
   display: flex;
 }
