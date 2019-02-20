@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, getFormValues } from 'redux-form';
 import styles from './Booking.css';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingManagementActions';
@@ -37,27 +37,41 @@ const ContactInfo = () => (
   </div>
 );
 
-const Tickets = ({ selectedShow }) => (
-  <div className={styles.column}>
-    <h2>Liput</h2>
-    <div className={styles.content}>
-      <div>
-        <span>{selectedShow.nameLong}</span>
-      </div>
-      <div className={styles.formRow}>
-        <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (16€)" />
-        <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14€)" />
-      </div>
-      <div className={styles.formRow}>
-        <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
-        <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erikoishinta" />
+const Tickets = ({ selectedShow, formState, prices }) => {
+  const countPrice = () => {
+    if (!formState) return 0;
+    const {
+      normalCount, discountCount, specialPriceCount, specialPrice,
+    } = formState;
+    const { normalPrice, discountPrice } = prices;
+    return Number(normalCount) * Number(normalPrice) + Number(discountCount) * Number(discountPrice) + Number(specialPriceCount) * Number(specialPrice);
+  };
+  return (
+    <div className={styles.column}>
+      <h2>Liput</h2>
+      <div className={styles.content}>
+        <div>
+          <span>{selectedShow.nameLong}</span>
+        </div>
+        <div className={styles.formRow}>
+          <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (16€)" />
+          <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14€)" />
+        </div>
+        <div className={styles.formRow}>
+          <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
+          <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erikoishinta" />
+        </div>
+        <div>
+          <span>Hinta yhteensä {countPrice()}€</span>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Tickets.propTypes = {
   selectedShow: PropTypes.object,
+  formState: PropTypes.object,
 };
 
 const Shows = () => (
@@ -104,7 +118,7 @@ class Booking extends Component {
 
   render() {
     const {
-      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking,
+      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices,
     } = this.props;
     const onSubmit = (values) => {
       values.showId = selectedShow.id;
@@ -128,7 +142,7 @@ class Booking extends Component {
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.row}>
             <ContactInfo />
-            <Tickets selectedShow={selectedShow} />
+            <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
           </div>
           <div className={styles.row}>
             <Shows />
@@ -144,18 +158,22 @@ Booking.propTypes = {
   booking: PropTypes.object,
   selectedShow: PropTypes.object,
   shows: PropTypes.array,
+  prices: PropTypes.array,
   fetchShows: PropTypes.func,
   createBooking: PropTypes.func,
   updateBooking: PropTypes.func,
   deleteBooking: PropTypes.func,
   handleSubmit: PropTypes.func,
+  formState: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   booking: state.bookingManagement.selectedBooking,
   initialValues: state.bookingManagement.selectedBooking,
   selectedShow: state.bookingManagement.selectedShow,
+  prices: state.bookingManagement.prices,
   shows: state.bookingManagement.shows,
+  formState: getFormValues('bookingForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({

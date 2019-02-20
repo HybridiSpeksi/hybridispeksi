@@ -1,6 +1,10 @@
 import { actions } from 'actions/bookingManagementActions';
 
 const initialState = {
+  prices: {
+    normalPrice: 16,
+    discountPrice: 14,
+  },
   shows: [],
   selectedShow: {
     id: '',
