@@ -26,6 +26,11 @@ module.exports = {
       },
       redeemed: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      paid: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,

@@ -29,6 +29,21 @@ module.exports = {
             onDelete: 'CASCADE',
           },
         );
+      })
+      .then(() => {
+        return queryInterface.addColumn(
+          'Bookings',
+          'paymentMethodId',
+          {
+            type: Sequelize.UUID,
+            references: {
+              model: 'PaymentMethods',
+              key: 'id',
+              as: 'paymentMethodId',
+            },
+            onDelete: 'CASCADE',
+          },
+        );
       });
   },
 
@@ -41,6 +56,12 @@ module.exports = {
         return queryInterface.removeColumn(
           'Bookings',
           'contactInfoId',
+        );
+      })
+      .then(() => {
+        return queryInterface.removeColumn(
+          'Bookings',
+          'paymentMethodId',
         );
       });
   },
