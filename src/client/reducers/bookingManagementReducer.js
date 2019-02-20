@@ -21,6 +21,9 @@ const initialState = {
     specialPriceCount: 0,
     specialPrice: 10.00,
     showId: '',
+    paid: false,
+    additionalInfo: '',
+    paymentMethodCode: 100,
     ContactInfo: {
       fname: '',
       lname: '',

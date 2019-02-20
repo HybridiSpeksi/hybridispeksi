@@ -3,23 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
+import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
 import styles from './Booking.css';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingManagementActions';
-
-const RenderTextfield = field => (
-  <div className={styles.inputGroup}>
-    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
-    <input id={field.id} className={styles.input} {...field.input} placeholder={field.placeholder} type="text" />
-  </div>
-);
-
-const RenderNumber = field => (
-  <div className={styles.inputGroup}>
-    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
-    <input id={field.id} className={styles.input} {...field.input} type="number" />
-  </div>
-);
 
 const ContactInfo = () => (
   <div className={styles.column}>
@@ -61,8 +48,11 @@ const Tickets = ({ selectedShow, formState, prices }) => {
           <Field name="specialPriceCount" id="sCountInput" component={RenderNumber} type="number" label="Muu hinta kpl" />
           <Field name="specialPrice" id="sPriceInput" component={RenderNumber} type="number" label="Erikoishinta" />
         </div>
-        <div>
+        <div className={styles.price}>
           <span>Hinta yhteensä {countPrice()}€</span>
+        </div>
+        <div className={styles.formRow}>
+          <Field name="additionalInfo" id="additionalArea" component={RenderTextarea} type="text" label="Lisätietoja" rows="5" />
         </div>
       </div>
     </div>

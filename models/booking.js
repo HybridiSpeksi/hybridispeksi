@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     tag: DataTypes.STRING,
     redeemed: DataTypes.BOOLEAN,
     paid: DataTypes.BOOLEAN,
+    additionalInfo: DataTypes.STRING,
   }, {});
   Booking.associate = (models) => {
     Booking.belongsTo(models.Show, {

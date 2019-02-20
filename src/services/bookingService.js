@@ -28,6 +28,7 @@ module.exports = {
     specialPrice,
     paid,
     paymentMethodCode,
+    additionalInfo,
   ) => {
     try {
       const t = await transaction;
@@ -49,6 +50,7 @@ module.exports = {
         tag: generateTag(),
         redeemed: false,
         paid,
+        additionalInfo,
       }, { transaction: t });
       booking = await booking.setShow(show, { transaction: t });
       booking = await booking.setContactInfo(contactInfo, { transaction: t });
@@ -71,6 +73,7 @@ module.exports = {
     discountCount,
     specialPriceCount,
     specialPrice,
+    additionalInfo,
   ) => {
     try {
       const booking = await Booking.findOne({ where: { id }, include: { model: ContactInfo } });
@@ -81,6 +84,7 @@ module.exports = {
           discountCount,
           specialPriceCount,
           specialPrice,
+          additionalInfo,
         });
         const contactInfo = booking.get('ContactInfo');
         contactInfo.update({

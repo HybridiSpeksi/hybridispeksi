@@ -19,7 +19,7 @@ const BookingInfo = ({ booking, clearSelectedBooking }) => {
     fname, lname, email, pnumber,
   } = booking.ContactInfo;
   const {
-    normalCount, discountCount, specialPriceCount, specialPrice,
+    normalCount, discountCount, specialPriceCount, specialPrice, additionalInfo, paid,
   } = booking;
 
   return (
@@ -39,6 +39,9 @@ const BookingInfo = ({ booking, clearSelectedBooking }) => {
         ?
           <span>Erikoishintaiset liput: {specialPriceCount}, hinta {specialPrice} </span>
         : null}
+      </div>
+      <div className={styles.infoRow}>
+        {additionalInfo}
       </div>
       <div className={styles.infoRow}>
         <span>Yhteensä {normalCount + discountCount + specialPriceCount} kpl</span>

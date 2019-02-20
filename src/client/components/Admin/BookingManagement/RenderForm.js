@@ -22,3 +22,10 @@ export const RenderDateField = field => (
     <input id={field.id} className={styles.input} {...field.input} type="datetime-local" />
   </div>
 );
+
+export const RenderTextarea = field => (
+  <div className={styles.inputGroup}>
+    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
+    <textarea id={field.id} className={styles.input} rows={field.rows} {...field.input} />
+  </div>
+);

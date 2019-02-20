@@ -11,6 +11,7 @@ module.exports = {
       specialPrice,
       paid,
       paymentMethodCode,
+      additionalInfo,
     } = req.body;
     const {
       fname,
@@ -31,9 +32,9 @@ module.exports = {
         specialPrice,
         paid,
         paymentMethodCode,
+        additionalInfo,
       );
       if (paid) {
-        console.log('###############################');
         await mailer.sendTicket(booking.get('id'));
       }
       res.status(200).send(booking);
@@ -50,6 +51,7 @@ module.exports = {
       discountCount,
       specialPriceCount,
       specialPrice,
+      additionalInfo,
     } = req.body;
     const {
       fname,
@@ -70,6 +72,7 @@ module.exports = {
         discountCount,
         specialPriceCount,
         specialPrice,
+        additionalInfo,
       );
       res.status(200).send(booking);
     } catch (e) {

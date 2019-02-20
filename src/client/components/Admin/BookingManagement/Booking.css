@@ -71,3 +71,7 @@
   color: white;
   background-color: rgb(112, 112, 112);
 }
+
+.price {
+  margin-bottom: 2em;
+}
