@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'contactInfoId',
       onDelete: 'CASCADE',
     });
+    Booking.belongsTo(models.PaymentMethod, {
+      foreignKey: 'paymentMethodId',
+      onDelete: 'CASCADE',
+    });
   };
   return Booking;
 };

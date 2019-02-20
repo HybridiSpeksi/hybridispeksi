@@ -2,13 +2,14 @@ const bookingService = require('../../services/bookingService');
 
 module.exports = {
   createBooking: async (req, res) => {
-    console.log(req.body);
     const {
       showId,
       normalCount,
       discountCount,
       specialPriceCount,
       specialPrice,
+      paid,
+      paymentMethodCode,
     } = req.body;
     const {
       fname,
@@ -27,6 +28,8 @@ module.exports = {
         discountCount,
         specialPriceCount,
         specialPrice,
+        paid,
+        paymentMethodCode,
       );
       res.status(200).send(booking);
     } catch (e) {

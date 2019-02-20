@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     code: DataTypes.INTEGER,
   }, {});
   PaymentMethod.associate = function (models) {
-    // associations can be defined here
+    PaymentMethod.hasMany(models.Booking, { as: 'Bookings', foreignKey: 'paymentMethodId' });
   };
   return PaymentMethod;
 };

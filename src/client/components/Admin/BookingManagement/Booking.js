@@ -109,6 +109,7 @@ class Booking extends Component {
     const onSubmit = (values) => {
       values.showId = selectedShow.id;
       if (booking.id === '') {
+        values.paymentMethodCode = 100;
         createBooking(values);
       } else {
         updateBooking(values);

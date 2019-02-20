@@ -3,6 +3,7 @@ const transaction = require('sequelize').transaction;
 const Booking = require('../../models').Booking;
 const Show = require('../../models').Show;
 const ContactInfo = require('../../models').ContactInfo;
+const PaymentMethod = require('../../models').PaymentMethod;
 
 const generateTag = () => {
   let id = '';
@@ -25,17 +26,19 @@ module.exports = {
     discountCount,
     specialPriceCount,
     specialPrice,
+    paid,
+    paymentMethodCode,
   ) => {
     try {
       const t = await transaction;
       const show = await Show.findOne({ where: { id: showId } }, { transaction: t });
+      const paymentMethod = await PaymentMethod.findOne({ where: { code: paymentMethodCode } }, { transaction: t });
       const contactInfo = await ContactInfo.create({
         id: uuid(),
         fname,
         lname,
         email,
         pnumber,
-        tag: generateTag(),
       }, { transaction: t });
       const booking = await Booking.create({
         id: uuid(),
@@ -43,9 +46,13 @@ module.exports = {
         discountCount,
         specialPriceCount,
         specialPrice,
+        tag: generateTag(),
+        redeemed: false,
+        paid,
       }, { transaction: t });
       await booking.setShow(show, { transaction: t });
       await booking.setContactInfo(contactInfo, { transaction: t });
+      await booking.setPaymentMethod(paymentMethod, { transaction: t });
       return booking;
     } catch (e) {
       console.log(e);
