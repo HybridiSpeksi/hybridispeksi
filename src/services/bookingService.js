@@ -117,6 +117,7 @@ module.exports = {
       const bookings = await Booking.findAll({
         where: { showId },
         include: { model: ContactInfo },
+        order: [['createdAt', 'DESC']],
       });
       return bookings;
     } catch (e) {

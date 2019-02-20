@@ -1,8 +1,6 @@
 const uuid = require('uuid/v4');
-const transaction = require('sequelize').transaction;
 const Booking = require('../../models').Booking;
 const Show = require('../../models').Show;
-const ContactInfo = require('../../models').ContactInfo;
 
 module.exports = {
 
@@ -61,6 +59,7 @@ module.exports = {
         include: [
           { model: Booking, as: 'Bookings' },
         ],
+        order: [['date', 'ASC']],
       });
       const showsWithBookingCounts = shows.map((show) => {
         const showJson = show.toJSON();
