@@ -1,5 +1,6 @@
 import * as ajaxActions from './ajaxActions';
 import * as messageActions from './messageActions';
+import * as loaderActions from './loaderActions';
 
 import ajax from '../Utils/Ajax';
 
@@ -47,13 +48,15 @@ export function fetchBookings(showId) {
 export function createBooking(booking) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       const res = await ajax.sendPost('/admin/booking', booking);
-      console.log(res);
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addSuccessMessage({ header: 'Varaus luotiin onnistuneesti!' }));
       setTimeout(() => {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
       console.log(err);
     }
@@ -63,13 +66,15 @@ export function createBooking(booking) {
 export function updateBooking(booking) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       const res = await ajax.sendPut('/admin/booking/' + booking.id, booking);
-      console.log(res);
       dispatch(messageActions.addSuccessMessage({ header: 'Muutokset tallennettiin onnistuneesti!' }));
+      dispatch(loaderActions.hideLoader());
       setTimeout(() => {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
     }
   };
@@ -78,12 +83,15 @@ export function updateBooking(booking) {
 export function deleteBooking(booking) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       await ajax.sendDelete('/admin/booking/' + booking.id);
       dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }));
+      dispatch(loaderActions.hideLoader());
       setTimeout(() => {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Virhe poistettaessa varausta' }));
     }
   };
@@ -92,12 +100,15 @@ export function deleteBooking(booking) {
 export function createShow(show) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       await ajax.sendPost('/admin/h/show', show);
       dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }));
+      dispatch(loaderActions.hideLoader());
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
     } catch (err) {
       console.log(err);
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
     }
   };
@@ -106,12 +117,15 @@ export function createShow(show) {
 export function updateShow(show) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       await ajax.sendPut('/admin/h/show/' + show.id, show);
       dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }));
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
+      dispatch(loaderActions.hideLoader());
     } catch (err) {
       console.log(err);
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
     }
   };
@@ -120,12 +134,15 @@ export function updateShow(show) {
 export function deleteShow(show) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       await ajax.sendDelete('/admin/h/show/' + show.id);
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
       dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }));
+      dispatch(loaderActions.hideLoader());
     } catch (err) {
       console.log(err);
+      dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addErrorMessage({ header: 'Esitystä ei voitu poistaa' }));
     }
   };

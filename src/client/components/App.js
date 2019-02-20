@@ -10,7 +10,8 @@ import * as auth from './../Utils/Auth';
 // Public
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import Messages from './ApplicationMessages/Messages'
+import Messages from './ApplicationMessages/Messages';
+import Loader from './Loader/Loader';
 
 import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
@@ -67,6 +68,7 @@ export default class App extends React.Component {
           <div>
             <Header />
             <Messages />
+            <Loader />
             <Component params={match.params} globalStyles={globalStyles} />
             <Footer />
           </div>
@@ -80,6 +82,7 @@ export default class App extends React.Component {
         render={({ match }) => (
           <div>
             <Messages />
+            <Loader />
             <Component params={match.params} globalStyles={globalStyles} />
           </div>
         )}
@@ -95,6 +98,7 @@ export default class App extends React.Component {
             <div>
               <AdminHeader />
               <Messages />
+              <Loader />
               <Component params={match.params} globalStyles={globalStyles} />
               <AdminFooter />
             </div>
