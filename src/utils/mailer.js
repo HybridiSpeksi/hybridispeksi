@@ -1,40 +1,39 @@
-var nodemailer = require('nodemailer');
-var mg = require('nodemailer-mailgun-transport');
-var moment = require('moment');
+const nodemailer = require('nodemailer');
+const mg = require('nodemailer-mailgun-transport');
+const moment = require('moment');
+const bookingService = require('../services/bookingService');
 
-var cashTicket = require('./mailtemplates/cash_ticket').cashTicket;
-var webshopTicket = require('./mailtemplates/webshop_ticket').webshopTicket;
+const cashTicket = require('./mailtemplates/cash_ticket').cashTicket;
+const webshopTicket = require('./mailtemplates/webshop_ticket').webshopTicket;
 
 const auth = {
-    auth: {
-        api_key: process.env.MAILGUN_API_KEY,
-        domain: process.env.DOMAIN
-    }
-}
+  auth: {
+    api_key: process.env.MAILGUN_API_KEY,
+    domain: process.env.DOMAIN,
+  },
+};
 
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 
 module.exports = {
-    /**
+  /**
      * Send ticket
      * @return promise()
      */
-    sendTicket: (booking) => {
-        return new Promise((resolve, reject) => {
-            nodemailerMailgun.sendMail({
-                from: 'lipunmyynti@hybridispeksi.fi',
-                to: booking.email,
-                subject: 'Varausvahvistus',
-                html: cashTicket(booking)
-            })
-            .then(() => {
-                resolve();
-            })
-            .catch(err => {
-                console.log(err);
-                reject({code: 500, message: 'Sähköpostin lähetys epäonnistui.', ohjaustietoValue: 3});
-            })
-        })
-    },
-}
+  sendTicket: async (bookingId) => {
+    try {
+      const booking = await bookingService.findById(bookingId);
+      console.log(booking.get('normalCount'));
+      await nodemailerMailgun.sendMail({
+        from: 'lipunmyynti@hybridispeksi.fi',
+        to: booking.get('ContactInfo').get('email'),
+        subject: 'Varausvahvistus',
+        html: cashTicket(booking),
+      });
+    } catch (err) {
+      console.log(err);
+      throw new Error('Sähköpostin lähetys epäonnistui');
+    }
+  },
+};

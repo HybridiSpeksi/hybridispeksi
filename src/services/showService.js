@@ -73,6 +73,16 @@ module.exports = {
       throw e;
     }
   },
+
+  findById: async (id) => {
+    try {
+      const show = await Show.findOne({ where: { id } });
+      return show;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
 };
 
 const countBookings = (show) => {

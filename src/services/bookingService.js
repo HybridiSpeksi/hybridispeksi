@@ -40,7 +40,7 @@ module.exports = {
         email,
         pnumber,
       }, { transaction: t });
-      const booking = await Booking.create({
+      let booking = await Booking.create({
         id: uuid(),
         normalCount,
         discountCount,
@@ -50,9 +50,9 @@ module.exports = {
         redeemed: false,
         paid,
       }, { transaction: t });
-      await booking.setShow(show, { transaction: t });
-      await booking.setContactInfo(contactInfo, { transaction: t });
-      await booking.setPaymentMethod(paymentMethod, { transaction: t });
+      booking = await booking.setShow(show, { transaction: t });
+      booking = await booking.setContactInfo(contactInfo, { transaction: t });
+      booking = await booking.setPaymentMethod(paymentMethod, { transaction: t });
       return booking;
     } catch (e) {
       console.log(e);
@@ -114,11 +114,24 @@ module.exports = {
 
   getBookingsByShowId: async (showId) => {
     try {
-      const bookings = Booking.findAll({
+      const bookings = await Booking.findAll({
         where: { showId },
         include: { model: ContactInfo },
       });
       return bookings;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  findById: async (id) => {
+    try {
+      const booking = await Booking.findOne({
+        where: { id },
+        include: [{ model: ContactInfo }, { model: Show }],
+      });
+      return booking;
     } catch (e) {
       console.log(e);
       throw e;

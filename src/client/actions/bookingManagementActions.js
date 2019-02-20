@@ -1,6 +1,5 @@
 import * as ajaxActions from './ajaxActions';
 import * as messageActions from './messageActions';
-import { Redirect } from 'react-router-dom';
 
 import ajax from '../Utils/Ajax';
 
@@ -53,7 +52,7 @@ export function createBooking(booking) {
       dispatch(messageActions.addSuccessMessage({ header: 'Varaus luotiin onnistuneesti!' }));
       setTimeout(() => {
         location.replace('/varaustenhallinta');
-      }, 1500);
+      }, 700);
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
       console.log(err);
@@ -69,7 +68,7 @@ export function updateBooking(booking) {
       dispatch(messageActions.addSuccessMessage({ header: 'Muutokset tallennettiin onnistuneesti!' }));
       setTimeout(() => {
         location.replace('/varaustenhallinta');
-      }, 1500);
+      }, 700);
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
     }
@@ -83,7 +82,7 @@ export function deleteBooking(booking) {
       dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }));
       setTimeout(() => {
         location.replace('/varaustenhallinta');
-      }, 1500);
+      }, 700);
     } catch (err) {
       dispatch(messageActions.addErrorMessage({ header: 'Virhe poistettaessa varausta' }));
     }

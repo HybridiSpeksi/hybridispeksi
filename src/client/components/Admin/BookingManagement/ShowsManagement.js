@@ -57,7 +57,7 @@ Shows.propTypes = {
 const Form = ({ isNewShow, toggleShowForm, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <h2>Form</h2>
+      <h2>Hallinta</h2>
       <div className={pagestyles.formRow}>
         <Field name="date" id="dateInput" type="date" component={RenderDateField} label="Päivämäärä ja aika" />
         <Field name="limit" id="limitInput" type="number" component={RenderNumber} label="Katsojamäärä" />
@@ -128,7 +128,7 @@ class ShowsManagement extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.showsList}>
-          <h1>Esitysten hallinta</h1>
+          <h2>Esitykset</h2>
           <Shows showForm={showForm} toggleShowForm={this.toggleShowForm} clearSelectedShow={clearSelectedShow} />
         </div>
         <div className={styles.showInfo}>

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './BookingInfo.css';
+import * as actions from 'actions/bookingManagementActions';
 
-const BookingInfo = ({ booking }) => {
+const BookingInfo = ({ booking, clearSelectedBooking }) => {
   if (booking.id === '') {
     return (
       <div className={styles.container}>
@@ -17,17 +18,13 @@ const BookingInfo = ({ booking }) => {
   const {
     fname, lname, email, pnumber,
   } = booking.ContactInfo;
-  const { normalCount, discountCount, specialPriceCount } = booking;
+  const {
+    normalCount, discountCount, specialPriceCount, specialPrice,
+  } = booking;
 
-  const clearSelection = () => {
-    console.log('clear');
-  };
-  const redeem = () => {
-    console.log('redeem');
-  };
   return (
     <div className={styles.container}>
-      <h1>BookingInfo</h1>
+      <h2>Varauksen tiedot</h2>
       <div className={styles.infoRow}>
         <span>{fname} {lname}</span>
       </div>
@@ -38,14 +35,16 @@ const BookingInfo = ({ booking }) => {
       <div className={styles.infoRow}>
         <span>Normaalihintaiset liput: {normalCount}</span>
         <span>Alennushintaiset liput: {discountCount}</span>
-        <span>Erikoishintaiset liput: {specialPriceCount}</span>
+        {specialPriceCount > 0
+        ?
+          <span>Erikoishintaiset liput: {specialPriceCount}, hinta {specialPrice} </span>
+        : null}
       </div>
       <div className={styles.infoRow}>
         <span>Yhteensä {normalCount + discountCount + specialPriceCount} kpl</span>
       </div>
       <div className={styles.buttonRow}>
-        {/* <button className={styles.button} onClick={redeem} disabled>Lunasta</button> */}
-        <button className={styles.button} onClick={clearSelection}>Tyhjennä valinta</button>
+        <button className={styles.button} onClick={clearSelectedBooking}>Tyhjennä valinta</button>
         <Link className={styles.button} to="/varaus">Muokkaa tai poista</Link>
       </div>
     </div>
@@ -54,6 +53,7 @@ const BookingInfo = ({ booking }) => {
 
 BookingInfo.propTypes = {
   booking: PropTypes.object,
+  clearSelectedBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -61,7 +61,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  clearSelectedBooking: () => dispatch(actions.clearSelectedBooking()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingInfo);

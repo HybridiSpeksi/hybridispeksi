@@ -1,4 +1,5 @@
 const bookingService = require('../../services/bookingService');
+const mailer = require('../../utils/mailer');
 
 module.exports = {
   createBooking: async (req, res) => {
@@ -31,6 +32,10 @@ module.exports = {
         paid,
         paymentMethodCode,
       );
+      if (paid) {
+        console.log('###############################');
+        await mailer.sendTicket(booking.get('id'));
+      }
       res.status(200).send(booking);
     } catch (e) {
       console.log(e);

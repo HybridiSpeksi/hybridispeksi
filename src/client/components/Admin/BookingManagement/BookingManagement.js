@@ -18,7 +18,7 @@ class BookingManagement extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.showsList}>
-          <h1>Varaustenhallinta</h1>
+          <h2>Varaustenhallinta</h2>
           <ShowsList />
           <Link to="esitystenhallinta">Hallitse esityksiä</Link>
         </div>

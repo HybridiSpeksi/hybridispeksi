@@ -45,7 +45,7 @@ const Tickets = ({ selectedShow }) => (
         <span>{selectedShow.nameLong}</span>
       </div>
       <div className={styles.formRow}>
-        <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (14€)" />
+        <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (16€)" />
         <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14€)" />
       </div>
       <div className={styles.formRow}>
@@ -78,10 +78,10 @@ const Buttons = ({ booking, deleteBooking }) => {
           </button>
         ) : (
           <React.Fragment>
-            <button type="button" onClick={deleteBooking} className={`${styles.input} ${styles.button}`}>Poista varaus</button>
             <button type="submit" className={`${styles.input} ${styles.button} ${styles.success}`}>
               Tallenna muutokset
             </button>
+            <button type="button" onClick={deleteBooking} className={`${styles.input} ${styles.button}`}>Poista varaus</button>
           </React.Fragment>
         )}
         <Link to="varaustenhallinta" className={`${styles.input} ${styles.button} ${styles.cancel}`}>
@@ -110,6 +110,7 @@ class Booking extends Component {
       values.showId = selectedShow.id;
       if (booking.id === '') {
         values.paymentMethodCode = 100;
+        values.paid = true;
         createBooking(values);
       } else {
         updateBooking(values);
