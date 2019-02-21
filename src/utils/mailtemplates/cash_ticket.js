@@ -22,7 +22,7 @@ function cashTicket(booking) {
     <p>Hinta: ${countPrice(booking)} €</p>
     <p><b>VARAUSTUNNUS: ${tag}</b>
     <br/>Varaustunnus toimii lippunasi näytökseen. Mikäli varaus sisältää opiskelijahintaisia lippuja, 
-    teidän on esitettävä voimassaoleva opiskelijakorttinne esitykseen savuttaessa.</p>
+    teidän on esitettävä voimassaoleva opiskelijakorttinne esitykseen saavuttaessa.</p>
     <p>Mikäli teillä herää kysyttävää lippujen suhteen, ottakaa rohkeasti yhteyttä
     osoitteeseen <a href="mailto:lipunmyynti@hybridispeksi.fi">lipunmyynti@hybridispeksi.fi</a></p>
     <p><i>Tervetuloa speksiin!</i></p>
