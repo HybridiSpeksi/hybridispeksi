@@ -112,7 +112,7 @@ module.exports = {
       res.status(200).send(booking);
     } catch (e) {
       console.log(e);
-      res.status(500).send('Palvelimella tapahtui virhe');
+      res.json({ success: false, message: e.message });
     }
   },
 
