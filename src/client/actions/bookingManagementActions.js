@@ -16,6 +16,16 @@ export const actions = {
   CLEAR_SELECTED_BOOKING: 'CLEAR_SELECTED_BOOKING',
 };
 
+function handleError(err, dispatch) {
+  dispatch(loaderActions.hideLoader());
+  dispatch(messageActions.addErrorMessage({ header: err.message }));
+}
+
+function handleWarning(res, dispatch) {
+  dispatch(loaderActions.hideLoader());
+  dispatch(messageActions.addWarningMessage({ header: res.message }));
+}
+
 export function fetchShows() {
   return async (dispatch) => {
     try {
@@ -34,13 +44,10 @@ export function fetchShows() {
 export function fetchBookings(showId) {
   return async (dispatch) => {
     try {
-      dispatch(ajaxActions.ajaxLoading(actions.FETCH_BOOKINGS));
       const res = await ajax.sendGet('/admin/bookings/' + showId);
-      dispatch(ajaxActions.ajaxSuccess(actions.FETCH_BOOKINGS));
       dispatch(receiveBookings(res));
     } catch (err) {
-      dispatch(ajaxActions.ajaxFailure(actions.FETCH_BOOKINGS));
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe haettaessa varauksia' }));
+      handleError(err, dispatch);
     }
   };
 }
@@ -48,17 +55,20 @@ export function fetchBookings(showId) {
 export function createBooking(booking) {
   return async (dispatch) => {
     try {
+      dispatch(messageActions.clearMessages());
       dispatch(loaderActions.showLoader());
       const res = await ajax.sendPost('/admin/booking', booking);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
       dispatch(loaderActions.hideLoader());
       dispatch(messageActions.addSuccessMessage({ header: 'Varaus luotiin onnistuneesti!' }));
       setTimeout(() => {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
-      console.log(err);
+      handleError(err, dispatch);
     }
   };
 }
@@ -66,16 +76,20 @@ export function createBooking(booking) {
 export function updateBooking(booking) {
   return async (dispatch) => {
     try {
+      dispatch(messageActions.clearMessages());
       dispatch(loaderActions.showLoader());
       const res = await ajax.sendPut('/admin/booking/' + booking.id, booking);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
       dispatch(messageActions.addSuccessMessage({ header: 'Muutokset tallennettiin onnistuneesti!' }));
       dispatch(loaderActions.hideLoader());
       setTimeout(() => {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe tallennettaessa varausta' }));
+      handleError(err, dispatch);
     }
   };
 }
@@ -91,8 +105,7 @@ export function deleteBooking(booking) {
         location.replace('/varaustenhallinta');
       }, 700);
     } catch (err) {
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe poistettaessa varausta' }));
+      handleError(err, dispatch);
     }
   };
 }
@@ -107,9 +120,7 @@ export function createShow(show) {
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
     } catch (err) {
-      console.log(err);
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
+      handleError(err, dispatch);
     }
   };
 }
@@ -124,9 +135,7 @@ export function updateShow(show) {
       dispatch(clearSelectedShow());
       dispatch(loaderActions.hideLoader());
     } catch (err) {
-      console.log(err);
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Virhe luotaessa esitystä' }));
+      handleError(err, dispatch);
     }
   };
 }
@@ -141,9 +150,7 @@ export function deleteShow(show) {
       dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }));
       dispatch(loaderActions.hideLoader());
     } catch (err) {
-      console.log(err);
-      dispatch(loaderActions.hideLoader());
-      dispatch(messageActions.addErrorMessage({ header: 'Esitystä ei voitu poistaa' }));
+      handleError(err, dispatch);
     }
   };
 }
