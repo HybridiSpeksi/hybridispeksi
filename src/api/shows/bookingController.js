@@ -72,7 +72,7 @@ module.exports = {
       if (paid) {
         await mailer.sendTicket(booking.get('id'));
       }
-      res.status(200).send(booking);
+      res.json({ success: true, data: booking });
     } catch (e) {
       res.json({ success: false, message: e.message });
     }
@@ -109,7 +109,7 @@ module.exports = {
         specialPrice,
         additionalInfo,
       );
-      res.status(200).send(booking);
+      res.json({ success: true, data: booking });
     } catch (e) {
       console.log(e);
       res.json({ success: false, message: e.message });
