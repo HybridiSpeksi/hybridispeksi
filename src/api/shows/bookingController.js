@@ -186,7 +186,7 @@ module.exports = {
       const booking = await bookingService.findById(bookingId);
       const paymentMethod = await bookingService.getPaymentMethodByCode(paymentMethodCode);
       booking.set('paid', true);
-      booking.set('PaymentMethod', paymentMethod);
+      booking.set('paymentMethodId', paymentMethod.get('id'));
       await booking.save();
       await mailer.sendTicket(bookingId);
     } catch (e) {
