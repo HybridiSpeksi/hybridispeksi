@@ -99,7 +99,7 @@ export function deleteBooking(booking) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendDelete('/admin/booking/' + booking.id);
-      dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }, 2000));
       dispatch(loaderActions.hideLoader());
       setTimeout(() => {
         location.replace('/varaustenhallinta');
@@ -115,7 +115,7 @@ export function createShow(show) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendPost('/admin/h/show', show);
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }, 2000));
       dispatch(loaderActions.hideLoader());
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
@@ -130,7 +130,7 @@ export function updateShow(show) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendPut('/admin/h/show/' + show.id, show);
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }, 2000));
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
       dispatch(loaderActions.hideLoader());
@@ -147,7 +147,7 @@ export function deleteShow(show) {
       await ajax.sendDelete('/admin/h/show/' + show.id);
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }, 2000));
       dispatch(loaderActions.hideLoader());
     } catch (err) {
       handleError(err, dispatch);
