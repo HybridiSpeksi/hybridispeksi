@@ -1,7 +1,7 @@
 .container {
-  background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #f0cde1;
-  background-size: cover;
-  padding-bottom: 200px;
+  background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #d8bed2;
+  background-size: contain;
+  padding-bottom: 100px;
 }
 .headerContainer {
   display: flex;
@@ -20,5 +20,7 @@
 }
 
 @media ( min-width: 1080px ) {
-
+  .container {
+    background-size: cover;
+  }
 }

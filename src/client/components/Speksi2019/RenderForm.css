@@ -1,0 +1,28 @@
+.input {
+    margin: 10px 0px;
+    padding: 5px 1em;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 1;
+  }
+  
+  .label {
+    position: absolute;
+    top: 0;
+    left: 5px;
+  }
+  
+  .formRow {
+    display: flex;
+    margin-bottom: 5px;
+    margin: -5px;
+    width: 100%;
+  }
+  
+  .inputGroup {
+    position: relative;
+    padding: 1em 0;
+    flex-grow: 1;
+    display: flex;
+    width: 100%; 
+  }

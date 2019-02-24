@@ -1,8 +1,9 @@
+import { fetchShows } from 'actions/bookingManagementActions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './ShowsContainer.css';
 import ShowsList from './ShowsList';
-import { fetchShows } from 'actions/bookingManagementActions';
+import Booking from './Booking';
 
 
 class ShowsContainer extends Component {
@@ -13,7 +14,8 @@ class ShowsContainer extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <ShowsList />
+        {/* <ShowsList /> */}
+        <Booking />
         <button className={`${styles.buttonNext}`}>Seuraava</button>
       </div>
     );

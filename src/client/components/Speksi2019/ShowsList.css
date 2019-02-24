@@ -11,27 +11,37 @@
   flex-direction: column;
   justify-content: space-between;
   border: none;
-  background: white;
   color: black;
   margin-top: 15px;
   margin-bottom: 10px;
   border-radius: 4px;
+  background:linear-gradient(to bottom, rgb(255, 255, 255) 5%, rgb(225, 225, 225) 100%);
+  box-shadow: 2px 2px 7px 0px #888888;
 }
 
 .showDate {
   width: 100%;
+  font-size: 22px;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
 }
 
+.showDay {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 7px; 
+}
+
 .showTime {
   width: 100%;
+  font-size: 18px; 
   display: flex;
   justify-content: space-between;
 }
  
 .selected {
-  background-color: rgb(187, 187, 187);
+  background:linear-gradient(to bottom, rgb(205, 205, 205) 5%, rgb(185, 185, 185) 100%);
 }
 
 

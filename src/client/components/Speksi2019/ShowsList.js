@@ -38,7 +38,6 @@ const ShowsList = ({
 }) => {
   const handleClick = (show) => {
     select(show);
-    fetchBookings(show.id);
   };
   return (
     <div className={styles.container} >
