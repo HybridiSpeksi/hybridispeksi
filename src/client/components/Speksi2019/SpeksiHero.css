@@ -1,0 +1,108 @@
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.bigsubHeading{
+  composes: fontShanghai from '../../styles/Fonts.css';
+  font-size: 26px;
+}
+
+.bigHeading {
+  composes: fontShanghai from '../../styles/Fonts.css';
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.subHeading {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 40px;
+  composes: fontZapfino from '../../styles/Fonts.css';
+}
+
+.instructions {
+  align-items: center;
+  background-color: black;
+  box-shadow: 0px 7px 20px 5px #888888;
+  width: 100%;
+  color: white;
+  padding: 3em 2em 2em 2em;
+  line-height: 2.5;
+  font-size: 14px;
+}
+
+.instructions_list {
+  text-align: left;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 0vh;
+  animation: fadein 4s;
+  justify-content: left;
+}
+
+.teaser{
+	margin-top: 100px;
+	margin-bottom: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+
+@media (min-width: 600px) {
+  .headerContainer {
+  }
+
+  .bigsubHeading {
+    font-size: 38px;
+  }
+
+  .bigHeading {
+    font-size: 68px;
+  }
+
+  .headingText {
+    margin-top: 20px;
+  }
+
+  .subHeading {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 840px) {
+  .headerContainer {
+    width: 80%;
+  }
+
+  .headingText {
+    margin-top: 50px;
+    width: 70%;
+  }
+
+  .subHeading {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .headerContainer {
+  }
+
+  .bigHeading {
+    font-size: 80px;
+  }
+}

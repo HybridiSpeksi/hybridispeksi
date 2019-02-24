@@ -1,3 +1,8 @@
+.container {
+  background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #f0cde1;
+  background-size: cover;
+  padding-bottom: 200px;
+}
 .headerContainer {
   display: flex;
   flex-direction: column;
@@ -6,69 +11,14 @@
   width: 90%;
 }
 
-.bigsubHeading {
-  font-size: 26px;
-}
-
-.bigHeading {
-  margin-top: 20px;
-  font-size: 40px;
-}
-
-.subHeading {
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.headingText {
-  margin-top: 10px;
-}
-
 @media ( min-width: 600px ) {
-  .headerContainer {
-    margin-top: 10vh;
-  }
 
-  .bigsubHeading {
-    font-size: 38px;
-  }
-
-  .bigHeading {
-    font-size: 68px;
-  }
-
-  .headingText {
-    margin-top: 20px;
-  }
-
-  .subHeading {
-    font-size: 28px;
-  }
 }
 
 @media ( min-width: 840px ) {
-  .headerContainer {
-    width: 80%;
-  }
 
-  .headingText {
-    margin-top: 50px;
-    width: 70%;
-  }
-
-  .subHeading {
-    margin-top: 50px;
-  }
 }
 
 @media ( min-width: 1080px ) {
-  .headerContainer {
-    margin-top: unset;
-    justify-content: center;
-  }
 
-  .bigHeading {
-    font-size: 80px;
-  }
 }
