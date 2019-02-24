@@ -18,12 +18,12 @@ export const actions = {
 
 function handleError(err, dispatch) {
   dispatch(loaderActions.hideLoader());
-  dispatch(messageActions.addErrorMessage({ header: err.message }));
+  dispatch(messageActions.addErrorMessage({ header: err.message }, 3000));
 }
 
 function handleWarning(res, dispatch) {
   dispatch(loaderActions.hideLoader());
-  dispatch(messageActions.addWarningMessage({ header: res.message }));
+  dispatch(messageActions.addWarningMessage({ header: res.message }, 3000));
 }
 
 export function fetchShows() {

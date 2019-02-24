@@ -13,6 +13,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  transition: opacity 1s linear;
+  transition-delay: 1s;
 }
 
 .message:hover {
@@ -35,4 +37,14 @@
   cursor: pointer;
   text-decoration: none;
   color: white;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s;
+  opacity: 0;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0.9;}
+  100% {opacity: 0;}
 }
