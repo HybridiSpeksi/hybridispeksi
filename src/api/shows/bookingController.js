@@ -2,6 +2,7 @@ const bookingService = require('../../services/bookingService');
 const mailer = require('../../utils/mailer');
 const validator = require('../../utils/validation');
 const paymentFactory = require('../../utils/payments');
+const config = require('../../config');
 
 const validateBooking = (booking) => {
   const {
@@ -174,6 +175,22 @@ module.exports = {
     } catch (e) {
       console.log(e);
       res.status(500).send('Palvelimella tapahtui virhe');
+    }
+  },
+
+  handleSuccessfulPayment: async (req, res) => {
+    const bookingId = req.query.ORDER_NUMBER;
+    const paymentMethodCode = req.query.METHOD;
+    try {
+      paymentFactory.isValidResponse(req);
+      const booking = await bookingService.findById(bookingId);
+      const paymentMethod = await bookingService.getPaymentMethodByCode(paymentMethodCode);
+      booking.set('paid', true);
+      booking.set('PaymentMethod', paymentMethod);
+      await booking.save();
+      await mailer.sendTicket(bookingId);
+    } catch (e) {
+      res.json({ success: false, message: e.message });
     }
   },
 };

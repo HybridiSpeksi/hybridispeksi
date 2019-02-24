@@ -78,6 +78,9 @@ router.post('/admin/booking', bookingController.createBooking);
 router.post('/booking', bookingController.createPublicBooking);
 router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
 router.put('/admin/booking/:bookingId', bookingController.updateBooking);
+router.get('/payment/success', bookingController.handleSuccessfulPayment);
+router.get('/payment/failure', maksu.handleFailure);
+router.get('/payment/notify', maksu.handleNotify);
 
 // Varaukset
 router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
@@ -91,9 +94,7 @@ router.post('/varaus/createPayment', varaus.createPayment);
 router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMail);
 
 // Maksut
-router.get('/payment/success', maksu.handleSuccess);
-router.get('/payment/failure', maksu.handleFailure);
-router.get('/payment/notify', maksu.handleNotify);
+
 
 // Palautteet
 router.get('/admin/palautteet', palaute.getAll);
