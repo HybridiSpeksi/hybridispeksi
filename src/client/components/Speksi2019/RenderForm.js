@@ -8,7 +8,6 @@ export const RenderTextfield = field => (
   </div>
 );
 
-
 export const RenderNumber = field => (
   <div className={styles.inputGroup}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>

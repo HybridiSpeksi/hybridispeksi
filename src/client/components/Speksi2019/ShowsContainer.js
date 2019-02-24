@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import styles from './ShowsContainer.css';
 import ShowsList from './ShowsList';
 import Booking from './Booking';
+import BookingInformations from './BookingInformations';
 
 
 class ShowsContainer extends Component {
@@ -15,7 +16,8 @@ class ShowsContainer extends Component {
     return (
       <div className={styles.container}>
         {/* <ShowsList /> */}
-        <Booking />
+        {/* <Booking /> */}
+        <BookingInformations />
         <button className={`${styles.buttonNext}`}>Seuraava</button>
       </div>
     );
