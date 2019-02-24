@@ -2,7 +2,7 @@ const uuid = require('uuid/v4');
 const Booking = require('../../models').Booking;
 const Show = require('../../models').Show;
 
-module.exports = {
+const self = {
 
   createShow: async (
     date, limit, nameLong, nameShort,
@@ -63,7 +63,7 @@ module.exports = {
       });
       const showsWithBookingCounts = shows.map((show) => {
         const showJson = show.toJSON();
-        showJson.bookingCount = countBookings(show);
+        showJson.bookingCount = self.countBookings(show);
         return showJson;
       });
       return showsWithBookingCounts;
@@ -82,12 +82,14 @@ module.exports = {
       throw e;
     }
   },
+
+  countBookings: (show) => {
+    const bookings = show.get('Bookings');
+    const totalCount = bookings.reduce((count, booking) => {
+      return count + booking.get('normalCount') + booking.get('discountCount') + booking.get('specialPriceCount');
+    }, 0);
+    return totalCount;
+  },
 };
 
-const countBookings = (show) => {
-  const bookings = show.get('Bookings');
-  const totalCount = bookings.reduce((count, booking) => {
-    return count + booking.get('normalCount') + booking.get('discountCount') + booking.get('specialPriceCount');
-  }, 0);
-  return totalCount;
-};
+module.exports = self;

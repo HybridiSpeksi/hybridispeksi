@@ -4,6 +4,8 @@ const Booking = require('../../models').Booking;
 const Show = require('../../models').Show;
 const ContactInfo = require('../../models').ContactInfo;
 const PaymentMethod = require('../../models').PaymentMethod;
+const showService = require('./showService');
+const bookingUtils = require('../utils/bookingUtils');
 
 const generateTag = () => {
   let id = '';
@@ -12,6 +14,12 @@ const generateTag = () => {
     id += letters.charAt(Math.floor(Math.random() * letters.length));
   }
   return id;
+};
+
+const checkIfSpace = (show, booking) => {
+  if (showService.countBookings(show) + bookingUtils.getTotalCount(booking) > show.get('limit')) {
+    throw new Error('Esityksessä ei ole tarpeeksi tilaa');
+  }
 };
 
 module.exports = {
@@ -32,7 +40,14 @@ module.exports = {
   ) => {
     try {
       const t = await transaction;
-      const show = await Show.findOne({ where: { id: showId } }, { transaction: t });
+      const show = await Show.findOne(
+        {
+          include: [{ model: Booking, as: 'Bookings' }],
+          where: { id: showId },
+        },
+        { transaction: t },
+      );
+      checkIfSpace(show, { normalCount, discountCount, specialPriceCount });
       const paymentMethod = await PaymentMethod.findOne({ where: { code: paymentMethodCode } }, { transaction: t });
       const contactInfo = await ContactInfo.create({
         id: uuid(),
@@ -62,7 +77,6 @@ module.exports = {
     }
   },
 
-  // TODO: check if space
   updateBooking: async (
     id,
     showId,
