@@ -4,14 +4,16 @@
     "password": "password",
     "database": "postgres",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "develop": {
     "username": "postgres",
     "password": "password",
     "database": "postgres",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
@@ -21,6 +23,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   }
 }

@@ -10,7 +10,8 @@ import * as auth from './../Utils/Auth';
 // Public
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import Messages from './ApplicationMessages/Messages'
+import Messages from './ApplicationMessages/Messages';
+import Loader from './Loader/Loader';
 
 import Home from './Home/Home';
 import Rekry from './Rekry/Rekry';
@@ -22,7 +23,6 @@ import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
-import Vuodenspeksaaja from './Vuodenspeksaaja/Vuodenspeksaaja';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -32,9 +32,7 @@ import Produktio from './Admin/Produktio/Produktio';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
-import Tapahtumat from './Admin/Tapahtumat/Tapahtumat';
 import Palautteet from './Admin/Palautteet/Palautteet';
-import Vuodenspeksilainen from './Admin/Vuodenspeksilainen/Vuodenspeksilainen';
 
 import Login from './Admin/Auth/Login';
 
@@ -45,8 +43,18 @@ const Jasenrekisteri = Loadable({
   loading: Loading
 })
 
-const Varaustenhallinta = Loadable({
-  loader: () => import('./Admin/Varaustenhallinta/Varaustenhallinta'),
+const BookingManagement = Loadable({
+  loader: () => import('./Admin/BookingManagement/BookingManagement'),
+  loading: Loading
+})
+
+const Booking = Loadable({
+  loader: () => import('./Admin/BookingManagement/Booking'),
+  loading: Loading
+})
+
+const ShowsManagement = Loadable({
+  loader: () => import('./Admin/BookingManagement/ShowsManagement'),
   loading: Loading
 })
 
@@ -60,6 +68,7 @@ export default class App extends React.Component {
           <div>
             <Header />
             <Messages />
+            <Loader />
             <Component params={match.params} globalStyles={globalStyles} />
             <Footer />
           </div>
@@ -73,6 +82,7 @@ export default class App extends React.Component {
         render={({ match }) => (
           <div>
             <Messages />
+            <Loader />
             <Component params={match.params} globalStyles={globalStyles} />
           </div>
         )}
@@ -88,6 +98,7 @@ export default class App extends React.Component {
             <div>
               <AdminHeader />
               <Messages />
+              <Loader />
               <Component params={match.params} globalStyles={globalStyles} />
               <AdminFooter />
             </div>
@@ -120,15 +131,15 @@ export default class App extends React.Component {
               <Switch>
                 <LoginLayout path="/login" component={Login} />
                 <AdminLayout path="/admin" component={Admin} />
-                <AdminLayout path="/varaustenhallinta" component={Varaustenhallinta} />
+                <AdminLayout exact path="/varaustenhallinta" component={BookingManagement} />
+                <AdminLayout exact path="/varaus" component={Booking} />
+                <AdminLayout path="/esitystenhallinta" component={ShowsManagement} />
                 <AdminLayout path="/produktionhallinta" component={Produktio} />
                 <AdminLayout path="/jasenrekisteri" component={Jasenrekisteri} />
                 <AdminLayout path="/kayttajat" component={UserManagement} />
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
-                <AdminLayout path="/tapahtumat" component={Tapahtumat} />
                 <AdminLayout path="/palautteet" component={Palautteet} />
-                <AdminLayout path="/vuodenspeksilainen" component={Vuodenspeksilainen} />
               </Switch>
             </div>
           </div>

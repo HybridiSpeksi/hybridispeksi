@@ -1,0 +1,31 @@
+.container {
+  /* padding: 2em; */
+}
+
+.bookingRow {
+  font-size: 14px;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background: white;
+  color: black;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.selected {
+  background-color: rgb(187, 187, 187);
+}
+
+.name {
+  width: 25%;
+}
+.email {
+  width: 20%;
+}
+
+.bookingCount {
+  width: 10%;
+}

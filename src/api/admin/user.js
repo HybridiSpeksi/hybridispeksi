@@ -6,7 +6,7 @@ const sha1 = require('sha1');
 const userService = require('../../services/userService');
 
 const jwtOptions = {
-  expiresIn: '2h',
+  expiresIn: '5h',
 };
 
 module.exports = {
