@@ -23,7 +23,6 @@ const checkIfSpace = (show, booking) => {
 };
 
 module.exports = {
-// TODO: check if space
   createBooking: async (
     showId,
     fname,
@@ -71,6 +70,18 @@ module.exports = {
       booking = await booking.setContactInfo(contactInfo, { transaction: t });
       booking = await booking.setPaymentMethod(paymentMethod, { transaction: t });
       return booking;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  getPaymentMethodByCode: async (code) => {
+    try {
+      const paymentMethod = await PaymentMethod.findOne({
+        where: { code },
+      });
+      return paymentMethod;
     } catch (e) {
       console.log(e);
       throw e;

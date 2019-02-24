@@ -1,5 +1,6 @@
 const config = require('./../config');
 const axios = require('axios');
+const crypto = require('crypto');
 const bookingService = require('../services/bookingService');
 const bookingUtils = require('../utils/bookingUtils');
 
@@ -64,6 +65,33 @@ module.exports = {
       console.log(err);
       throw new Error('Maksutapahtuman luonti epäonnistui.');
     }
+  },
+
+  isValidResponse: (request) => {
+    let kauppiastunnus;
+    let kauppiasvarmenne;
+    if (process.env.NODE_ENV === 'develop') {
+      kauppiastunnus = config.kauppiastunnus;
+      kauppiasvarmenne = config.kauppiasvarmenne;
+    } else {
+      kauppiastunnus = process.env.KAUPPIASTUNNUS;
+      kauppiasvarmenne = process.env.KAUPPIASVARMENNE;
+    }
+    const ordernumber = request.query.ORDER_NUMBER;
+    const timestamp = request.query.TIMESTAMP;
+    const paid = request.query.PAID;
+    const method = request.query.METHOD;
+    const authcode = request.query.RETURN_AUTHCODE;
+    const params =
+      ordernumber + '|' + timestamp + '|' + paid + '|' + method + '|' + kauppiasvarmenne;
+    const hash = crypto
+      .createHash('md5')
+      .update(params)
+      .digest('hex');
+    if (hash.toUpperCase() === authcode.toUpperCase()) {
+      return true;
+    }
+    throw new Error('Maksutapahtumaa ei voitu vahvistaa.');
   },
 };
 
