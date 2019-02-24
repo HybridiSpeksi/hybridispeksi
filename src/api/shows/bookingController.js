@@ -2,7 +2,6 @@ const bookingService = require('../../services/bookingService');
 const mailer = require('../../utils/mailer');
 const validator = require('../../utils/validation');
 const paymentFactory = require('../../utils/payments');
-const config = require('../../config');
 
 const validateBooking = (booking) => {
   const {
@@ -189,8 +188,30 @@ module.exports = {
       booking.set('paymentMethodId', paymentMethod.get('id'));
       await booking.save();
       await mailer.sendTicket(bookingId);
+      res.redirect('/speksi2019/vahvistus/' + booking.get('id'));
     } catch (e) {
-      res.json({ success: false, message: e.message });
+      res.redirect('/speksi2019/virhe/');
+    }
+  },
+
+  handleNotifyPayment: async (req, res) => {
+    const bookingId = req.query.ORDER_NUMBER;
+    const paymentMethodCode = req.query.METHOD;
+    try {
+      paymentFactory.isValidResponse(req);
+      const booking = await bookingService.findById(bookingId);
+      if (booking.get('paid')) {
+        throw new Error('Payment already handled, no action required');
+      }
+      const paymentMethod = await bookingService.getPaymentMethodByCode(paymentMethodCode);
+      booking.set('paid', true);
+      booking.set('paymentMethodId', paymentMethod.get('id'));
+      await booking.save();
+      await mailer.sendTicket(bookingId);
+      res.redirect('/speksi2019/vahvistus/' + booking.get('id'));
+    } catch (e) {
+      console.log(e);
+      res.redirect('/speksi2019/virhe/');
     }
   },
 };
