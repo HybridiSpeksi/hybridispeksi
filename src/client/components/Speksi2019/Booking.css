@@ -1,5 +1,6 @@
 .container {
   padding: 2em;
+  padding-bottom: 0px;
   min-height: 100vh; 
   border-radius: 4px;
   background: #d0bdd0;

@@ -92,8 +92,6 @@ Booking.propTypes = {
   prices: PropTypes.array,
   fetchShows: PropTypes.func,
   createBooking: PropTypes.func,
-  updateBooking: PropTypes.func,
-  deleteBooking: PropTypes.func,
   handleSubmit: PropTypes.func,
   formState: PropTypes.object,
 };
@@ -110,8 +108,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
-  updateBooking: booking => dispatch(actions.updateBooking(booking)),
-  deleteBooking: booking => dispatch(actions.deleteBooking(booking)),
 });
 
 const BookingWithReduxForm = reduxForm({
