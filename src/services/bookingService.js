@@ -15,7 +15,7 @@ const generateTag = () => {
 };
 
 module.exports = {
-
+// TODO: check if space
   createBooking: async (
     showId,
     fname,
@@ -62,6 +62,7 @@ module.exports = {
     }
   },
 
+  // TODO: check if space
   updateBooking: async (
     id,
     showId,

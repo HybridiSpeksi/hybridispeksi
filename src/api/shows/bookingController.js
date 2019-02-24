@@ -1,6 +1,7 @@
 const bookingService = require('../../services/bookingService');
 const mailer = require('../../utils/mailer');
 const validator = require('../../utils/validation');
+const paymentFactory = require('../../utils/payments');
 
 const validateBooking = (booking) => {
   const {
@@ -25,7 +26,7 @@ const validateBooking = (booking) => {
     || !validator.isNumber(discountCount)
     || !validator.isNumber(specialPriceCount)
     || !validator.isNumber(specialPrice)) {
-    throw new Error('Lippumäärien ja hinnan tulee olla numero');
+    throw new Error('Lippumäärän tulee olla numero');
   }
   if (normalCount + discountCount + specialPriceCount < 1) {
     throw new Error('Varauksessa tulee olla vähintään yksi lippu');
@@ -110,6 +111,44 @@ module.exports = {
         additionalInfo,
       );
       res.json({ success: true, data: booking });
+    } catch (e) {
+      console.log(e);
+      res.json({ success: false, message: e.message });
+    }
+  },
+
+  createPublicBooking: async (req, res) => {
+    const {
+      showId,
+      normalCount,
+      discountCount,
+      additionalInfo,
+    } = req.body;
+    const {
+      fname,
+      lname,
+      email,
+      pnumber,
+    } = req.body.ContactInfo;
+    try {
+      const body = { ...req.body, specialPrice: 0, specialPriceCount: 0 };
+      validateBooking(body);
+      const booking = await bookingService.createBooking(
+        showId,
+        fname,
+        lname,
+        email,
+        pnumber,
+        normalCount,
+        discountCount,
+        0, // specialPriceCount
+        0, // specialPrice
+        false, // paid
+        100, // paymentMethodCode
+        additionalInfo,
+      );
+      const payment = await paymentFactory.createPayment(booking.get('id'));
+      res.json({ success: true, data: payment });
     } catch (e) {
       console.log(e);
       res.json({ success: false, message: e.message });

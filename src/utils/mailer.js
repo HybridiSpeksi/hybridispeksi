@@ -1,10 +1,8 @@
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
-const moment = require('moment');
 const bookingService = require('../services/bookingService');
 
 const cashTicket = require('./mailtemplates/cash_ticket').cashTicket;
-const webshopTicket = require('./mailtemplates/webshop_ticket').webshopTicket;
 
 const auth = {
   auth: {

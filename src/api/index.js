@@ -75,6 +75,7 @@ router.put('/admin/h/show/:showId', showController.updateShow);
 // Bookings
 router.get('/admin/bookings/:showId', bookingController.getBookingsByShowId);
 router.post('/admin/booking', bookingController.createBooking);
+router.post('/booking', bookingController.createPublicBooking);
 router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
 router.put('/admin/booking/:bookingId', bookingController.updateBooking);
 

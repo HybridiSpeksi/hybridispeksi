@@ -1,10 +1,12 @@
 const config = require('./../config');
 const axios = require('axios');
+const bookingService = require('../services/bookingService');
+const bookingUtils = require('../utils/bookingUtils');
 
 const PAYMENT_URL = 'https://payment.paytrail.com/api-payment/create';
 
 module.exports = {
-  createPayment: (booking) => {
+  createPayment: async (bookingId) => {
     let payment;
     if (process.env.NODE_ENV === 'develop') {
       payment = {
@@ -29,22 +31,22 @@ module.exports = {
         },
       };
     }
-    payment.price = countPrice(booking);
-    payment.orderNumber = booking._id;
-    const p = new Promise((resolve, reject) => {
-      let kauppiastunnus;
-      let kauppiasvarmenne;
-      if (process.env.NODE_ENV === 'develop') {
-        kauppiastunnus = config.kauppiastunnus;
-        kauppiasvarmenne = config.kauppiasvarmenne;
-      } else {
-        kauppiastunnus = process.env.KAUPPIASTUNNUS;
-        kauppiasvarmenne = process.env.KAUPPIASVARMENNE;
-      }
-      console.log('send ajax to paytrail');
-      console.log(kauppiastunnus + ' ' + kauppiasvarmenne);
-      // axios.post(PAYMENT_URL, data, CONFIG)
-      axios({
+    const booking = await bookingService.findById(bookingId);
+    payment.price = bookingUtils.countPrice(booking);
+    payment.orderNumber = bookingId;
+    let kauppiastunnus;
+    let kauppiasvarmenne;
+    if (process.env.NODE_ENV === 'develop') {
+      kauppiastunnus = config.kauppiastunnus;
+      kauppiasvarmenne = config.kauppiasvarmenne;
+    } else {
+      kauppiastunnus = process.env.KAUPPIASTUNNUS;
+      kauppiasvarmenne = process.env.KAUPPIASVARMENNE;
+    }
+    console.log('send ajax to paytrail');
+    console.log(kauppiastunnus + ' ' + kauppiasvarmenne);
+    try {
+      const res = await axios({
         method: 'post',
         url: PAYMENT_URL,
         auth: {
@@ -56,25 +58,12 @@ module.exports = {
           'Content-Type': 'application/json',
           'X-Verkkomaksut-Api-Version': 1,
         },
-      })
-        .then((res) => {
-          resolve(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-          console.log('epäonnistunut maksutapahtuman luonti');
-          reject({ code: 500, message: 'Maksutapahtuman luonti epäonnistui.' });
-        });
-    });
-    return p;
+      });
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      throw new Error('Maksutapahtuman luonti epäonnistui.');
+    }
   },
 };
 
-function countPrice(varaus) {
-  let price = 0;
-  price += varaus.scount * config.sprice;
-  price += varaus.ncount * config.nprice;
-  price += varaus.ocount * varaus.oprice;
-
-  return price;
-}
