@@ -40,6 +40,7 @@ const ShowsList = ({
   const handleClick = (show) => {
     select(show);
   };
+  const disableNext = selectedShow.id === '';
   return (
     <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`} >
       <h2 className={styles.showHeader}>Valitse näytös</h2>
@@ -47,7 +48,7 @@ const ShowsList = ({
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
       <div className={pagestyles.buttonContainer}>
-        <button onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+        <button onClick={nextState} className={`${pagestyles.buttonNext} ${disableNext ? pagestyles.disabled : ''}`} disabled={disableNext}>Seuraava</button>
       </div>
     </div>
   );
