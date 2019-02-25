@@ -12,12 +12,12 @@ const Hero = () => (
     </div>
     <div className={`${styles.instructionsContainer}`}>
       <div className={styles.instructions}>
-        <h3>Ohjeet lipunmyyntiin</h3>
+        <h3>Toimi näin</h3>
         <ol className={`${styles.instructions_list}`}>
           <li>Valitse haluamasi näytös</li>
           <li>Täytä tietosi</li>
           <li>Tarkista, että täyttämäsi tiedot ovat oikein</li>
-          <li>Maksa lippusi verkkopankissa</li>
+          <li>Sinut ohjataan Paytrailin maksupalveluun</li>
         </ol>
       </div>
     </div>
