@@ -119,3 +119,15 @@
     margin-top: 70px;
   }
 }
+
+@media (min-width: 1440px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    width: 50%;
+  }
+}
