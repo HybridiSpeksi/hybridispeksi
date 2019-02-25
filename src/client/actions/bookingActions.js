@@ -26,6 +26,22 @@ function handleWarning(res, dispatch) {
   dispatch(messageActions.addWarningMessage({ header: res.message }, 3000));
 }
 
+export function submitBooking(booking) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendPost('/booking', booking);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
+      location.replace(res.data.url);
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
 export function fetchShows() {
   return async (dispatch) => {
     try {
