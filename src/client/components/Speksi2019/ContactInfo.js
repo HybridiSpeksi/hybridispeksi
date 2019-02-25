@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderTextarea } from './RenderForm';
 import styles from './ContactInfo.css';
 import pagestyles from './Speksi2019.css';
@@ -66,12 +66,12 @@ const Fields = () => (
 );
 
 const Tickets = ({ formState, prices }) => {
+  const { normalPrice, discountPrice } = prices;
   const countPrice = () => {
     if (!formState) return 0;
     const {
       normalCount, discountCount, specialPriceCount, specialPrice,
     } = formState;
-    const { normalPrice, discountPrice } = prices;
     return Number(normalCount) * Number(normalPrice) + Number(discountCount) * Number(discountPrice) + Number(specialPriceCount) * Number(specialPrice);
   };
   return (
@@ -83,7 +83,7 @@ const Tickets = ({ formState, prices }) => {
           id="nCountInput"
           component={RenderNumber}
           type="number"
-          label="Normaali (16 €)"
+          label={`Normaali (${normalPrice} €)`}
           validate={[number, minValue0, maxValue10]}
         />
         <Field
@@ -91,7 +91,7 @@ const Tickets = ({ formState, prices }) => {
           id="dCountInput"
           component={RenderNumber}
           type="number"
-          label="Alennus (14 €)"
+          label={`Alennus (${discountPrice} €)`}
           validate={[number, minValue0, maxValue10]}
         />
         <div className={styles.price}>
@@ -155,6 +155,7 @@ const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
   initialValues: state.bookingManagement.selectedBooking,
+  formState: getFormValues('publicBookingForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -8,9 +8,16 @@ import * as actions from 'actions/bookingActions';
 class Confirm extends Component {
   render() {
     const {
-      booking, selectedShow, prevState, submitBooking, showPage,
+      booking, selectedShow, prevState, submitBooking, showPage, prices,
     } = this.props;
 
+    const { normalPrice, discountPrice } = prices;
+    const countPrice = () => {
+      const {
+        normalCount, discountCount, specialPriceCount, specialPrice,
+      } = booking;
+      return Number(normalCount) * Number(normalPrice) + Number(discountCount) * Number(discountPrice) + Number(specialPriceCount) * Number(specialPrice);
+    };
     return (
       <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
         <div className={styles.column}>
@@ -51,7 +58,7 @@ class Confirm extends Component {
             </div>
             <div className={styles.infoGroup}>
               <p className={`${styles.infoLabel}`}>Hinta yhteensä</p>
-              <p className={`${styles.infoInput}`}>{booking.ContactInfo.price} €</p>
+              <p className={`${styles.infoInput}`}>{countPrice()} €</p>
             </div>
             <div className={`${styles.infoGroup} ${styles.infoArea}`}>
               <p className={`${styles.infoLabel}`}>Lisätietoja</p>
@@ -76,6 +83,7 @@ Confirm.propTypes = {
   prevState: PropTypes.func,
   submitBooking: PropTypes.func,
   showPage: PropTypes.bool,
+  prices: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
