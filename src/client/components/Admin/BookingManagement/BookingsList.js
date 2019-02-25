@@ -9,6 +9,7 @@ const Booking = ({ booking, handleClick, selected }) => {
   const {
     fname, lname, email,
   } = booking.ContactInfo;
+  const { paid, redeemed, tag } = booking;
   const countBookings = (_booking) => {
     const { normalCount, discountCount, specialPriceCount } = _booking;
     return normalCount + discountCount + specialPriceCount;
@@ -17,6 +18,9 @@ const Booking = ({ booking, handleClick, selected }) => {
     <button className={`${styles.bookingRow} ${selected ? styles.selected : ''}`} onClick={() => handleClick(booking)}>
       <span className={styles.name}>{fname} {lname}</span>
       <span className={styles.email}>{email}</span>
+      <span className={styles.paid}>{paid ? <i className="fa fa-check" /> : ''}</span>
+      <span className={styles.redeemed}>{redeemed ? <i className="fa fa-check" /> : ''}</span>
+      <span className={styles.tag}>{tag}</span>
       <span className={styles.bookingCount}>{countBookings(booking)}</span>
     </button>
   );
@@ -42,6 +46,9 @@ const BookingsList = ({ bookings, selectBooking, selectedBooking }) => {
         <div className={styles.bookingRow}>
           <span className={styles.name}>Nimi</span>
           <span className={styles.email}>Sähköposti</span>
+          <span className={styles.paid}>Maksettu</span>
+          <span className={styles.redeemed}>Lunastettu</span>
+          <span className={styles.tag}>Tunnus</span>
           <span className={styles.bookingCount}>Liput</span>
         </div>
         {bookings.map((booking) => {
