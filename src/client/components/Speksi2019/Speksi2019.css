@@ -6,8 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
-  width: 100%; 
-  /* padding: 2em;  */
+  width: 100%;
 }
 
 .hidden {
@@ -35,9 +34,9 @@
 .buttonNext {
   text-align: center;
   composes: fontShanghai from '../../styles/Fonts.css';
-  font-size: 30px;
-  line-height:26px;
-  width: 45%;
+  font-size: 26px;
+  line-height:22px;
+  width: 48%;
   height: 100px;
   display: flex;
   justify-content: center;

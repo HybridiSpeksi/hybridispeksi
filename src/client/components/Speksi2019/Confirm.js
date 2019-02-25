@@ -17,7 +17,7 @@ class Confirm extends Component {
           <h2>Yhteystiedot</h2>
           <div className={styles.content}>
             <div className={styles.infoGroup}>
-              <p className={`${styles.infoLabel}`}>Etunimi</p>
+              <p className={styles.infoLabel}>Etunimi</p>
               <p className={`${styles.infoInput}`}>Nipa</p>
             </div>
             <div className={styles.infoGroup}>
@@ -48,14 +48,14 @@ class Confirm extends Component {
               <p className={`${styles.infoLabel}`}>Hinta yhteensä</p>
               <p className={`${styles.infoInput}`}> 48 €</p>
             </div>
-
-            <div className={pagestyles.buttonContainer}>
-              <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
-              <button type="button" onClick={() => submitBooking(booking)} className={`${pagestyles.buttonNext}`}>Siirry maksamaan</button>
-            </div>
+          </div>
+          <div className={pagestyles.buttonContainer}>
+            <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
+            <button type="button" onClick={() => submitBooking(booking)} className={`${pagestyles.buttonNext}`}>Siirry maksamaan</button>
           </div>
         </div>
       </div>
+
 
     );
   }

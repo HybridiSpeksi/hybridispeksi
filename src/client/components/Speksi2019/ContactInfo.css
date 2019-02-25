@@ -1,7 +1,7 @@
 .container {
   width: calc(100% - 4em);
   margin-top: calc(20px + 2em);
-  padding: 2em;
+  padding: 1em;
   padding-bottom: 0px;
   min-height: 100vh; 
   border-radius: 4px;
@@ -10,7 +10,6 @@
 }
 
 .form {
-  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
 }
