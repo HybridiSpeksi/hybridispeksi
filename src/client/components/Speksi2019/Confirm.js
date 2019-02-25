@@ -14,39 +14,48 @@ class Confirm extends Component {
     return (
       <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
         <div className={styles.column}>
+          <h2>Valittu näytös</h2>
+          <div className={styles.content}>
+            <h3>{selectedShow.nameLong}</h3>
+          </div>
+        </div>
+        <div className={styles.column}>
           <h2>Yhteystiedot</h2>
           <div className={styles.content}>
             <div className={styles.infoGroup}>
               <p className={styles.infoLabel}>Etunimi</p>
-              <p className={`${styles.infoInput}`}>Nipa</p>
+              <p className={`${styles.infoInput}`}>{booking.ContactInfo.fname}</p>
             </div>
             <div className={styles.infoGroup}>
               <p className={`${styles.infoLabel}`}>Sukunimi</p>
-              <p className={`${styles.infoInput}`}>Nänni</p>
+              <p className={`${styles.infoInput}`}>{booking.ContactInfo.lname}</p>
             </div>
-            <div className={styles.infoGroup}>
+            <div className={`${styles.infoGroup} ${styles.infoEmail}`}>
               <p className={`${styles.infoLabel}`}>Sähköposti</p>
-              <p className={`${styles.infoInput}`}>nipa@nän.ni</p>
+              <p className={`${styles.infoInput}`}>{booking.ContactInfo.email}</p>
             </div>
-            <div className={styles.infoGroup}>
+            <div className={`${styles.infoGroup} ${styles.infoPnumber}`}>
               <p className={`${styles.infoLabel}`}>Puhelinnumero</p>
-              <p className={`${styles.infoInput}`}>0700123123</p>
+              <p className={`${styles.infoInput}`}>{booking.ContactInfo.pnumber}</p>
             </div>
+          </div>
+          <h2>Liput</h2>
+          <div className={styles.content}>
             <div className={styles.infoGroup}>
               <p className={`${styles.infoLabel}`}>Normaali (16 €)</p>
-              <p className={`${styles.infoInput}`}>3</p>
+              <p className={`${styles.infoInput}`}>{booking.normalCount} kpl</p>
             </div>
             <div className={styles.infoGroup}>
               <p className={`${styles.infoLabel}`}>Alennus (14 €)</p>
-              <p className={`${styles.infoInput}`}>0</p>
-            </div>
-            <div className={styles.infoGroup}>
-              <p className={`${styles.infoLabel}`}>Lisätietoja</p>
-              <p className={`${styles.infoInput}`}>Olen homonaama.</p>
+              <p className={`${styles.infoInput}`}>{booking.discountCount} kpl</p>
             </div>
             <div className={styles.infoGroup}>
               <p className={`${styles.infoLabel}`}>Hinta yhteensä</p>
-              <p className={`${styles.infoInput}`}> 48 €</p>
+              <p className={`${styles.infoInput}`}>{booking.ContactInfo.price} €</p>
+            </div>
+            <div className={`${styles.infoGroup} ${styles.infoArea}`}>
+              <p className={`${styles.infoLabel}`}>Lisätietoja</p>
+              <p className={`${styles.infoInput}`}>{booking.additionalInfo}</p>
             </div>
           </div>
           <div className={pagestyles.buttonContainer}>

@@ -19,13 +19,21 @@
     margin-top: 20px;
     margin-bottom: 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
 }
 
+.infoGroup {
+    position: relative;
+    padding: 1em 0;
+    display: flex;
+    width: 48%; 
+  }
+
 .infoLabel {
-    left: 0px;
-    font-style: italic;
+    position: absolute;
+    top: 0;
 }  
 .infoInput {
     margin-top: 10px;
@@ -33,6 +41,11 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.infoArea, .infoEmail, .infoPnumber {
+    width: 100%;
+}
+
 .priceInfo {
     order: 99;
     font-size: 20px; 
@@ -40,9 +53,17 @@
     width: 100%; 
 }
 
-.infoGroup {
-    position: relative;
-    padding: 1em 0;
-    display: flex;
-    width: 100%; 
+@media ( min-width: 600px ) {
+  }
+  
+  @media ( min-width: 840px ) {
+    .infoEmail, .infoPnumber {
+        width: 48%;
+    }
+  }
+  
+  @media ( min-width: 1080px ) {
+    .container {
+      width: 60%;
+    }
   }

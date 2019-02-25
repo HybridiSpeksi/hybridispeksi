@@ -34,9 +34,9 @@
 .buttonNext {
   text-align: center;
   composes: fontShanghai from '../../styles/Fonts.css';
-  font-size: 26px;
+  font-size: 22px;
   line-height:22px;
-  width: 48%;
+  width: 45%;
   height: 100px;
   display: flex;
   justify-content: center;

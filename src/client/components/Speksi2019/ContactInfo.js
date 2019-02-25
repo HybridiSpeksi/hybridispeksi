@@ -59,7 +59,10 @@ const ContactInfoForm = ({
     <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.column}>
-          <h3>Valittu näytös: {selectedShow.nameLong}</h3>
+          <h2>Valittu näytös</h2>
+          <div className={styles.content}>
+            <h3>{selectedShow.nameLong}</h3>
+          </div>
         </div>
 
         <Fields />
