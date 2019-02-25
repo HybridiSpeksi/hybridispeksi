@@ -57,13 +57,14 @@ const self = {
     try {
       const shows = await Show.findAll({
         include: [
-          { model: Booking, as: 'Bookings' },
+          { model: Booking, as: 'Bookings', attributes: ['normalCount', 'discountCount', 'specialPriceCount'] },
         ],
         order: [['date', 'ASC']],
       });
       const showsWithBookingCounts = shows.map((show) => {
         const showJson = show.toJSON();
         showJson.bookingCount = self.countBookings(show);
+        showJson.Bookings = null;
         return showJson;
       });
       return showsWithBookingCounts;

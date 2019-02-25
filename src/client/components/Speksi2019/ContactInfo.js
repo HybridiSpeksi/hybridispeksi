@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
@@ -7,7 +7,7 @@ import styles from './ContactInfo.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
-const ContactInfo = () => (
+const Fields = () => (
   <div className={styles.column}>
     <h2>Yhteystiedot</h2>
     <div className={styles.content}>
@@ -49,20 +49,20 @@ Tickets.propTypes = {
 };
 
 const ContactInfoForm = ({
-  selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
+  selectedShow, formState, prices, prevState, nextState, showPage, handleSubmit, selectBooking,
 }) => {
   const onSubmit = (values) => {
+    values.showId = selectedShow.id;
     selectBooking(values);
   };
-
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.column}>
           <h3>Valittu näytös: {selectedShow.nameLong}</h3>
         </div>
 
-        <ContactInfo />
+        <Fields />
 
         <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
         <div className={pagestyles.buttonContainer}>
@@ -78,15 +78,15 @@ const ContactInfoForm = ({
 ContactInfoForm.propTypes = {
   selectedShow: PropTypes.object,
   prices: PropTypes.object,
-  handleSubmit: PropTypes.func,
   formState: PropTypes.object,
   prevState: PropTypes.func,
   nextState: PropTypes.func,
+  showPage: PropTypes.bool,
+  handleSubmit: PropTypes.func,
   selectBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  initialValues: state.bookingManagement.selectedBooking,
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
 });
@@ -97,8 +97,8 @@ const mapDispatchToProps = dispatch => ({
   selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
-const ContactInfoWithReduxForm = reduxForm({
+const ContactInfoWithForm = reduxForm({
   form: 'publicBookingForm',
 })(ContactInfoForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithForm);

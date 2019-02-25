@@ -35,13 +35,13 @@ Show.propTypes = {
 };
 
 const ShowsList = ({
-  shows, selectedShow, select, nextState,
+  shows, selectedShow, select, nextState, showPage,
 }) => {
   const handleClick = (show) => {
     select(show);
   };
   return (
-    <div className={styles.container} >
+    <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`} >
       <h2 className={styles.showHeader}>Valitse näytös</h2>
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;

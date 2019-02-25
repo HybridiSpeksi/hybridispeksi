@@ -8,9 +8,8 @@ import * as actions from 'actions/bookingActions';
 class Confirm extends Component {
   render() {
     const {
-      booking, selectedShow, prevState, submitBooking,
+      booking, selectedShow, prevState, submitBooking, showPage,
     } = this.props;
-
 
     return (
       <div className={styles.container}>
