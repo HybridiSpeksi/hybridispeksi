@@ -1,0 +1,41 @@
+.container {
+    width: calc(100% - 4em);
+    margin-top: calc(20px + 2em);
+    padding: 2em;
+    padding-bottom: 0px;
+    min-height: 100vh; 
+    border-radius: 4px;
+    background: #d0bdd0;
+    box-shadow: 2px 2px 7px 0px #888888;  
+}
+
+.column {
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.content {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.labelInfo {
+    left: 0px;
+    font-style: italic;
+}  
+.inputInfo {
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.priceInfo {
+    order: 99;
+    font-size: 20px; 
+    font-weight: bold;
+    width: 100%; 
+}
