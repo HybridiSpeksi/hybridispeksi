@@ -34,7 +34,7 @@ Show.propTypes = {
 };
 
 const ShowsList = ({
-  shows, selectedShow, select, fetchBookings,
+  shows, selectedShow, select,
 }) => {
   const handleClick = (show) => {
     select(show);
