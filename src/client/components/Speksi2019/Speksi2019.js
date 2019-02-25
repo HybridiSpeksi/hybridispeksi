@@ -47,13 +47,9 @@ class Speksi2019 extends Component {
     return (
       <div className={styles.container}>
         <Hero />
-        {wizardState === formState.SELECT_SHOW ? <ShowsList /> : null}
-        {wizardState === formState.FILL_INFO ? <Booking /> : null}
-        {wizardState === formState.CONFIRM_INFO ? <BookingInformations /> : null}
-        {wizardState !== formState.SELECT_SHOW ? (
-          <button onClick={this.prevState} className={`${styles.buttonNext}`}>Edellinen</button>
-        ) : null}
-        <button onClick={this.nextState} className={`${styles.buttonNext}`}>Seuraava</button>
+        {wizardState === formState.SELECT_SHOW ? <ShowsList nextState={this.nextState} /> : null}
+        {wizardState === formState.FILL_INFO ? <Booking nextState={this.nextState} prevState={this.prevState} /> : null}
+        {wizardState === formState.CONFIRM_INFO ? <BookingInformations nextState={this.nextState} prevState={this.prevState} /> : null}
       </div>
     );
   }
@@ -64,7 +60,7 @@ Speksi2019.propTypes = {
 };
 
 const mapStateToProps = state => ({
-
+  selectedShow: state.bookingManagement.selectedShow,
 });
 
 const mapDispatchToProps = dispatch => ({

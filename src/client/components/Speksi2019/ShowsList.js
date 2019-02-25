@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import styles from './ShowsList.css';
+import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
 
@@ -34,7 +35,7 @@ Show.propTypes = {
 };
 
 const ShowsList = ({
-  shows, selectedShow, select,
+  shows, selectedShow, select, nextState,
 }) => {
   const handleClick = (show) => {
     select(show);
@@ -45,6 +46,7 @@ const ShowsList = ({
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
+      <button onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
     </div>
   );
 };
@@ -54,6 +56,7 @@ ShowsList.propTypes = {
   select: PropTypes.func,
   selectedShow: PropTypes.object,
   fetchBookings: PropTypes.func,
+  nextState: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

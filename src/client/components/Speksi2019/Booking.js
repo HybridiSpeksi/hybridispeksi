@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
+import { Field, reduxForm } from 'redux-form';
+import { RenderTextfield, RenderNumber, RenderTextarea } from './RenderForm';
 import styles from './Booking.css';
-import ShowsList from './ShowsList';
+import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
 const ContactInfo = () => (
@@ -20,7 +19,7 @@ const ContactInfo = () => (
   </div>
 );
 
-const Tickets = ({ selectedShow, formState, prices }) => {
+const Tickets = ({ formState, prices }) => {
   const countPrice = () => {
     if (!formState) return 0;
     const {
@@ -45,24 +44,17 @@ const Tickets = ({ selectedShow, formState, prices }) => {
 };
 
 Tickets.propTypes = {
-  selectedShow: PropTypes.object,
   formState: PropTypes.object,
+  prices: PropTypes.object,
 };
 
 class Booking extends Component {
   render() {
     const {
-      booking, selectedShow, handleSubmit, createBooking, formState, prices,
+      selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
     } = this.props;
     const onSubmit = (values) => {
-      values.showId = selectedShow.id;
-      if (booking.id === '') {
-        values.paymentMethodCode = 100;
-        values.paid = true;
-        createBooking(values);
-      } else {
-        updateBooking(values);
-      }
+      selectBooking(values);
     };
 
     return (
@@ -76,6 +68,8 @@ class Booking extends Component {
 
           <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
 
+          <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
+          <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
         </form>
       </div>
     );
@@ -83,28 +77,25 @@ class Booking extends Component {
 }
 
 Booking.propTypes = {
-  booking: PropTypes.object,
   selectedShow: PropTypes.object,
-  shows: PropTypes.array,
-  prices: PropTypes.array,
-  fetchShows: PropTypes.func,
-  createBooking: PropTypes.func,
+  prices: PropTypes.object,
   handleSubmit: PropTypes.func,
   formState: PropTypes.object,
+  prevState: PropTypes.func,
+  nextState: PropTypes.func,
+  selectBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  booking: state.bookingManagement.selectedBooking,
   initialValues: state.bookingManagement.selectedBooking,
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
-  shows: state.bookingManagement.shows,
-  formState: getFormValues('bookingForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
+  selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
 const BookingWithReduxForm = reduxForm({
