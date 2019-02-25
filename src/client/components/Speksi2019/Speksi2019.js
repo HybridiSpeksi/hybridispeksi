@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from 'actions/bookingActions';
@@ -45,27 +44,20 @@ class Speksi2019 extends Component {
 
   render() {
     const { wizardState } = this.state;
-    const { handleSubmit, selectBooking, selectedShow } = this.props;
-    const onSubmit = (values) => {
-      values.showId = selectedShow.id;
-      selectBooking(values);
-    };
+
     return (
-      <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.container}>
         <SpeksiHero />
         <Shows nextState={this.nextState} showPage={wizardState === formState.SELECT_SHOW} />
         <ContactInfo nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.FILL_INFO} />
         <Confirm nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.CONFIRM_INFO} />
-      </form>
+      </div>
     );
   }
 }
 
 Speksi2019.propTypes = {
   fetchShows: PropTypes.func,
-  handleSubmit: PropTypes.func,
-  selectBooking: PropTypes.func,
-  selectedShow: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -74,11 +66,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
-  selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
-const SpeksiWithReduxForm = reduxForm({
-  form: 'publicBookingForm',
-})(Speksi2019);
-
-export default connect(mapStateToProps, mapDispatchToProps)(SpeksiWithReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Speksi2019);

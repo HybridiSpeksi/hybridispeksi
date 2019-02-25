@@ -49,11 +49,15 @@ Tickets.propTypes = {
 };
 
 const ContactInfoForm = ({
-  selectedShow, formState, prices, prevState, nextState, showPage,
+  selectedShow, formState, prices, prevState, nextState, showPage, handleSubmit, selectBooking,
 }) => {
+  const onSubmit = (values) => {
+    values.showId = selectedShow.id;
+    selectBooking(values);
+  };
   return (
     <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
-      <div className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.column}>
           <h3>Valittu näytös: {selectedShow.nameLong}</h3>
         </div>
@@ -64,7 +68,7 @@ const ContactInfoForm = ({
 
         <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
         <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
-      </div>
+      </form>
     </div>
   );
 };
@@ -76,6 +80,9 @@ ContactInfoForm.propTypes = {
   formState: PropTypes.object,
   prevState: PropTypes.func,
   nextState: PropTypes.func,
+  showPage: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  selectBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -86,6 +93,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
+  selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoForm);
+const ContactInfoWithForm = reduxForm({
+  form: 'publicBookingForm',
+})(ContactInfoForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithForm);
