@@ -68,7 +68,7 @@ class Booking extends Component {
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.row}>
+          <div className={styles.column}>
             <h3>Valittu näytös: {selectedShow.nameLong}</h3>
           </div>
 

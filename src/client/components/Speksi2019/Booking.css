@@ -35,12 +35,12 @@
   width: 100%;
 }
 
-/* .formRow {
+.formRow {
   display: flex;
   margin-bottom: 5px;
   margin: -5px;
   width: 100%;
-} */
+}
 
 .inputGroup {
   flex-grow: 1;

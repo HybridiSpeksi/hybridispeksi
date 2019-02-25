@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
-import styles from './RenderForm.css';
+import styles from './Booking.css';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingActions';
 
 const RenderInfoField = field => (
   <div className={styles.inputGroup}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>
-    <p disabled id={field.id} className={styles.input} {...field.input} placeholder={field.placeholder} type="text">[Kenttä]</p>
+    <p id={field.id} className={styles.input} {...field.input} placeholder={field.placeholder} type="text">[Kenttä]</p>
   </div>
 );
 
@@ -52,9 +52,9 @@ class BookingInformations extends Component {
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          {/* <div className={styles.row}>
+          <div className={styles.column}>
             <h3>{selectedShow.nameLong}</h3>
-          </div> */}
+          </div>
 
           <BookingInfo />
 
