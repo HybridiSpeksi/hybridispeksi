@@ -8,12 +8,11 @@ import * as actions from 'actions/bookingActions';
 class Confirm extends Component {
   render() {
     const {
-      booking, selectedShow, prevState, submitBooking,
+      booking, selectedShow, prevState, submitBooking, showPage,
     } = this.props;
 
-
     return (
-      <div className={styles.container}>
+      <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
 
         <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
         <button type="button" onClick={() => submitBooking(booking)} className={`${pagestyles.buttonNext}`}>Siirry maksamaan</button>

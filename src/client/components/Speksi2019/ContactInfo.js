@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
@@ -7,7 +7,7 @@ import styles from './ContactInfo.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
-const ContactInfo = () => (
+const Fields = () => (
   <div className={styles.column}>
     <h2>Yhteystiedot</h2>
     <div className={styles.content}>
@@ -49,26 +49,22 @@ Tickets.propTypes = {
 };
 
 const ContactInfoForm = ({
-  selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
+  selectedShow, formState, prices, prevState, nextState, showPage,
 }) => {
-  const onSubmit = (values) => {
-    selectBooking(values);
-  };
-
   return (
-    <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
+      <div className={styles.form}>
         <div className={styles.column}>
           <h3>Valittu näytös: {selectedShow.nameLong}</h3>
         </div>
 
-        <ContactInfo />
+        <Fields />
 
         <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
 
         <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
         <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
-      </form>
+      </div>
     </div>
   );
 };
@@ -77,15 +73,12 @@ const ContactInfoForm = ({
 ContactInfoForm.propTypes = {
   selectedShow: PropTypes.object,
   prices: PropTypes.object,
-  handleSubmit: PropTypes.func,
   formState: PropTypes.object,
   prevState: PropTypes.func,
   nextState: PropTypes.func,
-  selectBooking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  initialValues: state.bookingManagement.selectedBooking,
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
 });
@@ -93,11 +86,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
-  selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
-const ContactInfoWithReduxForm = reduxForm({
-  form: 'publicBookingForm',
-})(ContactInfoForm);
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoForm);

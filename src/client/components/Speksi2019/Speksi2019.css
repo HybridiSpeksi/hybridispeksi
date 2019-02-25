@@ -1,3 +1,4 @@
+
 .container {
   background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #d8bed2;
   background-size: contain;
@@ -7,6 +8,12 @@
   align-items: center; 
   width: 100%; 
   /* padding: 2em;  */
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  left: -5000px;
 }
 
 .headerContainer {
