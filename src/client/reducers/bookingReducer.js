@@ -1,4 +1,4 @@
-import { actions } from 'actions/bookingManagementActions';
+import { actions } from 'actions/bookingActions';
 
 const initialState = {
   prices: {

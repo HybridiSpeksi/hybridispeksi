@@ -3,7 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './BookingsList.css';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 
 const Booking = ({ booking, handleClick, selected }) => {
   const {

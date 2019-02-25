@@ -1,4 +1,4 @@
-import { fetchShows } from 'actions/bookingManagementActions';
+import { fetchShows } from 'actions/bookingActions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './ShowsContainer.css';
