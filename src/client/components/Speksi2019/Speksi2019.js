@@ -6,7 +6,7 @@ import Hero from './SpeksiHero';
 import styles from './Speksi2019.css';
 import ShowsList from './Shows';
 import Booking from './ContactInfo';
-import BookingInformations from './BookingInformations';
+import BookingInformations from './Confirm';
 
 const formState = {
   SELECT_SHOW: 0,

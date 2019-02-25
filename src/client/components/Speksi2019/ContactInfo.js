@@ -48,7 +48,7 @@ Tickets.propTypes = {
   prices: PropTypes.object,
 };
 
-const Booking = ({
+const ContactInfoForm = ({
   selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
 }) => {
   const onSubmit = (values) => {
@@ -74,7 +74,7 @@ const Booking = ({
 };
 
 
-Booking.propTypes = {
+ContactInfoForm.propTypes = {
   selectedShow: PropTypes.object,
   prices: PropTypes.object,
   handleSubmit: PropTypes.func,
@@ -96,8 +96,8 @@ const mapDispatchToProps = dispatch => ({
   selectBooking: booking => dispatch(actions.selectBooking(booking)),
 });
 
-const BookingWithReduxForm = reduxForm({
+const ContactInfoWithReduxForm = reduxForm({
   form: 'publicBookingForm',
-})(Booking);
+})(ContactInfoForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookingWithReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithReduxForm);
