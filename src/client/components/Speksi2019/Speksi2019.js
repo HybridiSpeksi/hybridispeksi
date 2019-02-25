@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import * as actions from 'actions/bookingActions';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Hero from './SpeksiHero';
-import ShowsContainer from './ShowsContainer';
 import styles from './Speksi2019.css';
 import ShowsList from './ShowsList';
 import Booking from './Booking';
@@ -38,4 +39,4 @@ const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
 });
 
-export default Speksi2019;
+export default connect(mapStateToProps, mapDispatchToProps)(Speksi2019);
