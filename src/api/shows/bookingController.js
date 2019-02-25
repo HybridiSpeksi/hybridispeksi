@@ -37,6 +37,15 @@ const validateBooking = (booking) => {
 };
 
 module.exports = {
+  getBookingById: async (req, res) => {
+    try {
+      const booking = await bookingService.findById(req.params.bookingId);
+      res.json({ success: true, data: booking });
+    } catch (e) {
+      res.json({ success: false, message: e.message });
+    }
+  },
+
   createBooking: async (req, res) => {
     const {
       showId,

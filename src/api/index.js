@@ -76,6 +76,7 @@ router.put('/admin/h/show/:showId', showController.updateShow);
 router.get('/admin/bookings/:showId', bookingController.getBookingsByShowId);
 router.post('/admin/booking', bookingController.createBooking);
 router.post('/booking', bookingController.createPublicBooking);
+router.get('/booking/:bookingId', bookingController.getBookingById);
 router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
 router.put('/admin/booking/:bookingId', bookingController.updateBooking);
 router.get('/payment/success', bookingController.handleSuccessfulPayment);
@@ -83,15 +84,15 @@ router.get('/payment/failure', maksu.handleFailure);
 router.get('/payment/notify', maksu.handleNotify);
 
 // Varaukset
-router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
-router.get('/admin/kaikkivaraukset', varaus.getAllList);
-router.get('/getOneVarausById/:_id', varaus.getOneById);
-router.post('/admin/varaus', varaus.createNewAdmin);
-router.put('/admin/varaus/:_id', varaus.update);
-router.put('/admin/redeem/:_id', varaus.redeem);
-router.delete('/admin/varaus/:_id', varaus.remove);
-router.post('/varaus/createPayment', varaus.createPayment);
-router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMail);
+// router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
+// router.get('/admin/kaikkivaraukset', varaus.getAllList);
+// router.get('/getOneVarausById/:_id', varaus.getOneById);
+// router.post('/admin/varaus', varaus.createNewAdmin);
+// router.put('/admin/varaus/:_id', varaus.update);
+// router.put('/admin/redeem/:_id', varaus.redeem);
+// router.delete('/admin/varaus/:_id', varaus.remove);
+// router.post('/varaus/createPayment', varaus.createPayment);
+// router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMail);
 
 // Maksut
 
