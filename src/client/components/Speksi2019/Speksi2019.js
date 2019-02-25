@@ -8,20 +8,52 @@ import ShowsList from './ShowsList';
 import Booking from './Booking';
 import BookingInformations from './BookingInformations';
 
+const formState = {
+  SELECT_SHOW: 0,
+  FILL_INFO: 1,
+  CONFIRM_INFO: 2,
+};
+
 class Speksi2019 extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      wizardState: formState.SELECT_SHOW,
+    };
+
+    this.nextState = this.nextState.bind(this);
+    this.prevState = this.prevState.bind(this);
+  }
   componentDidMount() {
     $(window).scrollTop(0);
     this.props.fetchShows();
   }
 
+  nextState() {
+    this.setState({
+      wizardState: this.state.wizardState + 1,
+    });
+  }
+
+  prevState() {
+    this.setState({
+      wizardState: this.state.wizardState - 1,
+    });
+  }
+
   render() {
+    const { wizardState } = this.state;
     return (
       <div className={styles.container}>
         <Hero />
-        <ShowsList />
-        <Booking />
-        <BookingInformations />
-        <button className={`${styles.buttonNext}`}>Seuraava</button>
+        {wizardState === formState.SELECT_SHOW ? <ShowsList /> : null}
+        {wizardState === formState.FILL_INFO ? <Booking /> : null}
+        {wizardState === formState.CONFIRM_INFO ? <BookingInformations /> : null}
+        {wizardState !== formState.SELECT_SHOW ? (
+          <button onClick={this.prevState} className={`${styles.buttonNext}`}>Edellinen</button>
+        ) : null}
+        <button onClick={this.nextState} className={`${styles.buttonNext}`}>Seuraava</button>
       </div>
     );
   }
