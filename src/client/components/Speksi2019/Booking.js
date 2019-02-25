@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
 import styles from './Booking.css';
-import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingActions';
 
 const ContactInfo = () => (
@@ -104,7 +103,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
-  createBooking: booking => dispatch(actions.createBooking(booking)),
 });
 
 const BookingWithReduxForm = reduxForm({

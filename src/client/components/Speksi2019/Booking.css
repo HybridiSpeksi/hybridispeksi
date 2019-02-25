@@ -1,5 +1,6 @@
 .container {
   width: calc(100% - 4em);
+  margin-top: calc(20px + 2em);
   padding: 2em;
   padding-bottom: 0px;
   min-height: 100vh; 
@@ -43,6 +44,7 @@
 }
 
 .inputGroup {
+  position: relative;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -60,7 +62,7 @@
   position: absolute;
   top: 0;
   left: 5px;
-}
+} 
 
 .button {
   margin-top: 20px;
@@ -82,6 +84,13 @@
 
 .price {
   margin-bottom: 2em;
+}
+
+.priceInfo {
+  order: 99;
+  font-size: 20px; 
+  font-weight: bold;
+  width: 100%; 
 }
 
 @media ( min-width: 600px ) {

@@ -3,17 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
+import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea, RenderInfoField } from './RenderForm';
 import styles from './Booking.css';
-import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingActions';
 
-const RenderInfoField = field => (
-  <div className={styles.inputGroup}>
-    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
-    <p id={field.id} className={styles.input} {...field.input} placeholder={field.placeholder} type="text">[Kenttä]</p>
-  </div>
-);
 
 const BookingInfo = () => (
   <div className={styles.column}>
@@ -26,7 +19,7 @@ const BookingInfo = () => (
       <Field name="normalCount" id="nCountInfo" component={RenderInfoField} type="number" label="Normaali (16 €)" />
       <Field name="discountCount" id="dCountInfo" component={RenderInfoField} type="number" label="Alennus (14 €)" />
       <Field name="additionalInfo" id="additionalArea" component={RenderInfoField} type="text" label="Lisätietoja " />
-      <div className={styles.price}>
+      <div className={styles.priceInfo}>
         <span>Hinta yhteensä  €</span>
       </div>
     </div>
@@ -53,11 +46,9 @@ class BookingInformations extends Component {
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.column}>
-            <h3>{selectedShow.nameLong}</h3>
+            <h3>Valittu näytös: {selectedShow.nameLong}</h3>
           </div>
-
           <BookingInfo />
-
         </form>
       </div>
     );
