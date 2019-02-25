@@ -17,12 +17,21 @@
   width: 90%;
 }
 
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 20px; 
+}
+
 .buttonNext {
   text-align: center;
   composes: fontShanghai from '../../styles/Fonts.css';
   font-size: 30px;
-  width: 80%;
-  padding: 1em;
+  line-height:26px;
+  width: 45%;
+  height: 100px;
   display: flex;
   justify-content: center;
   border: none;

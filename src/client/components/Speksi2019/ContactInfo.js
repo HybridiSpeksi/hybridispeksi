@@ -65,9 +65,10 @@ const ContactInfoForm = ({
         <ContactInfo />
 
         <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
-
-        <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
-        <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+        <div className={pagestyles.buttonContainer}>
+          <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
+          <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+        </div>
       </form>
     </div>
   );

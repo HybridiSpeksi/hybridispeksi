@@ -28,10 +28,3 @@ export const RenderTextarea = field => (
     <textarea id={field.id} className={styles.input} rows={field.rows} placeholder={field.placeholder} {...field.input} />
   </div>
 );
-
-export const RenderInfoField = field => (
-  <div className={styles.inputGroup}>
-    <label htmlFor={field.id} className={`${styles.label} ${styles.labelInfo}`}>{field.label}</label>
-    <p id={field.id} className={`${styles.input} ${styles.inputInfo}`} {...field.input} placeholder={field.placeholder} type="text">[Kenttä]</p>
-  </div>
-);

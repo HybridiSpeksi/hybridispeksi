@@ -46,7 +46,9 @@ const ShowsList = ({
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
-      <button onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+      <div className={pagestyles.buttonContainer}>
+        <button onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+      </div>
     </div>
   );
 };

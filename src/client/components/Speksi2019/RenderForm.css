@@ -1,56 +1,44 @@
 .input {
-    margin: 10px 0px;
-    padding: 5px 1em;
-    border: none;
-    border-radius: 4px;
-    flex-grow: 1;
-  }
-  
-  .inputInfo {
-    margin-top: 10px;
-    padding-left: 0px;
-    font-size: 18px;
-    font-weight: bold;
-  }
+  margin: 10px 0px;
+  padding: 5px 1em;
+  border: none;
+  border-radius: 4px;
+  flex-grow: 1;
+}
 
-  .label {
-    position: absolute;
-    top: 0;
-    left: 5px;
-  }
+.label {
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
 
-  .labelInfo {
-    left: 0px;
-    font-style: italic;
-  }  
-  
-  .formRow {
-    display: flex;
-    margin-bottom: 5px;
-    margin: -5px;
+.formRow {
+  display: flex;
+  margin-bottom: 5px;
+  margin: -5px;
+  width: 100%;
+}
+
+.inputGroup {
+  position: relative;
+  padding: 1em 0;
+  display: flex;
+  width: 100%; 
+}
+
+@media ( min-width: 600px ) {
+  .inputGroup {
+    width: 48%; 
+  }
+  .inputTextarea {
     width: 100%;
   }
-  
-  .inputGroup {
-    position: relative;
-    padding: 1em 0;
-    display: flex;
-    width: 100%; 
-  }
+}
 
-  @media ( min-width: 600px ) {
-    .inputGroup {
-      width: 48%; 
-    }
-    .inputTextarea {
-      width: 100%;
-    }
-  }
-  
-  @media ( min-width: 840px ) {
+@media ( min-width: 840px ) {
 
-  }
-  
-  @media ( min-width: 1080px ) {
+}
 
-  }
+@media ( min-width: 1080px ) {
+
+}
