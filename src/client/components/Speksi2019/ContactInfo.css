@@ -99,6 +99,7 @@
 
 @media ( min-width: 1080px ) {
   .container {
-    width: 60%;
+    padding: 2em;
+    width: 70%;
   }
 }

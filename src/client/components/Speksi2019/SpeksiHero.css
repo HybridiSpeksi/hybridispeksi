@@ -1,3 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 100px;
+  width: 100%;
+  min-height: 0vh;
+  justify-content: left;
+}
+
+.headerTexts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 90%;
+  animation: fadein 4s;
+}
+
 @keyframes fadein {
 	0% {
 		opacity: 0;
@@ -20,16 +40,17 @@
 
 .subHeading {
   font-size: 18px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   margin-left: 20px;
   margin-right: 20px;
   line-height: 40px;
   composes: fontZapfino from '../../styles/Fonts.css';
 }
 
-.instructions {
-  align-items: center;
+.instructionsContainer {
+  display: flex;
+  justify-content: center;
   background-color: black;
   box-shadow: 0px 7px 20px 5px #888888;
   width: 100%;
@@ -39,31 +60,17 @@
   font-size: 14px;
 }
 
+.instructions {
+  width: 90%;
+}
+
 .instructions_list {
   text-align: left;
 }
 
-.headerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  width: 100%;
-  min-height: 0vh;
-  animation: fadein 4s;
-  justify-content: left;
-}
-
-.teaser{
-	margin-top: 100px;
-	margin-bottom: 50px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 100%;
-}
-
 @media (min-width: 600px) {
-  .headerContainer {
+  .instructions {
+    width: 60%;
   }
 
   .bigsubHeading {
@@ -80,14 +87,11 @@
 
   .subHeading {
     font-size: 28px;
+    line-height: 68px;
   }
 }
 
 @media (min-width: 840px) {
-  .headerContainer {
-    width: 80%;
-  }
-
   .headingText {
     margin-top: 50px;
     width: 70%;
@@ -99,10 +103,19 @@
 }
 
 @media (min-width: 1080px) {
-  .headerContainer {
+  .container {
+    width: 70%;
+  }
+
+  .instructions {
+    width: 40%;
   }
 
   .bigHeading {
     font-size: 80px;
+  }
+
+  .subHeading {
+    margin-top: 70px;
   }
 }
