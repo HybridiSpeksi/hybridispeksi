@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import styles from './ShowsList.css';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 
 
 const Show = ({ show, handleClick, selected }) => (

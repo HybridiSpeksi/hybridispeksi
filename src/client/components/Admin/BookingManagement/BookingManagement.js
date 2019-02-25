@@ -6,7 +6,7 @@ import styles from './BookingManagement.css';
 import ShowsList from './ShowsList';
 import BookingsList from './BookingsList';
 import BookingInfo from './BookingInfo';
-import { fetchShows } from 'actions/bookingManagementActions';
+import { fetchShows } from 'actions/bookingActions';
 
 
 class BookingManagement extends Component {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import ShowsList from './ShowsList';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 import styles from './ShowsManagement.css';
 import pagestyles from './BookingManagement.css';
 import * as messageActions from 'actions/messageActions';

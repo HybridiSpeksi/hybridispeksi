@@ -6,7 +6,7 @@ import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
 import styles from './Booking.css';
 import ShowsList from './ShowsList';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 
 const ContactInfo = () => (
   <div className={styles.column}>

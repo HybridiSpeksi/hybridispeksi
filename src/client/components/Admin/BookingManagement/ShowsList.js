@@ -3,7 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './ShowsList.css';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 
 const Show = ({ show, handleClick, selected }) => (
   <button className={`${styles.showRow} ${selected ? styles.selected : ''}`} onClick={() => handleClick(show)}>
