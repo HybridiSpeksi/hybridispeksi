@@ -45,8 +45,9 @@ class Speksi2019 extends Component {
 
   render() {
     const { wizardState } = this.state;
-    const { handleSubmit, selectBooking } = this.props;
+    const { handleSubmit, selectBooking, selectedShow } = this.props;
     const onSubmit = (values) => {
+      values.showId = selectedShow.id;
       selectBooking(values);
     };
     return (
@@ -64,6 +65,7 @@ Speksi2019.propTypes = {
   fetchShows: PropTypes.func,
   handleSubmit: PropTypes.func,
   selectBooking: PropTypes.func,
+  selectedShow: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
