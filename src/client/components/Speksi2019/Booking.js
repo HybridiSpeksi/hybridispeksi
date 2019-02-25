@@ -33,15 +33,12 @@ const Tickets = ({ selectedShow, formState, prices }) => {
     <div className={styles.column}>
       <h2>Liput</h2>
       <div className={styles.content}>
-        <div>
-          <span>{selectedShow.nameLong}</span>
-        </div>
         <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (16 €)" />
         <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14 €)" />
         <div className={styles.price}>
           <span>Hinta yhteensä {countPrice()} €</span>
         </div>
-        <Field name="additionalInfo" id="additionalArea" component={RenderTextarea} type="text" label="Lisätietoja" rows="5" />
+        <Field name="additionalInfo" id="additionalArea" component={RenderTextarea} type="text" label="Lisätietoja" placeholder="Lisätietoja" rows="5" />
       </div>
     </div>
   );

@@ -23,8 +23,8 @@ export const RenderDateField = field => (
 );
 
 export const RenderTextarea = field => (
-  <div className={styles.inputGroup}>
+  <div className={`${styles.inputGroup} ${styles.inputTextarea}`}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>
-    <textarea id={field.id} className={styles.input} rows={field.rows} {...field.input} />
+    <textarea id={field.id} className={styles.input} rows={field.rows} placeholder={field.placeholder} {...field.input} />
   </div>
 );

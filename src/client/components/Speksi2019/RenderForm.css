@@ -22,7 +22,23 @@
   .inputGroup {
     position: relative;
     padding: 1em 0;
-    flex-grow: 1;
     display: flex;
     width: 100%; 
+  }
+
+  @media ( min-width: 600px ) {
+    .inputGroup {
+      width: 48%; 
+    }
+    .inputTextarea {
+      width: 100%;
+    }
+  }
+  
+  @media ( min-width: 840px ) {
+
+  }
+  
+  @media ( min-width: 1080px ) {
+
   }

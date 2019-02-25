@@ -25,6 +25,7 @@ const BookingInfo = () => (
       <Field name="ContactInfo.pnumber" id="pnumberInfo" component={RenderInfoField} type="text" label="Puhelinnumero" />
       <Field name="normalCount" id="nCountInfo" component={RenderInfoField} type="number" label="Normaali (16 €)" />
       <Field name="discountCount" id="dCountInfo" component={RenderInfoField} type="number" label="Alennus (14 €)" />
+      <Field name="additionalInfo" id="additionalArea" component={RenderInfoField} type="text" label="Lisätietoja " />
       <div className={styles.price}>
         <span>Hinta yhteensä  €</span>
       </div>

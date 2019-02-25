@@ -41,7 +41,7 @@ const ShowsList = ({
   };
   return (
     <div className={styles.container} >
-      <h2>Valitse näytös</h2>
+      <h2 className={styles.showHeader}>Valitse näytös</h2>
       {shows.map((show) => {
         return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}

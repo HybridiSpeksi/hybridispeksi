@@ -15,8 +15,8 @@ class ShowsContainer extends Component {
   render() {
     return (
       <div className={styles.container}>
-        {/* <ShowsList /> */}
-        {/* <Booking /> */}
+        <ShowsList />
+        <Booking />
         <BookingInformations />
         <button className={`${styles.buttonNext}`}>Seuraava</button>
       </div>
