@@ -6,11 +6,23 @@
     flex-grow: 1;
   }
   
+  .inputInfo {
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
   .label {
     position: absolute;
     top: 0;
     left: 5px;
   }
+
+  .labelInfo {
+    left: 0px;
+    font-style: italic;
+  }  
   
   .formRow {
     display: flex;

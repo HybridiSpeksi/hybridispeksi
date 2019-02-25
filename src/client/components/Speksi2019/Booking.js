@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderTextarea } from './RenderForm';
 import styles from './Booking.css';
+<<<<<<< HEAD
 import pagestyles from './Speksi2019.css';
+=======
+>>>>>>> 3a46797fe0e56e2f9e642e11ef8b9c64465fa22b
 import * as actions from 'actions/bookingActions';
 
 const ContactInfo = () => (
@@ -60,7 +63,7 @@ class Booking extends Component {
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.row}>
+          <div className={styles.column}>
             <h3>Valittu näytös: {selectedShow.nameLong}</h3>
           </div>
 
@@ -94,8 +97,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
+<<<<<<< HEAD
   createBooking: booking => dispatch(actions.createBooking(booking)),
   selectBooking: booking => dispatch(actions.selectBooking(booking)),
+=======
+>>>>>>> 3a46797fe0e56e2f9e642e11ef8b9c64465fa22b
 });
 
 const BookingWithReduxForm = reduxForm({
