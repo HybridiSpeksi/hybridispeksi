@@ -7,14 +7,60 @@ import styles from './ContactInfo.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
+const required = value => (value ? undefined : 'Pakollinen kenttä');
+const maxLength = max => value => (value && value > max ? `Korkeintaan ${max} merkkiä` : undefined);
+const maxLength15 = maxLength(15);
+const number = value => (value && isNaN(Number(value)) ? 'Arvon oltava luku' : undefined);
+const minValue = min => value => (value && value < min ? 'Arvon oltava positiivinen' : undefined);
+const maxValue = max => value => (value && value > max ? 'Arvo on liian suuri' : undefined);
+const minValue0 = minValue(0);
+const maxValue10 = maxValue(10);
+const pnumber = value =>
+  (value && !/^\+[1-9]{1}[0-9]{3,14}$/i.test(value) ? 'Virheellinen puhelinnumero' : undefined);
+const email = value =>
+  (value && /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) ?
+    'Virheellinen sähköposti' : undefined);
+
 const Fields = () => (
   <div className={styles.column}>
     <h2>Yhteystiedot</h2>
     <div className={styles.content}>
-      <Field name="ContactInfo.fname" id="fnameInput" component={RenderTextfield} type="text" label="Etunimi" placeholder="Etunimi" />
-      <Field name="ContactInfo.lname" id="lnameInput" component={RenderTextfield} type="text" label="Sukunimi" placeholder="Sukunimi" />
-      <Field name="ContactInfo.email" id="emailInput" component={RenderTextfield} type="text" label="Sähköposti" placeholder="Sähköposti" />
-      <Field name="ContactInfo.pnumber" id="pnumberInput" component={RenderTextfield} type="text" label="Puhelinnumero" placeholder="Puhelinnumero" />
+      <Field
+        name="ContactInfo.fname"
+        id="fnameInput"
+        component={RenderTextfield}
+        type="text"
+        label="Etunimi"
+        placeholder="Etunimi"
+        validate={[required, maxLength15]}
+      />
+      <Field
+        name="ContactInfo.lname"
+        id="lnameInput"
+        component={RenderTextfield}
+        type="text"
+        label="Sukunimi"
+        placeholder="Sukunimi"
+        validate={[required, maxLength15]}
+      />
+      <Field
+        name="ContactInfo.email"
+        id="emailInput"
+        component={RenderTextfield}
+        type="text"
+        label="Sähköposti"
+        placeholder="Sähköposti"
+        validate={[required, email]}
+      />
+      <Field
+        name="ContactInfo.pnumber"
+        id="pnumberInput"
+        component={RenderTextfield}
+        type="text"
+        label="Puhelinnumero"
+        placeholder="Puhelinnumero"
+        validate={[required]}
+      />
     </div>
   </div>
 );
@@ -32,8 +78,22 @@ const Tickets = ({ formState, prices }) => {
     <div className={styles.column}>
       <h2>Liput</h2>
       <div className={styles.content}>
-        <Field name="normalCount" id="nCountInput" component={RenderNumber} type="number" label="Normaali (16 €)" />
-        <Field name="discountCount" id="dCountInput" component={RenderNumber} type="number" label="Alennus (14 €)" />
+        <Field
+          name="normalCount"
+          id="nCountInput"
+          component={RenderNumber}
+          type="number"
+          label="Normaali (16 €)"
+          validate={[number, minValue0, maxValue10]}
+        />
+        <Field
+          name="discountCount"
+          id="dCountInput"
+          component={RenderNumber}
+          type="number"
+          label="Alennus (14 €)"
+          validate={[number, minValue0, maxValue10]}
+        />
         <div className={styles.price}>
           <span>Hinta yhteensä {countPrice()} €</span>
         </div>
@@ -49,12 +109,13 @@ Tickets.propTypes = {
 };
 
 const ContactInfoForm = ({
-  selectedShow, formState, prices, prevState, nextState, showPage, handleSubmit, selectBooking,
+  selectedShow, formState, prices, prevState, nextState, showPage, handleSubmit, selectBooking, invalid,
 }) => {
   const onSubmit = (values) => {
     values.showId = selectedShow.id;
     selectBooking(values);
   };
+
   return (
     <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -70,7 +131,7 @@ const ContactInfoForm = ({
         <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
         <div className={pagestyles.buttonContainer}>
           <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
-          <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+          <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext} ${invalid ? pagestyles.disabled : ''}`} disabled={invalid}>Seuraava</button>
         </div>
       </form>
     </div>
@@ -87,6 +148,7 @@ ContactInfoForm.propTypes = {
   showPage: PropTypes.bool,
   handleSubmit: PropTypes.func,
   selectBooking: PropTypes.func,
+  invalid: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
