@@ -88,6 +88,7 @@ ContactInfoForm.propTypes = {
 const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
+  initialValues: state.bookingManagement.selectedBooking,
 });
 
 const mapDispatchToProps = dispatch => ({

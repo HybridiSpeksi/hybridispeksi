@@ -26,6 +26,7 @@ Confirm.propTypes = {
   selectedShow: PropTypes.object,
   prevState: PropTypes.func,
   submitBooking: PropTypes.func,
+  showPage: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
