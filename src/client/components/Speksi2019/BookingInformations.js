@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea, RenderInfoField } from './RenderForm';
-import styles from './Booking.css';
+import styles from './ContactInfo.css';
 import * as actions from 'actions/bookingActions';
 
 

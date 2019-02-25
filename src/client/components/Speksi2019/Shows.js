@@ -3,7 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import styles from './ShowsList.css';
+import styles from './Shows.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 

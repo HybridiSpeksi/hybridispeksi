@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Hero from './SpeksiHero';
 import styles from './Speksi2019.css';
-import ShowsList from './ShowsList';
-import Booking from './Booking';
+import ShowsList from './Shows';
+import Booking from './ContactInfo';
 import BookingInformations from './BookingInformations';
 
 const formState = {

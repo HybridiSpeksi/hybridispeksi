@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { RenderTextfield, RenderNumber, RenderTextarea } from './RenderForm';
-import styles from './Booking.css';
+import styles from './ContactInfo.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
@@ -48,33 +48,31 @@ Tickets.propTypes = {
   prices: PropTypes.object,
 };
 
-class Booking extends Component {
-  render() {
-    const {
-      selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
-    } = this.props;
-    const onSubmit = (values) => {
-      selectBooking(values);
-    };
+const Booking = ({
+  selectedShow, handleSubmit, formState, prices, prevState, nextState, selectBooking,
+}) => {
+  const onSubmit = (values) => {
+    selectBooking(values);
+  };
 
-    return (
-      <div className={styles.container}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.column}>
-            <h3>Valittu näytös: {selectedShow.nameLong}</h3>
-          </div>
+  return (
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.column}>
+          <h3>Valittu näytös: {selectedShow.nameLong}</h3>
+        </div>
 
-          <ContactInfo />
+        <ContactInfo />
 
-          <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
+        <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
 
-          <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
-          <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
-        </form>
-      </div>
-    );
-  }
-}
+        <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
+        <button type="submit" onClick={nextState} className={`${pagestyles.buttonNext}`}>Seuraava</button>
+      </form>
+    </div>
+  );
+};
+
 
 Booking.propTypes = {
   selectedShow: PropTypes.object,
@@ -99,7 +97,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const BookingWithReduxForm = reduxForm({
-  form: 'bookingForm',
+  form: 'publicBookingForm',
 })(Booking);
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingWithReduxForm);
