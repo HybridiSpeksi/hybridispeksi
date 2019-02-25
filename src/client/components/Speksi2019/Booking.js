@@ -52,7 +52,7 @@ Tickets.propTypes = {
 class Booking extends Component {
   render() {
     const {
-      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices,
+      booking, selectedShow, handleSubmit, createBooking, formState, prices,
     } = this.props;
     const onSubmit = (values) => {
       values.showId = selectedShow.id;
@@ -68,9 +68,9 @@ class Booking extends Component {
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          {/* <div className={styles.row}>
-            <h3>{selectedShow.nameLong}</h3>
-          </div> */}
+          <div className={styles.row}>
+            <h3>Valittu näytös: {selectedShow.nameLong}</h3>
+          </div>
 
           <ContactInfo />
 
