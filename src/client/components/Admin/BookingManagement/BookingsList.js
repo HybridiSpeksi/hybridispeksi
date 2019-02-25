@@ -38,10 +38,17 @@ const BookingsList = ({ bookings, selectBooking, selectedBooking }) => {
   return (
     <div className={styles.container}>
       <h2>Varaukset</h2>
-      {bookings.map((booking) => {
+      <div className={styles.rows}>
+        <div className={styles.bookingRow}>
+          <span className={styles.name}>Nimi</span>
+          <span className={styles.email}>Sähköposti</span>
+          <span className={styles.bookingCount}>Liput</span>
+        </div>
+        {bookings.map((booking) => {
         return <Booking key={cuid()} booking={booking} handleClick={handleClick} selected={booking.id === selectedBooking.id} />;
       })
       }
+      </div>
     </div>
   );
 };
