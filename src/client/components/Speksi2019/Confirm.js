@@ -12,45 +12,51 @@ class Confirm extends Component {
     } = this.props;
 
     return (
-      <div className={styles.container}>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Etunimi</p>
-          <p className={`${styles.infoInput}`}>Nipa</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Sukunimi</p>
-          <p className={`${styles.infoInput}`}>Nänni</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Sähköposti</p>
-          <p className={`${styles.infoInput}`}>nipa@nän.ni</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Puhelinnumero</p>
-          <p className={`${styles.infoInput}`}>0700123123</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Normaali (16 €)</p>
-          <p className={`${styles.infoInput}`}>3</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Alennus (14 €)</p>
-          <p className={`${styles.infoInput}`}>0</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Lisätietoja</p>
-          <p className={`${styles.infoInput}`}>Olen homonaama.</p>
-        </div>
-        <div className={styles.infoGroup}>
-          <p className={`${styles.infoLabel}`}>Hinta yhteensä</p>
-          <p className={`${styles.infoInput}`}> 48 €</p>
-        </div>
+      <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`}>
+        <div className={styles.column}>
+          <h2>Yhteystiedot</h2>
+          <div className={styles.content}>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Etunimi</p>
+              <p className={`${styles.infoInput}`}>Nipa</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Sukunimi</p>
+              <p className={`${styles.infoInput}`}>Nänni</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Sähköposti</p>
+              <p className={`${styles.infoInput}`}>nipa@nän.ni</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Puhelinnumero</p>
+              <p className={`${styles.infoInput}`}>0700123123</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Normaali (16 €)</p>
+              <p className={`${styles.infoInput}`}>3</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Alennus (14 €)</p>
+              <p className={`${styles.infoInput}`}>0</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Lisätietoja</p>
+              <p className={`${styles.infoInput}`}>Olen homonaama.</p>
+            </div>
+            <div className={styles.infoGroup}>
+              <p className={`${styles.infoLabel}`}>Hinta yhteensä</p>
+              <p className={`${styles.infoInput}`}> 48 €</p>
+            </div>
 
-        <div className={pagestyles.buttonContainer}>
-          <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
-          <button type="button" onClick={() => submitBooking(booking)} className={`${pagestyles.buttonNext}`}>Siirry maksamaan</button>
+            <div className={pagestyles.buttonContainer}>
+              <button type="button" onClick={prevState} className={`${pagestyles.buttonNext}`}>Edellinen</button>
+              <button type="button" onClick={() => submitBooking(booking)} className={`${pagestyles.buttonNext}`}>Siirry maksamaan</button>
+            </div>
+          </div>
         </div>
       </div>
+
     );
   }
 }
@@ -60,6 +66,7 @@ Confirm.propTypes = {
   selectedShow: PropTypes.object,
   prevState: PropTypes.func,
   submitBooking: PropTypes.func,
+  showPage: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
