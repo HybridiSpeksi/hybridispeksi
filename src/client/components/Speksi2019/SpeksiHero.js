@@ -1,7 +1,19 @@
 import React from 'react';
 import styles from './SpeksiHero.css';
 
-const Hero = () => (
+const Instructions = () => (
+  <div>
+    <h3>Toimi näin</h3>
+    <ol className={`${styles.instructions_list}`}>
+      <li>Valitse haluamasi näytös</li>
+      <li>Täytä tietosi</li>
+      <li>Tarkista, että täyttämäsi tiedot ovat oikein</li>
+      <li>Sinut ohjataan Paytrailin maksupalveluun</li>
+    </ol>
+  </div>
+);
+
+const Hero = ({ ticketSaleMessage }) => (
   <div className={styles.container}>
     <div className={styles.headerTexts}>
       <h1 className={`${styles.bigsubHeading}`}>Hybridispeksi 2019</h1>
@@ -12,13 +24,7 @@ const Hero = () => (
     </div>
     <div className={`${styles.instructionsContainer}`}>
       <div className={styles.instructions}>
-        <h3>Toimi näin</h3>
-        <ol className={`${styles.instructions_list}`}>
-          <li>Valitse haluamasi näytös</li>
-          <li>Täytä tietosi</li>
-          <li>Tarkista, että täyttämäsi tiedot ovat oikein</li>
-          <li>Sinut ohjataan Paytrailin maksupalveluun</li>
-        </ol>
+        {ticketSaleMessage || <Instructions />}
       </div>
     </div>
   </div>
