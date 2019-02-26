@@ -119,8 +119,8 @@ export default class App extends React.Component {
                 <PublicLayout exact path="/" component={Home} />
                 <PublicLayout path="/speksirekry2019" component={Rekry} />
                 <PublicLayout exact path="/speksi2019" component={Speksi2019} />
-                <PublicLayout exact path="/vahvistus" component={BookingConfirmation} />
-                <PublicLayout exact path="/virhe" component={BookingDenied} />
+                <PublicLayout exact path="/speksi2019/vahvistus" component={BookingConfirmation} />
+                <PublicLayout exact path="/speksi2019/virhe/:value" component={BookingDenied} />
                 <PublicLayout path="/speksit" component={Speksit} />
                 <PublicLayout exact path="/yhdistys" component={Organization} />
                 <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />

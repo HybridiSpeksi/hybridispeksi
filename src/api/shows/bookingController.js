@@ -203,7 +203,7 @@ module.exports = {
       await mailer.sendTicket(bookingId);
       res.redirect('/speksi2019/vahvistus/' + booking.get('id'));
     } catch (e) {
-      res.redirect('/speksi2019/virhe/');
+      res.redirect('/speksi2019/virhe/' + e.message);
     }
   },
 
@@ -224,7 +224,17 @@ module.exports = {
       res.redirect('/speksi2019/vahvistus/' + booking.get('id'));
     } catch (e) {
       console.log(e);
-      res.redirect('/speksi2019/virhe/');
+      res.redirect('/speksi2019/virhe/' + e.message);
+    }
+  },
+
+  handleFailingPayment: async (req, res) => {
+    const bookingId = req.query.ORDER_NUMBER;
+    try {
+      await bookingService.deleteBooking(bookingId);
+      res.redirect('/speksi2019/virhe/1');
+    } catch (e) {
+      console.log(e);
     }
   },
 
