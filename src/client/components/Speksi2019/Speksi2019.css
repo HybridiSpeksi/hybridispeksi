@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+.payTrail {
+  background: url("https://img.paytrail.com/index.svm?id=13466&type=horizontal&cols=6&text=0&auth=f6483cce23771e8f") no-repeat center;
+  width: 100%;
+  height: 130px; 
+  margin: 20px;
+}
+
 .hidden {
   visibility: hidden;
   position: absolute;
@@ -58,11 +65,13 @@
 }
 
 @media ( min-width: 600px ) {
-
 }
 
 @media ( min-width: 840px ) {
-
+  .payTrail{  
+    background: url("https://img.paytrail.com/index.svm?id=13466&type=horizontal&cols=15&text=1&auth=f6483cce23771e8f") no-repeat center;
+    height:130px;
+  }
 }
 
 @media ( min-width: 1080px ) {
