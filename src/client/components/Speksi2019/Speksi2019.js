@@ -7,6 +7,7 @@ import styles from './Speksi2019.css';
 import Shows from './Shows';
 import ContactInfo from './ContactInfo';
 import Confirm from './Confirm';
+import ajax from './../../Utils/Ajax';
 
 const formState = {
   SELECT_SHOW: 0,
@@ -20,6 +21,8 @@ class Speksi2019 extends Component {
 
     this.state = {
       wizardState: formState.SELECT_SHOW,
+      ticketSaleOpen: false,
+      ticketSaleMessage: '',
     };
 
     this.nextState = this.nextState.bind(this);
@@ -28,6 +31,22 @@ class Speksi2019 extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
     this.props.fetchShows();
+    ajax
+      .sendGet('/lipunmyyntiAuki')
+      .then((tag) => {
+        this.setState({ ticketSaleOpen: tag.data[0].truefalse });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    ajax
+      .sendGet('/lipunmyyntiMessage')
+      .then((tag) => {
+        this.setState({ ticketSaleMessage: tag.data[0] });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   nextState() {
@@ -51,6 +70,7 @@ class Speksi2019 extends Component {
         <Shows nextState={this.nextState} showPage={wizardState === formState.SELECT_SHOW} />
         <ContactInfo nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.FILL_INFO} />
         <Confirm nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.CONFIRM_INFO} />
+        <div className={styles.payTrail} />
       </div>
     );
   }
