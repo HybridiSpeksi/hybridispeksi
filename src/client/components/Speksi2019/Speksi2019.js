@@ -31,23 +31,8 @@ class Speksi2019 extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
     this.props.fetchShows();
-    ajax
-      .sendGet('/lipunmyyntiAuki')
-      .then((tag) => {
-        this.setState({ ticketSaleOpen: tag.data[0].truefalse });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    ajax
-      .sendGet('/lipunmyyntiMessage')
-      .then((tag) => {
-        this.setState({ ticketSaleMessage: tag.data[0] });
-        console.log('Message: ' + tag.data[0]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.fetchTicketSaleOpen();
+    this.props.fetchTicketSaleMessage();
   }
 
   nextState() {
@@ -87,6 +72,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
+  fetchTicketSaleOpen: () => dispatch(actions.fetchTicketSaleOpen()),
+  fetchTicketSaleMessage: () => dispatch(actions.fetchTicketSaleMessage()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Speksi2019);

@@ -15,6 +15,8 @@ export const actions = {
   CLEAR_SELECTED_SHOW: 'CLEAR_SELECTED_SHOW',
   CLEAR_SELECTED_BOOKING: 'CLEAR_SELECTED_BOOKING',
   RECEIVE_PAYMENT_METHODS: 'RECEIVE_PAYMENT_METHODS',
+  RECEIVE_TICKETSALEOPEN: 'RECEIVE_TICKETSALEOPEN',
+  RECEIVE_TICKETSALEMESSAGE: 'RECEIVE_TICKETSALEMESSAGE',
 };
 
 function handleError(err, dispatch) {
@@ -183,6 +185,28 @@ export function fetchPaymentMethods() {
   };
 }
 
+export function fetchTicketSaleOpen() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/lipunmyyntiAuki');
+      dispatch(receiveTicketSaleOpen(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
+export function fetchTicketSaleMessage() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/lipunmyyntiMessage');
+      dispatch(receiveTicketSaleMessage(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
 export function selectShow(show) {
   return {
     type: actions.SELECT_SHOW,
@@ -227,5 +251,19 @@ function receivePaymentMethods(paymentMethods) {
   return {
     type: actions.RECEIVE_PAYMENT_METHODS,
     paymentMethods,
+  };
+}
+
+function receiveTicketSaleOpen(ticketSaleOpen) {
+  return {
+    type: actions.RECEIVE_TICKETSALEOPEN,
+    ticketSaleOpen,
+  };
+}
+
+function receiveTicketSaleMessage(ticketSaleMessage) {
+  return {
+    type: actions.RECEIVE_TICKETSALEMESSAGE,
+    ticketSaleMessage,
   };
 }
