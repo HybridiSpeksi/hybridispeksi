@@ -24,7 +24,7 @@ const Hero = ({ ticketSaleMessage }) => (
     </div>
     <div className={`${styles.instructionsContainer}`}>
       <div className={styles.instructions}>
-        {ticketSaleMessage || <Instructions />}
+        {<h3>{ticketSaleMessage}</h3> || <Instructions />}
       </div>
     </div>
   </div>
