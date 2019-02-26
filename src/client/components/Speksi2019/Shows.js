@@ -23,7 +23,7 @@ const Show = ({
         {show.bookingCount >= 100
           ? show.bookingCount === show.limit
             ? 'LOPPUUNMYYTY'
-              : 'MELKEIN TÄYNNÄ'
+              : 'LÄHES TÄYNNÄ'
             : 'TILAA'}
       </div>
     </div>
