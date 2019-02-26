@@ -80,8 +80,8 @@ router.get('/booking/:bookingId', bookingController.getBookingById);
 router.delete('/admin/booking/:bookingId', bookingController.deleteBooking);
 router.put('/admin/booking/:bookingId', bookingController.updateBooking);
 router.get('/payment/success', bookingController.handleSuccessfulPayment);
-router.get('/payment/failure', maksu.handleFailure);
-router.get('/payment/notify', maksu.handleNotify);
+router.get('/payment/failure', bookingController.handleFailingPayment);
+router.get('/payment/notify', bookingController.handleNotifyPayment);
 router.get('/paymentmethods', bookingController.getPaymentMethods);
 
 // Varaukset

@@ -82,16 +82,21 @@ module.exports = {
     const paid = request.query.PAID;
     const method = request.query.METHOD;
     const authcode = request.query.RETURN_AUTHCODE;
+    console.log('########################');
+    console.log(paid);
     const params =
       ordernumber + '|' + timestamp + '|' + paid + '|' + method + '|' + kauppiasvarmenne;
     const hash = crypto
       .createHash('md5')
       .update(params)
       .digest('hex');
+    if (!paid) {
+      throw new Error('1');
+    }
     if (hash.toUpperCase() === authcode.toUpperCase()) {
       return true;
     }
-    throw new Error('Maksutapahtumaa ei voitu vahvistaa.');
+    throw new Error('2');
   },
 };
 

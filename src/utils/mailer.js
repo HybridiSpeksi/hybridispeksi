@@ -22,7 +22,6 @@ module.exports = {
   sendTicket: async (bookingId) => {
     try {
       const booking = await bookingService.findById(bookingId);
-      console.log(booking.get('normalCount'));
       await nodemailerMailgun.sendMail({
         from: 'lipunmyynti@hybridispeksi.fi',
         to: booking.get('ContactInfo').get('email'),
@@ -31,7 +30,7 @@ module.exports = {
       });
     } catch (err) {
       console.log(err);
-      throw new Error('Sähköpostin lähetys epäonnistui');
+      throw new Error('3');
     }
   },
 };
