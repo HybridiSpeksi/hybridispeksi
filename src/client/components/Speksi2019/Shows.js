@@ -11,7 +11,7 @@ import * as actions from 'actions/bookingActions';
 const Show = ({
   show, handleClick, selected, ticketSaleOpen,
 }) => (
-  <div className={`${styles.showRow} ${selected && show.bookingCount != show.limit ? styles.selected : ''} ${!ticketSaleOpen || show.bookingCount === show.limit ? styles.disabled : ''} `} onClick={() => handleClick(show)}>
+  <div className={`${styles.showRow} ${selected ? styles.selected : ''} ${!ticketSaleOpen || show.bookingCount === show.limit ? styles.disabled : ''} `} onClick={() => handleClick(show)}>
     <h3 className={`${styles.showDate}`}>
       <div><Moment format="DD.MM.">{show.date}</Moment></div>
       <div>klo <Moment format="HH.mm">{show.date}</Moment> </div>
@@ -41,7 +41,7 @@ const ShowsList = ({
   shows, selectedShow, select, nextState, showPage, ticketSaleOpen, fetchTicketSaleOpen,
 }) => {
   const handleClick = (show) => {
-    if (ticketSaleOpen) { select(show); }
+    if (ticketSaleOpen && show.bookingCount !== show.limit) { select(show); }
   };
   fetchTicketSaleOpen();
   const disableNext = selectedShow.id === '';
