@@ -15,7 +15,7 @@
   text-align: center;
   justify-content: center;
   width: 90%;
-  animation: fadein 4s;
+  animation: fadein 2s;
 }
 
 @keyframes fadein {
