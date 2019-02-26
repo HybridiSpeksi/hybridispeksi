@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styles from './SpeksiHero.css';
 
 const Instructions = () => (
-  <div>
+  <div className={styles.instructionsContent}>
     <h3>Toimi näin</h3>
     <ol className={`${styles.instructions_list}`}>
       <li>Valitse haluamasi näytös</li>
