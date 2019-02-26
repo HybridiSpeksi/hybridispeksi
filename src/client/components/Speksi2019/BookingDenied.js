@@ -20,10 +20,11 @@ class BookingConfirmation extends Component {
         res.data.map((ohjaustieto) => {
           if (params.value === ohjaustieto.value) {
             this.setState({ errorMessage: ohjaustieto.name });
-          } else {
-            this.setState({ errorMessage: 'Tuntematon virhe. Tarvittaessa ota yhteys lipunmyynti@hybridispeksi.fi' });
           }
         });
+        if (this.state.errorMessage === '') {
+          this.setState({ errorMessage: 'Tuntematon virhe. Tarvittaessa ota yhteys lipunmyynti@hybridispeksi.fi' });
+        }
       });
   }
 
