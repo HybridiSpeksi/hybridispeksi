@@ -43,6 +43,7 @@ class Speksi2019 extends Component {
       .sendGet('/lipunmyyntiMessage')
       .then((tag) => {
         this.setState({ ticketSaleMessage: tag.data[0] });
+        console.log('Message: ' + tag.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +67,7 @@ class Speksi2019 extends Component {
 
     return (
       <div className={styles.container}>
-        <SpeksiHero />
+        <SpeksiHero ticketSaleMessage={this.ticketSaleMessage} />
         <Shows nextState={this.nextState} showPage={wizardState === formState.SELECT_SHOW} />
         <ContactInfo nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.FILL_INFO} />
         <Confirm nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.CONFIRM_INFO} />
