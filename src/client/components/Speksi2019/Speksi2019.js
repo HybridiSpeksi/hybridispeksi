@@ -19,6 +19,8 @@ class Speksi2019 extends Component {
   constructor() {
     super();
 
+    this.divider = React.createRef();
+
     this.state = {
       wizardState: formState.SELECT_SHOW,
     };
@@ -36,12 +38,14 @@ class Speksi2019 extends Component {
     this.setState({
       wizardState: this.state.wizardState + 1,
     });
+    window.scrollTo(0, this.divider.current.offsetTop);
   }
 
   prevState() {
     this.setState({
       wizardState: this.state.wizardState - 1,
     });
+    window.scrollTo(0, this.divider.current.offsetTop);
   }
 
   render() {
@@ -52,6 +56,7 @@ class Speksi2019 extends Component {
     return (
       <div className={styles.container}>
         <SpeksiHero ticketSaleMessage={ticketSaleMessage} />
+        <div ref={this.divider} />
         <Shows nextState={this.nextState} showPage={wizardState === formState.SELECT_SHOW} />
         <ContactInfo nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.FILL_INFO} />
         <Confirm nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.CONFIRM_INFO} />

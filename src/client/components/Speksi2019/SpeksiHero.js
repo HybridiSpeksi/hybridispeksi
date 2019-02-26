@@ -25,7 +25,7 @@ const Hero = ({ ticketSaleMessage, ticketSaleOpen }) => (
     </div>
     <div className={`${styles.instructionsContainer}`}>
       <div className={styles.instructions}>
-        <h4><i>{ticketSaleMessage}</i></h4>
+        <h4 className={styles.ticketSaleMessage}><i>{ticketSaleMessage}</i></h4>
         {ticketSaleOpen ? <Instructions /> : null}
       </div>
     </div>
