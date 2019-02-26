@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './BookingConfirmation.css';
 import PageHero from '../PageHero/PageHero';
@@ -16,12 +15,13 @@ class BookingConfirmation extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
     const { params } = this.props;
-    console.log(params.value);
     ajax.sendGet('/ohjaustieto/maksuvirhe')
       .then((res) => {
         res.data.map((ohjaustieto) => {
           if (params.value === ohjaustieto.value) {
             this.setState({ errorMessage: ohjaustieto.name });
+          } else {
+            this.setState({ errorMessage: 'Tuntematon virhe. Tarvittaessa ota yhteys lipunmyynti@hybridispeksi.fi' });
           }
         });
       });
@@ -45,16 +45,7 @@ class BookingConfirmation extends Component {
 }
 
 BookingConfirmation.propTypes = {
+  params: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
-  booking: state.bookingManagement.selectedBooking,
-  selectedShow: state.bookingManagement.selectedShow,
-  prices: state.bookingManagement.prices,
-});
-
-const mapDispatchToProps = dispatch => ({
-  submitBooking: booking => dispatch(actions.submitBooking(booking)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookingConfirmation);
+export default BookingConfirmation;
