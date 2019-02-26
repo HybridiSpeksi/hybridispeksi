@@ -16,7 +16,7 @@ const BookingConfirmation = () => {
               <li>Saat pian varausvahvistuksen sähköpostiisi</li>
               <li>Varausvahvistus sisältää varaustunnuksen joka toimii lippuna näytökseen. Sitä ei siis tarvitse erikseen lunastaa.
               </li>
-              <li>Mikäli herää kysyttävää, ota rohkeasti yhteyttä lipunmyynti@hybridispeksi.fi.
+              <li>Mikäli herää kysyttävää, ota rohkeasti yhteyttä lipunmyynti@hybridispeksi.fi. Vastaamme pikimmiten.
               </li>
               <li>Nähdään teatterilla!</li>
             </ul>

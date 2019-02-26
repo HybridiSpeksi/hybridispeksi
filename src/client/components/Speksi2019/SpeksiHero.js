@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styles from './SpeksiHero.css';
 
 const Instructions = () => (
@@ -13,7 +14,7 @@ const Instructions = () => (
   </div>
 );
 
-const Hero = ({ ticketSaleMessage }) => (
+const Hero = ({ ticketSaleMessage, ticketSaleOpen }) => (
   <div className={styles.container}>
     <div className={styles.headerTexts}>
       <h1 className={`${styles.bigsubHeading}`}>Hybridispeksi 2019</h1>
@@ -24,10 +25,18 @@ const Hero = ({ ticketSaleMessage }) => (
     </div>
     <div className={`${styles.instructionsContainer}`}>
       <div className={styles.instructions}>
-        {<h3>{ticketSaleMessage}</h3> || <Instructions />}
+        <h4><i>{ticketSaleMessage}</i></h4>
+        {ticketSaleOpen ? <Instructions /> : null}
       </div>
     </div>
   </div>
 );
+const mapStateToProps = state => ({
+  ticketSaleMessage: state.bookingManagement.ticketSaleMessage,
+  ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
+});
 
-export default Hero;
+const mapDispatchToProps = dispatch => ({
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hero);
