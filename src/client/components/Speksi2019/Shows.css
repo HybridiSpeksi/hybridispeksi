@@ -11,6 +11,7 @@
 }
 
 .showRow {
+  cursor: pointer;
   font-size: 14px;
   width: 100%;
   padding: 1em;
