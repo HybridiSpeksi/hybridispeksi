@@ -2,6 +2,7 @@ const bookingService = require('../../services/bookingService');
 const mailer = require('../../utils/mailer');
 const validator = require('../../utils/validation');
 const paymentFactory = require('../../utils/payments');
+const Ohjaustieto = require('../../schema/ohjaustieto-model');
 
 const validateBooking = (booking) => {
   const {
@@ -144,6 +145,10 @@ module.exports = {
       pnumber,
     } = req.body.ContactInfo;
     try {
+      const salesOpen = await Ohjaustieto.findOne({ key: 'lipunmyyntiAuki' });
+      if (!salesOpen.truefalse) {
+        throw new Error('Lipunmyynti on suljettu');
+      }
       const body = { ...req.body, specialPrice: 0, specialPriceCount: 0 };
       validateBooking(body);
       const booking = await bookingService.createBooking(
