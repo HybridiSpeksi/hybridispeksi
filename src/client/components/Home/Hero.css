@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 90%;
-  animation: fadein 4s;
+  animation: fadein 2s;
   justify-content: center;
 }
 
@@ -36,7 +36,7 @@
   align-items: center;
   margin-top: 20px;
   width: 90%;
-  animation: fadein 4s;
+  animation: fadein 2s;
   justify-content: center;
 }
 
@@ -61,7 +61,20 @@
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 50px;
+  font-style: italic;
 }
+
+.ticketsLink {
+  padding: 1em 5em;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.ticketsLink:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 @media (min-width: 600px) {
   .headerContainer {
   }
