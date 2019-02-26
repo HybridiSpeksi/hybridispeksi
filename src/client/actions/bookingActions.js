@@ -14,6 +14,7 @@ export const actions = {
   SAVE_BOOKING: 'SAVE_BOOKING',
   CLEAR_SELECTED_SHOW: 'CLEAR_SELECTED_SHOW',
   CLEAR_SELECTED_BOOKING: 'CLEAR_SELECTED_BOOKING',
+  RECEIVE_PAYMENT_METHODS: 'RECEIVE_PAYMENT_METHODS',
 };
 
 function handleError(err, dispatch) {
@@ -171,6 +172,17 @@ export function deleteShow(show) {
   };
 }
 
+export function fetchPaymentMethods() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/paymentmethods');
+      dispatch(receivePaymentMethods(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
 export function selectShow(show) {
   return {
     type: actions.SELECT_SHOW,
@@ -208,5 +220,12 @@ function receiveBookings(bookings) {
   return {
     type: actions.RECEIVE_BOOKINGS,
     bookings,
+  };
+}
+
+function receivePaymentMethods(paymentMethods) {
+  return {
+    type: actions.RECEIVE_PAYMENT_METHODS,
+    paymentMethods,
   };
 }

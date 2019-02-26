@@ -31,6 +31,7 @@ const initialState = {
       pnumber: '',
     },
   },
+  paymentMethods: [{ name: 'asdfa', value: 'asrgaeraerg', code: 100 }],
 };
 
 const bookingManagement = (state = initialState, action) => {
@@ -64,6 +65,11 @@ const bookingManagement = (state = initialState, action) => {
       return {
         ...state,
         selectedBooking: initialState.selectedBooking,
+      };
+    case actions.RECEIVE_PAYMENT_METHODS:
+      return {
+        ...state,
+        paymentMethods: [...action.paymentMethods],
       };
     default:
       return state;

@@ -101,6 +101,7 @@ module.exports = {
     specialPrice,
     additionalInfo,
     paid,
+    paymentMethodId,
   ) => {
     try {
       const booking = await Booking.findOne({ where: { id }, include: { model: ContactInfo } });
@@ -113,6 +114,7 @@ module.exports = {
           specialPrice,
           additionalInfo,
           paid,
+          paymentMethodId,
         });
         const contactInfo = booking.get('ContactInfo');
         contactInfo.update({
@@ -165,6 +167,16 @@ module.exports = {
         include: [{ model: ContactInfo }, { model: Show }],
       });
       return booking;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  getPaymentMethods: async () => {
+    try {
+      const methods = await PaymentMethod.findAll();
+      return methods;
     } catch (e) {
       console.log(e);
       throw e;

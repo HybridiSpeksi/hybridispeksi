@@ -1,4 +1,5 @@
 import React from 'react';
+import cuid from 'cuid';
 import styles from './BookingManagement.css';
 
 export const RenderTextfield = field => (
@@ -34,5 +35,19 @@ export const RenderCheckbox = field => (
   <div className={styles.inputGroup}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>
     <input type="checkbox" className={`${styles.input} ${styles.checkbox}`} {...field.input} />
+  </div>
+);
+
+export const RenderDropdown = field => (
+  <div className={styles.inputGroup}>
+    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
+    <select className={`${styles.input}`} id={field.id} {...field.input}>
+      <option value="">Maksutapa</option>
+      {field.options.map((option) => {
+        return (
+          <option key={cuid()} value={option.value}>{option.name}</option>
+        );
+      })}
+    </select>
   </div>
 );

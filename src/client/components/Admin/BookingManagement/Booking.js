@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderTextarea, RenderCheckbox } from './RenderForm';
+import { RenderTextfield, RenderNumber, RenderTextarea, RenderCheckbox, RenderDropdown } from './RenderForm';
 import styles from './Booking.css';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingActions';
@@ -24,7 +24,14 @@ const ContactInfo = () => (
   </div>
 );
 
-const Tickets = ({ selectedShow, formState, prices }) => {
+const Tickets = ({
+  selectedShow, formState, prices, paymentMethods,
+}) => {
+  const paymentMethodOptions = () => {
+    return paymentMethods.map((method) => {
+      return { name: method.name, value: method.id };
+    });
+  };
   const countPrice = () => {
     if (!formState) return 0;
     const {
@@ -55,6 +62,9 @@ const Tickets = ({ selectedShow, formState, prices }) => {
           <Field name="additionalInfo" id="additionalArea" component={RenderTextarea} type="text" label="Lisätietoja" rows="5" />
         </div>
         <div className={styles.formRow}>
+          <Field name="paymentMethodId" id="paymentMethodSelect" component={RenderDropdown} options={paymentMethodOptions()} />
+        </div>
+        <div className={styles.formRow}>
           <Field name="paid" id="paid" label="Maksettu" component={RenderCheckbox} type="checkbox" />
         </div>
       </div>
@@ -65,6 +75,8 @@ const Tickets = ({ selectedShow, formState, prices }) => {
 Tickets.propTypes = {
   selectedShow: PropTypes.object,
   formState: PropTypes.object,
+  prices: PropTypes.object,
+  paymentMethods: PropTypes.array,
 };
 
 const Shows = () => (
@@ -107,11 +119,12 @@ Buttons.propTypes = {
 class Booking extends Component {
   componentDidMount() {
     if (this.props.shows.length < 1) { this.props.fetchShows(); }
+    this.props.fetchPaymentMethods();
   }
 
   render() {
     const {
-      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices,
+      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices, paymentMethods,
     } = this.props;
     const onSubmit = (values) => {
       values.showId = selectedShow.id;
@@ -135,7 +148,7 @@ class Booking extends Component {
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.row}>
             <ContactInfo />
-            <Tickets selectedShow={selectedShow} formState={formState} prices={prices} />
+            <Tickets selectedShow={selectedShow} formState={formState} prices={prices} paymentMethods={paymentMethods} />
           </div>
           <div className={styles.row}>
             <Shows />
@@ -151,8 +164,10 @@ Booking.propTypes = {
   booking: PropTypes.object,
   selectedShow: PropTypes.object,
   shows: PropTypes.array,
-  prices: PropTypes.array,
+  prices: PropTypes.object,
+  paymentMethods: PropTypes.array,
   fetchShows: PropTypes.func,
+  fetchPaymentMethods: PropTypes.func,
   createBooking: PropTypes.func,
   updateBooking: PropTypes.func,
   deleteBooking: PropTypes.func,
@@ -166,11 +181,13 @@ const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
   prices: state.bookingManagement.prices,
   shows: state.bookingManagement.shows,
+  paymentMethods: state.bookingManagement.paymentMethods,
   formState: getFormValues('bookingForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
+  fetchPaymentMethods: () => dispatch(actions.fetchPaymentMethods()),
   createBooking: booking => dispatch(actions.createBooking(booking)),
   updateBooking: booking => dispatch(actions.updateBooking(booking)),
   deleteBooking: booking => dispatch(actions.deleteBooking(booking)),

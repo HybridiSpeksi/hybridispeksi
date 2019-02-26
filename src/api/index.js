@@ -82,6 +82,7 @@ router.put('/admin/booking/:bookingId', bookingController.updateBooking);
 router.get('/payment/success', bookingController.handleSuccessfulPayment);
 router.get('/payment/failure', maksu.handleFailure);
 router.get('/payment/notify', maksu.handleNotify);
+router.get('/paymentmethods', bookingController.getPaymentMethods);
 
 // Varaukset
 // router.get('/admin/varaukset/:_id', varaus.getAllByShowId);

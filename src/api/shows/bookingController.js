@@ -96,8 +96,10 @@ module.exports = {
       specialPriceCount,
       specialPrice,
       additionalInfo,
+      paymentMethodId,
       paid,
     } = req.body;
+    console.log(req.body);
     const {
       fname,
       lname,
@@ -120,6 +122,7 @@ module.exports = {
         specialPrice,
         additionalInfo,
         paid,
+        paymentMethodId,
       );
       res.json({ success: true, data: booking });
     } catch (e) {
@@ -223,6 +226,16 @@ module.exports = {
     } catch (e) {
       console.log(e);
       res.redirect('/speksi2019/virhe/');
+    }
+  },
+
+  getPaymentMethods: async (req, res) => {
+    try {
+      const methods = await bookingService.getPaymentMethods();
+      res.json({ success: true, data: methods });
+    } catch (e) {
+      console.log(e);
+      res.json({ success: false, message: e.message });
     }
   },
 };
