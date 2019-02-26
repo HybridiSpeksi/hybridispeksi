@@ -47,6 +47,21 @@
   display: flex;
   justify-content: space-between;
 }
+
+.soldOut {
+  font-weight: bold;
+  color: rgb(187, 0, 0);
+}
+
+.almostSoldOut {
+  font-weight: bold;
+  color: rgb(164, 175, 0);
+}
+
+.gotSpace {
+  font-weight: bold;
+  color: rgb(0, 112, 0);
+}
  
 .selected {
   background:linear-gradient(to bottom, rgb(205, 205, 205) 5%, rgb(185, 185, 185) 100%);

@@ -22,9 +22,9 @@ const Show = ({
       <div className={`${styles.showSpace}`}>
         {show.bookingCount >= 100
           ? show.bookingCount === show.limit
-            ? 'LOPPUUNMYYTY'
-              : 'MELKEIN TÄYNNÄ'
-            : 'TILAA'}
+            ? <span className={styles.soldOut}>LOPPUUNMYYTY</span>
+              : <span className={styles.almostSoldOut}>MELKEIN TÄYNNÄ</span>
+            : <span className={styles.gotSpace}>TILAA</span>}
       </div>
     </div>
   </div>
