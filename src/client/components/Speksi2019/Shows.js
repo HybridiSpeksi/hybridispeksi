@@ -38,6 +38,7 @@ const ShowsList = ({
   shows, selectedShow, select, nextState, showPage,
 }) => {
   const handleClick = (show) => {
+    if (true) return null;
     select(show);
   };
   const disableNext = selectedShow.id === '';
