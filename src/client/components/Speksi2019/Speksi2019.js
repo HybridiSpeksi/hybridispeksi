@@ -21,8 +21,6 @@ class Speksi2019 extends Component {
 
     this.state = {
       wizardState: formState.SELECT_SHOW,
-      ticketSaleOpen: false,
-      ticketSaleMessage: '',
     };
 
     this.nextState = this.nextState.bind(this);
@@ -49,10 +47,13 @@ class Speksi2019 extends Component {
 
   render() {
     const { wizardState } = this.state;
-
+    const {
+      ticketSaleMessage,
+    } = this.props;
+    console.log(this.props.ticketSaleMessage);
     return (
       <div className={styles.container}>
-        <SpeksiHero ticketSaleMessage={this.ticketSaleMessage} />
+        <SpeksiHero ticketSaleMessage={ticketSaleMessage} />
         <Shows nextState={this.nextState} showPage={wizardState === formState.SELECT_SHOW} />
         <ContactInfo nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.FILL_INFO} />
         <Confirm nextState={this.nextState} prevState={this.prevState} showPage={wizardState === formState.CONFIRM_INFO} />
@@ -64,10 +65,15 @@ class Speksi2019 extends Component {
 
 Speksi2019.propTypes = {
   fetchShows: PropTypes.func,
+  fetchTicketSaleOpen: PropTypes.func,
+  fetchTicketSaleMessage: PropTypes.func,
+  ticketSaleMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
+  ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
+  ticketSaleMessage: state.ticketSaleMessage,
 });
 
 const mapDispatchToProps = dispatch => ({
