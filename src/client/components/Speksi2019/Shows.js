@@ -8,8 +8,10 @@ import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
 
 
-const Show = ({ show, handleClick, selected }) => (
-  <div className={`${styles.showRow} ${selected ? styles.selected : ''}`} onClick={() => handleClick(show)}>
+const Show = ({
+  show, handleClick, selected, ticketSaleOpen,
+}) => (
+  <div className={`${styles.showRow} ${selected ? styles.selected : ''} ${!ticketSaleOpen ? styles.disabled : ''} `} onClick={() => handleClick(show)}>
     <h3 className={`${styles.showDate}`}>
       <div><Moment format="DD.MM.">{show.date}</Moment></div>
       <div>klo <Moment format="HH.mm">{show.date}</Moment> </div>
@@ -32,20 +34,22 @@ Show.propTypes = {
   show: PropTypes.object,
   handleClick: PropTypes.func,
   selected: PropTypes.bool,
+  ticketSaleOpen: PropTypes.bool,
 };
 
 const ShowsList = ({
-  shows, selectedShow, select, nextState, showPage,
+  shows, selectedShow, select, nextState, showPage, ticketSaleOpen, fetchTicketSaleOpen,
 }) => {
   const handleClick = (show) => {
-    select(show);
+    if (ticketSaleOpen) { select(show); }
   };
+  fetchTicketSaleOpen();
   const disableNext = selectedShow.id === '';
   return (
     <div className={`${styles.container} ${!showPage ? pagestyles.hidden : ''}`} >
       <h2 className={styles.showHeader}>Valitse näytös</h2>
       {shows.map((show) => {
-        return <Show show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
+        return <Show ticketSaleOpen={ticketSaleOpen} show={show} key={cuid()} handleClick={handleClick} selected={show.id === selectedShow.id} />;
       })}
       <div className={pagestyles.buttonContainer}>
         <button onClick={nextState} className={`${pagestyles.buttonNext} ${disableNext ? pagestyles.disabled : ''}`} disabled={disableNext}>Seuraava</button>
@@ -58,18 +62,21 @@ ShowsList.propTypes = {
   shows: PropTypes.array,
   select: PropTypes.func,
   selectedShow: PropTypes.object,
-  fetchBookings: PropTypes.func,
   nextState: PropTypes.func,
+  fetchTicketSaleOpen: PropTypes.func,
+  ticketSaleOpen: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   shows: state.bookingManagement.shows,
   selectedShow: state.bookingManagement.selectedShow,
+  ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
 });
 
 const mapDispatchToProps = dispatch => ({
   select: show => dispatch(actions.selectShow(show)),
   fetchBookings: showId => dispatch(actions.fetchBookings(showId)),
+  fetchTicketSaleOpen: () => dispatch(actions.fetchTicketSaleOpen()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowsList);

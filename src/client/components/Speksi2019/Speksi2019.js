@@ -29,7 +29,6 @@ class Speksi2019 extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
     this.props.fetchShows();
-    this.props.fetchTicketSaleOpen();
     this.props.fetchTicketSaleMessage();
   }
 
@@ -48,7 +47,7 @@ class Speksi2019 extends Component {
   render() {
     const { wizardState } = this.state;
     const {
-      ticketSaleMessage, ticketSaleOpen,
+      ticketSaleMessage,
     } = this.props;
     return (
       <div className={styles.container}>
@@ -67,18 +66,16 @@ Speksi2019.propTypes = {
   fetchTicketSaleOpen: PropTypes.func,
   fetchTicketSaleMessage: PropTypes.func,
   ticketSaleMessage: PropTypes.string,
-  ticketSaleOpen: PropTypes.bool,
+
 };
 
 const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
-  ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
   ticketSaleMessage: state.bookingManagement.ticketSaleMessage,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchShows: () => dispatch(actions.fetchShows()),
-  fetchTicketSaleOpen: () => dispatch(actions.fetchTicketSaleOpen()),
   fetchTicketSaleMessage: () => dispatch(actions.fetchTicketSaleMessage()),
 });
 
