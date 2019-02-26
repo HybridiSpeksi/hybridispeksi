@@ -32,7 +32,8 @@ const initialState = {
     },
   },
   paymentMethods: [{ name: 'asdfa', value: 'asrgaeraerg', code: 100 }],
-  bookingOpen: false,
+  ticketSaleOpen: false,
+  ticketSaleMessage: '',
 };
 
 const bookingManagement = (state = initialState, action) => {
@@ -72,15 +73,15 @@ const bookingManagement = (state = initialState, action) => {
         ...state,
         paymentMethods: [...action.paymentMethods],
       };
-    case actions.SET_BOOKING_OPEN:
+    case actions.RECEIVE_TICKETSALEOPEN:
       return {
         ...state,
-        bookingOpen: true,
+        ticketSaleOpen: action.ticketSaleOpen,
       };
-    case actions.SET_BOOKING_CLOSE:
+    case actions.RECEIVE_TICKETSALEMESSAGE:
       return {
         ...state,
-        bookingOpen: false,
+        ticketSaleMessage: action.ticketSaleMessage,
       };
     default:
       return state;

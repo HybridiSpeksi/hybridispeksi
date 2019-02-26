@@ -189,7 +189,7 @@ export function fetchTicketSaleOpen() {
   return async (dispatch) => {
     try {
       const res = await ajax.sendGet('/lipunmyyntiAuki');
-      dispatch(receiveTicketSaleOpen(res.data));
+      dispatch(receiveTicketSaleOpen(res.data[0].truefalse));
     } catch (err) {
       handleError(err, dispatch);
     }
@@ -200,7 +200,8 @@ export function fetchTicketSaleMessage() {
   return async (dispatch) => {
     try {
       const res = await ajax.sendGet('/lipunmyyntiMessage');
-      dispatch(receiveTicketSaleMessage(res.data));
+      console.log(res.data[0].name);
+      dispatch(receiveTicketSaleMessage(res.data[0].name));
     } catch (err) {
       handleError(err, dispatch);
     }
