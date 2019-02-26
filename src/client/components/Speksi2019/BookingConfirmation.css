@@ -1,0 +1,130 @@
+.container {
+  background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #d8bed2;
+  background-size: contain;
+  padding-bottom: 100px;
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageHero {
+  composes: backgroundBlack from '../../styles/Colors.css';
+  composes: fontPurple from '../../styles/Colors.css';
+  box-shadow: 0px 7px 20px 5px #888888;
+  width: 100%;
+}
+
+.contentContainer {
+  margin: 2em;
+  padding: 2em;
+  border-radius: 4px;
+  background: #d0bdd0;
+  box-shadow: 2px 2px 7px 0px #888888;  
+  width: 90%;
+}
+
+.instructionsContainer {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  box-shadow: 0px 7px 20px 5px #888888;
+  width: 100%;
+  color: white;
+  padding: 3em 2em 2em 2em;
+  line-height: 2.5;
+  font-size: 14px;
+}
+
+.instructions {
+  width: 90%;
+}
+
+.instructions_list {
+  text-align: left;
+}
+
+.column {
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.content {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.infoGroup {
+    position: relative;
+    padding: 1em 0;
+    display: flex;
+    width: 48%; 
+  }
+
+.infoLabel {
+    position: absolute;
+    top: 0;
+}  
+.infoInput {
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.infoArea, .infoEmail, .infoPnumber {
+    width: 100%;
+}
+
+.priceInfo {
+    order: 99;
+    font-size: 20px; 
+    font-weight: bold;
+    width: 100%; 
+}
+
+@media ( min-width: 600px ) {
+  }
+  
+  @media ( min-width: 840px ) {
+    .container { 
+      background-size: cover;
+    }
+
+    .infoEmail, .infoPnumber {
+        width: 48%;
+    }
+    
+    .instructions {
+      width: 80%;
+    }
+  }
+  
+  @media ( min-width: 1080px ) {
+    .contentContainer {
+      width: 70%;
+      padding: 2em;
+    }
+
+    .instructions {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+      width: 50%;
+    }
+  }

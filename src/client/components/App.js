@@ -23,6 +23,8 @@ import Palaute from './Palaute/Palaute';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
+import BookingConfirmation from './Speksi2019/BookingConfirmation';
+import BookingDenied from './Speksi2019/BookingDenied';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -117,6 +119,8 @@ export default class App extends React.Component {
                 <PublicLayout exact path="/" component={Home} />
                 <PublicLayout path="/speksirekry2019" component={Rekry} />
                 <PublicLayout exact path="/speksi2019" component={Speksi2019} />
+                <PublicLayout exact path="/vahvistus" component={BookingConfirmation} />
+                <PublicLayout exact path="/virhe" component={BookingDenied} />
                 <PublicLayout path="/speksit" component={Speksit} />
                 <PublicLayout exact path="/yhdistys" component={Organization} />
                 <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />
