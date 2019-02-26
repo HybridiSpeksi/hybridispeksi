@@ -29,3 +29,10 @@ export const RenderTextarea = field => (
     <textarea id={field.id} className={styles.input} rows={field.rows} {...field.input} />
   </div>
 );
+
+export const RenderCheckbox = field => (
+  <div className={styles.inputGroup}>
+    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
+    <input type="checkbox" className={`${styles.input} ${styles.checkbox}`} {...field.input} />
+  </div>
+);

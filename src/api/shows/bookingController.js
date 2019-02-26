@@ -96,6 +96,7 @@ module.exports = {
       specialPriceCount,
       specialPrice,
       additionalInfo,
+      paid,
     } = req.body;
     const {
       fname,
@@ -118,6 +119,7 @@ module.exports = {
         specialPriceCount,
         specialPrice,
         additionalInfo,
+        paid,
       );
       res.json({ success: true, data: booking });
     } catch (e) {

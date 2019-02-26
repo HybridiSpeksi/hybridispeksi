@@ -55,6 +55,10 @@
   left: 5px;
 }
 
+.checkbox {
+  width: 50px;
+}
+
 .button {
   flex-grow: 1;
   margin: 10px 5px;

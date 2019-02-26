@@ -100,6 +100,7 @@ module.exports = {
     specialPriceCount,
     specialPrice,
     additionalInfo,
+    paid,
   ) => {
     try {
       const booking = await Booking.findOne({ where: { id }, include: { model: ContactInfo } });
@@ -111,6 +112,7 @@ module.exports = {
           specialPriceCount,
           specialPrice,
           additionalInfo,
+          paid,
         });
         const contactInfo = booking.get('ContactInfo');
         contactInfo.update({

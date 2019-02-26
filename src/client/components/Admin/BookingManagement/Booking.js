@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderDateField, RenderTextarea } from './RenderForm';
+import { RenderTextfield, RenderNumber, RenderTextarea, RenderCheckbox } from './RenderForm';
 import styles from './Booking.css';
 import ShowsList from './ShowsList';
 import * as actions from 'actions/bookingActions';
@@ -53,6 +53,9 @@ const Tickets = ({ selectedShow, formState, prices }) => {
         </div>
         <div className={styles.formRow}>
           <Field name="additionalInfo" id="additionalArea" component={RenderTextarea} type="text" label="Lisätietoja" rows="5" />
+        </div>
+        <div className={styles.formRow}>
+          <Field name="paid" id="paid" label="Maksettu" component={RenderCheckbox} type="checkbox" />
         </div>
       </div>
     </div>
