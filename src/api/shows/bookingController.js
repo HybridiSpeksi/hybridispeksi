@@ -99,7 +99,6 @@ module.exports = {
       paymentMethodId,
       paid,
     } = req.body;
-    console.log(req.body);
     const {
       fname,
       lname,
