@@ -48,9 +48,8 @@ class Speksi2019 extends Component {
   render() {
     const { wizardState } = this.state;
     const {
-      ticketSaleMessage,
+      ticketSaleMessage, ticketSaleOpen,
     } = this.props;
-    console.log(this.props.ticketSaleMessage);
     return (
       <div className={styles.container}>
         <SpeksiHero ticketSaleMessage={ticketSaleMessage} />
@@ -68,12 +67,13 @@ Speksi2019.propTypes = {
   fetchTicketSaleOpen: PropTypes.func,
   fetchTicketSaleMessage: PropTypes.func,
   ticketSaleMessage: PropTypes.string,
+  ticketSaleOpen: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   selectedShow: state.bookingManagement.selectedShow,
   ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
-  ticketSaleMessage: state.ticketSaleMessage,
+  ticketSaleMessage: state.bookingManagement.ticketSaleMessage,
 });
 
 const mapDispatchToProps = dispatch => ({
