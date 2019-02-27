@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 import styles from './Teaser.css';
 
 const Teaser = ({ globalStyles }) => (
@@ -8,9 +7,9 @@ const Teaser = ({ globalStyles }) => (
     <div className={styles.teaser}>
       <div className={styles.iframeContainer}>
         <iframe
-          title="teaser"
+          title="trailer"
           id="youtubeplayer"
-          src="https://www.youtube.com/embed/fmCjxaopc-E?rel=0&controls=1&showinfo=0modestbranding=1"
+          src="https://www.youtube.com/embed/RRqUhaG_E9s?rel=0&controls=1&showinfo=0modestbranding=1"
           width="100%"
           height="360"
           frameBorder="0"
@@ -39,3 +38,6 @@ Teaser.propTypes = {
 };
 
 export default Teaser;
+
+
+  <iframe width="1905" height="896" src="https://www.youtube.com/embed/RRqUhaG_E9s" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />;
