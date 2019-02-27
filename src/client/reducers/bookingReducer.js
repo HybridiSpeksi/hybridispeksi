@@ -4,6 +4,7 @@ const initialState = {
   prices: {
     normalPrice: 16,
     discountPrice: 14,
+    supportPrice: 25,
   },
   shows: [],
   selectedShow: {
@@ -19,7 +20,7 @@ const initialState = {
     normalCount: 0,
     discountCount: 0,
     specialPriceCount: 0,
-    specialPrice: 10.00,
+    specialPrice: 25.00,
     showId: '',
     paid: false,
     additionalInfo: '',

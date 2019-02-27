@@ -66,7 +66,7 @@ const Fields = () => (
 );
 
 const Tickets = ({ formState, prices }) => {
-  const { normalPrice, discountPrice } = prices;
+  const { normalPrice, discountPrice, supportPrice } = prices;
   const countPrice = () => {
     if (!formState) return 0;
     const {
@@ -92,6 +92,14 @@ const Tickets = ({ formState, prices }) => {
           component={RenderNumber}
           type="number"
           label={`Alennus (${discountPrice} €)`}
+          validate={[number, minValue0, maxValue10]}
+        />
+        <Field
+          name="specialPriceCount"
+          id="dsCountInput"
+          component={RenderNumber}
+          type="number"
+          label={`Kannatus (${supportPrice} €)`}
           validate={[number, minValue0, maxValue10]}
         />
         <div className={styles.price}>

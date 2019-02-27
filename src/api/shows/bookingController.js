@@ -136,6 +136,7 @@ module.exports = {
       showId,
       normalCount,
       discountCount,
+      specialPriceCount,
       additionalInfo,
     } = req.body;
     const {
@@ -149,7 +150,7 @@ module.exports = {
       if (!salesOpen.truefalse) {
         throw new Error('Lipunmyynti on suljettu');
       }
-      const body = { ...req.body, specialPrice: 0, specialPriceCount: 0 };
+      const body = { ...req.body };
       validateBooking(body);
       const booking = await bookingService.createBooking(
         showId,
@@ -159,8 +160,8 @@ module.exports = {
         pnumber,
         normalCount,
         discountCount,
-        0, // specialPriceCount
-        0, // specialPrice
+        specialPriceCount,
+        25, // specialPrice
         false, // paid
         100, // paymentMethodCode
         additionalInfo,

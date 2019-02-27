@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './SpeksiHero.css';
 
@@ -27,10 +28,21 @@ const Hero = ({ ticketSaleMessage, ticketSaleOpen }) => (
       <div className={styles.instructions}>
         <h4 className={styles.ticketSaleMessage}><i>{ticketSaleMessage}</i></h4>
         {ticketSaleOpen ? <Instructions /> : null}
+        <p>Lippuhinnat 16 € / 14 € opiskelija /12 € ryhmä. Kannatuslippu 25 €.</p>
+        <p>Ryhmävaraukset (väh. 8 hlö) sekä ongelmatilanteen sattuessa ota yhteyttä sähköpostilla lipunmyynti@hybridispeksi.fi.</p>
+
+        <p>Näytöksen kesto on noin 2,5 h, johon sisältyy 20 min puoliaika. Näytökset Manilla-teatterilla osoitteessa Itäinen Rantakatu 64b, 20810 Turku</p>
       </div>
     </div>
   </div>
 );
+
+Hero.propTypes = {
+  ticketSaleMessage: PropTypes.string,
+  ticketSaleOpen: PropTypes.bool,
+};
+
+
 const mapStateToProps = state => ({
   ticketSaleMessage: state.bookingManagement.ticketSaleMessage,
   ticketSaleOpen: state.bookingManagement.ticketSaleOpen,
