@@ -1,0 +1,89 @@
+.container {
+	background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #d8bed2;
+	background-size: contain;
+	padding-bottom: 100px;
+	padding-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	width: 100%;
+  }
+  
+  .eventContainer {
+	width: calc(100% - 4em);
+	margin-top: calc(20px + 2em);
+	padding: 1em;
+	min-height: 100vh; 
+	border-radius: 4px;
+	background: #d0bdd0;
+	box-shadow: 2px 2px 7px 0px #888888;  
+	display: flex; 
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .hidden {
+	visibility: hidden;
+	position: absolute;
+	left: -5000px;
+  }
+  
+  .column {
+	width: 100%;
+	display:flex;
+	flex-direction:column;
+  }
+  
+  .content {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+  }
+  
+  .paragraph {
+	width: 100%;
+  }
+  
+  .disabled {
+	cursor: not-allowed;
+	color: rgb(109, 109, 109);
+	background:linear-gradient(to bottom, rgb(70, 51, 51) 5%, rgb(2, 1, 1) 100%);
+  }
+  
+  @media ( min-width: 600px ) {
+	.content {
+	  width: 100%;
+	  flex-direction: row;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	}
+  }
+  
+  @media ( min-width: 840px ) {
+  }
+  
+  @media ( min-width: 1080px ) {
+	.eventContainer {
+	  padding: 2em;
+	  width: 70%;
+	}
+	.container {
+	  background-size: cover;
+	}
+  }
+  
+  @media (min-width: 1440px) {
+	.eventContainer {
+	  width: 60%;
+	}
+  }
+  
+  @media (min-width: 1920px) {
+	.eventContainer {
+	  width: 50%;
+	}
+  }
+  
