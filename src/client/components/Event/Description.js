@@ -37,18 +37,18 @@ export const Description = () => {
         Lämpimästi tervetuloa!
         </p>
         <hr />
-        <h4 className={pagestyles.paragraph}>Menuvaihtoehdot:</h4>
         <div className={styles.menu}>
+          <h4 className={pagestyles.paragraph}>Menuvaihtoehdot:</h4>
           <h4>MENU 1 (Liha)</h4>
           <p>
-            Savusipulikeittoa ja porsaanposkea, omenaa
-            Härän sisäfileetä ja parmankinkkua, salviakastiketta ja perunakakkua
+            Savusipulikeittoa ja porsaanposkea, omenaa<br />
+            Härän sisäfileetä ja parmankinkkua, salviakastiketta ja perunakakkua<br />
             Lattepannacotta ja suklaata, hasselpähkinäjäätelöä
           </p>
           <h4>MENU 2 (Kasvis)</h4>
           <p>
-            Savusipulikeittoa ja omenaa
-            Panimon olutkasvismakkaraa ja puolukkaa, hernepureeta ja perunakakkua
+            Savusipulikeittoa ja omenaa<br />
+            Panimon olutkasvismakkaraa ja puolukkaa, hernepureeta ja perunakakkua<br />
             Lattepannacotta ja suklaata, hasselpähkinäjäätelöä
           </p>
         </div>

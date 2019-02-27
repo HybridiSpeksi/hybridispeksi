@@ -27,7 +27,7 @@ const Fields = () => {
       <h2>Yhteystiedot</h2>
       <div className={pagestyles.content}>
         <Field
-          name="ContactInfo.fname"
+          name="EnrollmentInfo.fname"
           id="fnameInput"
           component={RenderTextfield}
           type="text"
@@ -36,7 +36,7 @@ const Fields = () => {
           validate={[required, maxLength15]}
         />
         <Field
-          name="ContactInfo.lname"
+          name="EnrollmentInfo.lname"
           id="lnameInput"
           component={RenderTextfield}
           type="text"
@@ -45,16 +45,17 @@ const Fields = () => {
           validate={[required, maxLength15]}
         />
         <Field
-          name="ContactInfo.email"
+          name="EnrollmentInfo.email"
           id="emailInput"
-          component={RenderTextfield}
+          component={RenderTextarea}
+          rows="1"
           type="text"
           label="Sähköposti"
           placeholder="Sähköposti"
           validate={[required, email]}
         />
         <Field
-          name="ContactInfo.greetings"
+          name="EnrollmentInfo.greetings"
           id="greetingsInput"
           component={RenderRadio}
           type="radio"
@@ -63,15 +64,16 @@ const Fields = () => {
           validate={[required]}
         />
         <Field
-          name="ContactInfo.greetingsHolder"
+          name="EnrollmentInfo.greetingsHolder"
           id="greetingsHolderInput"
-          component={RenderTextfield}
+          component={RenderTextarea}
+          rows="1"
           type="text"
           label="Edustettava taho tervehdyksessä"
           placeholder="Edustettava taho tervehdyksessä"
         />
         <Field
-          name="ContactInfo.avec"
+          name="EnrollmentInfo.avec"
           id="avecInput"
           component={RenderTextfield}
           type="text"
@@ -79,53 +81,57 @@ const Fields = () => {
           placeholder="Avec"
         />
         <Field
-          name="ContactInfo.tableGroupWish"
+          name="EnrollmentInfo.tableGroupWish"
           id="tableGroupWishInput"
           component={RenderTextfield}
           type="text"
           label="Pöytäseuruetoive"
           placeholder="Pöytäseuruetoive"
         />
-        {/* <Field
-          name="ContactInfo.menu"
+        <Field
+          name="EnrollmentInfo.menu"
           id="menuInput"
           component={RenderRadio}
           type="radio"
           label="Menu"
+          buttons={['Menu 1', 'Menu 2']}
           validate={[required]}
-        /> */}
+        />
         <Field
-          name="ContactInfo.allergies"
+          name="EnrollmentInfo.allergies"
           id="allergiesInput"
           component={RenderTextfield}
           type="text"
           label="Allergiat ja erityisruokavaliot"
           placeholder="Allergiat ja erityisruokavaliot"
         />
-        {/* <Field
-          name="ContactInfo.drinkMenu"
+        <Field
+          name="EnrollmentInfo.drinkMenu"
           id="drinkMenuInput"
           component={RenderRadio}
           type="radio"
           label="Juomamenu"
+          buttons={['Alkoholillinen', 'Alkoholiton']}
           validate={[required]}
         />
         <Field
-          name="ContactInfo.sillis"
+          name="EnrollmentInfo.sillis"
           id="sillisInput"
           component={RenderRadio}
           type="radio"
           label="Osallistun silliaamiaiselle (Hinta 5 €)"
+          buttons={['kyllä', 'ei']}
           validate={[required]}
         />
         <Field
-          name="ContactInfo.member"
+          name="EnrollmentInfo.member"
           id="memberInput"
           component={RenderRadio}
           type="radio"
           label="Olen HybridiSpeksi ry:n jäsen"
+          buttons={['kyllä', 'ei']}
           validate={[required]}
-        /> */}
+        />
       </div>
     </div>
   );

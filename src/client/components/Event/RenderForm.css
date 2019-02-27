@@ -26,17 +26,80 @@
   width: 100%; 
 }
 
+.inputRadioButtons {
+  width: 100%;
+}
+
+.inputRadioOption {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.inputRadio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #f1f1f1;
+  color: #666;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;     
+  margin-right: 7px;
+  outline: none;
+}
+
+.inputRadio:checked::before {
+  position: absolute;
+  font: 13px/1 'Open Sans', sans-serif;
+  left: 11px;
+  top: 7px;
+  content: '\02143';
+  transform: rotate(40deg);
+}
+
+.inputRadio:hover {
+  background-color: #f7f7f7;
+}
+
+.inputRadio:checked {
+  background-color: #f1f1f1;
+}
+
+.labelRadio {
+  font: 300 16px/1.7 'Open Sans', sans-serif;
+  color: #666;
+  cursor: pointer;
+  min-width: 48%;
+  padding-right: 20px;
+} 
+
 @media ( min-width: 600px ) {
   .inputGroup {
     width: 48%; 
   }
+
+  .inputRadioButtons {
+    width: 100%;
+  }
+
+  .inputRadioOption {
+    width: 35%;
+  }
+
   .inputTextarea {
     width: 100%;
   }
 }
 
 @media ( min-width: 840px ) {
-
+  .inputRadioOption {
+    width: 30%;
+  }
 }
 
 @media ( min-width: 1080px ) {

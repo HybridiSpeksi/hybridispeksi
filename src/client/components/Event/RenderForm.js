@@ -31,10 +31,17 @@ export const RenderTextarea = field => (
 );
 
 export const RenderRadio = field => (
-  <div className={`${styles.inputGroup} ${styles.inputTextarea}`}>
+  <div className={`${styles.inputGroup} ${styles.inputRadioButtons}`}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>
     {field.buttons.map((button) => {
-      return <span>{button} <input id={button.id} className={styles.inputRadio} {...field.input} key={cuid()} type="radio" /></span>;
+    return (
+      <div className={styles.inputRadioOption}>
+        <input id={button} className={styles.inputRadio} {...field.input} key={cuid()} type="radio" />
+        <label className={styles.labelRadio} htmlFor={button}>
+          {button}
+        </label>
+      </div>
+      );
     })}
     {/* handleClick={handleClick} selected={show.id === selectedShow.id} */}
   </div>
