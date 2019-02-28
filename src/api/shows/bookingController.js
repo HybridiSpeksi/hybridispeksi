@@ -55,7 +55,7 @@ module.exports = {
       specialPriceCount,
       specialPrice,
       paid,
-      paymentMethodCode,
+      paymentMethodId,
       additionalInfo,
     } = req.body;
     const {
@@ -77,7 +77,7 @@ module.exports = {
         specialPriceCount,
         specialPrice,
         paid,
-        paymentMethodCode,
+        paymentMethodId,
         additionalInfo,
       );
       if (paid) {
@@ -193,6 +193,16 @@ module.exports = {
     } catch (e) {
       console.log(e);
       res.status(500).send('Palvelimella tapahtui virhe');
+    }
+  },
+
+  getAllBookings: async (req, res) => {
+    try {
+      const bookings = await bookingService.getAllBookings();
+      res.json({ success: true, data: bookings });
+    } catch (e) {
+      console.log(e);
+      res.json({ success: false, message: e.message });
     }
   },
 

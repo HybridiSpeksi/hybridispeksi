@@ -5,8 +5,6 @@ const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
 const ilmo = require('./ilmo/ilmo');
 const tapahtuma = require('./ilmo/tapahtuma');
-const varaus = require('./esitykset/varaukset');
-const maksu = require('./esitykset/maksut');
 const palaute = require('./palautteet/palautteet');
 const showController = require('./shows/showController');
 const bookingController = require('./shows/bookingController');
@@ -73,6 +71,7 @@ router.delete('/admin/h/show/:showId', showController.deleteShow);
 router.put('/admin/h/show/:showId', showController.updateShow);
 
 // Bookings
+router.get('/admin/bookings', bookingController.getAllBookings);
 router.get('/admin/bookings/:showId', bookingController.getBookingsByShowId);
 router.post('/admin/booking', bookingController.createBooking);
 router.post('/booking', bookingController.createPublicBooking);
