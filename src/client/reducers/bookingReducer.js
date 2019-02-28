@@ -32,7 +32,7 @@ const initialState = {
       pnumber: '',
     },
   },
-  paymentMethods: [{ name: 'asdfa', value: 'asrgaeraerg', code: 100 }],
+  paymentMethods: [],
   ticketSaleOpen: false,
   ticketSaleMessage: '',
 };

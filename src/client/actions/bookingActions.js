@@ -60,6 +60,17 @@ export function fetchShows() {
   };
 }
 
+export function fetchAllBookings() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/admin/bookings');
+      dispatch(receiveBookings(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
 export function fetchBookings(showId) {
   return async (dispatch) => {
     try {

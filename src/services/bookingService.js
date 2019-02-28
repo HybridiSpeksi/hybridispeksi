@@ -34,7 +34,7 @@ module.exports = {
     specialPriceCount,
     specialPrice,
     paid,
-    paymentMethodCode,
+    paymentMethodId,
     additionalInfo,
   ) => {
     try {
@@ -47,7 +47,7 @@ module.exports = {
         { transaction: t },
       );
       checkIfSpace(show, { normalCount, discountCount, specialPriceCount });
-      const paymentMethod = await PaymentMethod.findOne({ where: { code: paymentMethodCode } }, { transaction: t });
+      const paymentMethod = await PaymentMethod.findOne({ where: { id: paymentMethodId } }, { transaction: t });
       const contactInfo = await ContactInfo.create({
         id: uuid(),
         fname,
@@ -55,7 +55,7 @@ module.exports = {
         email,
         pnumber,
       }, { transaction: t });
-      let booking = await Booking.create({
+      const booking = await Booking.create({
         id: uuid(),
         normalCount,
         discountCount,
@@ -66,9 +66,10 @@ module.exports = {
         paid,
         additionalInfo,
       }, { transaction: t });
-      booking = await booking.setShow(show, { transaction: t });
-      booking = await booking.setContactInfo(contactInfo, { transaction: t });
-      booking = await booking.setPaymentMethod(paymentMethod, { transaction: t });
+      booking.setShow(show, { transaction: t });
+      booking.setContactInfo(contactInfo, { transaction: t });
+      booking.setPaymentMethod(paymentMethod, { transaction: t });
+      await booking.save();
       return booking;
     } catch (e) {
       console.log(e);
@@ -140,6 +141,18 @@ module.exports = {
         where: { id: booking.get('contactInfoId') },
       });
       await Booking.destr;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  getAllBookings: async () => {
+    try {
+      const bookings = await Booking.findAll({
+        include: [{ model: ContactInfo }],
+      });
+      return bookings;
     } catch (e) {
       console.log(e);
       throw e;
