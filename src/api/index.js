@@ -83,19 +83,6 @@ router.get('/payment/failure', bookingController.handleFailingPayment);
 router.get('/payment/notify', bookingController.handleNotifyPayment);
 router.get('/paymentmethods', bookingController.getPaymentMethods);
 
-// Varaukset
-// router.get('/admin/varaukset/:_id', varaus.getAllByShowId);
-// router.get('/admin/kaikkivaraukset', varaus.getAllList);
-// router.get('/getOneVarausById/:_id', varaus.getOneById);
-// router.post('/admin/varaus', varaus.createNewAdmin);
-// router.put('/admin/varaus/:_id', varaus.update);
-// router.put('/admin/redeem/:_id', varaus.redeem);
-// router.delete('/admin/varaus/:_id', varaus.remove);
-// router.post('/varaus/createPayment', varaus.createPayment);
-// router.get('/admin/varaus/sendConfirmationMail/:_id', varaus.sendConfirmationMail);
-
-// Maksut
-
 
 // Palautteet
 router.get('/admin/palautteet', palaute.getAll);
