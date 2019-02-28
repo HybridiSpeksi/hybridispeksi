@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './BookingInfo.css';
-import * as actions from 'actions/bookingManagementActions';
+import * as actions from 'actions/bookingActions';
 
 const BookingInfo = ({ booking, clearSelectedBooking }) => {
   if (booking.id === '') {

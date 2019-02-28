@@ -14,16 +14,35 @@ export const actions = {
   SAVE_BOOKING: 'SAVE_BOOKING',
   CLEAR_SELECTED_SHOW: 'CLEAR_SELECTED_SHOW',
   CLEAR_SELECTED_BOOKING: 'CLEAR_SELECTED_BOOKING',
+  RECEIVE_PAYMENT_METHODS: 'RECEIVE_PAYMENT_METHODS',
+  RECEIVE_TICKETSALEOPEN: 'RECEIVE_TICKETSALEOPEN',
+  RECEIVE_TICKETSALEMESSAGE: 'RECEIVE_TICKETSALEMESSAGE',
 };
 
 function handleError(err, dispatch) {
   dispatch(loaderActions.hideLoader());
-  dispatch(messageActions.addErrorMessage({ header: err.message }));
+  dispatch(messageActions.addErrorMessage({ header: err.message }, 3000));
 }
 
 function handleWarning(res, dispatch) {
   dispatch(loaderActions.hideLoader());
-  dispatch(messageActions.addWarningMessage({ header: res.message }));
+  dispatch(messageActions.addWarningMessage({ header: res.message }, 3000));
+}
+
+export function submitBooking(booking) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendPost('/booking', booking);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
+      location.replace(res.data.url);
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
 }
 
 export function fetchShows() {
@@ -37,6 +56,17 @@ export function fetchShows() {
       dispatch(ajaxActions.ajaxFailure(actions.FETCH_SHOWS));
       console.log(err);
       dispatch(messageActions.addErrorMessage({ header: 'Virhe haettaessa esityksiä' }));
+    }
+  };
+}
+
+export function fetchAllBookings() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/admin/bookings');
+      dispatch(receiveBookings(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
     }
   };
 }
@@ -99,7 +129,7 @@ export function deleteBooking(booking) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendDelete('/admin/booking/' + booking.id);
-      dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Varaus poistettiin onnistuneesti!' }, 2000));
       dispatch(loaderActions.hideLoader());
       setTimeout(() => {
         location.replace('/varaustenhallinta');
@@ -115,7 +145,7 @@ export function createShow(show) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendPost('/admin/h/show', show);
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys luotiin onnistuneesti' }, 2000));
       dispatch(loaderActions.hideLoader());
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
@@ -130,7 +160,7 @@ export function updateShow(show) {
     try {
       dispatch(loaderActions.showLoader());
       await ajax.sendPut('/admin/h/show/' + show.id, show);
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys päivitettiin onnistuneesti' }, 2000));
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
       dispatch(loaderActions.hideLoader());
@@ -147,8 +177,41 @@ export function deleteShow(show) {
       await ajax.sendDelete('/admin/h/show/' + show.id);
       dispatch(fetchShows());
       dispatch(clearSelectedShow());
-      dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }));
+      dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }, 2000));
       dispatch(loaderActions.hideLoader());
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
+export function fetchPaymentMethods() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/paymentmethods');
+      dispatch(receivePaymentMethods(res.data));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
+export function fetchTicketSaleOpen() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/lipunmyyntiAuki');
+      dispatch(receiveTicketSaleOpen(res.data[0].truefalse));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
+export function fetchTicketSaleMessage() {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendGet('/lipunmyyntiMessage');
+      dispatch(receiveTicketSaleMessage(res.data[0].name));
     } catch (err) {
       handleError(err, dispatch);
     }
@@ -192,5 +255,26 @@ function receiveBookings(bookings) {
   return {
     type: actions.RECEIVE_BOOKINGS,
     bookings,
+  };
+}
+
+function receivePaymentMethods(paymentMethods) {
+  return {
+    type: actions.RECEIVE_PAYMENT_METHODS,
+    paymentMethods,
+  };
+}
+
+function receiveTicketSaleOpen(ticketSaleOpen) {
+  return {
+    type: actions.RECEIVE_TICKETSALEOPEN,
+    ticketSaleOpen,
+  };
+}
+
+function receiveTicketSaleMessage(ticketSaleMessage) {
+  return {
+    type: actions.RECEIVE_TICKETSALEMESSAGE,
+    ticketSaleMessage,
   };
 }

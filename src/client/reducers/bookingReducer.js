@@ -1,9 +1,10 @@
-import { actions } from 'actions/bookingManagementActions';
+import { actions } from 'actions/bookingActions';
 
 const initialState = {
   prices: {
     normalPrice: 16,
     discountPrice: 14,
+    supportPrice: 25,
   },
   shows: [],
   selectedShow: {
@@ -19,7 +20,7 @@ const initialState = {
     normalCount: 0,
     discountCount: 0,
     specialPriceCount: 0,
-    specialPrice: 10.00,
+    specialPrice: 25.00,
     showId: '',
     paid: false,
     additionalInfo: '',
@@ -31,6 +32,9 @@ const initialState = {
       pnumber: '',
     },
   },
+  paymentMethods: [],
+  ticketSaleOpen: false,
+  ticketSaleMessage: '',
 };
 
 const bookingManagement = (state = initialState, action) => {
@@ -64,6 +68,21 @@ const bookingManagement = (state = initialState, action) => {
       return {
         ...state,
         selectedBooking: initialState.selectedBooking,
+      };
+    case actions.RECEIVE_PAYMENT_METHODS:
+      return {
+        ...state,
+        paymentMethods: [...action.paymentMethods],
+      };
+    case actions.RECEIVE_TICKETSALEOPEN:
+      return {
+        ...state,
+        ticketSaleOpen: action.ticketSaleOpen,
+      };
+    case actions.RECEIVE_TICKETSALEMESSAGE:
+      return {
+        ...state,
+        ticketSaleMessage: action.ticketSaleMessage,
       };
     default:
       return state;

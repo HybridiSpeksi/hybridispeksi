@@ -1,4 +1,4 @@
-const config = require('../../config');
+const bookingUtils = require('../bookingUtils');
 
 /**
  * Cash ticket template
@@ -18,8 +18,8 @@ function cashTicket(booking) {
     <p>Varauksen tiedot:</p>
     <p> ${fname} ${lname}</p>
     <p>Esitys: ${show.nameLong}</p>
-    <p>Lippuja yhteensä ${getTotalCount(booking)} kpl </p>
-    <p>Hinta: ${countPrice(booking)} €</p>
+    <p>Lippuja yhteensä ${bookingUtils.getTotalCount(booking)} kpl </p>
+    <p>Hinta: ${bookingUtils.countPrice(booking)} €</p>
     <p><b>VARAUSTUNNUS: ${tag}</b>
     <br/>Varaustunnus toimii lippunasi näytökseen. Mikäli varaus sisältää opiskelijahintaisia lippuja, 
     teidän on esitettävä voimassaoleva opiskelijakorttinne esitykseen saavuttaessa.</p>
@@ -29,23 +29,5 @@ function cashTicket(booking) {
     `;
   return html;
 }
-
-function getTotalCount(booking) {
-  const { normalCount, discountCount, specialPriceCount } = booking;
-  return Number(normalCount) + Number(discountCount) + Number(specialPriceCount);
-}
-
-function countPrice(booking) {
-  const {
-    normalCount, discountCount, specialPriceCount, specialPrice,
-  } = booking;
-  let price = 0;
-  price += normalCount * config.normalPrice;
-  price += discountCount * config.discountPrice;
-  price += specialPriceCount * specialPrice;
-
-  return price;
-}
-
 
 module.exports.cashTicket = cashTicket;

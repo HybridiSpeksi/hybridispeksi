@@ -1,0 +1,82 @@
+.container {
+    width: calc(100% - 4em);
+    margin-top: calc(20px + 2em);
+    padding: 1em;
+    padding-bottom: 0px;
+    min-height: 100vh; 
+    border-radius: 4px;
+    background: #d0bdd0;
+    box-shadow: 2px 2px 7px 0px #888888;  
+}
+
+.column {
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.content {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.infoGroup {
+    position: relative;
+    padding: 1em 0;
+    display: flex;
+    width: 48%; 
+  }
+
+.infoLabel {
+    position: absolute;
+    top: 0;
+}  
+.infoInput {
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.infoArea, .infoEmail, .infoPnumber {
+    width: 100%;
+}
+
+.priceInfo {
+    order: 99;
+    font-size: 20px; 
+    font-weight: bold;
+    width: 100%; 
+}
+
+@media ( min-width: 600px ) {
+  }
+  
+  @media ( min-width: 840px ) {
+    .infoEmail, .infoPnumber {
+        width: 48%;
+    }
+  }
+  
+  @media ( min-width: 1080px ) {
+    .container {
+      padding: 2em;
+      width: 70%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+      width: 50%;
+    }
+  }

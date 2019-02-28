@@ -1,5 +1,11 @@
 .container {
+  height: 100%;
   /* padding: 2em; */
+}
+
+.rows {
+  height: 100%;
+  overflow: auto;
 }
 
 .bookingRow {
@@ -20,12 +26,57 @@
 }
 
 .name {
-  width: 25%;
-}
-.email {
   width: 20%;
+  text-align: left;
+}
+
+.email {
+  display: none;
+}
+
+.paid {
+  width: 20%;
+  text-align: center;
+}
+
+.redeemed {
+  width: 20%;
+  text-align: center;
+}
+
+.tag {
+  width: 20%;
+  text-align: left;
 }
 
 .bookingCount {
-  width: 10%;
+  width: 20%;
+  text-align: center;
+}
+
+@media (min-width:800px) {
+  .name {
+    width: 20%;
+  }
+  .email {
+    display: block;
+    width: 20%;
+    text-align: left;
+  }
+
+  .paid {
+    width: 15%;
+  }
+
+  .redeemed {
+    width: 15%;
+  }
+
+  .tag {
+    width: 15%;
+  }
+
+  .bookingCount {
+    width: 15%;
+  }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Hero.css';
 import HeroFullViewport from '../HeroFullViewport/HeroFullViewport';
@@ -11,6 +12,11 @@ const Hero = ({ globalStyles }) => (
       <p className={`${globalStyles.subHeading} ${styles.subHeading}`}>
         Ensi-ilta 27.3. <br />@Manilla
       </p>
+      <Link to="/speksi2019">
+        <div className={styles.ticketsLink}>
+          Liput
+        </div>
+      </Link>
     </div>
   </HeroFullViewport>
 );

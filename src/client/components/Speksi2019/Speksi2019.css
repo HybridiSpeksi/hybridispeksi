@@ -1,3 +1,26 @@
+.container {
+  background: url('/assets/images/speksi2019bg.png') center bottom no-repeat #d8bed2;
+  background-size: contain;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.payTrail {
+  background: url("https://img.paytrail.com/index.svm?id=13466&type=horizontal&cols=6&text=0&auth=f6483cce23771e8f") no-repeat center;
+  width: 100%;
+  height: 130px; 
+  margin: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  left: -5000px;
+}
+
 .headerContainer {
   display: flex;
   flex-direction: column;
@@ -6,69 +29,53 @@
   width: 90%;
 }
 
-.bigsubHeading {
-  font-size: 26px;
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 20px; 
 }
 
-.bigHeading {
-  margin-top: 20px;
-  font-size: 40px;
+.buttonNext {
+  text-align: center;
+  composes: fontShanghai from '../../styles/Fonts.css';
+  font-size: 22px;
+  line-height:22px;
+  width: 45%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background: white;
+  color: white;
+  margin-top: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow:inset 0px 1px 0px 0px rgba(120,120,120,1);
+  background:linear-gradient(to bottom, rgba(30, 30, 30, 1) 5%, rgba(0, 0, 0, 1) 100%);
+  border:2px solid rgba(30, 30, 30, 1);
+  text-shadow:1px 1px 2px #000000;
 }
 
-.subHeading {
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.headingText {
-  margin-top: 10px;
+.disabled {
+  cursor: not-allowed;
+  color: rgb(109, 109, 109);
+  background:linear-gradient(to bottom, rgb(70, 51, 51) 5%, rgb(2, 1, 1) 100%);
 }
 
 @media ( min-width: 600px ) {
-  .headerContainer {
-    margin-top: 10vh;
-  }
-
-  .bigsubHeading {
-    font-size: 38px;
-  }
-
-  .bigHeading {
-    font-size: 68px;
-  }
-
-  .headingText {
-    margin-top: 20px;
-  }
-
-  .subHeading {
-    font-size: 28px;
-  }
 }
 
 @media ( min-width: 840px ) {
-  .headerContainer {
-    width: 80%;
-  }
-
-  .headingText {
-    margin-top: 50px;
-    width: 70%;
-  }
-
-  .subHeading {
-    margin-top: 50px;
+  .payTrail{  
+    background: url("https://img.paytrail.com/index.svm?id=13466&type=horizontal&cols=15&text=1&auth=f6483cce23771e8f") no-repeat center;
+    height:130px;
   }
 }
 
 @media ( min-width: 1080px ) {
-  .headerContainer {
-    margin-top: unset;
-    justify-content: center;
-  }
-
-  .bigHeading {
-    font-size: 80px;
+  .container {
+    background-size: cover;
   }
 }

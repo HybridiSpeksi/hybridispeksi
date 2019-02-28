@@ -35,6 +35,10 @@ class Header extends Component {
     this.state = {
       sites: [
         {
+          url: '/speksi2019',
+          name: 'Speksi 2019',
+        },
+        {
           url: '/speksit',
           name: 'Aiemmat Speksit',
         },

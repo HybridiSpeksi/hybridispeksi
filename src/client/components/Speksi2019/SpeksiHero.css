@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 100px;
+  width: 100%;
+  min-height: 0vh;
+  justify-content: left;
+}
+
+.headerTexts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 90%;
+  animation: fadein 4s;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.bigsubHeading{
+  composes: fontShanghai from '../../styles/Fonts.css';
+  font-size: 26px;
+}
+
+.bigHeading {
+  composes: fontShanghai from '../../styles/Fonts.css';
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.subHeading {
+  font-size: 18px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 40px;
+  composes: fontZapfino from '../../styles/Fonts.css';
+}
+
+.instructionsContainer {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  box-shadow: 0px 7px 20px 5px #888888;
+  width: 100%;
+  color: white;
+  padding: 2em;
+  line-height: 2.5;
+  font-size: 14px;
+}
+
+.instructions {
+  width: 90%;
+}
+
+.ticketSaleMessage {
+  display: flex;
+  justify-content: center;
+}
+
+.instructionsContent {
+  margin-top: 30px;
+}
+
+.instructions_list {
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .instructions {
+    width: 60%;
+  }
+
+  .bigsubHeading {
+    font-size: 38px;
+  }
+
+  .bigHeading {
+    font-size: 68px;
+  }
+
+  .headingText {
+    margin-top: 20px;
+  }
+
+  .subHeading {
+    font-size: 28px;
+    line-height: 68px;
+  }
+}
+
+@media (min-width: 840px) {
+  .headingText {
+    margin-top: 50px;
+    width: 70%;
+  }
+
+  .subHeading {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .container {
+    width: 70%;
+  }
+
+  .instructions {
+    width: 40%;
+  }
+
+  .bigHeading {
+    font-size: 80px;
+  }
+
+  .subHeading {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    width: 50%;
+  }
+}
