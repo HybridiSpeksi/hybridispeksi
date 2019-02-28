@@ -163,7 +163,7 @@ module.exports = {
         specialPriceCount,
         25, // specialPrice
         false, // paid
-        100, // paymentMethodCode
+        'b9994583-d018-47ef-8956-73f0bf0b5687', // paymentMethodId
         additionalInfo,
       );
       const payment = await paymentFactory.createPayment(booking.get('id'));
