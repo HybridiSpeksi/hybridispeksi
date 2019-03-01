@@ -43,10 +43,12 @@ module.exports = {
           const { fname, sname } = mongoUser;
           const pwHash = await generateHash(password);
           user = await userService.createUser(fname, sname, email, pwHash);
-          await user.addRole(await userService.getRoleByValue(mongoUser.role));
+          user.addRole(await userService.getRoleByValue(mongoUser.role));
+
           if (mongoUser.role === 4) {
-            await user.addRole(await userService.getRoleByValue(3));
+            user.addRole(await userService.getRoleByValue(3));
           }
+          await user.save();
           user = await userService.findUserByEmail(email);
         }
       }
