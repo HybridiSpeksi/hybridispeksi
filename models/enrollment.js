@@ -14,8 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     paid: DataTypes.BOOLEAN,
     additional: DataTypes.STRING,
   }, {});
-  Enrollment.associate = function (models) {
-    // associations can be defined here
+  Enrollment.associate = (models) => {
+    Enrollment.belongsTo(models.ContactInfo, {
+      foreignKey: 'contactInfoId',
+      onDelete: 'CASCADE',
+    });
+
+    Enrollment.belongsTo(models.Event, {
+      foreignKey: 'eventId',
+      onDelete: 'CASCADE',
+    });
   };
   return Enrollment;
 };

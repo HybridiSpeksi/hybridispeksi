@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATE,
   }, {});
   Event.associate = function (models) {
-    // associations can be defined here
   };
   return Event;
 };
