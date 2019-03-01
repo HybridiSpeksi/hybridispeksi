@@ -38,14 +38,14 @@ export const Description = () => {
         </p>
         <hr />
         <div className={styles.menu}>
-          <h4 className={pagestyles.paragraph}>Menuvaihtoehdot:</h4>
-          <h4>MENU 1 (Liha)</h4>
+          <h5 className={pagestyles.paragraph}>Menuvaihtoehdot:</h5>
+          <h4><b>MENU 1 (Liha)</b></h4>
           <p>
             Savusipulikeittoa ja porsaanposkea, omenaa<br />
             Härän sisäfileetä ja parmankinkkua, salviakastiketta ja perunakakkua<br />
             Lattepannacotta ja suklaata, hasselpähkinäjäätelöä
           </p>
-          <h4>MENU 2 (Kasvis)</h4>
+          <h4><b>MENU 2 (Kasvis)</b></h4>
           <p>
             Savusipulikeittoa ja omenaa<br />
             Panimon olutkasvismakkaraa ja puolukkaa, hernepureeta ja perunakakkua<br />
