@@ -3,11 +3,10 @@ const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
-const ilmo = require('./ilmo/ilmo');
-const tapahtuma = require('./ilmo/tapahtuma');
 const palaute = require('./palautteet/palautteet');
 const showController = require('./shows/showController');
 const bookingController = require('./shows/bookingController');
+const eventController = require('./events/eventController');
 
 
 router.all('/admin*', user.checkToken);
@@ -56,13 +55,11 @@ router.get('/admin/w/role/:userId/:roleId', user.addRoleToUser);
 router.delete('/admin/w/role/:userId/:roleId', user.removeRoleFromUser);
 // router.post('/uusiKayttaja', user.newUser);
 
-// Tapahtumat
-router.get('/admin/tapahtumat', tapahtuma.getAll);
-router.put('/ilmo', ilmo.newIlmo);
-router.get('/admin/ilmo/:value', ilmo.getAll);
-router.get('/ilmo/:value', ilmo.getAllPublic);
-router.post('/ilmo', ilmo.updateIlmo);
-router.delete('/ilmo', ilmo.removeIlmo);
+// Events
+router.get('/events', eventController.getEvents);
+router.post('/event', eventController.createEvent);
+router.put('/event/:eventId', eventController.updateEvent);
+router.delete('/event/:eventId', eventController.deleteEvent);
 
 // Shows
 router.get('/shows', showController.getShows);
