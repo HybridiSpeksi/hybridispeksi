@@ -152,6 +152,7 @@ module.exports = {
       }
       const body = { ...req.body };
       validateBooking(body);
+      const paymentMethod = await bookingService.getPaymentMethodByCode(102);
       const booking = await bookingService.createBooking(
         showId,
         fname,
@@ -163,7 +164,7 @@ module.exports = {
         specialPriceCount,
         25, // specialPrice
         false, // paid
-        'b9994583-d018-47ef-8956-73f0bf0b5687', // paymentMethodId
+        paymentMethod.get('id'),
         additionalInfo,
       );
       const payment = await paymentFactory.createPayment(booking.get('id'));
