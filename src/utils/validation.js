@@ -19,4 +19,5 @@ module.exports = {
     }
     return false;
   },
+  isBoolean: arg => typeof arg === 'boolean',
 };

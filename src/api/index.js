@@ -7,6 +7,7 @@ const palaute = require('./palautteet/palautteet');
 const showController = require('./shows/showController');
 const bookingController = require('./shows/bookingController');
 const eventController = require('./events/eventController');
+const enrollmentController = require('./events/enrollmentController');
 
 
 router.all('/admin*', user.checkToken);
@@ -60,6 +61,10 @@ router.get('/events', eventController.getEvents);
 router.post('/event', eventController.createEvent);
 router.put('/event/:eventId', eventController.updateEvent);
 router.delete('/event/:eventId', eventController.deleteEvent);
+router.get('/enrollments/:eventId', enrollmentController.getEnrollmentsByEventId);
+router.post('/enrollment', enrollmentController.createEnrollment);
+router.put('/enrollment/:enrollmentId', enrollmentController.updateEnrollment);
+router.delete('/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
 
 // Shows
 router.get('/shows', showController.getShows);
