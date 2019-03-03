@@ -80,6 +80,11 @@
   color: rgb(95, 95, 95);
 }
 
+.disabled {
+  background: linear-gradient(to bottom, rgb(160, 160, 160) 5%, rgb(128, 128, 128) 100%);
+  cursor: not-allowed; 
+}
+
 @media ( min-width: 600px ) {
   .content {
     width: 100%;

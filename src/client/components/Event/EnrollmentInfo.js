@@ -73,7 +73,6 @@ const Fields = ({ invalid }) => {
           component={RenderCheckbox}
           type="checkbox"
           label="Esitätkö tervehdyksen"
-          validate={[required]}
         />
         <Field
           name="greetingOrganization"
@@ -139,7 +138,7 @@ const Fields = ({ invalid }) => {
           label="Olen HybridiSpeksi ry:n jäsen"
         />
         <div className={styles.submitEnrollContainer}>
-          <button type="submit" disabled={invalid} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
+          <button type="submit" disabled={invalid} className={`${styles.enrollButton} ${invalid ? styles.disabled : ''}`}>Ilmoittaudu</button>
         </div>
       </div>
     </div>
