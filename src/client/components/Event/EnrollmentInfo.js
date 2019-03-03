@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderTextarea, RenderRadio, RenderCheckbox } from './RenderForm';
+import { RenderTextfield, RenderTextarea, RenderRadio, RenderCheckbox } from './RenderForm';
 import styles from './EnrollmentInfo.css';
 import pagestyles from './Event.css';
 import * as actions from 'actions/bookingActions';
@@ -21,7 +21,7 @@ const email = value =>
   (value && /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) ?
     'Virheellinen sähköposti' : undefined);
 
-const Fields = () => {
+const Fields = ({ invalid }) => {
   return (
     <div className={pagestyles.column}>
       <h2>Yhteystiedot</h2>
@@ -129,7 +129,7 @@ const Fields = () => {
           validate={[required]}
         />
         <div className={styles.submitEnrollContainer}>
-          <button type="button" onClick={() => submitEnroll(enroll)} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
+          <button type="submit" disabled={invalid} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
         </div>
       </div>
     </div>
@@ -137,17 +137,17 @@ const Fields = () => {
 };
 
 const ContactInfoForm = ({
-  handleSubmit, invalid,
+  handleSubmit, invalid, submitEnrollment,
 }) => {
   const onSubmit = (values) => {
     values.showId = selectedShow.id;
-    selectBooking(values);
+    submitEnrollment(values);
   };
 
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <Fields />
+        <Fields invalid={invalid} />
       </form>
     </div>
   );
@@ -155,32 +155,21 @@ const ContactInfoForm = ({
 
 
 ContactInfoForm.propTypes = {
-  selectedShow: PropTypes.object,
-  prices: PropTypes.object,
-  formState: PropTypes.object,
-  prevState: PropTypes.func,
-  nextState: PropTypes.func,
-  showPage: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  selectBooking: PropTypes.func,
   invalid: PropTypes.bool,
+  submitEnrollment: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  selectedShow: state.bookingManagement.selectedShow,
-  prices: state.bookingManagement.prices,
-  initialValues: state.bookingManagement.selectedBooking,
   formState: getFormValues('publicBookingForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchShows: () => dispatch(actions.fetchShows()),
-  createBooking: booking => dispatch(actions.createBooking(booking)),
-  selectBooking: booking => dispatch(actions.selectBooking(booking)),
+  submitEnrollment: enrollment => dispatch(actions.submitEnrollment(enrollment)),
 });
 
 const ContactInfoWithForm = reduxForm({
-  form: 'publicBookingForm',
+  form: 'enrollmentForm',
 })(ContactInfoForm);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithForm);
