@@ -127,4 +127,17 @@ module.exports = {
       throw e;
     }
   },
+
+  findById: async (id) => {
+    try {
+      const enrollment = await Enrollment.findOne({
+        whrer: { id },
+        include: [{ model: ContactInfoModel, as: 'ContactInfo' }],
+      });
+      return enrollment;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
 };

@@ -58,13 +58,13 @@ router.delete('/admin/w/role/:userId/:roleId', user.removeRoleFromUser);
 
 // Events
 router.get('/events', eventController.getEvents);
-router.post('/event', eventController.createEvent);
-router.put('/event/:eventId', eventController.updateEvent);
-router.delete('/event/:eventId', eventController.deleteEvent);
-router.get('/enrollments/:eventId', enrollmentController.getEnrollmentsByEventId);
+router.post('/admin/event', eventController.createEvent);
+router.put('/admin/event/:eventId', eventController.updateEvent);
+router.delete('/admin/event/:eventId', eventController.deleteEvent);
+router.get('/admin/enrollments/:eventId', enrollmentController.getEnrollmentsByEventId);
 router.post('/enrollment', enrollmentController.createEnrollment);
-router.put('/enrollment/:enrollmentId', enrollmentController.updateEnrollment);
-router.delete('/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
+router.put('/admin/enrollment/:enrollmentId', enrollmentController.updateEnrollment);
+router.delete('/admin/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
 
 // Shows
 router.get('/shows', showController.getShows);
