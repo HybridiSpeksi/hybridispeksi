@@ -36,6 +36,7 @@ import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Palautteet from './Admin/Palautteet/Palautteet';
+import EventManagement from './Admin/Events/EventManagement';
 
 import Login from './Admin/Auth/Login';
 import { publicDecrypt } from 'crypto';
@@ -147,6 +148,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
                 <AdminLayout path="/palautteet" component={Palautteet} />
+                <AdminLayout path="/ilmohallinta" component={EventManagement} />
               </Switch>
             </div>
           </div>

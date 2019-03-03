@@ -21,6 +21,7 @@ const initialState = {
     paid: false,
     additional: '',
   },
+  events: [],
   event: {
     name: '',
     limit: '',
@@ -46,7 +47,17 @@ const event = (state = initialState, action) => {
         ...state,
         selectedEnrollment: initialState.selectedEnrollment,
       };
+    case actions.RECEIVE_EVENTS:
+      return {
+        ...state,
+        events: [...action.events],
+      };
     case actions.RECEIVE_EVENT:
+      return {
+        ...state,
+        event: { ...action.event },
+      };
+    case actions.SELECT_EVENT:
       return {
         ...state,
         event: { ...action.event },

@@ -30,6 +30,11 @@ class AdminHeader extends Component {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/ilmohallinta">
+                  Ilmohallinta
+                </Link>
+              </li>
+              <li className="nav-item">
                 {auth.hasRole(3) ? (
                   <Link className="nav-link" to="/produktionhallinta">
                     Produktio
