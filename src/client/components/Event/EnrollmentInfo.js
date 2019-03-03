@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderNumber, RenderTextarea, RenderRadio } from './RenderForm';
+import { RenderTextfield, RenderNumber, RenderTextarea, RenderRadio, RenderCheckbox } from './RenderForm';
 import styles from './EnrollmentInfo.css';
 import pagestyles from './Event.css';
 import * as actions from 'actions/bookingActions';
@@ -57,10 +57,9 @@ const Fields = () => {
         <Field
           name="presentGreeting"
           id="greetingsInput"
-          component={RenderRadio}
-          type="radio"
+          component={RenderCheckbox}
+          type="checkbox"
           label="Esitätkö tervehdyksen"
-          buttons={['kyllä', 'ei']}
           validate={[required]}
         />
         <Field
@@ -108,30 +107,30 @@ const Fields = () => {
         <Field
           name="alcohol"
           id="drinkMenuInput"
-          component={RenderRadio}
-          type="radio"
-          label="Juomamenu"
-          buttons={['Alkoholillinen', 'Alkoholiton']}
+          component={RenderCheckbox}
+          type="checkbox"
+          label="Alkoholillinen juomamenu"
           validate={[required]}
         />
         <Field
           name="sillis"
           id="sillisInput"
-          component={RenderRadio}
-          type="radio"
+          component={RenderCheckbox}
+          type="checkbox"
           label="Osallistun silliaamiaiselle (Hinta 5 €)"
-          buttons={['kyllä', 'ei']}
           validate={[required]}
         />
         <Field
           name="memberOfSpeksi"
           id="memberInput"
-          component={RenderRadio}
-          type="radio"
+          component={RenderCheckbox}
+          type="checkbox"
           label="Olen HybridiSpeksi ry:n jäsen"
-          buttons={['kyllä', 'ei']}
           validate={[required]}
         />
+        <div className={styles.submitEnrollContainer}>
+          <button type="button" onClick={() => submitEnroll(enroll)} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
+        </div>
       </div>
     </div>
   );

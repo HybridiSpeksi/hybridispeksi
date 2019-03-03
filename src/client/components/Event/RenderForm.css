@@ -35,47 +35,89 @@
   width: 100%;
 }
 
-.inputRadio {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  position: relative;
-  background-color: #f1f1f1;
-  color: rgb(70, 70, 70);
-  top: 10px;
-  height: 30px;
-  width: 30px;
-  border: 0;
-  border-radius: 50px;
-  cursor: pointer;     
-  margin-right: 7px;
-  outline: none;
+.radioWrapper,
+.checkboxWrapper {
+  position: relative; 
+  width: 100%;
 }
 
-.inputRadio:checked::before {
-  position: absolute;
-  font: 13px/1 'Open Sans', sans-serif;
-  left: 11px;
-  top: 7px;
-  content: '\02143';
-  transform: rotate(40deg);
+input[type="checkbox"],
+input[type="radio"] {
+  /*display:  none;*/
+  position:  absolute; 
+  top:  0px; 
+  left: 0px; 
+  height:  20px; 
+  width:  20px; 
+  -webkit-appearance:  none;
 }
 
-.inputRadio:hover {
-  background-color: #f7f7f7;
+.radioLabel,
+.checkboxLabel {
+  display:  flex; 
+  position:  relative;
+  font-size:  20px; 
+  font-weight:  400;
+  align-items:  center; 
+  justify-content:  flex-start; 
+  margin-bottom:  20px; 
 }
 
-.inputRadio:checked {
-  background-color: #f1f1f1;
+.radioLabel:before, 
+.radioLabel:after,
+.checkboxLabel:before, 
+.checkboxLabel:after {
+  pointer-events: none; 
 }
 
-.labelRadio {
-  font: 300 16px/1.7 'Open Sans', sans-serif;
-  color: #666;
-  cursor: pointer;
-  min-width: 48%;
-  padding-right: 20px;
+.radioLabel:before,
+.radioLabel:after {
+  border-radius:  50%; 
+}
+
+.radioLabel:before,
+.checkboxLabel:before {
+  display:  flex; 
+  content: ' ';
+  height:  20px; 
+  width:  20px; 
+  border:  solid 3px rgb(95, 95, 95);
+  background:  #fff;
+  margin-right:  10px; 
+}
+
+.radioLabel:after,
+.checkboxLabel:after {
+  position:  absolute; 
+  top:  7px; 
+  left:  7px; 
+  display:  flex; 
+  content: ' '; 
+  height:  12px; 
+  width:  12px;  
+  background: #000;
+  transform: scale(0);
+  transition:  transform .3s ease; 
+}
+
+.checkboxLabel:after {
+  height:  5px; 
+  width:  12px; 
+  left:  5px; 
+  border-bottom:  solid 4px #000; 
+  border-left:  solid 4px #000; 
+  background:  none; 
+  transform: rotate(-45deg) scale(0);
+  transition:  transform .1s ease, opacity .1s ease;
+  transform-origin: center center; 
+}
+
+.radioWrapper input[type="radio"]:checked + .radioLabel:after {
+  transform:  scale(1);
+}
+.checkboxWrapper input[type="checkbox"]:checked + .checkboxLabel:after {
+  opacity:  1; 
+  transform: rotate(-45deg) scale(.8);
 } 
 
 @media ( min-width: 600px ) {

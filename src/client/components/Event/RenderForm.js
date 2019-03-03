@@ -31,18 +31,25 @@ export const RenderTextarea = field => (
 );
 
 export const RenderRadio = field => (
-  <div className={`${styles.inputGroup} ${styles.inputRadioButtons}`}>
-    <label htmlFor={field.id} className={styles.label}>{field.label}</label>
+  <div className={`${styles.inputGroup}`}>
+
     {field.buttons.map((button) => {
     return (
-      <div className={styles.inputRadioOption}>
-        <input id={button} className={styles.inputRadio} {...field.input} key={cuid()} type="radio" />
-        <label className={styles.labelRadio} htmlFor={button}>
-          {button}
-        </label>
+      <div className={styles.radioWrapper}>
+        <label htmlFor={field.id} className={styles.radioLabel}>{button}</label>
+        <div className={styles.inputRadioOption} key={cuid()}>
+          <input id={button} className={styles.inputRadio} {...field.input} type="radio" />
+        </div>
       </div>
       );
     })}
     {/* handleClick={handleClick} selected={show.id === selectedShow.id} */}
+  </div>
+);
+
+export const RenderCheckbox = field => (
+  <div className={`${styles.inputGroup} ${styles.checkboxWrapper}`}>
+    <label htmlFor={field.id} className={`${styles.label} ${styles.checkboxLabel}`}>{field.label}</label>
+    <input type="checkbox" className={`${styles.input} ${styles.checkbox}`} {...field.input} />
   </div>
 );

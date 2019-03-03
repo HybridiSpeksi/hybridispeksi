@@ -64,6 +64,22 @@
   margin-bottom: 2em;
 }
 
+.submitEnrollContainer {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.enrollButton {
+  width: 70%;
+  height: 50px;
+  margin-top: 20px;
+  border:  solid 3px rgb(95, 95, 95);
+  background: linear-gradient(to bottom, rgb(240, 240, 240) 5%, rgb(207, 207, 207) 100%);
+  font-weight: bold;
+  color: rgb(95, 95, 95);
+}
+
 @media ( min-width: 600px ) {
   .content {
     width: 100%;
@@ -71,9 +87,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .enrollButton {
+    width: 50%;
+  }
 }
 
 @media ( min-width: 840px ) {
+  .enrollButton {
+    width: 40%;
+  }
 }
 
 @media ( min-width: 1080px ) {
