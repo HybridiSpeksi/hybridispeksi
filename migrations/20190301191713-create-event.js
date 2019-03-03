@@ -18,6 +18,9 @@ module.exports = {
       date: {
         type: Sequelize.DATE,
       },
+      registrationOpen: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

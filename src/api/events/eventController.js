@@ -13,10 +13,12 @@ const validateEvent = ({ name, limit, date }) => {
 
 module.exports = {
   createEvent: async (req, res) => {
-    const { name, limit, date } = req.body;
+    const {
+      name, limit, date, registrationOpen,
+    } = req.body;
     try {
       validateEvent(req.body);
-      const event = await eventService.createEvent(name, limit, date);
+      const event = await eventService.createEvent(name, limit, date, registrationOpen);
       res.json({ success: true, data: event });
     } catch (e) {
       res.json({ success: false, message: e.message });
@@ -44,10 +46,12 @@ module.exports = {
 
   updateEvent: async (req, res) => {
     const { eventId } = req.params;
-    const { name, limit, date } = req.body;
+    const {
+      name, limit, date, registrationOpen,
+    } = req.body;
     try {
       validateEvent(req.body);
-      const event = await eventService.updateEvent(eventId, name, limit, date);
+      const event = await eventService.updateEvent(eventId, name, limit, date, registrationOpen);
       res.json({ success: true, data: event });
     } catch (e) {
       res.json({ success: false, message: e.message });

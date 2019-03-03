@@ -1,15 +1,15 @@
 const uuid = require('uuid/v4');
 const Event = require('../../models').Event;
-// const Enrollment = require('../../models').Enrollment;
 
 module.exports = {
-  createEvent: async (name, limit, date) => {
+  createEvent: async (name, limit, date, registrationOpen) => {
     try {
       const event = await Event.create({
         id: uuid(),
         name,
         limit,
         date,
+        registrationOpen,
       });
       return event;
     } catch (e) {
@@ -37,12 +37,13 @@ module.exports = {
     }
   },
 
-  updateEvent: async (id, name, limit, date) => {
+  updateEvent: async (id, name, limit, date, registrationOpen) => {
     try {
       const event = await Event.findOne({ where: { id } });
       event.set('name', name);
       event.set('limit', limit);
       event.set('date', date);
+      event.set('registrationOpen', registrationOpen);
       await event.save();
       return event;
     } catch (e) {

@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     limit: DataTypes.INTEGER,
     date: DataTypes.DATE,
+    registrationOpen: DataTypes.BOOLEAN,
   }, {});
   Event.associate = function (models) {
   };
