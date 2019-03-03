@@ -147,9 +147,10 @@ const Fields = ({ invalid }) => {
 };
 
 const ContactInfoForm = ({
-  handleSubmit, invalid, submitEnrollment,
+  handleSubmit, invalid, submitEnrollment, event,
 }) => {
   const onSubmit = (values) => {
+    values.eventId = event.id;
     submitEnrollment(values);
   };
 
@@ -162,14 +163,15 @@ const ContactInfoForm = ({
   );
 };
 
-
 ContactInfoForm.propTypes = {
   handleSubmit: PropTypes.func,
   invalid: PropTypes.bool,
   submitEnrollment: PropTypes.func,
+  event: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
+  event: state.event.event,
   formState: getFormValues('publicBookingForm')(state),
 });
 

@@ -50,6 +50,7 @@ export function submitEnrollment(enrollment) {
       if (!res.success) {
         messageActions.addWarningMessage({ header: res.message });
       }
+      dispatch(loaderActions.hideLoader());
     } catch (e) {
       dispatch(loaderActions.hideLoader());
       messageActions.addErrorMessage({ header: 'Ilmoittautumisessa tapahtui virhe. Yritä myöhemmin uudelleen' }, 5000);
