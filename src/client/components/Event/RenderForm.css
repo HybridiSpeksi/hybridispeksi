@@ -12,6 +12,11 @@
   left: 5px;
 }
 
+.labelCheckbox {
+  position: relative;
+  width: 100%;
+}
+
 .formRow {
   display: flex;
   margin-bottom: 5px;

@@ -37,7 +37,6 @@ Event.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  booking: state.bookingManagement.selectedBooking,
 });
 
 const mapDispatchToProps = dispatch => ({

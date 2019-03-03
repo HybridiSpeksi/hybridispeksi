@@ -49,8 +49,8 @@ export const RenderRadio = field => (
 
 export const RenderCheckbox = field => (
   <div className={`${styles.inputGroup} ${styles.checkboxWrapper}`}>
-    <label htmlFor={field.id} className={`${styles.label} ${styles.checkboxLabel}`}>{field.label}</label>
     <input type="checkbox" className={`${styles.input} ${styles.checkbox}`} {...field.input} />
+    <label htmlFor={field.id} className={`${styles.label} ${styles.labelCheckbox}`}>{field.label}</label>
   </div>
 );
 
