@@ -5,7 +5,7 @@ import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderTextarea, RenderCheckbox, RenderDropdown } from './RenderForm';
 import styles from './EnrollmentInfo.css';
 import pagestyles from './Event.css';
-import * as actions from 'actions/bookingActions';
+import * as actions from 'actions/eventActions';
 
 const required = value => (value ? undefined : 'Pakollinen kenttä');
 const maxLength = max => value => (value && value > max ? `Korkeintaan ${max} merkkiä` : undefined);
@@ -138,7 +138,6 @@ const Fields = ({ invalid }) => {
           type="checkbox"
           label="Olen HybridiSpeksi ry:n jäsen"
         />
-        {/* asdasd */}
         <div className={styles.submitEnrollContainer}>
           <button type="submit" disabled={invalid} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
         </div>
@@ -148,9 +147,10 @@ const Fields = ({ invalid }) => {
 };
 
 const ContactInfoForm = ({
-  handleSubmit, invalid, submitEnrollment,
+  handleSubmit, invalid, submitEnrollment, event,
 }) => {
   const onSubmit = (values) => {
+    values.eventId = event.id;
     submitEnrollment(values);
   };
 
@@ -163,14 +163,15 @@ const ContactInfoForm = ({
   );
 };
 
-
 ContactInfoForm.propTypes = {
   handleSubmit: PropTypes.func,
   invalid: PropTypes.bool,
   submitEnrollment: PropTypes.func,
+  event: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
+  event: state.event.event,
   formState: getFormValues('publicBookingForm')(state),
 });
 
