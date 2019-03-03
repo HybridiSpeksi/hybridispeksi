@@ -1,5 +1,6 @@
 const enrollmentService = require('../../services/enrollmentService');
 const validator = require('../../utils/validation');
+const mailer = require('../../utils/mailer');
 
 const validateEnrollment = (enrollemnt) => {
   const {
@@ -23,6 +24,7 @@ module.exports = {
   createEnrollment: async (req, res) => {
     try {
       validateEnrollment(req.body);
+      mailer.sendVujuConfirmation(req.body.ContactInfo.email);
       const enrollment = await enrollmentService.createEnrollment(req.body);
       res.json({ success: true, data: enrollment });
     } catch (e) {

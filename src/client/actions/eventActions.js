@@ -45,10 +45,12 @@ export function fetchEvents() {
 export function submitEnrollment(enrollment) {
   return async (dispatch) => {
     try {
+      dispatch(messageActions.clearMessages());
       dispatch(loaderActions.showLoader());
       const res = await ajax.sendPost('/enrollment', enrollment);
+      console.log(res);
       if (!res.success) {
-        messageActions.addWarningMessage({ header: res.message });
+        dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
       }
       dispatch(loaderActions.hideLoader());
     } catch (e) {

@@ -36,12 +36,11 @@ module.exports = {
     }
   },
 
-  sendVujuConfirmation: async (enrollmentId) => {
+  sendVujuConfirmation: async (email) => {
     try {
-      const enrollment = await enrollmentService.findById(enrollmentId);
       await nodemailerMailgun.sendMail({
         from: 'vuosijuhlat@hybridispeksi.fi',
-        to: enrollment.get('ContactInfo').get('email'),
+        to: email,
         subject: 'Varausvahvistus',
         html: enrollmentConfirmation(),
       });
