@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, getFormValues } from 'redux-form';
-import { RenderTextfield, RenderTextarea, RenderRadio, RenderCheckbox } from './RenderForm';
+import { RenderTextfield, RenderTextarea, RenderCheckbox, RenderDropdown } from './RenderForm';
 import styles from './EnrollmentInfo.css';
 import pagestyles from './Event.css';
 import * as actions from 'actions/bookingActions';
@@ -22,6 +22,19 @@ const email = value =>
     'Virheellinen sähköposti' : undefined);
 
 const Fields = ({ invalid }) => {
+  const drinkMenuOptions = () => {
+    return (
+      [{ name: 'Alkoholillinen', value: true },
+        { name: 'Alkoholiton', value: false }]
+    );
+  };
+  const menuOptions = () => {
+    return (
+      [{ name: 'Menu 1 (Liha)', value: 'Liha' },
+        { name: 'Menu 2 (Kasvis)', value: 'Kasvis' }]
+    );
+  };
+
   return (
     <div className={pagestyles.column}>
       <h2>Yhteystiedot</h2>
@@ -90,11 +103,10 @@ const Fields = ({ invalid }) => {
         <Field
           name="menu"
           id="menuInput"
-          component={RenderRadio}
-          type="radio"
+          component={RenderDropdown}
+          type="dropdown"
           label="Menu"
-          buttons={['Menu 1', 'Menu 2']}
-          validate={[required]}
+          options={menuOptions()}
         />
         <Field
           name="diet"
@@ -107,10 +119,10 @@ const Fields = ({ invalid }) => {
         <Field
           name="alcohol"
           id="drinkMenuInput"
-          component={RenderCheckbox}
-          type="checkbox"
-          label="Alkoholillinen juomamenu"
-          validate={[required]}
+          component={RenderDropdown}
+          type="drowdown"
+          label="Juomamenu"
+          options={drinkMenuOptions()}
         />
         <Field
           name="sillis"
@@ -118,7 +130,6 @@ const Fields = ({ invalid }) => {
           component={RenderCheckbox}
           type="checkbox"
           label="Osallistun silliaamiaiselle (Hinta 5 €)"
-          validate={[required]}
         />
         <Field
           name="memberOfSpeksi"
@@ -126,8 +137,8 @@ const Fields = ({ invalid }) => {
           component={RenderCheckbox}
           type="checkbox"
           label="Olen HybridiSpeksi ry:n jäsen"
-          validate={[required]}
         />
+        {/* asdasd */}
         <div className={styles.submitEnrollContainer}>
           <button type="submit" disabled={invalid} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
         </div>
@@ -140,7 +151,6 @@ const ContactInfoForm = ({
   handleSubmit, invalid, submitEnrollment,
 }) => {
   const onSubmit = (values) => {
-    values.showId = selectedShow.id;
     submitEnrollment(values);
   };
 
