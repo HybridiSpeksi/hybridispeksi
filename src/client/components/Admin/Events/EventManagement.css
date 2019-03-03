@@ -1,0 +1,21 @@
+.container {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+}
+
+.eventsList {
+  width: 30%;
+}
+
+.enrollmentsList {
+  width: 30%;
+}
