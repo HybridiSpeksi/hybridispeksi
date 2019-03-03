@@ -130,7 +130,7 @@ export default class App extends React.Component {
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
                 <PublicLayout path="/kalenteri" component={Kalenteri} />
-                <PublicLayout path="/vuosijuhlat2019" component={Vuosijuhlailmo} />
+                <PublicLayout path="/tapahtumat/:eventId" component={Vuosijuhlailmo} />
               </Switch>
             </div>
 

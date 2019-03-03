@@ -57,6 +57,7 @@ router.delete('/admin/w/role/:userId/:roleId', user.removeRoleFromUser);
 // router.post('/uusiKayttaja', user.newUser);
 
 // Events
+router.get('/event/:eventId', eventController.getEventById);
 router.get('/events', eventController.getEvents);
 router.post('/admin/event', eventController.createEvent);
 router.put('/admin/event/:eventId', eventController.updateEvent);

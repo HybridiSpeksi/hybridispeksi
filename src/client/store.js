@@ -11,6 +11,7 @@ import jasenrekisteri from './reducers/jasenrekisteriReducer';
 import user from './reducers/userReducer';
 import bookingManagement from './reducers/bookingReducer';
 import loader from './reducers/loaderReducer';
+import event from './reducers/eventReducer';
 
 const reducers = combineReducers({
   form: formReducer,
@@ -23,6 +24,7 @@ const reducers = combineReducers({
   user,
   bookingManagement,
   loader,
+  event,
 });
 
 const middleWare = applyMiddleware(thunk);

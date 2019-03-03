@@ -51,4 +51,14 @@ module.exports = {
       throw e;
     }
   },
+
+  getEventById: async (id) => {
+    try {
+      const event = await Event.findOne({ where: { id } });
+      return event;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
 };

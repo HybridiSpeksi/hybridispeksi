@@ -57,4 +57,14 @@ module.exports = {
       res.json({ success: false, message: e.message });
     }
   },
+
+  getEventById: async (req, res) => {
+    const { eventId } = req.params;
+    try {
+      const event = await eventService.getEventById(eventId);
+      res.json({ success: true, data: event });
+    } catch (e) {
+      res.json({ success: false, message: e.message });
+    }
+  },
 };
