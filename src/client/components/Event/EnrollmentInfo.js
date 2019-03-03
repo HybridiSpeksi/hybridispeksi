@@ -138,6 +138,7 @@ const Fields = ({ invalid }) => {
           type="checkbox"
           label="Olen HybridiSpeksi ry:n jäsen"
         />
+        {/* asdasd */}
         <div className={styles.submitEnrollContainer}>
           <button type="submit" disabled={invalid} className={`${styles.enrollButton}`}>Ilmoittaudu</button>
         </div>
