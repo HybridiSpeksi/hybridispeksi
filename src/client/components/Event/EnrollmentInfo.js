@@ -27,7 +27,7 @@ const Fields = () => {
       <h2>Yhteystiedot</h2>
       <div className={pagestyles.content}>
         <Field
-          name="EnrollmentInfo.fname"
+          name="ContactInfo.fname"
           id="fnameInput"
           component={RenderTextfield}
           type="text"
@@ -36,7 +36,7 @@ const Fields = () => {
           validate={[required, maxLength15]}
         />
         <Field
-          name="EnrollmentInfo.lname"
+          name="ContactInfo.lname"
           id="lnameInput"
           component={RenderTextfield}
           type="text"
@@ -45,7 +45,7 @@ const Fields = () => {
           validate={[required, maxLength15]}
         />
         <Field
-          name="EnrollmentInfo.email"
+          name="ContactInfo.email"
           id="emailInput"
           component={RenderTextarea}
           rows="1"
@@ -55,7 +55,7 @@ const Fields = () => {
           validate={[required, email]}
         />
         <Field
-          name="EnrollmentInfo.greetings"
+          name="presentGreeting"
           id="greetingsInput"
           component={RenderRadio}
           type="radio"
@@ -64,7 +64,7 @@ const Fields = () => {
           validate={[required]}
         />
         <Field
-          name="EnrollmentInfo.greetingsHolder"
+          name="greetingOrganization"
           id="greetingsHolderInput"
           component={RenderTextarea}
           rows="1"
@@ -73,7 +73,7 @@ const Fields = () => {
           placeholder="Edustettava taho tervehdyksessä"
         />
         <Field
-          name="EnrollmentInfo.avec"
+          name="avec"
           id="avecInput"
           component={RenderTextfield}
           type="text"
@@ -81,7 +81,7 @@ const Fields = () => {
           placeholder="Avec"
         />
         <Field
-          name="EnrollmentInfo.tableGroupWish"
+          name="partyExpectation"
           id="tableGroupWishInput"
           component={RenderTextfield}
           type="text"
@@ -89,7 +89,7 @@ const Fields = () => {
           placeholder="Pöytäseuruetoive"
         />
         <Field
-          name="EnrollmentInfo.menu"
+          name="menu"
           id="menuInput"
           component={RenderRadio}
           type="radio"
@@ -98,7 +98,7 @@ const Fields = () => {
           validate={[required]}
         />
         <Field
-          name="EnrollmentInfo.allergies"
+          name="diet"
           id="allergiesInput"
           component={RenderTextfield}
           type="text"
@@ -106,7 +106,7 @@ const Fields = () => {
           placeholder="Allergiat ja erityisruokavaliot"
         />
         <Field
-          name="EnrollmentInfo.drinkMenu"
+          name="alcohol"
           id="drinkMenuInput"
           component={RenderRadio}
           type="radio"
@@ -115,7 +115,7 @@ const Fields = () => {
           validate={[required]}
         />
         <Field
-          name="EnrollmentInfo.sillis"
+          name="sillis"
           id="sillisInput"
           component={RenderRadio}
           type="radio"
@@ -124,7 +124,7 @@ const Fields = () => {
           validate={[required]}
         />
         <Field
-          name="EnrollmentInfo.member"
+          name="memberOfSpeksi"
           id="memberInput"
           component={RenderRadio}
           type="radio"
