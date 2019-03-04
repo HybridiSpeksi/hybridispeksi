@@ -146,17 +146,18 @@ const Fields = ({ invalid }) => {
 };
 
 const ContactInfoForm = ({
-  handleSubmit, invalid, submitEnrollment, event,
+  handleSubmit, invalid, submitEnrollment, event, submitted,
 }) => {
   const onSubmit = (values) => {
     values.eventId = event.id;
     submitEnrollment(values);
+    console.log(submitted);
   };
 
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <Fields invalid={invalid} />
+        {!submitted ? <Fields invalid={invalid} /> : ''}
       </form>
     </div>
   );
@@ -167,12 +168,14 @@ ContactInfoForm.propTypes = {
   invalid: PropTypes.bool,
   submitEnrollment: PropTypes.func,
   event: PropTypes.object,
+  submitted: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   event: state.event.event,
   formState: getFormValues('publicBookingForm')(state),
   initialValues: state.event.enrollment,
+  submitted: state.event.enrollment.submitted,
 });
 
 const mapDispatchToProps = dispatch => ({
