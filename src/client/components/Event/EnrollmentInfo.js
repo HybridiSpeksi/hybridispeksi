@@ -175,7 +175,7 @@ const mapStateToProps = state => ({
   event: state.event.event,
   formState: getFormValues('publicBookingForm')(state),
   initialValues: state.event.enrollment,
-  submitted: state.event.enrollment.submitted,
+  submitted: state.event.submitted,
 });
 
 const mapDispatchToProps = dispatch => ({

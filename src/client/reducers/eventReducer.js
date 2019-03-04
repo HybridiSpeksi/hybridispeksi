@@ -18,7 +18,6 @@ const initialState = {
     alcohol: true,
     sillis: false,
     memberOfSpeksi: false,
-    submitted: false,
     paid: false,
     additional: '',
   },
@@ -29,6 +28,7 @@ const initialState = {
     registrationOpen: false,
     date: '',
   },
+  submitted: false,
 };
 
 const event = (state = initialState, action) => {

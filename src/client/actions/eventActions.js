@@ -54,7 +54,7 @@ export function submitEnrollment(enrollment) {
       } else {
         dispatch(setSubmitted());
         dispatch(clearEnrollment());
-        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautuminen hyväksytty. Sinulle lähetetään vielä vahvistussähköposti ilmoittamaasi osoitteeseen.' }, 5000));
+        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautuminen hyväksytty. Sinulle lähetetään vielä vahvistussähköposti ilmoittamaasi osoitteeseen.' }, 10000));
       }
       dispatch(loaderActions.hideLoader());
     } catch (e) {
