@@ -42,7 +42,6 @@ export const RenderDropdown = field => (
   <div className={styles.inputGroup}>
     <label htmlFor={field.id} className={styles.label}>{field.label}</label>
     <select className={`${styles.input}`} id={field.id} {...field.input}>
-      <option value="">Maksutapa</option>
       {field.options.map((option) => {
         return (
           <option key={cuid()} value={option.value}>{option.name}</option>

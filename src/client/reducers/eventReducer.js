@@ -13,7 +13,7 @@ const initialState = {
     greetingOrganization: '',
     avec: '',
     partyExpectation: '',
-    menu: '',
+    menu: 'Liha',
     diet: '',
     alcohol: true,
     sillis: false,
