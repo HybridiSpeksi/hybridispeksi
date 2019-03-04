@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { RenderTextfield } from '../RenderForm';
+import styles from './Enrollment.css';
 import form from '../Form.css';
 
 const Fields = () => (
@@ -23,8 +24,8 @@ const Enrollment = ({ handleSubmit }) => {
     console.log(values);
   };
   return (
-    <div>
-      <h1>Enrollment</h1>
+    <div className={styles.container}>
+      <h3>Tiedot</h3>
       <form onSubmit={handleSubmit(onSubmit)} />
       <Fields />
     </div>
@@ -46,6 +47,7 @@ const mapDispatchToProps = dispatch => ({
 
 const EnrollmentWithReduxForm = reduxForm({
   form: 'enrollmentManagementForm',
-}, (Enrollment));
+  enableReinitialize: true,
+})(Enrollment);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EnrollmentWithReduxForm);

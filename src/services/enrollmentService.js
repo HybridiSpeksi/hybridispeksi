@@ -144,7 +144,7 @@ module.exports = {
   getEnrollmentCountByEventId: async (id) => {
     try {
       const count = Enrollment.count({
-        where: { id },
+        where: { eventId: id },
       });
       return count;
     } catch (e) {
