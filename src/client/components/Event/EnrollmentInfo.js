@@ -72,7 +72,7 @@ const Fields = ({ invalid }) => {
           id="greetingsInput"
           component={RenderCheckbox}
           type="checkbox"
-          label="Esitätkö tervehdyksen"
+          label="Esitän tervehdyksen"
         />
         <Field
           name="greetingOrganization"
@@ -172,6 +172,7 @@ ContactInfoForm.propTypes = {
 const mapStateToProps = state => ({
   event: state.event.event,
   formState: getFormValues('publicBookingForm')(state),
+  initialValues: state.event.enrollment,
 });
 
 const mapDispatchToProps = dispatch => ({

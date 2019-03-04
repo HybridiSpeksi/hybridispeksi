@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const bookingService = require('../services/bookingService');
-const enrollmentService = require('../services/enrollmentService');
 
 const cashTicket = require('./mailtemplates/cash_ticket').cashTicket;
 const enrollmentConfirmation = require('./mailtemplates/enrollment_confirmation').confirmationMail;
