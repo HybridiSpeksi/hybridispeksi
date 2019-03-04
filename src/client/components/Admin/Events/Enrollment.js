@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, isDirty } from 'redux-form';
 import { RenderTextfield, RenderCheckbox, RenderDropdown } from '../RenderAdminForm';
 import styles from './Enrollment.css';
 import form from '../Form.css';
@@ -20,7 +20,7 @@ const Fields = () => {
     );
   };
   return (
-    <div>
+    <div className={form.formContainer}>
       <div className={form.formRow}>
         <Field name="ContactInfo.fname" id="fnameInput" component={RenderTextfield} type="text" placeholder="Etunimi" />
         <Field name="ContactInfo.lname" id="lnameInput" component={RenderTextfield} type="text" placeholder="Sukunimi" />
@@ -74,6 +74,7 @@ Enrollment.propTypes = {
 const mapStateToProps = state => ({
   enrollment: state.event.enrollment,
   initialValues: state.event.enrollment,
+  isDirty: isDirty('enrollmentManagementForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({

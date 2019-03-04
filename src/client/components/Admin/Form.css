@@ -1,3 +1,7 @@
+.formContainer {
+  margin: -1em 0;
+}
+
 .formRow {
   display: flex;
   margin-bottom: 5px;
