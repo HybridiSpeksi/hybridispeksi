@@ -50,11 +50,14 @@ export function submitEnrollment(enrollment) {
       const res = await ajax.sendPost('/enrollment', enrollment);
       if (!res.success) {
         dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
+      } else {
+        dispatch(clearEnrollment(enrollment));
+        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautuminen hyväksytty. Sinulle lähetetään vielä vahvistussähköposti ilmoittamaasi osoitteeseen.' }, 5000));
       }
       dispatch(loaderActions.hideLoader());
     } catch (e) {
       dispatch(loaderActions.hideLoader());
-      messageActions.addErrorMessage({ header: 'Ilmoittautumisessa tapahtui virhe. Yritä myöhemmin uudelleen' }, 5000);
+      dispatch(messageActions.addErrorMessage({ header: 'Ilmoittautumisessa tapahtui virhe. Yritä myöhemmin uudelleen' }, 5000));
     }
   };
 }
@@ -96,5 +99,11 @@ function receiveEvents(events) {
   return {
     type: actions.RECEIVE_EVENTS,
     events,
+  };
+}
+
+function clearEnrollment() {
+  return {
+    type: actions.CLEAR_ENROLLMENT,
   };
 }
