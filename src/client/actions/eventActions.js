@@ -9,6 +9,7 @@ export const actions = {
   RECEIVE_EVENT: 'RECEIVE_EVENT',
   RECEIVE_EVENTS: 'RECEIVE_EVENTS',
   SELECT_EVENT: 'SELECT_EVENT',
+  SET_SUBMITTED: 'SET_SUBMITTED',
 };
 
 
@@ -51,7 +52,8 @@ export function submitEnrollment(enrollment) {
       if (!res.success) {
         dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
       } else {
-        dispatch(clearEnrollment(enrollment));
+        dispatch(setSubmitted());
+        dispatch(clearEnrollment());
         dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautuminen hyväksytty. Sinulle lähetetään vielä vahvistussähköposti ilmoittamaasi osoitteeseen.' }, 5000));
       }
       dispatch(loaderActions.hideLoader());
@@ -112,5 +114,11 @@ function receiveEvents(events) {
 function clearEnrollment() {
   return {
     type: actions.CLEAR_ENROLLMENT,
+  };
+}
+
+function setSubmitted() {
+  return {
+    type: actions.SET_SUBMITTED,
   };
 }

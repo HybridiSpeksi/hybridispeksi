@@ -18,6 +18,7 @@ const initialState = {
     alcohol: true,
     sillis: false,
     memberOfSpeksi: false,
+    submitted: false,
     paid: false,
     additional: '',
   },
@@ -41,6 +42,11 @@ const event = (state = initialState, action) => {
       return {
         ...state,
         enrollment: { ...action.enrollment },
+      };
+    case actions.SET_SUBMITTED:
+      return {
+        ...state,
+        submitted: true,
       };
     case actions.CLEAR_ENROLLMENT:
       return {

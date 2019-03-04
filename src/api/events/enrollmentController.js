@@ -3,10 +3,10 @@ const eventService = require('../../services/eventService');
 const validator = require('../../utils/validation');
 const mailer = require('../../utils/mailer');
 
-const validateEnrollment = (enrollemnt) => {
+const validateEnrollment = (enrollment) => {
   const {
     fname, lname, email, pnumber,
-  } = enrollemnt.ContactInfo;
+  } = enrollment.ContactInfo;
   if (validator.isEmptyOrNull(fname)) {
     throw new Error('Etunimi on pakollinen');
   }
