@@ -140,4 +140,16 @@ module.exports = {
       throw e;
     }
   },
+
+  getEnrollmentCountByEventId: async (id) => {
+    try {
+      const count = Enrollment.count({
+        where: { id },
+      });
+      return count;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
 };

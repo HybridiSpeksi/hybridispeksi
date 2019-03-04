@@ -1,15 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cuid from 'cuid';
 import * as actions from 'actions/eventActions';
 import styles from './EventList.css';
+import list from '../Listing.css';
 
 const EventList = ({ events }) => {
   return (
-    <div>
-      {events.map((event) => {
-        return <div className={styles.row}>{event.name}</div>;
-      })}
+    <div className={styles.container}>
+      <h3>Tapahtumat</h3>
+      <div className={list.container}>
+        <div className={list.rows}>
+
+          {events.map((event) => {
+            return (
+              <div key={cuid()} className={list.row}>
+                <span>{event.name}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

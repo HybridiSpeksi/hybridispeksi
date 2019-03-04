@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import EventList from './EventList';
 import EnrollmentsList from './EnrollmentsList';
+import Enrollment from './Enrollment';
 import * as actions from 'actions/eventActions';
 import styles from './EventManagement.css';
 
@@ -16,11 +17,17 @@ class EventManagement extends Component {
         <div className={styles.header}>
           <h1>EventManagement</h1>
         </div>
-        <div className={styles.eventsList}>
-          <EventList />
-        </div>
-        <div className={styles.enrollmentsList}>
-          <EnrollmentsList />
+
+        <div className={styles.content}>
+          <div className={styles.eventsList}>
+            <EventList />
+          </div>
+          <div className={styles.enrollmentsList}>
+            <EnrollmentsList />
+          </div>
+          <div>
+            <Enrollment />
+          </div>
         </div>
       </div>
     );
@@ -33,6 +40,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchEvents: () => dispatch(actions.fetchEvents()),
+  fetchEnrollments: eventId => dispatch(actions.fetchEnrollments(eventId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventManagement);

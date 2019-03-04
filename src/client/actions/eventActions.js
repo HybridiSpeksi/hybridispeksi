@@ -48,7 +48,6 @@ export function submitEnrollment(enrollment) {
       dispatch(messageActions.clearMessages());
       dispatch(loaderActions.showLoader());
       const res = await ajax.sendPost('/enrollment', enrollment);
-      console.log(res);
       if (!res.success) {
         dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
       }

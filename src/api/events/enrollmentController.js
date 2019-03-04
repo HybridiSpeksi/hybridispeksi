@@ -1,4 +1,5 @@
 const enrollmentService = require('../../services/enrollmentService');
+const eventService = require('../../services/eventService');
 const validator = require('../../utils/validation');
 const mailer = require('../../utils/mailer');
 
@@ -23,6 +24,13 @@ const validateEnrollment = (enrollemnt) => {
 module.exports = {
   createEnrollment: async (req, res) => {
     try {
+      const { eventId } = req.body;
+      const enrollmentCount = await enrollmentService.getEnrollmentCountByEventId(eventId);
+      const event = await eventService.getEventById(eventId);
+      const limit = event.get('limit');
+      if (enrollmentCount >= limit) {
+        throw new Error('Tapahtuma on täynnä eikä siihen voi enää ilmoittautua.');
+      }
       validateEnrollment(req.body);
       mailer.sendVujuConfirmation(req.body.ContactInfo.email);
       const enrollment = await enrollmentService.createEnrollment(req.body);

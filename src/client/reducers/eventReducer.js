@@ -32,7 +32,7 @@ const initialState = {
 
 const event = (state = initialState, action) => {
   switch (action.type) {
-    case actions.RECIEVE_ENROLLMENTS:
+    case actions.RECEIVE_ENROLLMENTS:
       return {
         ...state,
         enrollments: [...action.enrollments],
@@ -40,12 +40,12 @@ const event = (state = initialState, action) => {
     case actions.SELECT_ENROLLMENT:
       return {
         ...state,
-        selectedEnrollment: { ...action.enrollment },
+        enrollment: { ...action.enrollment },
       };
-    case actions.CLEAR_SELECTED_ENROLLMENT:
+    case actions.CLEAR_ENROLLMENT:
       return {
         ...state,
-        selectedEnrollment: initialState.selectedEnrollment,
+        enrollment: initialState.enrollment,
       };
     case actions.RECEIVE_EVENTS:
       return {

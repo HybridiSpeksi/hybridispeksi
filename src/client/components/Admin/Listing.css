@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  max-height: 80vh;
+
+}
+
+.rows {
+  height: 100%;
+  overflow: auto;
+}
+
+.row {
+  font-size: 14px;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background: white;
+  color: black;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.selected {
+  background-color: rgb(187, 187, 187);
+}
+
+.column {
+
+}
