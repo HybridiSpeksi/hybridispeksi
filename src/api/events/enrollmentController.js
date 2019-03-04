@@ -28,6 +28,7 @@ module.exports = {
       const enrollmentCount = await enrollmentService.getEnrollmentCountByEventId(eventId);
       const event = await eventService.getEventById(eventId);
       const limit = event.get('limit');
+      console.log('limit: ' + limit + ', enrollmentCount: ' + enrollmentCount);
       if (enrollmentCount >= limit) {
         throw new Error('Tapahtuma on täynnä eikä siihen voi enää ilmoittautua.');
       }

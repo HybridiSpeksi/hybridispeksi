@@ -81,6 +81,13 @@ export function selectEvent(event) {
   };
 }
 
+export function selectEnrollment(enrollment) {
+  return {
+    type: actions.SELECT_ENROLLMENT,
+    enrollment,
+  };
+}
+
 function receiveEnrollments(enrollments) {
   return {
     type: actions.RECEIVE_ENROLLMENTS,

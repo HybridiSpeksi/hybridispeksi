@@ -25,7 +25,7 @@ class EventManagement extends Component {
           <div className={styles.enrollmentsList}>
             <EnrollmentsList />
           </div>
-          <div>
+          <div className={styles.enrollment}>
             <Enrollment />
           </div>
         </div>
