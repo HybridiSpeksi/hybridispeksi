@@ -41,7 +41,14 @@ const Fields = () => {
       </div>
       <div className={form.formRow}>
         <Field name="menu" id="menuInput" component={RenderDropdown} label="Menu" options={menuOptions()} />
+        <Field name="alcohol" id="drinkInput" component={RenderDropdown} label="Juoma" options={drinkMenuOptions()} />
+      </div>
+      <div className={form.formRow}>
         <Field name="diet" id="dietInput" component={RenderTextfield} type="text" label="Ruokavaliot" />
+      </div>
+      <div className={form.formRow}>
+        <Field name="sillis" id="sillisSelect" component={RenderCheckbox} type="checkbox" label="Osallistuu sillikselle" />
+        <Field name="memberOfSpeksi" id="speksiSelect" component={RenderCheckbox} type="checkbox" label="HybridiSpeksi ry:n jäsen" />
       </div>
     </div>
   );
