@@ -19,7 +19,7 @@ import Speksit from './Speksit/Speksit';
 import Organization from './Organization/Organization';
 import Rekisteriseloste from './Organization/Rekisteriseloste';
 import Saannot from './Organization/Saannot';
-import Palaute from './Palaute/Palaute';
+import Feedback from './Feedback/Feedback';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
@@ -128,7 +128,7 @@ export default class App extends React.Component {
                 <PublicLayout exact path="/yhdistys" component={Organization} />
                 <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />
                 <PublicLayout exact path="/yhdistys/saannot" component={Saannot} />
-                <PublicLayout path="/palaute" component={Palaute} />
+                <PublicLayout path="/palaute" component={Feedback} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
                 <PublicLayout path="/kalenteri" component={Kalenteri} />
                 <PublicLayout path="/tapahtumat/:eventId" component={Vuosijuhlailmo} />
