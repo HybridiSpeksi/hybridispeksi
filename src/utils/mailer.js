@@ -40,7 +40,7 @@ module.exports = {
       await nodemailerMailgun.sendMail({
         from: 'vuosijuhlat@hybridispeksi.fi',
         to: email,
-        subject: 'Varausvahvistus',
+        subject: 'HybridiSpeksin vuosijuhlat',
         html: enrollmentConfirmation(),
       });
     } catch (err) {
