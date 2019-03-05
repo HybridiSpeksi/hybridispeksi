@@ -6,6 +6,7 @@ import { RenderTextfield, RenderTextarea } from './RenderForm';
 import styles from './FeedbackInfo.css';
 import pagestyles from './Feedback.css';
 import * as actions from 'actions/eventActions';
+import Feedback from './Feedback';
 
 const required = value => (value ? undefined : 'Pakollinen kenttä');
 const maxLength = max => value => (value && value > max ? `Korkeintaan ${max} merkkiä` : undefined);
@@ -70,12 +71,12 @@ const Fields = ({ invalid }) => {
   );
 };
 
-const ContactInfoForm = ({
-  handleSubmit, invalid, submitEnrollment, event, submitted,
+const FeedbackInfoForm = ({
+  handleSubmit, invalid, submitted,
 }) => {
   const onSubmit = (values) => {
-    values.eventId = event.id;
-    submitEnrollment(values);
+    console.log(values.fname);
+    submitFeedback(values);
   };
 
   return (
@@ -87,27 +88,23 @@ const ContactInfoForm = ({
   );
 };
 
-ContactInfoForm.propTypes = {
+FeedbackInfoForm.propTypes = {
   handleSubmit: PropTypes.func,
+  submitFeedback: PropTypes.func,
   invalid: PropTypes.bool,
-  submitEnrollment: PropTypes.func,
-  event: PropTypes.object,
   submitted: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  event: state.event.event,
-  formState: getFormValues('publicBookingForm')(state),
-  initialValues: state.event.enrollment,
-  submitted: state.event.submitted,
+  formState: getFormValues('feedbackForm')(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitEnrollment: enrollment => dispatch(actions.submitEnrollment(enrollment)),
+  submitFeedback: feedback => dispatch(submitFeedback(feedback)),
 });
 
-const ContactInfoWithForm = reduxForm({
-  form: 'enrollmentForm',
-})(ContactInfoForm);
+const FeedbackWithReduxForm = reduxForm({
+  form: 'feedbackForm',
+})(FeedbackInfoForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactInfoWithForm);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedbackWithReduxForm);

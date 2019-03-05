@@ -6,7 +6,8 @@ module.exports = mongoose.model(
   'Palaute',
   new Schema(
     {
-      name: String,
+      fname: String,
+      lname: String,
       email: String,
       feedback: String,
     },
