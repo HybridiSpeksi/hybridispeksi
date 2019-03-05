@@ -3,14 +3,16 @@ const Vuodenspeksaaja = require('../../schema/vuodenspeksaaja-model');
 const validator = require('../../utils/validation');
 
 const validate = (req) => {
-  const { name, email, feedback } = req.body;
+  const {
+    fname, lname, email, feedback,
+  } = req.body;
   if (validator.isEmptyOrNull(feedback)) {
     throw new Error('Tyhjää palautetta ei voi lähettää');
   } else if (validator.isTooLong(feedback, 700)) {
     throw new Error('Palaute ei saa ylittää 700 merkkiä');
   } else if (!validator.isEmptyOrNull(email) && !validator.isValidEmail(email)) {
     throw new Error('Virheellinen sähköposti');
-  } else if (!validator.isEmptyOrNull(name) && validator.isTooLong(name, 40)) {
+  } else if (!validator.isEmptyOrNull(name) && validator.isTooLong(fname, 40) || validator.isTooLong(lname, 40)) {
     throw new Error('Nimi on liian pitkä');
   }
 };
