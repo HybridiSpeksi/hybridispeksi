@@ -5,7 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center; 
-	width: 100%;
+  width: 100%;
+  min-height: 100vh;
   }
   
   .eventContainer {
@@ -21,6 +22,10 @@
 	display: flex; 
 	flex-direction: column;
 	align-items: center;
+  }
+
+  .eventNotFound {
+    margin-top: 50px;
   }
   
   .hidden {

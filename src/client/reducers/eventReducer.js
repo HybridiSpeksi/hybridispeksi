@@ -23,6 +23,7 @@ const initialState = {
   },
   events: [],
   event: {
+    id: '',
     name: '',
     limit: '',
     registrationOpen: false,
