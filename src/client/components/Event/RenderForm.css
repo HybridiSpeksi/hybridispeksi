@@ -38,6 +38,10 @@
   margin-right: 10px;
 }
 
+.dropdown {
+  min-height: 35px;
+}
+
 .inputRadioButtons {
   width: 100%;
 }
