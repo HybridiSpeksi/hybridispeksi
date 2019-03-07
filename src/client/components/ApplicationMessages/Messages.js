@@ -11,7 +11,7 @@ const Messages = ({ messages, close }) => (
     {messages.filter(message => message.type === constants.MESSAGE_SUCCESS).map(message => (
       <div key={cuid()} className={`${styles.message} ${styles.messageSuccess} ${message.fading ? styles.fadeOut : ''}`} role="alert">
         <span><strong>{message.header}</strong> {message.text}</span>
-        <a href="#" className={styles.closeIcon} onClick={() => close(message.id)}>
+        <a className={styles.closeIcon} onClick={() => close(message.id)}>
           <i className="fa fa-times" />
         </a>
       </div>
@@ -19,7 +19,7 @@ const Messages = ({ messages, close }) => (
     {messages.filter(message => message.type === constants.MESSAGE_WARNING).map(message => (
       <div key={cuid()} className={`${styles.message} ${styles.messageWarning} ${message.fading ? styles.fadeOut : ''}`} role="alert">
         <span><strong>{message.header}</strong> {message.text}</span>
-        <a href="#" className={styles.closeIcon} onClick={() => close(message.id)}>
+        <a className={styles.closeIcon} onClick={() => close(message.id)}>
           <i className="fa fa-times" />
         </a>
       </div>
@@ -27,7 +27,7 @@ const Messages = ({ messages, close }) => (
     {messages.filter(message => message.type === constants.MESSAGE_ERROR).map(message => (
       <div key={cuid()} className={`${styles.message} ${styles.messageError} ${message.fading ? styles.fadeOut : ''}`} role="alert">
         <span><strong>{message.header}</strong> {message.text}</span>
-        <a href="#" className={styles.closeIcon} onClick={() => close(message.id)}>
+        <a className={styles.closeIcon} onClick={() => close(message.id)}>
           <i className="fa fa-times" />
         </a>
       </div>

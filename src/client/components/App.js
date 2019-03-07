@@ -25,6 +25,7 @@ import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
 import BookingConfirmation from './Speksi2019/BookingConfirmation';
 import BookingDenied from './Speksi2019/BookingDenied';
+import Vuosijuhlailmo from './Event/Event';
 
 // Admin
 import AdminHeader from './Admin/Layout/AdminHeader';
@@ -35,8 +36,10 @@ import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
 import Palautteet from './Admin/Palautteet/Palautteet';
+import EventManagement from './Admin/Events/EventManagement';
 
 import Login from './Admin/Auth/Login';
+import { publicDecrypt } from 'crypto';
 
 const Loading = () => <h3>Loading...</h3>;
 
@@ -128,6 +131,7 @@ export default class App extends React.Component {
                 <PublicLayout path="/palaute" component={Palaute} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
                 <PublicLayout path="/kalenteri" component={Kalenteri} />
+                <PublicLayout path="/tapahtumat/:eventId" component={Vuosijuhlailmo} />
               </Switch>
             </div>
 
@@ -144,6 +148,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
                 <AdminLayout path="/palautteet" component={Palautteet} />
+                <AdminLayout path="/ilmohallinta" component={EventManagement} />
               </Switch>
             </div>
           </div>
