@@ -54,7 +54,8 @@ module.exports = {
   updateEnrollment: async (req, res) => {
     try {
       validateEnrollment(req.body);
-      const newObject = { ...req.body, id: req.params.id };
+      const newObject = { ...req.body, id: req.params.enrollmentId };
+      console.log(newObject);
       const enrollemnt = await enrollmentService.updateEnrollment(newObject);
       res.json({ success: true, data: enrollemnt });
     } catch (e) {

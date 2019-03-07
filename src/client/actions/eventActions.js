@@ -64,6 +64,25 @@ export function submitEnrollment(enrollment) {
   };
 }
 
+export function updateEnrollment(enrollment) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendPut('/admin/enrollment/' + enrollment.id, enrollment);
+      if (!res.success) {
+        dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
+      } else {
+        dispatch(clearEnrollment());
+        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautumisen tiedot päivitetty' }, 3000));
+        dispatch(loaderActions.hideLoader());
+      }
+    } catch (e) {
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addErrorMessage({ header: e.message }));
+    }
+  };
+}
+
 
 export function fetchEnrollments(eventId) {
   return async (dispatch) => {
@@ -90,6 +109,13 @@ export function selectEnrollment(enrollment) {
   };
 }
 
+
+export function clearEnrollment() {
+  return {
+    type: actions.CLEAR_ENROLLMENT,
+  };
+}
+
 function receiveEnrollments(enrollments) {
   return {
     type: actions.RECEIVE_ENROLLMENTS,
@@ -111,11 +137,6 @@ function receiveEvents(events) {
   };
 }
 
-function clearEnrollment() {
-  return {
-    type: actions.CLEAR_ENROLLMENT,
-  };
-}
 
 function setSubmitted() {
   return {
