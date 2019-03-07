@@ -56,7 +56,7 @@ const Fields = ({ formDirty, clearEnrollment, deleteEnrollment }) => {
           <button type="submit" className={`${form.input} ${form.button}`}>Tallenna muutokset</button>
         ) : ''}
         <button type="button" onClick={clearEnrollment} className={`${form.input} ${form.button}`}>Tyhjennä valinta</button>
-        <button type="button" className={`${form.input} ${form.button}`}>Poista</button>
+        <button type="button" onClick={deleteEnrollment} className={`${form.input} ${form.button}`}>Poista</button>
       </div>
     </div>
   );
@@ -69,17 +69,26 @@ Fields.propTypes = {
 };
 
 const Enrollment = ({
-  handleSubmit, updateEnrollment, enrollment, formDirty, clearEnrollment,
+  handleSubmit, updateEnrollment, enrollment, formDirty, clearEnrollment, deleteEnrollment,
 }) => {
   const onSubmit = (values) => {
     values.id = enrollment.id;
     updateEnrollment(values);
   };
+  const handleDelete = () => {
+    if (confirm('Poistetaanko ilmoittautuminen?')) {
+      deleteEnrollment(enrollment);
+    }
+  };
   return (
     <div className={styles.container}>
       <h3>Tiedot</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Fields formDirty={formDirty} {...clearEnrollment} />
+        {enrollment.id === '' ? (
+          <h5>Valitse varaus</h5>
+      ) : (
+        <Fields formDirty={formDirty} clearEnrollment={clearEnrollment} deleteEnrollment={handleDelete} />
+      )}
       </form>
     </div>
   );
@@ -91,6 +100,7 @@ Enrollment.propTypes = {
   enrollment: PropTypes.object,
   formDirty: PropTypes.bool,
   clearEnrollment: PropTypes.func,
+  deleteEnrollment: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -102,6 +112,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateEnrollment: enrollment => dispatch(actions.updateEnrollment(enrollment)),
   clearEnrollment: () => dispatch(actions.clearEnrollment()),
+  deleteEnrollment: enrollment => dispatch(actions.deleteEnrollment(enrollment)),
 });
 
 const EnrollmentWithReduxForm = reduxForm({
