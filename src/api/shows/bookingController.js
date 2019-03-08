@@ -57,6 +57,7 @@ module.exports = {
       paid,
       paymentMethodId,
       additionalInfo,
+      sendConfirmationMail,
     } = req.body;
     const {
       fname,
@@ -80,7 +81,7 @@ module.exports = {
         paymentMethodId,
         additionalInfo,
       );
-      if (paid) {
+      if (sendConfirmationMail) {
         await mailer.sendTicket(booking.get('id'));
       }
       res.json({ success: true, data: booking });

@@ -189,6 +189,23 @@ export function deleteShow(show) {
   };
 }
 
+export function sendConfirmationMail(booking) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendGet('/admin/sendConfirmationMail/' + booking.id);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addSuccessMessage({ header: 'Varausvahvistus lähetetty' }, 3000));
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
 export function fetchPaymentMethods() {
   return async (dispatch) => {
     try {
