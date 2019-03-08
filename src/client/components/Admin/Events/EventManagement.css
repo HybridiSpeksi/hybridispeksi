@@ -17,13 +17,55 @@
 }
 
 .eventsList {
-  width: 30%;
+  width: 100%;
 }
 
 .enrollmentsList {
-  width: 35%;
+  width: 100%;
 }
 
 .enrollment {
-  width: 35%;
+  width: 100%;
+}
+
+@media(min-width: 800px) {
+  .eventsList {
+    width: 50%;
+  }
+
+  .enrollmentsList {
+    width: 50%;
+  }
+
+  .enrollment {
+    width: 100%;
+  }
+}
+
+@media(min-width: 1080px) {
+  .eventsList {
+    width: 25%;
+  }
+
+  .enrollmentsList {
+    width: 30%;
+  }
+
+  .enrollment {
+    width: 45%;
+  }
+}
+
+@media(min-width: 1440px) {
+  .eventsList {
+    width: 30%;
+  }
+
+  .enrollmentsList {
+    width: 30%;
+  }
+
+  .enrollment {
+    width: 40%;
+  }
 }
