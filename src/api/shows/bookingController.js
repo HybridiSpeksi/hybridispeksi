@@ -264,4 +264,15 @@ module.exports = {
       res.json({ success: false, message: e.message });
     }
   },
+
+  sendConfirmationMail: async (req, res) => {
+    try {
+      const { bookingId } = req.params;
+      await mailer.sendTicket(bookingId);
+      res.json({ success: true });
+    } catch (e) {
+      console.log(e);
+      res.json({ success: false, message: e.message });
+    }
+  },
 };
