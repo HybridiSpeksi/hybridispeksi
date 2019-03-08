@@ -15,7 +15,7 @@ class EventManagement extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1>EventManagement</h1>
+          <h1>Tapahtumat</h1>
         </div>
 
         <div className={styles.content}>
