@@ -57,6 +57,7 @@ module.exports = {
       paid,
       paymentMethodId,
       additionalInfo,
+      sendConfirmationMail,
     } = req.body;
     const {
       fname,
@@ -80,7 +81,7 @@ module.exports = {
         paymentMethodId,
         additionalInfo,
       );
-      if (paid) {
+      if (sendConfirmationMail) {
         await mailer.sendTicket(booking.get('id'));
       }
       res.json({ success: true, data: booking });
@@ -259,6 +260,17 @@ module.exports = {
     try {
       const methods = await bookingService.getPaymentMethods();
       res.json({ success: true, data: methods });
+    } catch (e) {
+      console.log(e);
+      res.json({ success: false, message: e.message });
+    }
+  },
+
+  sendConfirmationMail: async (req, res) => {
+    try {
+      const { bookingId } = req.params;
+      await mailer.sendTicket(bookingId);
+      res.json({ success: true });
     } catch (e) {
       console.log(e);
       res.json({ success: false, message: e.message });

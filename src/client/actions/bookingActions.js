@@ -49,7 +49,9 @@ export function fetchShows() {
   return async (dispatch) => {
     try {
       dispatch(ajaxActions.ajaxLoading(actions.FETCH_SHOWS));
+      dispatch(loaderActions.showLoader());
       const res = await ajax.sendGet('/shows');
+      dispatch(loaderActions.hideLoader());
       dispatch(ajaxActions.ajaxSuccess(actions.FETCH_SHOWS));
       dispatch(receiveShows(res));
     } catch (err) {
@@ -74,7 +76,9 @@ export function fetchAllBookings() {
 export function fetchBookings(showId) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       const res = await ajax.sendGet('/admin/bookings/' + showId);
+      dispatch(loaderActions.hideLoader());
       dispatch(receiveBookings(res));
     } catch (err) {
       handleError(err, dispatch);
@@ -179,6 +183,23 @@ export function deleteShow(show) {
       dispatch(clearSelectedShow());
       dispatch(messageActions.addSuccessMessage({ header: 'Esitys poistettiin onnistuneesti' }, 2000));
       dispatch(loaderActions.hideLoader());
+    } catch (err) {
+      handleError(err, dispatch);
+    }
+  };
+}
+
+export function sendConfirmationMail(booking) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendGet('/admin/sendConfirmationMail/' + booking.id);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addSuccessMessage({ header: 'Varausvahvistus lähetetty' }, 3000));
     } catch (err) {
       handleError(err, dispatch);
     }

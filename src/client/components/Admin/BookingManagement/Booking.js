@@ -25,7 +25,7 @@ const ContactInfo = () => (
 );
 
 const Tickets = ({
-  selectedShow, formState, prices, paymentMethods,
+  selectedShow, formState, prices, paymentMethods, booking,
 }) => {
   const paymentMethodOptions = () => {
     return paymentMethods.map((method) => {
@@ -66,6 +66,9 @@ const Tickets = ({
         </div>
         <div className={styles.formRow}>
           <Field name="paid" id="paid" label="Maksettu" component={RenderCheckbox} type="checkbox" />
+          {booking.id === '' ? (
+            <Field name="sendConfirmationMail" label="Lähetä varausvahvistus (vain maksetut varaukset)" component={RenderCheckbox} type="checkbox" />
+          ) : null}
         </div>
       </div>
     </div>
@@ -77,6 +80,7 @@ Tickets.propTypes = {
   formState: PropTypes.object,
   prices: PropTypes.object,
   paymentMethods: PropTypes.array,
+  booking: PropTypes.object,
 };
 
 const Shows = () => (
@@ -86,8 +90,13 @@ const Shows = () => (
   </div>
 );
 
-const Buttons = ({ booking, deleteBooking }) => {
+const Buttons = ({ booking, deleteBooking, sendConfirmationMail }) => {
   const isNewBooking = booking.id === '';
+  const handleSendConfirmationMail = () => {
+    if (confirm('Lähetetäänkö varausvahvistus?')) {
+      sendConfirmationMail(booking);
+    }
+  };
   return (
     <div className={styles.column}>
       <div className={styles.formRow}>
@@ -100,6 +109,7 @@ const Buttons = ({ booking, deleteBooking }) => {
             <button type="submit" className={`${styles.input} ${styles.button} ${styles.success}`}>
               Tallenna muutokset
             </button>
+            <button type="button" onClick={handleSendConfirmationMail} className={`${styles.input} ${styles.button}`}>Lähetä varausvahvistus</button>
             <button type="button" onClick={deleteBooking} className={`${styles.input} ${styles.button}`}>Poista varaus</button>
           </React.Fragment>
         )}
@@ -114,6 +124,7 @@ const Buttons = ({ booking, deleteBooking }) => {
 Buttons.propTypes = {
   booking: PropTypes.object,
   deleteBooking: PropTypes.func,
+  sendConfirmationMail: PropTypes.func,
 };
 
 class Booking extends Component {
@@ -124,7 +135,7 @@ class Booking extends Component {
 
   render() {
     const {
-      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices, paymentMethods,
+      booking, selectedShow, handleSubmit, createBooking, updateBooking, deleteBooking, formState, prices, paymentMethods, sendConfirmationMail,
     } = this.props;
     const onSubmit = (values) => {
       values.showId = selectedShow.id;
@@ -146,11 +157,11 @@ class Booking extends Component {
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.row}>
             <ContactInfo />
-            <Tickets selectedShow={selectedShow} formState={formState} prices={prices} paymentMethods={paymentMethods} />
+            <Tickets selectedShow={selectedShow} formState={formState} prices={prices} paymentMethods={paymentMethods} booking={booking} />
           </div>
           <div className={styles.row}>
             <Shows />
-            <Buttons booking={booking} deleteBooking={handleDelete} />
+            <Buttons booking={booking} deleteBooking={handleDelete} sendConfirmationMail={sendConfirmationMail} />
           </div>
         </form>
       </div>
@@ -171,6 +182,7 @@ Booking.propTypes = {
   deleteBooking: PropTypes.func,
   handleSubmit: PropTypes.func,
   formState: PropTypes.object,
+  sendConfirmationMail: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -189,6 +201,7 @@ const mapDispatchToProps = dispatch => ({
   createBooking: booking => dispatch(actions.createBooking(booking)),
   updateBooking: booking => dispatch(actions.updateBooking(booking)),
   deleteBooking: booking => dispatch(actions.deleteBooking(booking)),
+  sendConfirmationMail: booking => dispatch(actions.sendConfirmationMail(booking)),
 });
 
 const BookingWithReduxForm = reduxForm({
