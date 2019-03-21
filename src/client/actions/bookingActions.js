@@ -17,6 +17,7 @@ export const actions = {
   RECEIVE_PAYMENT_METHODS: 'RECEIVE_PAYMENT_METHODS',
   RECEIVE_TICKETSALEOPEN: 'RECEIVE_TICKETSALEOPEN',
   RECEIVE_TICKETSALEMESSAGE: 'RECEIVE_TICKETSALEMESSAGE',
+  HANDLE_SEARCH: 'HANDLE_SEARCH',
 };
 
 function handleError(err, dispatch) {
@@ -281,6 +282,13 @@ export function clearSelectedShow() {
 export function clearSelectedBooking() {
   return {
     type: actions.CLEAR_SELECTED_BOOKING,
+  };
+}
+
+export function handleSearch(searchTerm) {
+  return {
+    type: actions.HANDLE_SEARCH,
+    searchTerm,
   };
 }
 
