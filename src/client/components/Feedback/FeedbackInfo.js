@@ -61,7 +61,6 @@ const FeedbackInfoForm = ({
   handleSubmit, invalid, submitted, submitFeedback,
 }) => {
   const onSubmit = (values) => {
-    console.log(values.fname);
     submitFeedback(values);
   };
 
