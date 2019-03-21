@@ -86,6 +86,7 @@ router.get('/payment/failure', bookingController.handleFailingPayment);
 router.get('/payment/notify', bookingController.handleNotifyPayment);
 router.get('/paymentmethods', bookingController.getPaymentMethods);
 router.get('/admin/sendConfirmationMail/:bookingId', bookingController.sendConfirmationMail);
+router.get('/admin/redeem/:bookingId', bookingController.redeem);
 
 
 // Palautteet
