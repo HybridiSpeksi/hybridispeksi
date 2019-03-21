@@ -3,6 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './BookingsList.css';
+import form from '../Form.css';
 import * as actions from 'actions/bookingActions';
 
 const Booking = ({ booking, handleClick, selected }) => {
@@ -32,16 +33,59 @@ Booking.propTypes = {
   selected: PropTypes.bool,
 };
 
-const BookingsList = ({ bookings, selectBooking, selectedBooking }) => {
+const BookingsList = ({
+  bookings, selectBooking, selectedBooking, handleSearch, searchTerm,
+}) => {
   const handleClick = (booking) => {
     selectBooking(booking);
+  };
+  const handleFilter = (booking) => {
+    const {
+      fname, lname, email, pnumber,
+    } = booking.ContactInfo;
+    if (searchTerm === '') {
+      return true;
+    }
+    if (fname.toLowerCase().search(searchTerm.toLowerCase()) > -1) {
+      return true;
+    }
+    if (lname.toLowerCase().search(searchTerm.toLowerCase()) > -1) {
+      return true;
+    }
+    if (email.toLowerCase().search(searchTerm.toLowerCase()) > -1) {
+      return true;
+    }
+    if (pnumber.toLowerCase().search(searchTerm.toLowerCase()) > -1) {
+      return true;
+    }
+    if (booking.tag.toLowerCase().search(searchTerm.toLowerCase()) > -1) {
+      return true;
+    }
+    return false;
   };
   if (!bookings) {
     return null;
   }
   return (
     <div className={styles.container}>
-      <h2>Varaukset</h2>
+      <div className={styles.headerContainer}>
+        <div className={styles.header}>
+          <h2>Varaukset</h2>
+        </div>
+        <div className={styles.search}>
+          <div className={form.formRow}>
+            <div className={form.inputGroup}>
+              <input
+                type="text"
+                className={form.input}
+                placeholder="Hae"
+                value={searchTerm}
+                onChange={e => handleSearch(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={styles.rows}>
         <div className={styles.bookingRow}>
           <span className={styles.name}>Nimi</span>
@@ -51,7 +95,7 @@ const BookingsList = ({ bookings, selectBooking, selectedBooking }) => {
           <span className={styles.tag}>Tunnus</span>
           <span className={styles.bookingCount}>Liput</span>
         </div>
-        {bookings.map((booking) => {
+        {bookings.filter(booking => handleFilter(booking)).map((booking) => {
         return <Booking key={cuid()} booking={booking} handleClick={handleClick} selected={booking.id === selectedBooking.id} />;
       })
       }
@@ -64,15 +108,19 @@ BookingsList.propTypes = {
   bookings: PropTypes.array,
   selectBooking: PropTypes.func,
   selectedBooking: PropTypes.object,
+  searchTerm: PropTypes.string,
+  handleSearch: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   bookings: state.bookingManagement.bookings,
   selectedBooking: state.bookingManagement.selectedBooking,
+  searchTerm: state.bookingManagement.searchTerm,
 });
 
 const mapDispatchToProps = dispatch => ({
   selectBooking: booking => dispatch(actions.selectBooking(booking)),
+  handleSearch: searchTerm => dispatch(actions.handleSearch(searchTerm)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingsList);

@@ -17,6 +17,7 @@ export const actions = {
   RECEIVE_PAYMENT_METHODS: 'RECEIVE_PAYMENT_METHODS',
   RECEIVE_TICKETSALEOPEN: 'RECEIVE_TICKETSALEOPEN',
   RECEIVE_TICKETSALEMESSAGE: 'RECEIVE_TICKETSALEMESSAGE',
+  HANDLE_SEARCH: 'HANDLE_SEARCH',
 };
 
 function handleError(err, dispatch) {
@@ -206,6 +207,25 @@ export function sendConfirmationMail(booking) {
   };
 }
 
+export function redeem(booking) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendGet('/admin/redeem/' + booking.id);
+      if (!res.success) {
+        handleWarning(res, dispatch);
+        return;
+      }
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addSuccessMessage({ header: 'Varaus lunastettu!' }, 3000));
+      dispatch(selectBooking(res.data));
+      dispatch(fetchBookings(booking.showId));
+    } catch (e) {
+      handleError(e);
+    }
+  };
+}
+
 export function fetchPaymentMethods() {
   return async (dispatch) => {
     try {
@@ -262,6 +282,13 @@ export function clearSelectedShow() {
 export function clearSelectedBooking() {
   return {
     type: actions.CLEAR_SELECTED_BOOKING,
+  };
+}
+
+export function handleSearch(searchTerm) {
+  return {
+    type: actions.HANDLE_SEARCH,
+    searchTerm,
   };
 }
 
