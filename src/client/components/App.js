@@ -19,7 +19,7 @@ import Speksit from './Speksit/Speksit';
 import Organization from './Organization/Organization';
 import Rekisteriseloste from './Organization/Rekisteriseloste';
 import Saannot from './Organization/Saannot';
-import Palaute from './Palaute/Palaute';
+import Feedback from './Feedback/Feedback';
 import Muutspeksit from './Muutspeksit/Muutspeksit';
 import Kalenteri from './Kalenteri/Kalenteri';
 import Speksi2019 from './Speksi2019/Speksi2019';
@@ -35,7 +35,6 @@ import Produktio from './Admin/Produktio/Produktio';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
-import Palautteet from './Admin/Palautteet/Palautteet';
 import EventManagement from './Admin/Events/EventManagement';
 
 import Login from './Admin/Auth/Login';
@@ -60,6 +59,11 @@ const Booking = Loadable({
 
 const ShowsManagement = Loadable({
   loader: () => import('./Admin/BookingManagement/ShowsManagement'),
+  loading: Loading
+})
+
+const AdminFeedback = Loadable({
+  loader: () => import('./Admin/Feedback/Feedback'),
   loading: Loading
 })
 
@@ -128,7 +132,7 @@ export default class App extends React.Component {
                 <PublicLayout exact path="/yhdistys" component={Organization} />
                 <PublicLayout exact path="/yhdistys/rekisteriseloste" component={Rekisteriseloste} />
                 <PublicLayout exact path="/yhdistys/saannot" component={Saannot} />
-                <PublicLayout path="/palaute" component={Palaute} />
+                <PublicLayout path="/palaute" component={Feedback} />
                 <PublicLayout path="/muutspeksit" component={Muutspeksit} />
                 <PublicLayout path="/kalenteri" component={Kalenteri} />
                 <PublicLayout path="/tapahtumat/:eventId" component={Vuosijuhlailmo} />
@@ -147,7 +151,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/kayttajat" component={UserManagement} />
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
-                <AdminLayout path="/palautteet" component={Palautteet} />
+                <AdminLayout path="/palautteet" component={AdminFeedback} />
                 <AdminLayout path="/ilmohallinta" component={EventManagement} />
               </Switch>
             </div>

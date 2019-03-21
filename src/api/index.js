@@ -3,7 +3,7 @@ const produktionjasen = require('./produktio/produktionjasen');
 const ohjaustiedot = require('./ohjaustiedot/ohjaustiedot');
 const jasenrekisteri = require('./jasenrekisteri/jasenrekisteri');
 const user = require('./admin/user');
-const palaute = require('./palautteet/palautteet');
+const feedbackController = require('./feedback/feedbackController');
 const showController = require('./shows/showController');
 const bookingController = require('./shows/bookingController');
 const eventController = require('./events/eventController');
@@ -88,10 +88,9 @@ router.get('/paymentmethods', bookingController.getPaymentMethods);
 router.get('/admin/sendConfirmationMail/:bookingId', bookingController.sendConfirmationMail);
 
 
-// Palautteet
-router.get('/admin/palautteet', palaute.getAll);
-router.post('/palaute', palaute.createNew);
-router.get('/admin/h/vuodenspeksaaja', palaute.getVotes);
-router.post('/vuodenspeksaaja', palaute.createVote);
+// Feedback
+router.get('/admin/palautteet', feedbackController.getFeedback);
+router.post('/palaute', feedbackController.createFeedback);
+router.delete('/admin/feedback', feedbackController.deleteFeedback);
 
 module.exports = router;
