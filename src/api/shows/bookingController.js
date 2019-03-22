@@ -276,4 +276,14 @@ module.exports = {
       res.json({ success: false, message: e.message });
     }
   },
+
+  redeem: async (req, res) => {
+    try {
+      const { bookingId } = req.params;
+      const booking = await bookingService.redeem(bookingId);
+      res.json({ success: true, data: booking });
+    } catch (e) {
+      res.json({ success: false, message: e.message });
+    }
+  },
 };

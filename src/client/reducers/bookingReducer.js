@@ -32,6 +32,7 @@ const initialState = {
       pnumber: '',
     },
   },
+  searchTerm: '',
   paymentMethods: [],
   ticketSaleOpen: false,
   ticketSaleMessage: '',
@@ -83,6 +84,11 @@ const bookingManagement = (state = initialState, action) => {
       return {
         ...state,
         ticketSaleMessage: action.ticketSaleMessage,
+      };
+    case actions.HANDLE_SEARCH:
+      return {
+        ...state,
+        searchTerm: action.searchTerm,
       };
     default:
       return state;

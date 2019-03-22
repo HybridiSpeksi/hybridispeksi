@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './BookingInfo.css';
 import * as actions from 'actions/bookingActions';
 
-const BookingInfo = ({ booking, clearSelectedBooking }) => {
+const BookingInfo = ({ booking, clearSelectedBooking, redeem }) => {
   if (booking.id === '') {
     return (
       <div className={styles.container}>
@@ -50,6 +50,9 @@ const BookingInfo = ({ booking, clearSelectedBooking }) => {
         <button className={styles.button} onClick={clearSelectedBooking}>Tyhjennä valinta</button>
         <Link className={styles.button} to="/varaus">Muokkaa tai poista</Link>
       </div>
+      <div className={styles.buttonRow}>
+        <button type="button" className={styles.button} onClick={() => redeem(booking)}>Lunasta liput</button>
+      </div>
     </div>
   );
 };
@@ -57,6 +60,7 @@ const BookingInfo = ({ booking, clearSelectedBooking }) => {
 BookingInfo.propTypes = {
   booking: PropTypes.object,
   clearSelectedBooking: PropTypes.func,
+  redeem: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -65,6 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   clearSelectedBooking: () => dispatch(actions.clearSelectedBooking()),
+  redeem: booking => dispatch(actions.redeem(booking)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingInfo);

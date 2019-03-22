@@ -196,4 +196,19 @@ module.exports = {
     }
   },
 
+  redeem: async (id) => {
+    try {
+      const booking = await Booking.findOne({
+        where: { id },
+        include: [{ model: ContactInfo }, { model: Show }],
+      });
+      booking.set('redeemed', true);
+      await booking.save();
+      return booking;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
 };
