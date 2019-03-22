@@ -3,6 +3,7 @@ import { actions } from 'actions/eventActions';
 const initialState = {
   enrollments: [],
   enrollment: {
+    id: '',
     ContactInfo: {
       fname: '',
       lname: '',

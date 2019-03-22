@@ -9,7 +9,7 @@ import list from '../Listing.css';
 const EventList = ({ enrollments, selectEnrollment, selectedEnrollment }) => {
   return (
     <div className={styles.container}>
-      <h3>Enrollments</h3>
+      <h3>Ilmoittautumiset</h3>
       <div className={list.container}>
         <div className={list.rows}>
           {enrollments.map((enrollment) => {

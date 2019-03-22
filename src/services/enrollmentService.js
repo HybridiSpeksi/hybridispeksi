@@ -74,6 +74,7 @@ module.exports = {
       const enrollments = await Enrollment.findAll({
         include: [{ model: ContactInfoModel, as: 'ContactInfo' }],
         where: { eventId },
+        order: [['createdAt', 'DESC']],
       });
       return enrollments;
     } catch (e) {
@@ -102,8 +103,10 @@ module.exports = {
     } = ContactInfo;
     try {
       const t = await transaction;
-      const enrollment = await Enrollment.findOne({ whrer: { id } });
+      const enrollment = await Enrollment.findOne({ where: { id } });
       const contactInfo = await ContactInfoModel.findOne({ where: { id: enrollment.get('contactInfoId') } });
+      console.log(id);
+      console.log(enrollment);
       contactInfo.set('fname', fname);
       contactInfo.set('lname', lname);
       contactInfo.set('email', email);

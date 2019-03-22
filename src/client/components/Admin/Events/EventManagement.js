@@ -14,10 +14,6 @@ class EventManagement extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h1>EventManagement</h1>
-        </div>
-
         <div className={styles.content}>
           <div className={styles.eventsList}>
             <EventList />

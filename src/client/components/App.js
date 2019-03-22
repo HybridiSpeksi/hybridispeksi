@@ -35,7 +35,6 @@ import Produktio from './Admin/Produktio/Produktio';
 import Uusijasen from './Admin/Jasenrekisteri/Uusijasen';
 import UserManagement from './Admin/Kayttajat/UserManagement';
 import Ohjaustiedot from './Admin/Ohjaustiedot/Ohjaustiedot';
-import Palautteet from './Admin/Palautteet/Palautteet';
 import EventManagement from './Admin/Events/EventManagement';
 
 import Login from './Admin/Auth/Login';
@@ -60,6 +59,11 @@ const Booking = Loadable({
 
 const ShowsManagement = Loadable({
   loader: () => import('./Admin/BookingManagement/ShowsManagement'),
+  loading: Loading
+})
+
+const AdminFeedback = Loadable({
+  loader: () => import('./Admin/Feedback/Feedback'),
   loading: Loading
 })
 
@@ -147,7 +151,7 @@ export default class App extends React.Component {
                 <AdminLayout path="/kayttajat" component={UserManagement} />
                 <AdminLayout path="/uusijasen" component={Uusijasen} />
                 <AdminLayout path="/ohjaustiedot" component={Ohjaustiedot} />
-                <AdminLayout path="/palautteet" component={Palautteet} />
+                <AdminLayout path="/palautteet" component={AdminFeedback} />
                 <AdminLayout path="/ilmohallinta" component={EventManagement} />
               </Switch>
             </div>

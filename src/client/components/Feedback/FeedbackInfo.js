@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
+=======
+import * as actions from 'actions/feedbackActions';
+>>>>>>> 54b9e6433631e949af957a678179fb5302882eb1
 import { Field, reduxForm, getFormValues } from 'redux-form';
 import { RenderTextfield, RenderTextarea } from './RenderForm';
 import styles from './FeedbackInfo.css';
 import pagestyles from './Feedback.css';
+<<<<<<< HEAD
 import * as actions from 'actions/eventActions';
 import Feedback from './Feedback';
 
@@ -18,6 +23,10 @@ const minValue0 = minValue(0);
 const maxValue10 = maxValue(10);
 const pnumber = value =>
   (value && !/^\+[1-9]{1}[0-9]{3,14}$/i.test(value) ? 'Virheellinen puhelinnumero' : undefined);
+=======
+
+const required = value => (value ? undefined : 'Pakollinen kenttä');
+>>>>>>> 54b9e6433631e949af957a678179fb5302882eb1
 const email = value =>
   (value && /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) ?
     'Virheellinen sähköposti' : undefined);
@@ -28,6 +37,7 @@ const Fields = ({ invalid }) => {
       <h2>Yhteystiedot</h2>
       <div className={pagestyles.content}>
         <Field
+<<<<<<< HEAD
           name="fname"
           id="fnameInput"
           component={RenderTextfield}
@@ -42,6 +52,14 @@ const Fields = ({ invalid }) => {
           type="text"
           label="Sukunimi"
           placeholder="Sukunimi"
+=======
+          name="name"
+          id="nameInput"
+          component={RenderTextfield}
+          type="text"
+          label="Nimi"
+          placeholder="Nimi"
+>>>>>>> 54b9e6433631e949af957a678179fb5302882eb1
         />
         <Field
           name="email"
@@ -71,11 +89,22 @@ const Fields = ({ invalid }) => {
   );
 };
 
+<<<<<<< HEAD
 const FeedbackInfoForm = ({
   handleSubmit, invalid, submitted,
 }) => {
   const onSubmit = (values) => {
     console.log(values.fname);
+=======
+Fields.propTypes = {
+  invalid: PropTypes.bool,
+};
+
+const FeedbackInfoForm = ({
+  handleSubmit, invalid, submitted, submitFeedback,
+}) => {
+  const onSubmit = (values) => {
+>>>>>>> 54b9e6433631e949af957a678179fb5302882eb1
     submitFeedback(values);
   };
 
@@ -100,7 +129,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+<<<<<<< HEAD
   submitFeedback: feedback => dispatch(submitFeedback(feedback)),
+=======
+  submitFeedback: feedback => dispatch(actions.submitFeedback(feedback)),
+>>>>>>> 54b9e6433631e949af957a678179fb5302882eb1
 });
 
 const FeedbackWithReduxForm = reduxForm({

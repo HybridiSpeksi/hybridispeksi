@@ -64,11 +64,52 @@ export function submitEnrollment(enrollment) {
   };
 }
 
+export function updateEnrollment(enrollment) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendPut('/admin/enrollment/' + enrollment.id, enrollment);
+      if (!res.success) {
+        dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
+      } else {
+        dispatch(clearEnrollment());
+        dispatch(fetchEnrollments(enrollment.eventId));
+        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautumisen tiedot päivitetty' }, 3000));
+        dispatch(loaderActions.hideLoader());
+      }
+    } catch (e) {
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addErrorMessage({ header: e.message }));
+    }
+  };
+}
+
+export function deleteEnrollment(enrollment) {
+  return async (dispatch) => {
+    try {
+      const res = await ajax.sendDelete('/admin/enrollment/' + enrollment.id);
+      if (!res.success) {
+        dispatch(messageActions.addWarningMessage({ header: res.message }, 5000));
+      } else {
+        dispatch(clearEnrollment());
+        dispatch(fetchEnrollments(enrollment.eventId));
+        dispatch(messageActions.addSuccessMessage({ header: 'Ilmoittautuminen poistettu' }, 3000));
+        dispatch(loaderActions.hideLoader());
+      }
+    } catch (e) {
+      dispatch(loaderActions.hideLoader());
+      dispatch(messageActions.addErrorMessage({ header: e.message }));
+    }
+  };
+}
+
 
 export function fetchEnrollments(eventId) {
   return async (dispatch) => {
     try {
+      dispatch(loaderActions.showLoader());
       const res = await ajax.sendGet('/admin/enrollments/' + eventId);
+      dispatch(loaderActions.hideLoader());
       dispatch(receiveEnrollments(res.data));
     } catch (e) {
       messageActions.addErrorMessage({ header: e.message });
@@ -87,6 +128,13 @@ export function selectEnrollment(enrollment) {
   return {
     type: actions.SELECT_ENROLLMENT,
     enrollment,
+  };
+}
+
+
+export function clearEnrollment() {
+  return {
+    type: actions.CLEAR_ENROLLMENT,
   };
 }
 
@@ -111,11 +159,6 @@ function receiveEvents(events) {
   };
 }
 
-function clearEnrollment() {
-  return {
-    type: actions.CLEAR_ENROLLMENT,
-  };
-}
 
 function setSubmitted() {
   return {
