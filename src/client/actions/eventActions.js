@@ -10,6 +10,8 @@ export const actions = {
   RECEIVE_EVENTS: 'RECEIVE_EVENTS',
   SELECT_EVENT: 'SELECT_EVENT',
   SET_SUBMITTED: 'SET_SUBMITTED',
+  OPEN_REGISTRATION: 'OPEN_REGISTRATION',
+  CLOSE_REGISTRATION: 'CLOSE_REGISTRATION',
 };
 
 
@@ -120,6 +122,20 @@ export function fetchEnrollments(eventId) {
 export function selectEvent(event) {
   return {
     type: actions.SELECT_EVENT,
+    event,
+  };
+}
+
+export function openRegistration(event) {
+  return {
+    type: actions.OPEN_REGISTRATION,
+    event,
+  };
+}
+
+export function closeRegistration(event) {
+  return {
+    type: actions.CLOSE_REGISTRATION,
     event,
   };
 }

@@ -70,6 +70,16 @@ const event = (state = initialState, action) => {
         ...state,
         event: { ...action.event },
       };
+    case actions.OPEN_REGISTRATION:
+      return {
+        ...state,
+        event: { registrationOpen: true },
+      };
+    case actions.CLOSE_REGISTRATION:
+      return {
+        ...state,
+        event: { registrationOpen: false },
+      };
     default:
       return state;
   }
