@@ -41,31 +41,6 @@ export function fetchFeedback() {
   };
 }
 
-// export function sendVote(vote) {
-//   return async (dispatch) => {
-//     try {
-//       dispatch(ajaxActions.ajaxLoading());
-//       const res = await ajax.sendPost('/vuodenspeksaaja', vote);
-//       dispatch(ajaxActions.ajaxSuccess());
-//       if (!res.success) {
-//         dispatch(messageActions.addMessage({ type: constants.MESSAGE_WARNING, text: res.data }));
-//       } else {
-//         dispatch(messageActions.addMessage({
-//           type: constants.MESSAGE_SUCCESS,
-//           text: 'Kiitos ehdotuksesta!',
-//         }));
-//       }
-//     } catch (err) {
-//       dispatch(ajaxActions.ajaxFailure(err));
-//       dispatch(messageActions.addMessage({
-//         type: constants.MESSAGE_ERROR,
-//         text: 'Virhe ehdotuksen lähettämisessä. Yritä myöhemmin uudelleen.',
-//       }));
-//       console.log(err);
-//     }
-//   };
-// }
-
 function receiveFeedback(feedback) {
   return {
     type: actions.RECIEVE_FEEDBACK,
