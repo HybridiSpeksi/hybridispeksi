@@ -28,7 +28,7 @@ module.exports = {
       const enrollmentCount = await enrollmentService.getEnrollmentCountByEventId(eventId);
       const event = await eventService.getEventById(eventId);
       const limit = event.get('limit');
-      if (event.get('registrationOpen')) {
+      if (!event.get('registrationOpen')) {
         throw new Error('Tapahtuman ilmoittautuminen on suljettu.');
       }
       if (enrollmentCount >= limit) {
