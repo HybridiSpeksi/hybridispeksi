@@ -82,6 +82,7 @@ FeedbackInfoForm.propTypes = {
 
 const mapStateToProps = state => ({
   formState: getFormValues('feedbackForm')(state),
+  submitted: state.feedback.submitted,
 });
 
 const mapDispatchToProps = dispatch => ({
