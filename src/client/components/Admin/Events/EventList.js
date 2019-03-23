@@ -5,9 +5,8 @@ import cuid from 'cuid';
 import * as actions from 'actions/eventActions';
 import styles from './EventList.css';
 import list from '../Listing.css';
-import { closeRegistration } from '../../../actions/eventActions';
 
-const EventList = ({ events }) => {
+const EventList = ({ events, openRegistration, closeRegistration }) => {
   return (
     <div className={styles.container}>
       <h3>Tapahtumat</h3>
@@ -17,7 +16,7 @@ const EventList = ({ events }) => {
           {events.map((event) => {
             return (
               <div key={cuid()} className={list.row}>
-                <span>{event.name}</span> {event.registrationOpen === true ? <button className={styles.closeEvent} onClick={() => closeRegistration(event)}>Sulje ilmo</button> : <button className={styles.closeEvent} onClick={() => openRegistration(event)}>Avaa ilmo</button> }
+                <span>{event.name}</span> {event.registrationOpen === true ? <button className={styles.closeEvent} onClick={() => closeRegistration(event.id)}>Sulje ilmo</button> : <button className={styles.closeEvent} onClick={() => openRegistration(event.id)}>Avaa ilmo</button> }
               </div>
             );
           })}
@@ -38,8 +37,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  openRegistration: event => dispatch(actions.openRegistration(event)),
-  closeRegistration: event => dispatch(actions.closeRegistration(event)),
+  openRegistration: event => dispatch(actions.openRegistration(event.id)),
+  closeRegistration: event => dispatch(actions.closeRegistration(event.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventList);

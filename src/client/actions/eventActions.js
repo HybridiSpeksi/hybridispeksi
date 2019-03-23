@@ -126,17 +126,33 @@ export function selectEvent(event) {
   };
 }
 
-export function openRegistration(event) {
-  return {
-    type: actions.OPEN_REGISTRATION,
-    event,
+export function openRegistration(id) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendGet('/admin/event/openRegistration/' + id);
+      dispatch(loaderActions.hideLoader());
+      dispatch(fetchEvents());
+      dispatch(selectEvent(res.data));
+    } catch (e) {
+      dispatch(loaderActions.hideLoader());
+      messageActions.addErrorMessage({ header: 'Virhe haettaessa tapahtuman tietoja' });
+    }
   };
 }
 
-export function closeRegistration(event) {
-  return {
-    type: actions.CLOSE_REGISTRATION,
-    event,
+export function closeRegistration(id) {
+  return async (dispatch) => {
+    try {
+      dispatch(loaderActions.showLoader());
+      const res = await ajax.sendGet('/admin/event/closeRegistration/' + id);
+      dispatch(loaderActions.hideLoader());
+      dispatch(fetchEvents());
+      dispatch(selectEvent(res.data));
+    } catch (e) {
+      dispatch(loaderActions.hideLoader());
+      messageActions.addErrorMessage({ header: 'Virhe haettaessa tapahtuman tietoja' });
+    }
   };
 }
 
