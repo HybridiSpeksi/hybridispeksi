@@ -21,7 +21,7 @@ const email = value =>
   (value && /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) ?
     'Virheellinen sähköposti' : undefined);
 
-const Fields = ({ invalid }) => {
+const Fields = ({ invalid, event }) => {
   const drinkMenuOptions = () => {
     return (
       [{ name: 'Alkoholillinen', value: true },
@@ -138,11 +138,19 @@ const Fields = ({ invalid }) => {
           label="Olen HybridiSpeksi ry:n jäsen"
         />
         <div className={styles.submitEnrollContainer}>
-          <button type="submit" disabled={invalid} className={`${styles.enrollButton} ${invalid ? styles.disabled : ''}`}>Ilmoittaudu</button>
+          {event.registrationOpen ?
+            <button type="submit" disabled={invalid} className={`${styles.enrollButton} ${invalid ? styles.disabled : ''}`}>Ilmoittaudu</button>
+          :
+          'Tapahtuman ilmoittautuminen on suljettu.'}
         </div>
       </div>
     </div>
   );
+};
+
+Fields.propTypes = {
+  invalid: PropTypes.bool,
+  event: PropTypes.object,
 };
 
 const ContactInfoForm = ({
@@ -157,7 +165,7 @@ const ContactInfoForm = ({
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        {!submitted ? <Fields invalid={invalid} /> : ''}
+        {!submitted ? <Fields invalid={invalid} event={event} /> : ''}
       </form>
     </div>
   );
