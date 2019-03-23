@@ -10,8 +10,6 @@ export const actions = {
   RECEIVE_EVENTS: 'RECEIVE_EVENTS',
   SELECT_EVENT: 'SELECT_EVENT',
   SET_SUBMITTED: 'SET_SUBMITTED',
-  OPEN_REGISTRATION: 'OPEN_REGISTRATION',
-  CLOSE_REGISTRATION: 'CLOSE_REGISTRATION',
 };
 
 
@@ -162,7 +160,6 @@ export function selectEnrollment(enrollment) {
     enrollment,
   };
 }
-
 
 export function clearEnrollment() {
   return {
