@@ -16,7 +16,12 @@ const EventList = ({ events, openRegistration, closeRegistration }) => {
           {events.map((event) => {
             return (
               <div key={cuid()} className={list.row}>
-                <span>{event.name}</span> {event.registrationOpen === true ? <button className={styles.closeEvent} onClick={() => closeRegistration(event.id)}>Sulje ilmo</button> : <button className={styles.closeEvent} onClick={() => openRegistration(event.id)}>Avaa ilmo</button> }
+                <span>{event.name}</span>
+                {event.registrationOpen === true ?
+                  <button className={styles.closeEvent} onClick={() => closeRegistration(event.id)}>Sulje ilmo</button>
+                :
+                  <button className={styles.closeEvent} onClick={() => openRegistration(event.id)}>Avaa ilmo</button>
+                }
               </div>
             );
           })}
@@ -37,8 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  openRegistration: event => dispatch(actions.openRegistration(event.id)),
-  closeRegistration: event => dispatch(actions.closeRegistration(event.id)),
+  openRegistration: eventId => dispatch(actions.openRegistration(eventId)),
+  closeRegistration: eventId => dispatch(actions.closeRegistration(eventId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventList);
