@@ -66,6 +66,8 @@ router.get('/admin/enrollments/:eventId', enrollmentController.getEnrollmentsByE
 router.post('/enrollment', enrollmentController.createEnrollment);
 router.put('/admin/enrollment/:enrollmentId', enrollmentController.updateEnrollment);
 router.delete('/admin/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
+router.get('/admin/event/openRegistration/:eventId', eventController.openRegistration);
+router.get('/admin/event/closeRegistration/:eventId', eventController.closeRegistration);
 
 // Shows
 router.get('/shows', showController.getShows);

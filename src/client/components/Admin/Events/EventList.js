@@ -6,7 +6,7 @@ import * as actions from 'actions/eventActions';
 import styles from './EventList.css';
 import list from '../Listing.css';
 
-const EventList = ({ events }) => {
+const EventList = ({ events, openRegistration, closeRegistration }) => {
   return (
     <div className={styles.container}>
       <h3>Tapahtumat</h3>
@@ -17,6 +17,11 @@ const EventList = ({ events }) => {
             return (
               <div key={cuid()} className={list.row}>
                 <span>{event.name}</span>
+                {event.registrationOpen === true ?
+                  <button className={styles.closeEvent} onClick={() => closeRegistration(event.id)}>Sulje ilmo</button>
+                :
+                  <button className={styles.closeEvent} onClick={() => openRegistration(event.id)}>Avaa ilmo</button>
+                }
               </div>
             );
           })}
@@ -28,6 +33,8 @@ const EventList = ({ events }) => {
 
 EventList.propTypes = {
   events: PropTypes.array,
+  openRegistration: PropTypes.func,
+  closeRegistration: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -35,6 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  openRegistration: eventId => dispatch(actions.openRegistration(eventId)),
+  closeRegistration: eventId => dispatch(actions.closeRegistration(eventId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventList);

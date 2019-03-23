@@ -61,4 +61,28 @@ module.exports = {
       throw e;
     }
   },
+
+  openRegistration: async (id) => {
+    try {
+      const event = await Event.findOne({ where: { id } });
+      event.set('registrationOpen', true);
+      await event.save();
+      return event;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
+
+  closeRegistration: async (id) => {
+    try {
+      const event = await Event.findOne({ where: { id } });
+      event.set('registrationOpen', false);
+      await event.save();
+      return event;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  },
 };

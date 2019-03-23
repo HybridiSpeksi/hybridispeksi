@@ -67,4 +67,24 @@ module.exports = {
       res.json({ success: false, message: e.message });
     }
   },
+
+  openRegistration: async (req, res) => {
+    const { eventId } = req.params;
+    try {
+      const event = await eventService.openRegistration(eventId);
+      res.json({ success: true, data: event });
+    } catch (e) {
+      res.json({ success: false, message: e.message });
+    }
+  },
+
+  closeRegistration: async (req, res) => {
+    const { eventId } = req.params;
+    try {
+      const event = await eventService.closeRegistration(eventId);
+      res.json({ success: true, data: event });
+    } catch (e) {
+      res.json({ success: false, message: e.message });
+    }
+  },
 };
