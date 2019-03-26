@@ -65,9 +65,13 @@ router.delete('/admin/event/:eventId', eventController.deleteEvent);
 router.get('/admin/enrollments/:eventId', enrollmentController.getEnrollmentsByEventId);
 router.post('/enrollment', enrollmentController.createEnrollment);
 router.put('/admin/enrollment/:enrollmentId', enrollmentController.updateEnrollment);
+<<<<<<< Updated upstream
 router.delete('/admin/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
 router.get('/admin/event/openRegistration/:eventId', eventController.openRegistration);
 router.get('/admin/event/closeRegistration/:eventId', eventController.closeRegistration);
+=======
+router.delete('/enrollment/:enrollmentId', enrollmentController.deleteEnrollment);
+>>>>>>> Stashed changes
 
 // Shows
 router.get('/shows', showController.getShows);
