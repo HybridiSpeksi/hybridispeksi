@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Feedback = sequelize.define('Feedback', {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    feedback: DataTypes.STRING,
+    feedback: DataTypes.TEXT,
   }, {});
   Feedback.associate = function (models) {
     // associations can be defined here
