@@ -3,6 +3,7 @@ import cuid from 'cuid';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
+import * as moment from 'moment';
 import styles from './Shows.css';
 import pagestyles from './Speksi2019.css';
 import * as actions from 'actions/bookingActions';
@@ -11,7 +12,7 @@ import * as actions from 'actions/bookingActions';
 const Show = ({
   show, handleClick, selected, ticketSaleOpen,
 }) => (
-  <div className={`${styles.showRow} ${selected ? styles.selected : ''} ${!ticketSaleOpen || show.bookingCount === show.limit ? styles.disabled : ''} `} onClick={() => handleClick(show)}>
+  <div className={`${styles.showRow} ${selected ? styles.selected : ''} ${!ticketSaleOpen || show.bookingCount === show.limit || moment() > moment(show.date) ? styles.disabled : ''} `} onClick={() => handleClick(show)}>
     <h3 className={`${styles.showDate}`}>
       <div><Moment format="DD.MM.">{show.date}</Moment></div>
       <div>klo <Moment format="HH.mm">{show.date}</Moment> </div>
