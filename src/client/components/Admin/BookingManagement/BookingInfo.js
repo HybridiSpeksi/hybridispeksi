@@ -19,7 +19,7 @@ const BookingInfo = ({ booking, clearSelectedBooking, redeem }) => {
     fname, lname, email, pnumber,
   } = booking.ContactInfo;
   const {
-    normalCount, discountCount, specialPriceCount, specialPrice, additionalInfo, paid,
+    normalCount, discountCount, specialPriceCount, specialPrice, additionalInfo, paid, redeemed,
   } = booking;
 
   return (
@@ -51,7 +51,7 @@ const BookingInfo = ({ booking, clearSelectedBooking, redeem }) => {
         <Link className={styles.button} to="/varaus">Muokkaa tai poista</Link>
       </div>
       <div className={styles.buttonRow}>
-        <button type="button" className={styles.button} onClick={() => redeem(booking)}>Lunasta liput</button>
+        {!booking.redeemed ? <button type="button" className={styles.button} onClick={() => redeem(booking)}>Lunasta liput</button> : 'Lippu lunastettu.'}
       </div>
     </div>
   );
