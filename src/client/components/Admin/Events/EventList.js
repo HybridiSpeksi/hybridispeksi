@@ -6,7 +6,9 @@ import * as actions from 'actions/eventActions';
 import styles from './EventList.css';
 import list from '../Listing.css';
 
-const EventList = ({ events, openRegistration, closeRegistration }) => {
+const EventList = ({
+  events, openRegistration, closeRegistration, enrollments,
+}) => {
   return (
     <div className={styles.container}>
       <h3>Tapahtumat</h3>
@@ -17,6 +19,7 @@ const EventList = ({ events, openRegistration, closeRegistration }) => {
             return (
               <div key={cuid()} className={list.row}>
                 <span>{event.name}</span>
+                <span>{enrollments.length}/{event.limit}</span>
                 {event.registrationOpen === true ?
                   <button className={styles.closeEvent} onClick={() => closeRegistration(event.id)}>Sulje ilmo</button>
                 :
@@ -33,12 +36,14 @@ const EventList = ({ events, openRegistration, closeRegistration }) => {
 
 EventList.propTypes = {
   events: PropTypes.array,
+  enrollments: PropTypes.array,
   openRegistration: PropTypes.func,
   closeRegistration: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   events: state.event.events,
+  enrollments: state.event.enrollments,
 });
 
 const mapDispatchToProps = dispatch => ({
