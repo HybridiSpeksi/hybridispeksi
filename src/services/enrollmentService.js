@@ -74,7 +74,7 @@ module.exports = {
       const enrollments = await Enrollment.findAll({
         include: [{ model: ContactInfoModel, as: 'ContactInfo' }],
         where: { eventId },
-        order: [['createdAt', 'DESC']],
+        order: [['createdAt', 'ASC']],
       });
       return enrollments;
     } catch (e) {
